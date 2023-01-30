@@ -105,6 +105,11 @@ const config: DocsThemeConfig = {
         name="google-site-verification"
         content="dpMF3-oHfMYFVkjgJpIJSGM_W_aL_gSFFnmWHM90NHU"
       />
+      <meta
+        name="naver-site-verification"
+        content="6aad57e80bc0cb85f4d497fde9a243497dfa5a3d"
+      />
+
       <Script
         type="text/javascript"
         async
