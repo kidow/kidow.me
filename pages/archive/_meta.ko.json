@@ -1,4 +1,29 @@
 {
-  "index": "소개",
-  "test": "Test"
+  "intro": "소개",
+  "-- Components": {
+    "type": "separator",
+    "title": "Components"
+  },
+  "data-display": "Data Display",
+  "data-entry": "Data Entry",
+  "feedback": "Feedback",
+  "inputs": "Inputs",
+  "layout": "Layout",
+  "navigation": "Navigation",
+  "-- Hooks": {
+    "type": "separator"
+  },
+  "hooks": "Hooks",
+  "utils": "Utils",
+  "settings": "Settings",
+  "tips": "Tips",
+  "-- Bookmarks": {
+    "type": "separator",
+    "title": "Bookmarks"
+  },
+  "commons": "Commons",
+  "designs": "Designs",
+  "games": "Games",
+  "services": "Services",
+  "tools": "Tools"
 }

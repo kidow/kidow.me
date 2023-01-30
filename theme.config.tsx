@@ -83,6 +83,15 @@ const config: DocsThemeConfig = {
     link: 'https://coddee.dev'
   },
   docsRepositoryBase: 'https://github.com/kidow/kidow.me',
+  sidebar: {
+    titleComponent({ title, type }) {
+      if (type === 'separator') {
+        return <span className="cursor-default">{title}</span>
+      }
+      return <>{title}</>
+    },
+    defaultMenuCollapseLevel: 1
+  },
   footer: {
     text: `© ${new Date().getFullYear()} kidow. All rights reserved.`
   },
