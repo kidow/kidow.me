@@ -1,6 +1,12 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import Script from 'next/script'
+import { useRouter } from 'next/router'
+
+const TITLE = 'Kidow Blog'
+const DESCRIPTION = '더 게으르기 위해 더 열심히 공부하는 개발자입니다.'
+const URL = 'https://kidow.me'
+const IMAGE = 'https://kidow.me/api/image?id=rxzt4zk0v4o'
 
 const config: DocsThemeConfig = {
   logo: (
@@ -51,6 +57,11 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/kidow/kidow.me'
   },
+  useNextSeoProps() {
+    const { route } = useRouter()
+    if (route !== '/') return { titleTemplate: '%s - Kidow Blog' }
+  },
+  primaryHue: 32,
   chat: {
     icon: (
       <svg
@@ -79,6 +90,21 @@ const config: DocsThemeConfig = {
   },
   head: (
     <>
+      <link rel="canonical" href={URL} />
+      <meta name="description" content={DESCRIPTION} />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="theme-color" content="#e67a00" />
+      <meta name="msapplication-TileColor" content="#e67a00" />
+      <meta name="robots" content="index, follow" />
+      <meta
+        name="keywords"
+        content="blog, react, nextjs, nextra, tailwindcss, typescript, vercel, front-end, github"
+      />
+      <meta name="author" content="Dongwook Kim" />
+      <meta
+        name="google-site-verification"
+        content="dpMF3-oHfMYFVkjgJpIJSGM_W_aL_gSFFnmWHM90NHU"
+      />
       <Script
         type="text/javascript"
         async

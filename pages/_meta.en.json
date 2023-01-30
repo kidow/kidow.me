@@ -8,6 +8,13 @@
     "title": "Résumé",
     "type": "page"
   },
+  "memo": {
+    "type": "page",
+    "title": "Memo",
+    "theme": {
+      "layout": "full"
+    }
+  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",
