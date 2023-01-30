@@ -1,6 +1,9 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
+  "index": {
+    "type": "page",
+    "title": "Kidow Blog",
+    "display": "hidden"
+  },
   "resume": {
     "title": "Résumé",
     "type": "page"

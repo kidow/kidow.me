@@ -1,5 +1,6 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import Script from 'next/script'
 
 const config: DocsThemeConfig = {
   logo: (
@@ -78,7 +79,7 @@ const config: DocsThemeConfig = {
   },
   head: (
     <>
-      <script
+      <Script
         type="text/javascript"
         async
         defer
