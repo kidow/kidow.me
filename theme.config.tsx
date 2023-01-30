@@ -87,7 +87,11 @@ const config: DocsThemeConfig = {
         plugin-key="dcdeb4a4-36bb-4437-8220-bc91eb430960"
       />
     </>
-  )
+  ),
+  i18n: [
+    { locale: 'ko', text: '한국어' },
+    { locale: 'en', text: 'English' }
+  ]
 }
 
 export default config

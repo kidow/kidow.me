@@ -1,0 +1,16 @@
+{
+  "index": {
+    "type": "page",
+    "title": "Kidow Blog",
+    "display": "hidden"
+  },
+  "resume": {
+    "title": "Résumé",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "mailto:wcgo2ling@gmail.com"
+  }
+}
