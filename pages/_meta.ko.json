@@ -4,6 +4,10 @@
     "title": "Kidow Blog",
     "display": "hidden"
   },
+  "posts": {
+    "title": "Posts",
+    "type": "page"
+  },
   "resume": {
     "title": "Résumé",
     "type": "page"
