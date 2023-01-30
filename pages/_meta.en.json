@@ -12,12 +12,13 @@
     "title": "Résumé",
     "type": "page"
   },
+  "archive": {
+    "type": "page",
+    "title": "Archive"
+  },
   "memo": {
     "type": "page",
-    "title": "Memo",
-    "theme": {
-      "layout": "full"
-    }
+    "title": "Memo"
   },
   "contact": {
     "title": "Contact ↗",
