@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/kidow/kidow.me#readme",
   "dependencies": {
+    "@heroicons/react": "^2.0.14",
     "@supabase/supabase-js": "^2.5.0",
     "@vercel/og": "^0.0.27",
+    "classnames": "^2.3.2",
     "next": "^13.0.6",
     "nextra": "2.0.1",
     "nextra-theme-docs": "2.0.1",
