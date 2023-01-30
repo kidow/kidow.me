@@ -1,12 +1,6 @@
 import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
-import Script from 'next/script'
+import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
-
-const TITLE = 'Kidow Blog'
-const DESCRIPTION = '더 게으르기 위해 더 열심히 공부하는 개발자입니다.'
-const URL = 'https://kidow.me'
-const IMAGE = 'https://kidow.me/api/image?id=rxzt4zk0v4o'
 
 const config: DocsThemeConfig = {
   logo: (
@@ -88,37 +82,80 @@ const config: DocsThemeConfig = {
   footer: {
     text: `© ${new Date().getFullYear()} kidow. All rights reserved.`
   },
-  head: (
-    <>
-      <link rel="canonical" href={URL} />
-      <meta name="description" content={DESCRIPTION} />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="theme-color" content="#e67a00" />
-      <meta name="msapplication-TileColor" content="#e67a00" />
-      <meta name="robots" content="index, follow" />
-      <meta
-        name="keywords"
-        content="blog, react, nextjs, nextra, tailwindcss, typescript, vercel, front-end, github"
-      />
-      <meta name="author" content="Dongwook Kim" />
-      <meta
-        name="google-site-verification"
-        content="dpMF3-oHfMYFVkjgJpIJSGM_W_aL_gSFFnmWHM90NHU"
-      />
-      <meta
-        name="naver-site-verification"
-        content="6aad57e80bc0cb85f4d497fde9a243497dfa5a3d"
-      />
+  head: () => {
+    const { asPath } = useRouter()
+    const { frontMatter } = useConfig()
 
-      <Script
-        type="text/javascript"
-        async
-        defer
-        src="https://cdn.feedbank.app/plugin.js"
-        plugin-key="dcdeb4a4-36bb-4437-8220-bc91eb430960"
-      />
-    </>
-  ),
+    const TITLE = 'Kidow Blog'
+    const DESCRIPTION = '더 게으르기 위해 더 열심히 공부하는 개발자입니다.'
+    const URL = 'https://kidow.me'
+    const IMAGE = 'https://kidow.me/api/image?id=rxzt4zk0v4o'
+    return (
+      <>
+        <link rel="canonical" href={URL + asPath} />
+        <link
+          rel="icon"
+          type="image/png"
+          href="favicon-32x32.png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="favicon-16x16.png"
+          sizes="16x16"
+        />
+        <meta
+          name="description"
+          content={frontMatter.description || DESCRIPTION}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#e67a00" />
+        <meta name="msapplication-TileColor" content="#e67a00" />
+        <meta name="robots" content="index, follow" />
+        <meta
+          name="keywords"
+          content="blog, react, nextjs, nextra, tailwindcss, typescript, vercel, front-end, github"
+        />
+        <meta name="author" content="Dongwook Kim" />
+        <meta
+          name="google-site-verification"
+          content="dpMF3-oHfMYFVkjgJpIJSGM_W_aL_gSFFnmWHM90NHU"
+        />
+        <meta
+          name="naver-site-verification"
+          content="6aad57e80bc0cb85f4d497fde9a243497dfa5a3d"
+        />
+        <meta name="og:title" content={frontMatter.title || TITLE} />
+        <meta
+          name="og:description"
+          content={frontMatter.description || DESCRIPTION}
+        />
+        <meta name="og:type" content="website" />
+        <meta name="og:image" content={frontMatter.thumbnail || IMAGE} />
+        <meta name="og:image:width" content="1200" />
+        <meta name="og:image:height" content="600" />
+        <meta name="og:url" content={URL + asPath} />
+        <meta name="og:locale" content={frontMatter.language || 'ko_KR'} />
+        <meta name="og:site_name" content={frontMatter.title || TITLE} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={frontMatter.title || TITLE} />
+        <meta
+          name="twitter:description"
+          content={frontMatter.description || DESCRIPTION}
+        />
+        <meta name="twitter:domain" content={URL + asPath} />
+        <meta name="twitter:image" content={frontMatter.thumbnail || IMAGE} />
+        <script
+          type="text/javascript"
+          async
+          defer
+          src="https://cdn.feedbank.app/plugin.js"
+          plugin-key="dcdeb4a4-36bb-4437-8220-bc91eb430960"
+        />
+      </>
+    )
+  },
   i18n: [
     { locale: 'ko', text: '한국어' },
     { locale: 'en', text: 'English' }
