@@ -52,8 +52,12 @@ const config: DocsThemeConfig = {
     link: 'https://github.com/kidow/kidow.me'
   },
   useNextSeoProps() {
-    const { route } = useRouter()
-    if (route !== '/') return { titleTemplate: '%s - Kidow Blog' }
+    const { asPath } = useRouter()
+    return {
+      ...(asPath === '/'
+        ? { title: 'Kidow Blog' }
+        : { titleTemplate: '%s - Kidow Blog' })
+    }
   },
   primaryHue: 32,
   chat: {
