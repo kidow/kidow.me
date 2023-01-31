@@ -17,4 +17,7 @@
   #toolbar svg {
     @apply h-6 w-6 fill-neutral-700 dark:fill-neutral-200;
   }
+  .tag {
+    @apply cursor-default rounded-xl bg-neutral-800 py-0.5 px-2 text-sm text-neutral-300;
+  }
 }

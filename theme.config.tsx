@@ -128,7 +128,10 @@ const config: DocsThemeConfig = {
         <meta name="robots" content="index, follow" />
         <meta
           name="keywords"
-          content="blog, react, nextjs, nextra, tailwindcss, typescript, vercel, front-end, github"
+          content={
+            frontMatter.keywords ||
+            'blog, react, nextjs, nextra, tailwindcss, typescript, vercel, front-end, github'
+          }
         />
         <meta name="author" content="Dongwook Kim" />
         <meta
