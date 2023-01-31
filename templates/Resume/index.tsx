@@ -14,7 +14,7 @@ interface State {}
 
 const Resume: FC<Props> = () => {
   return (
-    <div className="pt-4">
+    <div className="pt-4 text-neutral-400">
       <div className="justify-between sm:flex">
         <div className="mb-5 flex-1 space-y-1 sm:mb-0">
           <div className="text-3xl font-semibold">김동욱</div>
