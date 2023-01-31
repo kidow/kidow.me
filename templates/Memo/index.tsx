@@ -1,6 +1,6 @@
 import { Modal } from 'containers'
 import type { FC } from 'react'
-import { useObjectState } from 'services'
+import { toast, useObjectState } from 'services'
 
 export interface Props {}
 interface State {
@@ -12,6 +12,7 @@ const Memo: FC<Props> = () => {
   return (
     <>
       <button onClick={() => setState({ isOpen: true })}>Open</button>
+      <button onClick={() => toast.success('asdasd')}>Toast</button>
       <Modal
         title="Good"
         isOpen={isOpen}
