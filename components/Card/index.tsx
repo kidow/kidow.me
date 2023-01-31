@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import CardComponent from './Component'
 
 import CardLink from './Link'
 import CardList from './List'
@@ -10,4 +11,8 @@ const Card: FC<Props> = () => {
   return <></>
 }
 
-export default Object.assign(Card, { Link: CardLink, List: CardList })
+export default Object.assign(Card, {
+  Link: CardLink,
+  List: CardList,
+  Component: CardComponent
+})
