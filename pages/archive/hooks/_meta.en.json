@@ -1,0 +1,13 @@
+{
+  "useCombinedRefs": "useCombinedRefs",
+  "useComponentDidUpdate": "useComponentDidUpdate",
+  "useConfirm": "useConfirm",
+  "useContentEditable": "useContentEditable",
+  "useHotkey": "useHotkey",
+  "useIntersectionObserver": "useIntersectionObserver",
+  "useLocalStorage": "useLocalStorage",
+  "useMediaQuery": "useMediaQuery",
+  "useObjectState": "useObjectState",
+  "useOnClickOutside": "useOnClickOutside",
+  "useQueryParams": "useQueryParams"
+}

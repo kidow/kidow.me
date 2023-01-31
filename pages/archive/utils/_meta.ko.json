@@ -1,0 +1,16 @@
+{
+  "base64ToFile": "base64ToFile",
+  "copyText": "copyText",
+  "debounce": "",
+  "enumToOptions": "enumToOptions",
+  "EventListener": "EventListener",
+  "fileToBase64": "fileToBase64",
+  "getBrightness": "getBrightness",
+  "hexToRgb": "hexToRgb",
+  "priceFormat": "priceFormat",
+  "randomString": "randomString",
+  "rgbToHex": "rgbToHex",
+  "throttle": "",
+  "twoDigitsNumber": "twoDigitsNumber",
+  "uuid": ""
+}
