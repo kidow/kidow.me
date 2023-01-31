@@ -1,4 +1,5 @@
 {
+  "backdrop": "backdrop",
   "base64ToFile": "base64ToFile",
   "copyText": "copyText",
   "debounce": "",
