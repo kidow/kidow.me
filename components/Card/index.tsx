@@ -7,7 +7,7 @@ export interface Props {}
 interface State {}
 
 const Card: FC<Props> = () => {
-  return <>Card</>
+  return <></>
 }
 
 export default Object.assign(Card, { Link: CardLink, List: CardList })
