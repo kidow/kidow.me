@@ -1,0 +1,15 @@
+{
+  "AutoComplete": "AutoComplete",
+  "Cascader": "",
+  "ColorPicker": "ColorPicker",
+  "DatePicker": "DatePicker",
+  "DatetimePicker": "DatetimePicker",
+  "Form": "",
+  "FormItem": "FormItem",
+  "MonthPicker": "MonthPicker",
+  "Rating": "",
+  "Slider": "",
+  "Tag": "",
+  "TimePicker": "TimePicker",
+  "TimeRangePicker": "TimeRangePicker"
+}
