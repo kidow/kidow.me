@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react'
 import type { AppProps } from 'next/app'
 
-import '../style.css'
+import 'services/styles/global.css'
 
 export default function Nextra({
   Component,
