@@ -23,6 +23,7 @@
     "@vercel/og": "^0.0.27",
     "cheerio": "^1.0.0-rc.12",
     "classnames": "^2.3.2",
+    "dayjs": "^1.11.7",
     "next": "^13.0.6",
     "nextra": "2.0.1",
     "nextra-theme-docs": "2.0.1",
@@ -30,6 +31,7 @@
     "quill-delta-to-html": "^0.12.1",
     "react": "^18.2.0",
     "react-activity-calendar": "^1.7.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-tooltip": "^4.5.1"
   },
@@ -37,6 +39,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "18.11.10",
     "@types/quill": "^2.0.10",
+    "@types/react-copy-to-clipboard": "^5.0.4",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "prettier-plugin-tailwindcss": "^0.2.2",

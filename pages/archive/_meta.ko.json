@@ -10,7 +10,7 @@
   "inputs": "Inputs",
   "layout": "Layout",
   "navigation": "Navigation",
-  "-- Hooks": {
+  "---": {
     "type": "separator"
   },
   "hooks": "Hooks",

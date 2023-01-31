@@ -4,9 +4,9 @@
     "title": "Kidow Blog",
     "display": "hidden"
   },
-  "posts": {
-    "title": "Posts",
-    "type": "page"
+  "contents": {
+    "type": "page",
+    "title": "Contents"
   },
   "resume": {
     "title": "Résumé",
@@ -18,7 +18,10 @@
   },
   "memo": {
     "type": "page",
-    "title": "Memo"
+    "title": "Memo",
+    "theme": {
+      "layout": "raw"
+    }
   },
   "contact": {
     "title": "Contact ↗",

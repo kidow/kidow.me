@@ -27,3 +27,67 @@ export enum Icons {
   Code = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <rect x="0" fill="none" width="24" height="24" /><g><path d="M23 12l-5.45 6.5L16 17.21 20.39 12 16 6.79l1.55-1.29zM8 6.79L6.45 5.5 1 12l5.45 6.5L8 17.21 3.61 12zm.45 14.61l1.93.52L15.55 2.6l-1.93-.52z" /></g></svg>`
 }
+
+export const contents: Array<{
+  thumbnail: string
+  href: string
+  date: string
+  ko: {
+    title: string
+    description: string
+    keywords: string
+  }
+  en: {
+    title: string
+    description: string
+    keywords: string
+  }
+}> = [
+  {
+    ko: {
+      title: '공유오피스 파이브스팟 성수2호점 방문 후기',
+      description:
+        '열심히 코딩하던 중에 문자가 왔습니다. 파이브스팟에서 공짜로 쿠폰 하나를 줬는데요. 차감형 패스라는 기능을 출시했는 데, 1회 무료 이용권을 하나 주더라구요 ㅎㅎ 아마 이전에 한 달 이용한 적이 있어서 준 게 아닐까 싶어요.',
+      keywords: '파이브스팟, Fivespot'
+    },
+    en: {
+      title: 'Review of shared office Fivespot Seongsu 2',
+      description: '',
+      keywords: 'Fivespot'
+    },
+    date: '2023-01-29',
+    thumbnail: 'https://kidow.me/api/image?id=5eihgjr368c',
+    href: '/contents/review-of-shared-office-fivespot-seongsu-2'
+  },
+  {
+    ko: {
+      title: '블로그 오픈그래프 이미지 동적으로 만들기',
+      description: '',
+      keywords: 'Nextjs, Vercel, Opengraph, Satori, Supabase'
+    },
+    en: {
+      title: 'Making blog opengraph images dynamic',
+      description: '',
+      keywords: ''
+    },
+    date: '2023-01-14',
+    thumbnail: 'https://kidow.me/api/image?id=bgk4y13n3sw',
+    href: '/contents/making-blog-open-graph-images-dynamic'
+  },
+  {
+    ko: {
+      title: '지금까지 받은 피드백 정리',
+      description:
+        '저는 피드뱅크를 만들고 있습니다. 간단히 소개하자면 웹사이트 피드백 수집툴로, 작은 소프트웨어를 만드는 제 작은 회사입니다.',
+      keywords: 'Feedback, Feedbank, 피드백, 피드뱅크'
+    },
+    en: {
+      title: 'Summary of feedback received so far',
+      description: '',
+      keywords: 'Feedback, Feedbank'
+    },
+    date: '2022-12-21',
+    thumbnail: 'https://kidow.me/api/image?id=g2hw0mxlig8',
+    href: '/contents/summary-of-feedback-received-so-far'
+  }
+]

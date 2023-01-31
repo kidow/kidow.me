@@ -1,5 +1,8 @@
 import { Contribution } from 'containers'
-import { Card } from 'components'
+import { Card, Comment } from 'components'
+import { Contents } from 'templates'
+
+<Contents />
 
 <Contribution />
 
@@ -12,4 +15,8 @@ import { Card } from 'components'
   <Card.Link title="Feedbank" href="https://feedbank.app">
     <>![Feedbank](/assets/feedbank.png)</>
   </Card.Link>
+</div>
+
+<div className="mt-10">
+  <Comment />
 </div>
