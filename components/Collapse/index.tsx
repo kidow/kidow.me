@@ -1,48 +1,3 @@
-import { Comment, Card, Icon, Required } from 'components'
-import { BackTop } from 'containers'
-import { ArrowUturnUpIcon } from '@heroicons/react/24/outline'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Collapse
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Prerequisite
-
-<Card.List>
-  <Card.Component
-    title="useObjectState"
-    href="/archive/hooks/useObjectState"
-    Icon={Icon.Hook}
-  />
-</Card.List>
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install @heroicons/react classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add @heroicons/react classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/Collapse/index.tsx"
 import { FC, ReactNode } from 'react'
 import classnames from 'classnames'
 import { useObjectState } from 'services'
@@ -109,17 +64,3 @@ const Collapse: FC<Props> = ({ accordion, ...props }) => {
 }
 
 export default Collapse
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                 |                      Type                      | Default |
-| :------------------- | :--------------------------------------------: | :-----: |
-| **list**<Required /> | `Array<{ title: string; content: ReactNode }>` |         |
-| **accordion**        |                    boolean                     |  false  |
-
-<Comment />
