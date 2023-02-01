@@ -45,6 +45,22 @@ export const contents: Array<{
 }> = [
   {
     ko: {
+      title: '6개의 프로젝트를 하나의 블로그로 통합하기',
+      description:
+        '기존에 운영하고 있던 6개의 서브도메인 프로젝트를 단 하나의 프로젝트로 합쳤습니다.',
+      keywords: 'Nextra'
+    },
+    en: {
+      title: '6 Projects to one',
+      description: '',
+      keywords: 'Fivespot'
+    },
+    date: '2023-02-01',
+    thumbnail: 'https://kidow.me/api/image?id=umd5bysw08e',
+    href: '/contents/6-projects-to-one'
+  },
+  {
+    ko: {
       title: '공유오피스 파이브스팟 성수2호점 방문 후기',
       description:
         '열심히 코딩하던 중에 문자가 왔습니다. 파이브스팟에서 공짜로 쿠폰 하나를 줬는데요. 차감형 패스라는 기능을 출시했는 데, 1회 무료 이용권을 하나 주더라구요 ㅎㅎ 아마 이전에 한 달 이용한 적이 있어서 준 게 아닐까 싶어요.',

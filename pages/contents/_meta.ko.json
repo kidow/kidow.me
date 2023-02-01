@@ -1,4 +1,12 @@
 {
+  "6-projects-to-one": {
+    "title": "6개의 프로젝트를 하나의 블로그로 통합하기",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
   "review-of-shared-office-fivespot-seongsu-2": {
     "title": "공유오피스 파이브스팟 성수2호점 방문 후기",
     "theme": {
