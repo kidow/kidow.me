@@ -89,5 +89,305 @@ export const contents: Array<{
     date: '2022-12-21',
     thumbnail: 'https://kidow.me/api/image?id=g2hw0mxlig8',
     href: '/contents/summary-of-feedback-received-so-far'
+  },
+  {
+    ko: {
+      title: 'Coddee 인프라 설계 과정',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: '채팅방 서비스의 문제점',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: 'Toast Component 만들기',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: '마지막에 코드블럭이면 어떻게 내려가죠?',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: '개발자 채팅방을 만들었습니다',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: 'Supabase를 사이드 프로젝트용으로 추천하는 이유',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: '로그인도 없는 Saas 만들기',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: '5분 만에 Vercel로 무제한 파일 저장소 만들기',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: 'B2B를 시작할 때 참고하면 좋은 사이트들',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: '피드뱅크라는 서비스를 출시하기까지',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: 'Storybook으로 나만의 컴포넌트 만들기',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: 'Docusaurus로 나만의 개발 문서 만들기',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: 'html <dialog>를 React로 만들어보자',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: 'TailwindCSS로 마음을 굳힌 이유',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: '개발하는 데 도움이 되는 크롬 익스텐션',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: '유지보수가 쉬운 리액트 코드 짜는 법 - (3) 컴포넌트 설계',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: '유지보수가 쉬운 리액트 코드 짜는 법 - (2) 네이밍',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: '유지보수가 쉬운 리액트 코드 짜는 법 - (1) 프로젝트 설계',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: '유지보수가 쉬운 리액트 코드 짜는 법 - (0) 개요',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
+  },
+  {
+    ko: {
+      title: '4번째 블로그를 만들면서 느낀 점들',
+      description: '',
+      keywords: ''
+    },
+    en: {
+      title: '',
+      description: '',
+      keywords: ''
+    },
+    date: '',
+    thumbnail: '',
+    href: '/contents'
   }
 ]

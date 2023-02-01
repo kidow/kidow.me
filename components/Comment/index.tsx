@@ -20,7 +20,11 @@ const Comment: FC<Props> = () => {
       'data-reactions-enabled': '1',
       'data-emit-metadata': '0',
       'data-input-position': 'bottom',
-      'data-theme': 'dark_dimmed',
+      'data-theme':
+        document.documentElement.style.getPropertyValue('color-scheme') ===
+        'dark'
+          ? 'dark_dimmed'
+          : 'light',
       'data-lang': locale,
       crossOrigin: 'anonymous',
       async: 'true'
