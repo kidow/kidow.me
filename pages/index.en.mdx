@@ -1,7 +1,20 @@
 import { Contribution } from 'containers'
-import { Card } from 'components'
+import { Card, Comment } from 'components'
 import { Contents } from 'templates'
 
 <Contents />
 
 <Contribution />
+
+## Projects
+
+<div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+  <Card.Link title="Coddee" href="https://coddee.dev">
+    <>![Coddee](/assets/coddee-en.png)</>
+  </Card.Link>
+  <Card.Link title="Feedbank" href="https://feedbank.app/en">
+    <>![Feedbank](/assets/feedbank-en.png)</>
+  </Card.Link>
+</div>
+
+<Comment />

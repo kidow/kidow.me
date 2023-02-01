@@ -28,9 +28,12 @@ const Memo: FC<Props> = () => {
 
   useEffect(() => {
     setState({ isClient: true })
+  }, [])
+
+  useEffect(() => {
     document.addEventListener('keydown', onHelpChange)
     return () => document.removeEventListener('keydown', onHelpChange)
-  }, [])
+  }, [isHelpOpen])
   if (!isClient) return <div className="h-[768px]" />
   return (
     <>

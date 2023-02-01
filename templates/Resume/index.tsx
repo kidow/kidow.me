@@ -14,7 +14,7 @@ interface State {}
 
 const Resume: FC<Props> = () => {
   return (
-    <div className="pt-4 text-neutral-400">
+    <div className="pt-4 text-neutral-800 dark:text-neutral-400">
       <div className="justify-between sm:flex">
         <div className="mb-5 flex-1 space-y-1 sm:mb-0">
           <div className="text-3xl font-semibold">김동욱</div>
@@ -134,7 +134,7 @@ const Resume: FC<Props> = () => {
                 target="_blank"
               >
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/feedbank.png"
+                  src="/assets/resume/feedbank.png"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
@@ -171,7 +171,7 @@ const Resume: FC<Props> = () => {
             <div className="flex gap-3">
               <a href="https://fetching.co.kr" target="_blank">
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/fetching.jpg"
+                  src="/assets/resume/fetching.jpg"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
@@ -347,7 +347,7 @@ const Resume: FC<Props> = () => {
             <div className="flex gap-3">
               <a href="https://insunet.co.kr" target="_blank">
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/linkplanner.png"
+                  src="/assets/resume/linkplanner.png"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
@@ -446,7 +446,7 @@ const Resume: FC<Props> = () => {
             <div className="flex gap-3">
               <a href="https://mybiskit.com" target="_blank">
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/mybiskit.png"
+                  src="/assets/resume/mybiskit.png"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
@@ -517,7 +517,7 @@ const Resume: FC<Props> = () => {
             <div className="flex gap-3">
               <a href="https://gangmom.kr" target="_blank">
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/gangmom.png"
+                  src="/assets/resume/gangmom.png"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
@@ -583,7 +583,7 @@ const Resume: FC<Props> = () => {
                 target="_blank"
               >
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/coddee.png"
+                  src="/assets/resume/coddee.png"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
@@ -637,7 +637,7 @@ const Resume: FC<Props> = () => {
                 target="_blank"
               >
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/feedbank.png"
+                  src="/assets/resume/feedbank.png"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
@@ -690,7 +690,7 @@ const Resume: FC<Props> = () => {
             <div className="flex gap-3">
               <a href="https://components.kidow.me" target="_blank">
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/components.png"
+                  src="/assets/resume/components.png"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
@@ -706,7 +706,7 @@ const Resume: FC<Props> = () => {
                   </a>
                 </div>
                 <div className="mb-3 text-xs text-neutral-500">
-                  2022년 4월 ~ 진행 중
+                  2022년 4월 ~ 2023년 2월
                 </div>
               </div>
             </div>
@@ -722,7 +722,9 @@ const Resume: FC<Props> = () => {
                 모양새도 이쁠 것 같아서, React로 시작해서 Storybook으로 배포하는
                 식으로 구성했습니다.
               </p>
-              <p>앞으로도 이 프로젝트는 업데이트를 계속 해나갈 예정입니다.</p>
+              <p>
+                이 프로젝트는 https://kidow.me/archive로 데이터를 이전했습니다.
+              </p>
               <div className="flex flex-wrap gap-3">
                 <span className="tag">React.js</span>
                 <span className="tag">Typescript</span>
@@ -736,7 +738,7 @@ const Resume: FC<Props> = () => {
             <div className="flex gap-3">
               <a href="https://archive.kidow.me" target="_blank">
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/archive.png"
+                  src="/assets/resume/archive.png"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
@@ -752,7 +754,7 @@ const Resume: FC<Props> = () => {
                   </a>
                 </div>
                 <div className="mb-3 text-xs text-neutral-500">
-                  2022년 4월 ~ 진행 중
+                  2022년 4월 ~ 2023년 2월
                 </div>
               </div>
             </div>
@@ -768,8 +770,7 @@ const Resume: FC<Props> = () => {
                 설정이나 앱들에 대한 내용으로 구성하였습니다.
               </p>
               <p>
-                개발자로 일하는 동안은 이 프로젝트는 계속해서 운영하고 내용을
-                추가해 나갈 예정입니다.
+                이 프로젝트는 https://kidow.me/archive로 데이터를 이전했습니다.
               </p>
               <div className="flex flex-wrap gap-3">
                 <span className="tag">React.js</span>
@@ -784,7 +785,7 @@ const Resume: FC<Props> = () => {
             <div className="flex gap-3">
               <a href="https://dynamisign.com" target="_blank">
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/dynamisign.png"
+                  src="/assets/resume/dynamisign.png"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
@@ -841,9 +842,9 @@ const Resume: FC<Props> = () => {
 
           <div>
             <div className="flex gap-3">
-              <a href="https://kidow.me" target="_blank">
+              <a href="https://github.com/kidow/blog1" target="_blank">
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/kidow-logo.png"
+                  src="/assets/resume/kidow.png"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
@@ -851,7 +852,7 @@ const Resume: FC<Props> = () => {
               <div>
                 <div className="text-lg text-neutral-400 sm:text-neutral-300">
                   <a
-                    href="https://kidow.me"
+                    href="https://github.com/kidow/blog1"
                     target="_blank"
                     className="hover:underline"
                   >
@@ -878,7 +879,7 @@ const Resume: FC<Props> = () => {
                 <a
                   href="https://blog.kidow.me"
                   target="_blank"
-                  className="text-neutral-200 underline"
+                  className="mx-1 text-neutral-200 underline"
                 >
                   blog.kidow.me
                 </a>
@@ -896,7 +897,7 @@ const Resume: FC<Props> = () => {
             <div className="flex gap-3">
               <a href="https://ddtalk.kr" target="_blank">
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/ddtalk.png"
+                  src="/assets/resume/ddtalk.png"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
@@ -937,22 +938,15 @@ const Resume: FC<Props> = () => {
                 싶은 욕심이 있습니다.
               </p>
               <p>
-                +) 22년 6월 기준 이 프로젝트를 새로운 기술들로 다시 만들고 있는
-                중입니다.
+                +) 이 프로젝트는 Coddee로 재단장했습니다.
                 <a
-                  href="https://chat.kidow.me"
+                  href="https://coddee.dev"
                   target="_blank"
-                  className="text-neutral-200 underline"
+                  className="ml-1 text-neutral-200 underline"
                 >
                   참고
                 </a>
               </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <span className="tag">React.js</span>
-              <span className="tag">Redux</span>
-              <span className="tag">Typescript</span>
-              <span className="tag">Firebase</span>
             </div>
           </div>
         </div>
@@ -966,7 +960,7 @@ const Resume: FC<Props> = () => {
             <div className="flex gap-3">
               <span>
                 <img
-                  src="https://raw.githubusercontent.com/kidow/resume/main/static/sejong-university.jpg"
+                  src="/assets/resume/sejong-university.jpg"
                   alt=""
                   className="h-11 w-11 rounded-full"
                 />
