@@ -4,6 +4,11 @@
     "title": "Kidow Blog",
     "display": "hidden"
   },
+  "contents": {
+    "type": "page",
+    "title": "Contents",
+    "display": "hidden"
+  },
   "resume": {
     "title": "Résumé",
     "type": "page"
@@ -14,7 +19,10 @@
   },
   "memo": {
     "type": "page",
-    "title": "Memo"
+    "title": "Memo",
+    "theme": {
+      "layout": "raw"
+    }
   },
   "contact": {
     "title": "Contact ↗",
