@@ -1,47 +1,3 @@
-import { Comment, Image, Card, Icon } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Image
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Prerequisite
-
-<Card.List>
-  <Card.Component
-    title="useObjectState"
-    href="/archive/hooks/useObjectState"
-    Icon={Icon.Hook}
-  />
-</Card.List>
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/Image/index.tsx"
 import type { DetailedHTMLProps, FC, ImgHTMLAttributes } from 'react'
 import { useObjectState } from 'services'
 import classnames from 'classnames'
@@ -103,14 +59,3 @@ const Image: FC<Props> = ({ ...props }) => {
 }
 
 export default Image
-```
-
-### Usage
-
-</div>
-
-### Props
-
-기존 `<img />`의 속성들을 그대로 사용하면 됩니다.
-
-<Comment />
