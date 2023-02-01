@@ -30,7 +30,61 @@ const Contents: FC<Props> = () => {
       <ul className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {contents.slice((page - 1) * 5, page * 5).map((item, key) => (
           <li key={key} className="md:first:col-span-2">
-            <Link href={item.href}>{item[locale].title}</Link>
+            <Link
+              href={item.href}
+              className={classnames({
+                'md:grid md:grid-cols-2 md:gap-8': key === 0
+              })}
+            >
+              {key === 0 && (
+                <div className="overflow-hidden rounded">
+                  <img
+                    src={item.thumbnail}
+                    alt=""
+                    className="hidden duration-150 hover:scale-105 md:block"
+                  />
+                </div>
+              )}
+              <article className="group space-y-2">
+                <h2
+                  className={classnames(
+                    'text-lg line-clamp-2 group-hover:underline',
+                    { 'md:text-3xl md:font-semibold': key === 0 }
+                  )}
+                >
+                  {item[locale].title}
+                </h2>
+                <p className="text-neutral-400 line-clamp-3">
+                  {item[locale].description}
+                </p>
+                <div className="flex flex-wrap gap-3 text-xs md:text-sm">
+                  {item[locale].keywords?.split(', ').map((keyword, key) => (
+                    <span
+                      className={classnames(
+                        'rounded-full bg-neutral-800 py-1 px-3',
+                        {
+                          'border border-[#61dafb] text-[#61dafb]':
+                            keyword === 'React',
+                          'border border-[#38bdf8] text-[#38bdf8]':
+                            keyword === 'TailwindCSS',
+                          'border border-[#bf4080] text-[#bf4080]':
+                            keyword === 'SCSS',
+                          'border border-[#da936a] text-[#da936a]':
+                            keyword === 'Styled Components',
+                          'border border-[#25c19f] text-[#25c19f]':
+                            keyword === 'Docusaurus',
+                          'border border-[#FF528C] text-[#FF528C]':
+                            keyword === 'Storybook'
+                        }
+                      )}
+                      key={key}
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            </Link>
           </li>
         ))}
       </ul>
@@ -51,7 +105,6 @@ const Contents: FC<Props> = () => {
             <ChevronLeftIcon className="h-5 w-5" />
           </Link>
         </li>
-
         {Array.from({ length: 5 }).map((_, key) => (
           <li key={key}>
             {page > numPages - 2 && key > numPages - page + 2 ? (

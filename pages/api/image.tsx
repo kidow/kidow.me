@@ -19,9 +19,7 @@ const response = (
 ) => (
   <div tw="flex flex-col h-full w-full bg-white relative p-20">
     <div tw="flex mb-[1.8rem] w-[1040px]">
-      <div tw="flex-1 text-[5rem] text-[#2f363d]" style={{ lineHeight: 0.98 }}>
-        {title}
-      </div>
+      <div tw="flex-1 text-6xl text-[#2f363d]">{title}</div>
       <img
         src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/publics/kidow.png`}
         alt="Kidow"
