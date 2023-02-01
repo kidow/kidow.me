@@ -1,4 +1,11 @@
-import { Comment } from 'components'
+import { Comment, Card, Icon } from 'components'
+import {
+  CubeIcon,
+  WrenchScrewdriverIcon,
+  Cog6ToothIcon,
+  LightBulbIcon,
+  BookmarkIcon
+} from '@heroicons/react/24/outline'
 
 # 소개 👋
 
@@ -22,5 +29,30 @@ import { Comment } from 'components'
 - Settings : 개발하면서 항상 세팅하는 환경 설정(?)들을 모아놓았습니다.
 - Tips : 코드와 상관없이 유용한 개발 팁들을 모아놓는 탭입니다.
 - Bookmarks : 비개발 포함 유용하거나 재미있는 웹사이트들을 모아놓았습니다.
+
+<Card.List>
+  <Card.Component
+    title="Components"
+    href="/archive/data-display/Avatar"
+    Icon={CubeIcon}
+  />
+  <Card.Component title="Hooks" href="/archive/hooks" Icon={Icon.Hook} />
+  <Card.Component
+    title="Utils"
+    href="/archive/utils"
+    Icon={WrenchScrewdriverIcon}
+  />
+  <Card.Component
+    title="Settings"
+    href="/archive/settings"
+    Icon={Cog6ToothIcon}
+  />
+  <Card.Component title="Tips" href="/archive/tips" Icon={LightBulbIcon} />
+  <Card.Component
+    title="Bookmarks"
+    href="/archive/commons/MusicForProgramming"
+    Icon={BookmarkIcon}
+  />
+</Card.List>
 
 <Comment />

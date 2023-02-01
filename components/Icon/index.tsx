@@ -60,7 +60,7 @@ const KakaoTalk = () => (
 
 const Hook = () => (
   <svg
-    className="h-6 w-6"
+    className="h-6 w-6 text-neutral-400 duration-200 group-hover:text-neutral-600 dark:text-neutral-600 dark:group-hover:text-neutral-50"
     fill="currentColor"
     version="1.1"
     id="Layer_1"
