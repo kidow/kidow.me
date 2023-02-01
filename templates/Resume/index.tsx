@@ -19,7 +19,9 @@ const Resume: FC<Props> = () => {
     <div className="pt-4 text-neutral-700 dark:text-neutral-400">
       <div className="justify-between sm:flex">
         <div className="mb-5 flex-1 space-y-1 sm:mb-0">
-          <div className="text-3xl font-semibold">김동욱</div>
+          <div className="text-3xl font-semibold text-neutral-900 dark:text-neutral-100">
+            김동욱
+          </div>
           <div className="text-xl text-neutral-500">Kim Dong Wook</div>
         </div>
         <div className="flex-1">
