@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react'
 import type { FC } from 'react'
-import {} from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 
 export interface Props {}
