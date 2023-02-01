@@ -20,6 +20,40 @@
   .tag {
     @apply cursor-default rounded-xl bg-neutral-200 py-0.5 px-2 text-sm text-neutral-500 dark:bg-neutral-800 dark:text-neutral-300;
   }
+  .tw-table th,
+  .tw-table td {
+    @apply border;
+  }
+  .tw-table tr {
+    @apply border-b last:border-b-0;
+  }
+  .tw-table th:first-child input[type='checkbox'],
+  .tw-table td:first-child input[type='checkbox'] {
+    @apply h-5 w-5 cursor-pointer align-middle disabled:cursor-not-allowed;
+  }
+  .tw-table-lg th,
+  .tw-table-lg td {
+    @apply px-6 py-3;
+  }
+  .tw-table-md th,
+  .tw-table-md td {
+    @apply px-4 py-2;
+  }
+  .tw-table-sm th,
+  .tw-table-sm td {
+    @apply px-2 py-1;
+  }
+  .tw-table-xs th,
+  .tw-table-xs td {
+    @apply px-1 py-0.5;
+  }
+}
+
+input[value='']::-webkit-datetime-edit {
+  @apply text-gray-400;
+}
+input[value='']::-webkit-calendar-picker-indicator {
+  @apply opacity-40;
 }
 
 .steps {

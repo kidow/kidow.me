@@ -1,5 +1,158 @@
-import { Comment } from 'components'
+import { Comment, Card, Table, Required } from 'components'
 import { BackTop } from 'containers'
+import { CubeIcon } from '@heroicons/react/24/outline'
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+<BackTop />
+
+# Table
+
+## Example
+
+## Steps
+
+<div className="steps">
+
+### Prerequisite
+
+<Card.List>
+  <Card.Component
+    title="Spinner"
+    href="/archive/feedbacks/Spinner"
+    Icon={CubeIcon}
+  />
+</Card.List>
+
+### Install
+
+<Tabs items={['npm', 'yarn']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    npm install classnames
+    ```
+    </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    yarn add classnames
+    ```
+</Tab>
+</Tabs>
+
+### Copy Code
+
+```tsx filename="components/Table/index.tsx"
+import type { ReactNode } from 'react'
+import classnames from 'classnames'
+import { Spinner } from 'components'
+
+export interface Props<T> {
+  list: T[]
+  columns: ReactNode
+  renderItem: (item: T, index: number) => ReactNode
+  loading?: boolean
+  size?: 'xs' | 'sm' | 'md' | 'lg'
+}
+
+function Table<T>({
+  columns,
+  list,
+  renderItem,
+  loading,
+  size = 'lg'
+}: Props<T>) {
+  return (
+    <div
+      className={classnames(
+        'relative',
+        loading ? 'overflow-hidden' : 'overflow-auto'
+      )}
+    >
+      {loading && (
+        <Spinner className="text-primary absolute left-1/2 top-1/2 z-[12] h-6 w-6" />
+      )}
+      <table
+        className={classnames(
+          'tw-table w-full border-collapse whitespace-nowrap text-center text-xs text-neutral-500',
+          {
+            'pointer-events-none cursor-not-allowed select-none opacity-60':
+              loading,
+            'tw-table-lg': size === 'lg',
+            'tw-table-md': size === 'md',
+            'tw-table-sm': size === 'sm',
+            'tw-table-xs': size === 'xs'
+          }
+        )}
+      >
+        <thead className="sticky top-0 bg-neutral-100 tracking-wider">
+          {columns}
+        </thead>
+        <tbody>
+          {!!list.length ? (
+            list.map((item: T, key) => renderItem(item, key))
+          ) : (
+            <tr>
+              <td colSpan={99}>데이터가 없습니다.</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+export default Table
+```
+
+```css filename="styles/global.css"
+@layer base;
+@layer components;
+@layer utilities;
+
+@layer components {
+  .tw-table th,
+  .tw-table td {
+    @apply border;
+  }
+  .tw-table tr {
+    @apply border-b last:border-b-0;
+  }
+  .tw-table th:first-child input[type='checkbox'],
+  .tw-table td:first-child input[type='checkbox'] {
+    @apply h-5 w-5 cursor-pointer align-middle disabled:cursor-not-allowed;
+  }
+  .tw-table-lg th,
+  .tw-table-lg td {
+    @apply px-6 py-3;
+  }
+  .tw-table-md th,
+  .tw-table-md td {
+    @apply px-4 py-2;
+  }
+  .tw-table-sm th,
+  .tw-table-sm td {
+    @apply px-2 py-1;
+  }
+  .tw-table-xs th,
+  .tw-table-xs td {
+    @apply px-1 py-0.5;
+  }
+}
+```
+
+### Usage
+
+</div>
+
+### Props
+
+| Name                       |                 Type                  | Default |
+| :------------------------- | :-----------------------------------: | :-----: |
+| **list**<Required />       |                 Array                 |         |
+| **columns**<Required />    |               ReactNode               |         |
+| **renderItem**<Required /> | (item: T, index: number) => ReactNode |         |
+| **loading**                |                boolean                |  false  |
+| **size**                   |          `xs` `sm` `md` `lg`          |  `lg`   |
 
 <Comment />
-<BackTop />
