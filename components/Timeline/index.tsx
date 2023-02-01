@@ -1,37 +1,3 @@
-import { Comment, Required, Timeline } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Timeline
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/Timeline/index.tsx"
 import classNames from 'classnames'
 import type { FC, ReactNode } from 'react'
 
@@ -77,16 +43,3 @@ const Timeline: FC<Props> = ({ list }) => {
 }
 
 export default Timeline
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                 |                             Type                              | Default |
-| :------------------- | :-----------------------------------------------------------: | :-----: |
-| **list**<Required /> | `Array<{ tag?: string; title?: string; content: ReactNode }>` |         |
-
-<Comment />

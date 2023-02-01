@@ -55,7 +55,7 @@ const config: DocsThemeConfig = {
     const { asPath } = useRouter()
     return {
       ...(asPath === '/'
-        ? { title: 'Kidow Blog' }
+        ? { title: 'Kidow Blog', titleTemplate: '' }
         : { titleTemplate: '%s - Kidow Blog' })
     }
   },
