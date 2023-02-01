@@ -1,28 +1,3 @@
-import { Comment, Badge } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Badge
-
-## Example
-
-## Steps
-
-<div className='steps'>
-
-### Define Types
-
-```ts filename="types/index.d.ts"
-interface ReactProps {
-  children?: ReactNode
-}
-```
-
-### Copy Code
-
-```tsx filename="components/Badge/index.tsx"
 import type { FC } from 'react'
 
 export interface Props extends ReactProps {}
@@ -40,14 +15,3 @@ const Badge: FC<Props> = ({ children }) => {
 }
 
 export default Badge
-```
-
-</div>
-
-### Props
-
-## References
-
-https://tailwindcss.com/docs/animation#ping
-
-<Comment />

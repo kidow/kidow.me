@@ -6,12 +6,13 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 
 # Avatar
 
-## Playground
+## Example
 
-## Usage
+## Steps
 
 <div className="steps">
-### Installation
+
+### Install
 
 <Tabs items={['npm', 'yarn']}>
   {/* prettier-ignore */}
@@ -28,7 +29,7 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 </Tab>
 </Tabs>
 
-### Code
+### Copy Code
 
 ```tsx filename="components/Avatar/index.tsx"
 import type { FC } from 'react'
@@ -87,16 +88,19 @@ const Avatar: FC<Props> = ({
 export default Avatar
 ```
 
+### Usage
+
 </div>
 
 ### Props
 
-| Name       |           Type           | Default  |
-| :--------- | :----------------------: | :------: |
-| **src**    |          string          |          |
-| **alt**    |          string          |          |
-| **shape**  |    `circle` `square`     | `circle` |
-| **size**   | `xs` `sm` `md` `lg` `xl` |   `md`   |
-| **border** |         boolean          |  false   |
+| Name          |           Type           | Default  |
+| :------------ | :----------------------: | :------: |
+| **src**       |          string          |          |
+| **alt**       |          string          |          |
+| **shape**     |    `circle` `square`     | `circle` |
+| **size**      | `xs` `sm` `md` `lg` `xl` |   `md`   |
+| **border**    |         boolean          |  false   |
+| **className** |          string          |          |
 
 <Comment />
