@@ -1,4 +1,4 @@
-const Link = () => (
+const Share = () => (
   <svg
     width="24px"
     height="24px"
@@ -59,7 +59,7 @@ const KakaoTalk = () => (
 )
 
 export default {
-  Link,
+  Share,
   Facebook,
   Twitter,
   KakaoTalk

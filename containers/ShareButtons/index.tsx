@@ -32,7 +32,7 @@ const ShareButtons: FC<Props> = () => {
           onCopy={() => toast.success('Successfully copied!')}
         >
           <button className="rounded-full border border-neutral-200 p-2 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-500">
-            <Icon.Link />
+            <Icon.Share />
           </button>
         </CopyToClipboard>
         <button

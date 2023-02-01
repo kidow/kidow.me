@@ -63,7 +63,7 @@ const Offline: FC<Props> = ({ children }) => {
       <div className="flex h-screen items-center justify-center">
         <div>
           <img
-            src="/thunder.svg"
+            src="/icons/thunder.svg"
             alt=""
             className="mx-auto h-40 w-40 select-none"
             draggable={false}

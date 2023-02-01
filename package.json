@@ -41,6 +41,7 @@
     "@types/node": "18.11.10",
     "@types/quill": "^2.0.10",
     "@types/react-copy-to-clipboard": "^5.0.4",
+    "@types/react-dom": "^18.0.10",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "prettier-plugin-tailwindcss": "^0.2.2",
