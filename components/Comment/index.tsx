@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from 'react'
 import type { FC } from 'react'
 import {} from 'nextra-theme-docs'
+import { useRouter } from 'next/router'
 
 export interface Props {}
 
 const Comment: FC<Props> = () => {
   const ref = useRef<HTMLDivElement>(null)
+  const { locale } = useRouter()
 
   useEffect(() => {
     const script = document.createElement('script')
@@ -20,7 +22,7 @@ const Comment: FC<Props> = () => {
       'data-emit-metadata': '0',
       'data-input-position': 'bottom',
       'data-theme': 'dark_dimmed',
-      'data-lang': 'ko',
+      'data-lang': locale,
       crossOrigin: 'anonymous',
       async: 'true'
     }
@@ -29,7 +31,7 @@ const Comment: FC<Props> = () => {
     )
     ref.current?.appendChild(script)
   }, [])
-  return <div ref={ref} />
+  return <div ref={ref} className="mt-10" />
 }
 
 export default Comment

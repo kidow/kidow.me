@@ -6,7 +6,8 @@
   },
   "contents": {
     "type": "page",
-    "title": "Contents"
+    "title": "Contents",
+    "display": "hidden"
   },
   "resume": {
     "title": "Résumé",
