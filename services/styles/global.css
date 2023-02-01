@@ -4,6 +4,15 @@
 
 @import './quill.css';
 
+@layer base {
+  input[value='']::-webkit-datetime-edit {
+    @apply text-gray-400;
+  }
+  input[value='']::-webkit-calendar-picker-indicator {
+    @apply opacity-40;
+  }
+}
+
 @layer components {
   #toolbar {
     @apply sticky top-0 z-10 flex w-screen gap-2 duration-150 scrollbar-hide sm:w-auto sm:flex-wrap;
@@ -49,11 +58,9 @@
   }
 }
 
-input[value='']::-webkit-datetime-edit {
-  @apply text-gray-400;
-}
-input[value='']::-webkit-calendar-picker-indicator {
-  @apply opacity-40;
+/* AutoComplete */
+input::-webkit-calendar-picker-indicator {
+  opacity: 0;
 }
 
 .steps {
