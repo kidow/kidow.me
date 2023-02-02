@@ -1,37 +1,3 @@
-import { Comment, Required, Tabs } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs as NXTabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Tabs
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Install
-
-<NXTabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add classnames
-    ```
-</Tab>
-</NXTabs>
-
-### Copy Code
-
-```tsx filename="components/Tabs/index.tsx"
 import type { FC } from 'react'
 import classnames from 'classnames'
 
@@ -70,19 +36,3 @@ const Tabs: FC<Props> = ({ list, value, onChange, size = 'md' }) => {
 }
 
 export default Tabs
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                     |         Type          | Default |
-| :----------------------- | :-------------------: | :-----: |
-| **list**<Required />     |       string[]        |         |
-| **value**<Required />    |        number         |         |
-| **onChange**<Required /> | (tab: number) => void |         |
-| **size**                 |    `xs` `sm` `md`     |  `md`   |
-
-<Comment />
