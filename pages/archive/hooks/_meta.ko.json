@@ -9,6 +9,5 @@
   "useMediaQuery": "useMediaQuery",
   "useObjectState": "useObjectState",
   "useOnClickOutside": "useOnClickOutside",
-  "usePagination": "usePagination",
-  "useQueryParams": "useQueryParams"
+  "usePagination": "usePagination"
 }
