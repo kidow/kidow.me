@@ -6,15 +6,86 @@ thumbnail: https://kidow.me/api/image?id=15v2zftvpun
 keywords: Supabase, PostgreSQL, Storage, Firebase, Authentication, SQL, Database
 ---
 
-import { Comment } from 'components'
+import { Comment, Figure } from 'components'
 import { BackTop, Frontmatter, ShareButtons } from 'containers'
 
 <Frontmatter />
 <ShareButtons />
+<BackTop />
 
-## Fivew
+<Figure caption="Supabase" image="/contents/13/supabase.png" />
 
-### three
+Supabase는 Firebase를 대체하기 위한 오픈 소스로 시작했습니다. 가장 큰 차이점은 Firebase의 데이터베이스인 Firestore나 Realtime Database는 noSQL을 지원하는 반면에, Supabase의 데이터베이스는 **관계형DB를 지원**한다는 점입니다.
+
+## 결론
+
+먼저 Supabase를 사이드 프로젝트용으로 추천하는 이유는 이렇습니다.
+
+- Firebase와 비슷한 기능을 제공하면서 관계형DB를 지원한다.
+- 무료 플랜이 사이드 프로젝트를 런칭하기에 매우 충분하다.
+- 데이터베이스의 경우 API Request가 무제한이다.
+- 스토리지의 경우 조회 당 비용을 받지 않는다.
+
+### Firebase와 비슷하면서 관계형DB를 지원한다
+
+Firebase가 관계형DB를 지원했다면 사실 Firebase를 썼을 지도 모릅니다. 구글이 밀어주는 서비스이니까요.
+
+제 경험상, noSQL을 사용해서 서비스를 만들 일은 생각보다 많지 않았습니다. noSQL을 사용하는 경우는 방대한 데이터 처리가 필요하거나 데이터 간의 관계가 명확하지 않아도 될 때인데, 사이드 프로젝트가 방대한 데이터 처리를 할 일도 보통 없기 마련이고, 거의 전세계 대부분의 기업이 관계형DB를 선호하기 때문에 이왕 사이드 프로젝트를 할거라면 공부도 할 겸 관계형DB를 택하는 것이 낫습니다.
+
+<Figure
+  caption="인기도에 따른 DB 엔진 랭킹. 1~4위는 철밥통이다."
+  image="/contents/13/ranking.png"
+/>
+
+### 무료 플랜이 사이드 프로젝트를 런칭하기에 매우 충분하다
+
+<Figure caption="Supabase 가격 정책" image="/contents/13/pricing.png" />
+
+2개의 프로젝트, 500MB의 데이터베이스 용량, 1GB의 저장소, 무제한 유저의 50,000명의 MAU까지 무료 지원인데, 이 정도면 제 기준에서는 웬만한 사이드 프로젝트는 전부 커버하고도 남는다고 봅니다. 애초에 저 기준을 넘는 사이드 프로젝트를 만든다면 그건 그 프로젝트가 성공했다고 봐도 무방하지 않을까요? ㅎㅎ
+
+### API Request가 무제한이다
+
+<Figure caption="Unlimited API Request" image="/contents/13/database.png" />
+
+이것은 Supabase가 내세우는 강력한 이점 중 하나라고 봅니다.
+
+Supabase는 API 요청을 **아무리 많이 보내도** 그것에 대한 비용을 청구하지 않습니다. 데이터를 전송할 때마다 돈을 받는 Amazon RDS와 비교해보면 엄청 큰 차이라고 생각됩니다. 트래픽이 쌓이면서 API 요청이 늘어나도 요청에 대한 비용은 없고 DB 용량에 대한 비용만 받으니까요.
+
+<Figure
+  caption="GB당 0.02달러의 전송비를 가져가는 아마존"
+  image="/contents/13/rds.png"
+/>
+
+### 스토리지의 경우 조회 당 비용을 받지 않는다
+
+<Figure caption='출처: 유튜브 "노마드코더"' image="/contents/13/storage.png" />
+
+Cloudflare "R2"를 아시나요? Amazon S3와 비슷한 파일 저장소 서비스인데요, 기본적으로 S3는 파일을 보관·저장하는 비용뿐만 아니라 한 명의 유저가 파일 조회를 요청할 때마다 비용을 받는 데, 트래픽이 많아질수록 이 비용이 월등히 높아지면서 사용자에게 엄청난 비용 부담을 안기게 되죠.
+
+그런데 Cloudflare는 21년 9월 R2를 출시하면서 이 비용을 전면 무료화했습니다. 정확히는 1초당 10회 미만으로 접근했을 경우에 한해서인데요, 트래픽이 엄청 커지는 경우에나 해당되고, 그래도 여전히 AWS보다 현저히 적은 금액이라고 할 수 있습니다. 그리고 이는 **Supabase 역시 같은 정책을 도입하고 있습니다.**
+
+저 역시 맨 처음 사이드 프로젝트를 하던 시절에는 AWS S3를 사용했었지만, 비용 면에서 일반 개발자가 계속 사용하기에는 부담스러운 적이 있었습니다. 그러나 Supabase는 왠만한 사이드 프로젝트에서 저장소를 돈을 내지 않고도 테스트해볼 수 있으며 이후에도 파일을 보관하는 데에만 비용을 낼 수 있습니다.
+
+## 우려사항
+
+다만 Supabase에 대해 알아두셔야 할 사항들이 있긴 합니다. 누군가에게 단점이고 우려가 될 수도 있습니다.
+
+### 오픈 소스라는 것
+
+Supabase의 코드는 [Github](https://github.com/supabase/supabase)에 오픈 소스로 올라와 있습니다. 오픈 소스를 비즈니스에 적용하기에는 조금 우려가 된다는 분이 계시더라구요.
+
+서비스 특성상 우려가 되는 분들도 있을 수는 있습니다. 다만 오픈 소스가 질적으로나 신뢰도 측면에서 무조건 더 안좋다고 볼 수는 없을까 싶습니다. 더군다나 Supabase는 22년 8월에 시리즈 B를 투자받은 상태라 자금 상황도 당분간은 나쁘지 않다고 볼 수 있습니다.
+
+### PostgreSQL과 SQL에 대한 이해
+
+단순히 프론트엔드 개발자로만 커리어를 쌓았다면 이 서비스를 입문하기 힘드실 수도 있습니다. Firebase와 비교하자면 Firebase는 noSQL이다보니 DB 구성에 큰 제약이 없는 반면에, Supabase는 DB를 구성하는 데에 있어 **SQL의 기본적인 이해**가 반드시 필요합니다. GUI를 제공하기는 하지만 세세한 ERD를 짜기 위해선 결국 SQL의 기본을 알아야 합니다. 또한 PostgreSQL만의 문법 이해가 필요할 때도 있고, **Row Level Security**(RLS)라는 개념도 알아 두셔야 합니다.
+
+### 영어
+
+서비스가 서울 리전은 제공하지만, 한글 문서를 제공하지는 않습니다. 막 어려운 용어가 많은 건 아니지만 프로그래밍 용어는 많으니까 문서를 볼 때 번역을 많이 하셔야 할 겁니다.
+
+## 정리
+
+저 역시 많은 사이드 프로젝트들을 시작할 때 Supabase를 사용합니다. 이번에 만든 [피드뱅크](https://feedbank.app) 역시 Supabase를 사용해서 약 한 달간 혼자 만든 서비스입니다. 여러분들의 아이디어를 쉽게 구현해 주는 데에 있어 Supabase가 큰 역할을 해줄 수 있을 거라고 기대합니다.
 
 <Comment />
-<BackTop />
