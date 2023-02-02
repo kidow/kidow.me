@@ -25,7 +25,7 @@ const Button: FC<Props> = ({
   icon,
   ...props
 }) => {
-  const Icon = loading ? Spinner : icon ? icon : null
+  const Icon = loading ? Spinner : icon ?? null
   return (
     <button
       {...props}
