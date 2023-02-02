@@ -5,4 +5,27 @@ import { BackTop } from 'containers'
 
 # tsconfig.json
 
+```json filename="tsconfig.json"
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": "."
+  },
+  "exclude": ["node_modules", ".next"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js"]
+}
+```
+
 <Comment />
