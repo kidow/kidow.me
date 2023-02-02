@@ -11,6 +11,19 @@ module.exports = {
     extend: {
       colors: {
         primary: '#e67a00'
+      },
+      keyframes: {
+        slide: {
+          '0%': {
+            backgroundPosition: '0 0'
+          },
+          '100%': {
+            backgroundPosition: '60px 0'
+          }
+        }
+      },
+      animation: {
+        slide: 'slide 2s linear infinite'
       }
     }
   },
