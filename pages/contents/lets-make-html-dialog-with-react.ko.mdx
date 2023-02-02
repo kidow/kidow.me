@@ -6,15 +6,162 @@ thumbnail: https://kidow.me/api/image?id=hijjy21h309
 keywords: React
 ---
 
-import { Comment } from 'components'
+import { Comment, Figure } from 'components'
 import { BackTop, Frontmatter, ShareButtons } from 'containers'
+import { Post } from 'templates'
 
 <Frontmatter />
 <ShareButtons />
+<BackTop />
 
-## Fivew
+`<dialog>` 태그에 대해 아시나요? 기본적으로 html에 내장되어있는 이 태그는 우리가 흔히 아는 modal과 같은 기능을 담당합니다. 이 편한 걸 사람들이 잘 쓰지 않았던 이유는, 바로 **Internet Explorer** 때문이었죠.
 
-### three
+<Figure
+  caption="IE의 마지막. 출처: 인터넷 커뮤니티"
+  image="/contents/7/ie.jpeg"
+/>
+
+이 dialog 태그가 ie에서 지원되지 않았기 때문에, 조금이라도 있을 ie 유저들을 놓칠 수 없다면서 이런 편한 태그들을 도입하는 걸 미룰 수 밖에 없었던 것이죠.
+
+<Figure
+  caption="너만 없으면 돼"
+  image="/contents/7/browser-compatibility.png"
+/>
+
+하지만 이제 더 이상은 가로막을 장애물이 없기 때문에, 기쁜 마음으로 이 dialog 태그를 React Component로 탈바꿈 시켜 보도록 하겠습니다.
+
+## dialog 동작 원리
+
+### open
+
+dialog가 열리고 닫히는 것은 내장된 속성인 `open`이 결정하게 됩니다.
+
+```jsx {1}
+<dialog open>
+  <p>안녕하세요!</p>
+</dialog>
+```
+
+<Post.Dialog />
+
+그런데 닫히는 로직은 자동으로 적용되어 있지 않네요? 박스 바깥을 눌러도 아무런 일이 일어나지 않습니다.
+
+여기서 짚고 나아가야 할 것이 바로 **내장 메소드**입니다. 내장 메소드를 사용하기 위해서 리액트에서는 `useRef`가 등장합니다.
+
+### show()
+
+`show`는 말그대로 dialog 태그에 open 속성을 달아주는 메소드입니다. 하지만 open만 달아주고 끝이고, 마찬가지로 박스 바깥을 클릭한다고 창이 닫히지는 않습니다.
+
+```tsx {3}
+const ref = useRef(null)
+
+<button onClick={() => ref.current?.show()}>Open</button>
+<dialog ref={ref}>
+  <p>안녕하세요!</p>
+</dialog>
+```
+
+<Post.Dialog.Show />
+
+### showModal()
+
+`showModal`은 역시 말그대로 show인데, 약간 **Modal**처럼 보이게 해준다는 표현인 것 같습니다.
+
+`show`를 `showModal`로 바꾸는 것 이외에도, dialog를 좀 더 꾸미는 작업을 해봅시다.
+
+```tsx {3,5-9}
+const ref = useRef(null)
+
+<button onClick={() => ref.current?.showModal()}>Open</button>
+<dialog
+  ref={ref}
+  onClick={(event) => {
+    if (event.target === ref.current) ref.current?.close()
+  }}
+  style={{ padding: 0 }}
+>
+  <div style={{ height: '100%' }}>안녕하세요!</div>
+</dialog>
+```
+
+<Post.Dialog.ShowModal />
+
+이번에는 show랑은 뭔가 다릅니다. show는 창만 열렸지만, showModal은 dialog 박스 바깥이 어두워지고 dialog가 정가운데로 이동하게 됩니다. 이제서야 우리가 아는 그 Modal과 유사해졌습니다.
+
+### close()
+
+기본적으로 dialog는 열릴 때 전체 화면을 모두 차지합니다. 여기서 클릭 시 타겟이 dialog와 같으면 창을 닫도록 해봅시다. 이 때 dialog는 기본 값으로 `padding`을 `16px` 가지게 되는데, padding 때문에 박스 바깥쪽을 클릭할 때도 창이 닫히기 때문에 padding 값을 초기화시켜 주도록 합시다.
+
+### returnValue
+
+dialog 태그 안에서 form[method='dialog']를 넣으면, 제출 시에 `returnValue`라는 값을 추출하는 것이 가능합니다. 이 경우는 리액트에서는 막 필요한 기능은 아닙니다. 데이터 통신은 props로 해도 되니까요. 물론 `window.confirm()`이나 `window.prompt()` 같은 기능을 직접 구현하는 데 사용할 수도 있습니다.
+
+### ::backdrop
+
+dialog에는 `::backdrop`이라는 CSS 가상 선택자가 있습니다. 이 가상 선택자를 이용하면 showModal 호출 시 등장하는 어두운 영역을 스타일링할 수 있습니다.
+
+```css
+dialog::backdrop {
+  background-color: #000;
+  opacity: 0.3;
+}
+```
+
+## 컴포넌트화
+
+여기까지만 와도 dialog를 다루는 방법은 이미 모두 익혔다고 봐도 무방합니다. 하지만 dialog를 컴포넌트화하여 재사용하고 싶다면? 이 때 또 알아야 하는 것이 바로 `forwardRef`가 되겠습니다.
+
+### forwardRef
+
+일반적인 방식으로는 부모 컴포넌트에게서 자식 컴포넌트로 ref를 내려주는 것이 불가능합니다. 하지만 그런 상황이 필요할 때 쓰라고 만들어진 것이 바로 **forwardRef**입니다.
+
+forwardRef는 어렵게 생각할 것 없이 그냥 props 내리듯이 ref 내려받게 만들어주는 기능이라고 보시면 됩니다. forwardRef로 만들어낸 Dialog 컴포넌트는 다음과 같습니다.
+
+```tsx
+import { forwardRef } from 'react'
+
+const Dialog = forwardRef((props, ref) => {
+  return (
+    <dialog
+      ref={ref}
+      onClick={(e) => {
+        if (e.target === ref.current) ref.current?.close()
+      }}
+      style={{ padding: 0 }}
+      {...props}
+    >
+      {props.children}
+    </dialog>
+  )
+})
+
+export default Dialog
+```
+
+이렇게 하면 부모 컴포넌트에서 ref를 내려주고 다음과 같이 Dialog를 제어할 수가 있게 됩니다.
+
+```tsx
+const ref = useRef(null)
+
+<button onClick={() => ref.current?.showModal()}>Open</button>
+<Dialog ref={ref}>
+  <div style={{ padding: 0 }}>안녕하세요!</div>
+</Dialog>
+```
+
+## 끝
+
+Dialog 컴포넌트를 가져다가 활용하고 싶다면 위에 제가 짜놓은 코드를 가져다 쓰시면 됩니다. 딱 틀만 짜놓았습니다.
+
+아래에는 제가 쓰는 `TypeScript`와 `TailwindCSS`를 이용하여 더 정교하게 꾸민 Dialog 컴포넌트입니다.
+
+<Post.Dialog.CustomView />
+
+Dialog 코드에 대해서는 [이 곳](/archive/feedback/Dialog)에서도 다루고 있으니 한 번 구경해 보세요.
+
+## 참고 자료
+
+- [https://developer.mozilla.org/ko/docs/Web/HTML/Element/dialog](https://developer.mozilla.org/ko/docs/Web/HTML/Element/dialog)
+- [https://ko.reactjs.org/docs/forwarding-refs.html](https://ko.reactjs.org/docs/forwarding-refs.html)
 
 <Comment />
-<BackTop />
