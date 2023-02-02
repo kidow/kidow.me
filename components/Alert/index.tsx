@@ -1,55 +1,3 @@
-import { Comment, Alert, Card, Icon, Required } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Alert
-
-## Example
-
-## Steps
-
-<div className='steps'>
-
-### Prerequisite
-
-<Card.List>
-  <Card.Component
-    title="useObjectState"
-    href="/archive/hooks/useObjectState"
-    Icon={Icon.Hook}
-  />
-</Card.List>
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install @heroicons/react classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add @heroicons/react classnames
-    ```
-</Tab>
-</Tabs>
-
-### Define Types
-
-```ts filename="types/index.d.ts"
-interface ReactProps {
-  children?: ReactNode
-}
-```
-
-### Copy Code
-
-```tsx filename="components/Alert/index.tsx"
 import { useEffect } from 'react'
 import type { FC } from 'react'
 import classnames from 'classnames'
@@ -58,8 +6,8 @@ import { useObjectState } from 'services'
 
 export interface Props extends ReactProps {
   type: 'success' | 'info' | 'warn' | 'error'
-  message: string
   close?: boolean
+  message: string
 }
 interface State {
   isClosed: boolean
@@ -115,19 +63,3 @@ const Alert: FC<Props> = ({ type, message, close, children }) => {
 }
 
 export default Alert
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                    |              Type               | Default |
-| :---------------------- | :-----------------------------: | :-----: |
-| **type**<Required />    | `success` `info` `warn` `error` |         |
-| **message**<Required /> |             string              |         |
-| **close**               |             boolean             |         |
-| **children**            |            ReactNode            |         |
-
-<Comment />
