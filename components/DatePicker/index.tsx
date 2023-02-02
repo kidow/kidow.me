@@ -1,52 +1,3 @@
-import { Comment, DatePicker, Card, Required, Icon } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# DatePicker
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Prerequisite
-
-<Card.List>
-  <Card.Component
-    title="useObjectState"
-    href="/archive/hooks/useObjectState"
-    Icon={Icon.Hook}
-  />
-  <Card.Component
-    title="useOnClickOutside"
-    href="/archive/hooks/useOnClickOutside"
-    Icon={Icon.Hook}
-  />
-</Card.List>
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install dayjs @heroicons/react classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add dayjs @heroicons/react classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/DatePicker/index.tsx"
 import { useMemo, useRef, useId } from 'react'
 import type { FC } from 'react'
 import classnames from 'classnames'
@@ -356,18 +307,3 @@ const DatePicker: FC<Props> = ({ onChange, format = 'YYYY.MM.DD', value }) => {
 }
 
 export default DatePicker
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                     |         Type          |   Default    |
-| :----------------------- | :-------------------: | :----------: |
-| **value**<Required />    |        string         |              |
-| **onChange**<Required /> | (hex: string) => void |              |
-| **format**               |        string         | 'YYYY.MM.DD' |
-
-<Comment />
