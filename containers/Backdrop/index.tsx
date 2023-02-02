@@ -1,35 +1,3 @@
-import { Comment, Card } from 'components'
-import { BackTop } from 'containers'
-import { WrenchScrewdriverIcon, CubeIcon } from '@heroicons/react/24/outline'
-
-<BackTop />
-
-# Backdrop
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Prerequisite
-
-<Card.List>
-  <Card.Component
-    title="Spinner"
-    href="/archive/feedback/Spinner"
-    Icon={CubeIcon}
-  />
-  <Card.Component
-    title="EventListener"
-    href="/archive/utils/EventListener"
-    Icon={WrenchScrewdriverIcon}
-  />
-</Card.List>
-
-### Copy Code
-
-```tsx filename="containers/Backdrop/index.tsx"
 import { useEffect, useState, useCallback } from 'react'
 import type { FC } from 'react'
 import { Spinner } from 'components'
@@ -65,14 +33,3 @@ const Backdrop: FC = () => {
 }
 
 export default Backdrop
-```
-
-```ts filename="services/utils/index.ts"
-export const backdrop = (open: boolean) => EventListener.emit('backdrop', open)
-```
-
-### Usage
-
-</div>
-
-<Comment />
