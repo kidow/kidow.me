@@ -1,37 +1,3 @@
-import { Comment } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Select
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install @heroicons/react classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add @heroicons/react classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/Select/index.tsx"
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import classnames from 'classnames'
 import type {
@@ -96,18 +62,3 @@ const Select: FC<Props> = ({
 }
 
 export default Select
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name         |        Type         | Default |
-| :----------- | :-----------------: | :-----: |
-| **size**     | `xs` `sm` `md` `lg` |  `md`   |
-| **error**    |      ReactNode      |         |
-| **...props** |  HTMLSelectElement  |         |
-
-<Comment />
