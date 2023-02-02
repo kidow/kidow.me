@@ -1,5 +1,16 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# randomString
+
+10~11자리의 랜덤 난수를 생성하는 함수입니다.
+
+### Code
+
+```ts filename="services/utils/index.ts"
+export const randomString = () => Math.random().toString(36).slice(2)
+```
+
+<Comment />

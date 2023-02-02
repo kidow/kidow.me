@@ -1,5 +1,75 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# EventListener
+
+Web API 중 하나인 `CustomEvent`에 대한 함수입니다.
+
+## Steps
+
+<div className='steps'>
+
+### Copy Code
+
+```ts filename="services/event/index.ts"
+export const add = (
+  type: string,
+  listener: EventListenerOrEventListenerObject
+) => window.addEventListener(type, listener)
+
+export const remove = (
+  type: string,
+  listener: EventListenerOrEventListenerObject
+) => window.removeEventListener(type, listener)
+
+export const once = (type: string, listener: any) => {
+  const emitOnce = (event: any) => {
+    listener(event)
+    remove(type, emitOnce)
+  }
+
+  add(type, emitOnce)
+}
+
+export function emit<T>(type: string, detail?: T) {
+  const event = new CustomEvent<T>(type, { detail })
+  window.dispatchEvent(event)
+}
+```
+
+```ts filename="services/index.ts"
+export * as EventListener from './event'
+```
+
+### Usage
+
+```tsx filename="containers/Backdrop/index.tsx"
+import { EventListener } from 'services'
+
+const onBackdrop = useCallback(
+  ({ detail }: any) => {
+    setIsOpen(detail)
+    if (detail) document.body.style.overflow = 'hidden'
+    else document.body.removeAttribute('style')
+  },
+  [isOpen]
+)
+
+useEffect(() => {
+  EventListener.add('backdrop', onBackdrop)
+  return () => EventListener.remove('backdrop', onBackdrop)
+}, [])
+
+<button onClick={() => EventListener.emit('backdrop', true)}>Backdrop</button>
+```
+
+</div>
+
+### References
+
+- https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
+- https://www.falldowngoboone.com/blog/talk-to-your-react-components-with-custom-events/
+
+<Comment />
