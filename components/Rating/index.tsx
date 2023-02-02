@@ -1,37 +1,3 @@
-import { Comment, Rating, Required } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Rating
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/Rating/index.tsx"
 import { useMemo, useCallback } from 'react'
 import type { FC } from 'react'
 import classnames from 'classnames'
@@ -199,25 +165,3 @@ const Rating: FC<Props> = ({
 }
 
 export default Rating
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                     |          Type           | Default |
-| :----------------------- | :---------------------: | :-----: |
-| **value**<Required />    |         number          |         |
-| **onChange**<Required /> | (value: number) => void |         |
-| **readOnly**             |         boolean         |  false  |
-| **disabled**             |         boolean         |  false  |
-| **count**                |         number          |    5    |
-| **half**                 |         boolean         |  false  |
-
-### References
-
-https://github.com/react-component/rate
-
-<Comment />
