@@ -1,34 +1,3 @@
-import { Comment, Card, Icon, Required } from 'components'
-import { BackTop } from 'containers'
-
-<BackTop />
-
-# Dropdown
-
-## Example
-
-## Steps
-
-<div className='steps'>
-
-### Prerequisite
-
-<Card.List>
-  <Card.Component
-    title="useObjectState"
-    href="/archive/hooks/useObjectState"
-    Icon={Icon.Hook}
-  />
-  <Card.Component
-    title="useOnClickOutside"
-    href="/archive/hooks/useOnClickOutside"
-    Icon={Icon.Hook}
-  />
-</Card.List>
-
-### Copy Code
-
-```tsx filename="components/Dropdown/index.tsx"
 import { useRef, useId } from 'react'
 import type { FC } from 'react'
 import { useObjectState, useOnClickOutside } from 'services'
@@ -105,18 +74,3 @@ const Dropdown: FC<Props> = ({ label = 'Dropdown', list, onClick }) => {
 }
 
 export default Dropdown
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                    |          Type           |  Default   |
-| :---------------------- | :---------------------: | :--------: |
-| **list**<Required />    |        string[]         |            |
-| **onClick**<Required /> | (index: number) => void |            |
-| **label**               |         string          | 'Dropdown' |
-
-<Comment />
