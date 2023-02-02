@@ -42,3 +42,10 @@ namespace NToast {
 interface TooltipProps {
   position?: TPosition
 }
+
+interface DrawerProps {
+  isOpen: boolean
+  onClose: () => void
+  position?: TPosition
+  className?: Argument
+}

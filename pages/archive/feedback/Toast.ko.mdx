@@ -1,7 +1,8 @@
-import { Comment, Card, Button } from 'components'
+import { Comment, Card, Button, Icon } from 'components'
 import { BackTop } from 'containers'
 import { toast } from 'services'
 import { Tab, Tabs } from 'nextra-theme-docs'
+import { WrenchScrewdriverIcon } from '@heroicons/react/24/outline'
 
 <BackTop />
 
@@ -30,7 +31,35 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 
 ### Prerequisite
 
+<Card.List>
+  <Card.Component
+    title="useObjectState"
+    href="/archive/hooks/useObjectState"
+    Icon={Icon.Hook}
+  />
+  <Card.Component
+    title="EventListener"
+    href="/archive/utils/EventListener"
+    Icon={WrenchScrewdriverIcon}
+  />
+</Card.List>
+
 ### Install
+
+<Tabs items={['npm', 'yarn']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    npm install classnames
+    ```
+    </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    yarn add classnames
+    ```
+</Tab>
+</Tabs>
 
 ### Define Types
 
@@ -42,6 +71,58 @@ namespace NToast {
     type: NToast.Type
   }
 }
+```
+
+### Add Animation in `tailwind.config.js`
+
+```js filename="tailwind.config.js"
+module.exports = {
+  theme: {
+    extend: {
+      keyframes: {
+        'fade-up': {
+          from: {
+            opacity: 0,
+            transform: 'translate3d(0, -16px, 0)'
+          },
+          '60%': {
+            opacity: 1
+          },
+          to: {
+            transform: 'none'
+          }
+        }
+      },
+      animation: {
+        'fade-up': 'fade-up 0.2s linear'
+      }
+    }
+  }
+}
+```
+
+### Add Util Function
+
+```ts filename="services/utils/index.ts"
+class Toast {
+  private emit(message: string, type: NToast.Type) {
+    EventListener.emit<NToast.Emit>('toast', { message, type })
+  }
+  success(message: string) {
+    this.emit(message, 'success')
+  }
+  info(message: string) {
+    this.emit(message, 'info')
+  }
+  warn(message: string) {
+    this.emit(message, 'warn')
+  }
+  error(message: string) {
+    this.emit(message, 'error')
+  }
+}
+
+export const toast = new Toast()
 ```
 
 ### Copy Code
@@ -133,28 +214,6 @@ const Toast: FC<Props> = () => {
 }
 
 export default Toast
-```
-
-```ts filename="services/utils/index.ts"
-class Toast {
-  private emit(message: string, type: NToast.Type) {
-    EventListener.emit<NToast.Emit>('toast', { message, type })
-  }
-  success(message: string) {
-    this.emit(message, 'success')
-  }
-  info(message: string) {
-    this.emit(message, 'info')
-  }
-  warn(message: string) {
-    this.emit(message, 'warn')
-  }
-  error(message: string) {
-    this.emit(message, 'error')
-  }
-}
-
-export const toast = new Toast()
 ```
 
 ### Usage
