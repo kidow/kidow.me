@@ -60,6 +60,16 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 </Tab>
 </Tabs>
 
+### Reset CSS
+
+```css filename="styles/global.css"
+.color-picker input::-webkit-outer-spin-button,
+.color-picker input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+```
+
 ### Copy Code
 
 ```tsx filename="components/ColorPicker/index.tsx"
@@ -481,5 +491,11 @@ export default Spectrum
 | Name                     |                        Type                        | Default |
 | :----------------------- | :------------------------------------------------: | :-----: |
 | **onChange**<Required /> | (red: number, green: number, blue: number) => void |         |
+
+## References
+
+- https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+- https://github.com/ScottSavarie/react-canvas-color-picker
+- https://codepen.io/pizza3/pen/BVzYNP?editors=0110
 
 <Comment />

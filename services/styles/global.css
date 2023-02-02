@@ -100,3 +100,9 @@ input::-webkit-calendar-picker-indicator {
   border: 4px solid rgba(17, 17, 17, var(--tw-bg-opacity));
   background: #2e2e2e;
 }
+
+.color-picker input::-webkit-outer-spin-button,
+.color-picker input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

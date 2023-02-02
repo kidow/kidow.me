@@ -1,37 +1,3 @@
-import { Comment } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Checkbox
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/Checkbox/index.tsx"
 import classnames from 'classnames'
 import type { FC, ReactNode } from 'react'
 
@@ -134,21 +100,3 @@ const Checkbox: FC<Props> = ({
 }
 
 export default Checkbox
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name              |        Type         | Default |
-| :---------------- | :-----------------: | :-----: |
-| **label**         |      ReactNode      |         |
-| **indeterminate** |       boolean       |  false  |
-| **checked**       |       boolean       |  false  |
-| **onChange**      | (checked: boolean)  |  false  |
-| **size**          | `sm` `md` `lg` `xl` |  `md`   |
-| **disabled**      |       boolean       |  false  |
-
-<Comment />
