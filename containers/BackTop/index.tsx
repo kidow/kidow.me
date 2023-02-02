@@ -1,5 +1,6 @@
-import { ArrowUpIcon } from '@heroicons/react/24/outline'
+import { memo } from 'react'
 import type { FC } from 'react'
+import { ArrowUpIcon } from '@heroicons/react/24/outline'
 
 export interface Props {}
 interface State {}
@@ -15,4 +16,4 @@ const BackTop: FC<Props> = () => {
   )
 }
 
-export default BackTop
+export default memo(BackTop)

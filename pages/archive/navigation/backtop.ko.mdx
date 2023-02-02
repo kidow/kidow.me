@@ -1,5 +1,70 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { ArrowUpIcon } from '@heroicons/react/24/outline'
+
+<BackTop />
+
+# BackTop
+
+## Example
+
+<div className="mt-4">
+  <button
+    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+    className="rounded-full bg-neutral-200 p-2 active:bg-neutral-100 dark:bg-neutral-600 dark:hover:bg-neutral-500 dark:active:bg-neutral-700"
+  >
+    <ArrowUpIcon className="h-5 w-5" />
+  </button>
+</div>
+
+## Steps
+
+<div className="steps">
+
+### Install
+
+<Tabs items={['npm', 'yarn']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    npm install @heroicons/react
+    ```
+    </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    yarn add @heroicons/react
+    ```
+</Tab>
+</Tabs>
+
+### Copy Code
+
+```tsx filename="containers/BackTop/index.tsx"
+import { memo } from 'react'
+import type { FC } from 'react'
+import { ArrowUpIcon } from '@heroicons/react/24/outline'
+
+export interface Props {}
+interface State {}
+
+const BackTop: FC<Props> = () => {
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      className="fixed right-5 bottom-5 z-10 rounded-full bg-neutral-200 p-2 active:bg-neutral-100 dark:bg-neutral-600 dark:hover:bg-neutral-500 dark:active:bg-neutral-700"
+    >
+      <ArrowUpIcon className="h-5 w-5" />
+    </button>
+  )
+}
+
+export default memo(BackTop)
+```
+
+### Usage
+
+</div>
 
 <Comment />
-<BackTop />
