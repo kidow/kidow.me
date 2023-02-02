@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import type { ChangeEvent } from 'react'
+import type { ChangeEvent, RefObject, ForwardedRef } from 'react'
 
 export function useObjectState<T>(
   initialObject: T
@@ -52,4 +52,45 @@ export function useObjectState<T>(
   }, [state])
 
   return [state, onChange, onEventChange, resetState]
+}
+
+export function useOnClickOutside<T extends HTMLElement>(
+  ref: RefObject<T>,
+  handler: (event: MouseEvent | TouchEvent) => void,
+  id?: string
+): void {
+  const listener = (event: MouseEvent | TouchEvent) => {
+    const el = ref?.current
+    if (
+      !el ||
+      el.contains(event.target as Node) ||
+      id === (event.target as HTMLElement).id
+    )
+      return
+    handler(event)
+  }
+  useEffect(() => {
+    document.addEventListener('mouseup', listener)
+    return () => {
+      document.removeEventListener('mouseup', listener)
+    }
+  }, [ref, handler, id])
+}
+
+export function useCombinedRefs<T>(
+  ...refs: (RefObject<T> | ForwardedRef<T>)[]
+): RefObject<T> {
+  const targetRef = useRef<T>(null)
+
+  useEffect(() => {
+    refs.forEach((ref) => {
+      if (!ref) return
+
+      if (typeof ref === 'function') ref(targetRef.current)
+      // @ts-ignore
+      else ref.current = targetRef.current
+    })
+  }, [refs])
+
+  return targetRef
 }
