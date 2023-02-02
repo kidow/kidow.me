@@ -1,37 +1,3 @@
-import { Comment } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# IconButton
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/IconButton/index.tsx"
 import { cloneElement, useMemo } from 'react'
 import type {
   ButtonHTMLAttributes,
@@ -69,17 +35,3 @@ const IconButton: FC<Props> = ({ children, className, ...props }) => {
 }
 
 export default IconButton
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name         |       Type        | Default |
-| :----------- | :---------------: | :-----: |
-| **children** |     ReactNode     |         |
-| **...props** | HTMLButtonElement |         |
-
-<Comment />
