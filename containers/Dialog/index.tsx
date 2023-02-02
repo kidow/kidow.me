@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import classnames from 'classnames'
 
-interface Props {
+interface Props extends ReactProps {
   title?: string
   onClose?: () => void
   description?: string
@@ -28,7 +28,6 @@ interface Props {
     | 'max-w-md'
     | 'max-w-sm'
     | 'max-w-xs'
-  children?: ReactNode
 }
 
 const Dialog = forwardRef<HTMLDialogElement, Props>(
