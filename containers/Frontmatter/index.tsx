@@ -11,11 +11,11 @@ interface State {}
 
 const Frontmatter: FC<Props> = () => {
   const { frontMatter } = useConfig()
-  const { locale, asPath } = useRouter()
+  const { locale } = useRouter()
 
   return (
     <div className="text-center">
-      <h1 className="mt-4 text-2xl font-bold md:text-3xl">
+      <h1 className="mt-4 text-3xl font-bold md:text-4xl">
         {frontMatter.title}
       </h1>
       <div className="mt-4 text-sm text-neutral-400 dark:text-neutral-500">

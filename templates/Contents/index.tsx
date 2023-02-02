@@ -91,6 +91,7 @@ const Contents: FC<Props> = () => {
       <ul className="mt-10 flex select-none items-center justify-center">
         <li>
           <Link
+            scroll={false}
             href={{ query: { page: 1 } }}
             className="flex h-10 w-10 items-center justify-center rounded-full text-neutral-400 hover:bg-neutral-200 disabled:cursor-not-allowed disabled:hover:bg-inherit dark:hover:bg-neutral-800"
           >
@@ -99,6 +100,7 @@ const Contents: FC<Props> = () => {
         </li>
         <li>
           <Link
+            scroll={false}
             href={{ query: { page: page === 1 ? 1 : page - 1 } }}
             className="flex h-10 w-10 items-center justify-center rounded-full text-neutral-400 hover:bg-neutral-200 disabled:cursor-not-allowed disabled:hover:bg-inherit dark:hover:bg-neutral-800"
           >
@@ -123,6 +125,7 @@ const Contents: FC<Props> = () => {
                         : key + 1
                   }
                 }}
+                scroll={false}
                 className={classnames(
                   'h-10 w-10',
                   page > numPages - 2
@@ -157,6 +160,7 @@ const Contents: FC<Props> = () => {
         ))}
         <li>
           <Link
+            scroll={false}
             href={{ query: { page: page === numPages ? page : page + 1 } }}
             className="flex h-10 w-10 items-center justify-center rounded-full text-neutral-400 hover:bg-neutral-200 disabled:cursor-not-allowed disabled:hover:bg-inherit dark:hover:bg-neutral-800"
           >
@@ -165,6 +169,7 @@ const Contents: FC<Props> = () => {
         </li>
         <li>
           <Link
+            scroll={false}
             href={{ query: { page: numPages } }}
             className="flex h-10 w-10 items-center justify-center rounded-full text-neutral-400 hover:bg-neutral-200 disabled:cursor-not-allowed disabled:hover:bg-inherit dark:hover:bg-neutral-800"
           >
