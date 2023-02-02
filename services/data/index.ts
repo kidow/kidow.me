@@ -78,7 +78,8 @@ export const contents: Array<{
   {
     ko: {
       title: '블로그 오픈그래프 이미지 동적으로 만들기',
-      description: '',
+      description:
+        '동적으로 오픈그래프용 이미지를 만들 수 있다는 것을 알았을 때, opengraph.kidow.me 라는 주소로 Node.js 프로젝트를 만들어서 블로그에 썸네일로 쓰던 때가 있었습니다.',
       keywords: 'Nextjs, Vercel, Opengraph, Satori, Supabase'
     },
     en: {
