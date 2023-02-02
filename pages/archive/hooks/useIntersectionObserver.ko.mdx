@@ -1,5 +1,55 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# useIntersectionObserver
+
+## Steps
+
+<div className="steps">
+
+### Copy Code
+
+```tsx filename="services/hooks/index.tsx"
+import { useRef, useState, useEffect } from 'react'
+import type { RefObject } from 'react'
+
+export function useIntersectionObserver<T extends HTMLElement>(
+  options?: IntersectionObserverInit
+): [RefObject<T>, boolean] {
+  const ref = useRef<T>(null)
+  const [entry, setEntry] = useState<IntersectionObserverEntry>()
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setEntry(entry),
+      options
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [ref.current])
+
+  return [ref, entry?.isIntersecting || false]
+}
+```
+
+### Usage
+
+```tsx
+const [ref, isIntersecting] = useIntersectionObserver<HTMLDivElement>()
+
+useEffect(() => {
+    console.log(isIntersecting)
+}, [isIntersecting])
+
+<div ref={ref} />
+```
+
+</div>
+
+### References
+
+- https://developer.mozilla.org/ko/docs/Web/API/Intersection_Observer_API
+
+<Comment />
