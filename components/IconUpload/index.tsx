@@ -1,19 +1,3 @@
-import { Comment, Required } from 'components'
-import { BackTop } from 'containers'
-
-<BackTop />
-
-# IconUpload
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Copy Code
-
-```tsx filename="components/IconUpload/index.tsx"
 import type { FC } from 'react'
 
 export interface Props {
@@ -41,21 +25,3 @@ const IconUpload: FC<Props> = ({ value, onChange }) => {
 }
 
 export default IconUpload
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                     |                Type                 | Default |
-| :----------------------- | :---------------------------------: | :-----: |
-| **value**<Required />    |               string                |         |
-| **onChange**<Required /> | `(files: FileList \| null) => void` |         |
-
-### References
-
-- https://tailwindcss.com/docs/hover-focus-and-other-states#file-input-buttons
-
-<Comment />
