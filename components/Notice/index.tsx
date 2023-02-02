@@ -1,37 +1,3 @@
-import { Comment, Required } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Notice
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install @heroicons/react classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add @heroicons/react classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/Notice/index.tsx"
 import type { FC, ReactNode } from 'react'
 import classnames from 'classnames'
 import {
@@ -96,18 +62,3 @@ const Notice: FC<Props> = ({ type, content, caption }) => {
 }
 
 export default Notice
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                    |               Type               | Default |
-| :---------------------- | :------------------------------: | :-----: |
-| **content**<Required /> |              string              |         |
-| **type**                | `success` `info` `warn` `danger` |         |
-| **caption**             |            ReactNode             |         |
-
-<Comment />
