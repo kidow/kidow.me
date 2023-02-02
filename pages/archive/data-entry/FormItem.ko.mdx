@@ -1,5 +1,85 @@
-import { Comment } from 'components'
+import { Comment, Form } from 'components'
 import { BackTop } from 'containers'
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+<BackTop />
+
+# FormItem
+
+## Example
+
+## Steps
+
+<div className="steps">
+
+### Install
+
+<Tabs items={['npm', 'yarn']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    npm install classnames
+    ```
+    </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    yarn add classnames
+    ```
+</Tab>
+</Tabs>
+
+### Define Types
+
+```ts filename="types/index.d.ts"
+interface ReactProps {
+  children?: ReactNode
+}
+```
+
+### Copy Code
+
+```tsx filename="components/Form/Item/index.tsx"
+import type { FC } from 'react'
+import classnames from 'classnames'
+
+export interface Props extends ReactProps {
+  label?: string
+  required?: boolean
+}
+interface State {}
+
+const FormItem: FC<Props> = ({ label, children, required }) => {
+  return (
+    <label className="block">
+      {!!label && (
+        <span
+          className={classnames(
+            'cursor-pointer text-xs font-semibold text-slate-600',
+            { 'after:text-red-500 after:content-["*"]': required }
+          )}
+        >
+          {label}
+        </span>
+      )}
+      <div className="mt-1">{children}</div>
+    </label>
+  )
+}
+
+export default FormItem
+```
+
+### Usage
+
+</div>
+
+### Props
+
+| Name         |   Type    | Default |
+| :----------- | :-------: | :-----: |
+| **label**    |  string   |         |
+| **required** |  boolean  |         |
+| **children** | ReactNode |         |
 
 <Comment />
-<BackTop />
