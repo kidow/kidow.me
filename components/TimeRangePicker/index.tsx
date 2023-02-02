@@ -1,63 +1,3 @@
-import { Comment, Required, Card, Icon } from 'components'
-import { BackTop } from 'containers'
-import { WrenchScrewdriverIcon, CubeIcon } from '@heroicons/react/24/outline'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# TimeRangePicker
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Prerequisite
-
-<Card.List>
-  <Card.Component
-    title="Button"
-    href="/archive/inputs/Button"
-    Icon={CubeIcon}
-  />
-  <Card.Component
-    title="useObjectState"
-    href="/archive/hooks/useObjectState"
-    Icon={Icon.Hook}
-  />
-  <Card.Component
-    title="useOnClickOutside"
-    href="/archive/hooks/useOnClickOutside"
-    Icon={Icon.Hook}
-  />
-  <Card.Component
-    title="twoDigitsNumber"
-    href="/archive/utils/twoDigitsNumber"
-    Icon={WrenchScrewdriverIcon}
-  />
-</Card.List>
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install dayjs @heroicons/react classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add dayjs @heroicons/react classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/TimeRangePicker/index.tsx"
 import { XCircleIcon } from '@heroicons/react/24/solid'
 import { Button } from 'components'
 import classnames from 'classnames'
@@ -260,7 +200,7 @@ const TimeRangePicker: FC<Props> = ({
               <div className="relative flex justify-center text-neutral-500">
                 <div
                   ref={hourRef}
-                  className="scrollbar-hide z-10 h-[200px] overflow-auto overscroll-none py-20"
+                  className="z-10 h-[200px] overflow-auto overscroll-none py-20 scrollbar-hide"
                 >
                   {Array.from({ length: 24 }, (_, i) => twoDigitsNumber(i)).map(
                     (hour) => (
@@ -297,7 +237,7 @@ const TimeRangePicker: FC<Props> = ({
                 </div>
                 <div
                   ref={minuteRef}
-                  className="scrollbar-hide z-10 h-[200px] overflow-auto overscroll-none py-20"
+                  className="z-10 h-[200px] overflow-auto overscroll-none py-20 scrollbar-hide"
                 >
                   {Array.from({ length: 6 }, (_, i) =>
                     twoDigitsNumber(10 * i)
@@ -349,19 +289,3 @@ const TimeRangePicker: FC<Props> = ({
 }
 
 export default TimeRangePicker
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                      |                     Type                     | Default |
-| :------------------------ | :------------------------------------------: | :-----: |
-| **startTime**<Required /> |                    string                    |         |
-| **endTime**<Required />   |                    string                    |         |
-| **onChange**<Required />  | (startTime: string, endTime: string) => void |         |
-| **Error**                 |                  ReactNode                   |         |
-
-<Comment />
