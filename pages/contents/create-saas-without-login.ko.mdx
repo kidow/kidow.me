@@ -6,15 +6,27 @@ thumbnail: https://kidow.me/api/image?id=7rcezlkedi5
 keywords: Saas, Login, Authless, Feedback, Website, Startup
 ---
 
-import { Comment } from 'components'
+import { Comment, Figure } from 'components'
 import { BackTop, Frontmatter, ShareButtons } from 'containers'
 
 <Frontmatter />
 <ShareButtons />
+<BackTop />
 
-## Fivew
+<Figure image="/contents/12/feedbank.png" />
 
-### three
+8월에 MVP를 만들고 약 두 달간 정식 버전을 만들겠다고 열심히 설쳤는데, 뒤돌아보니 크게 착각했던 사실이 하나 있었습니다.
+
+MVP를 만들었다고 해서 **정식 버전을 너무 힘주고 만들려고** 했다는 겁니다. 대시보드 만들고, 벌써 수익 모델 만들 생각하고... 일이 갑자기 많아지면서 피로감이 몰려왔습니다. 너무 바보같은 생각이었고 최소의 최소 기능으로 다시 만들자고 판단했습니다.
+
+**로그인도 없이 월 2,000 달러를 버는** 서비스가 있다는 글을 읽고 깜짝 놀란 적이 있었습니다. 어떻게 그럴 수가 있지? 싶었습니다. '아, 세상은 정말 신기한 서비스가 많구나.'
+
+곰곰히 생각해봤을 때, 내 서비스 역시도 로그인 없이 제품을 만들려면 만들 수도 있겠다고 생각이 들었습니다. 방문자들이 해당 웹사이트에서 피드백을 등록하면, 웹사이트 운영자가 대시보드 가서 보도록 할게 아니라 **바로 이메일로 해당 내용을 보내주는 건** 어떨까 하고 말이죠.
+
+그렇게 저는 이틀 만에 랜딩 페이지와 위젯을 다시 만들어 출시하게 되었습니다.
+
+<Figure image="/contents/12/no-login.png" />
+
+[피드뱅크 바로가기](https://feedbank.app)
 
 <Comment />
-<BackTop />
