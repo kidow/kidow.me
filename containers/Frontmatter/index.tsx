@@ -21,7 +21,7 @@ const Frontmatter: FC<Props> = () => {
       <div className="mt-4 text-sm text-neutral-400 dark:text-neutral-500">
         {dayjs(frontMatter.date).locale(locale).format('LL')}
       </div>
-      <div className="mt-4 flex flex-wrap justify-center gap-3 text-xs md:text-sm">
+      <div className="mt-4 mb-8 flex flex-wrap justify-center gap-3 text-xs md:text-sm">
         {frontMatter.keywords?.split(', ').map((keyword, i) => (
           <span
             key={i}

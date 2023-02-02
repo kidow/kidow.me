@@ -49,7 +49,9 @@ const Contents: FC<Props> = () => {
                 <h2
                   className={classnames(
                     'text-lg line-clamp-2 group-hover:underline',
-                    { 'md:text-3xl md:font-semibold': key === 0 }
+                    key === 0
+                      ? 'font-medium md:text-3xl md:font-semibold'
+                      : 'font-medium'
                   )}
                 >
                   {item[locale].title}
