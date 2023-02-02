@@ -1,53 +1,3 @@
-import { Comment, Card, Required, Icon } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-import { CubeIcon } from '@heroicons/react/24/outline'
-
-<BackTop />
-
-# Form
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Prerequisite
-
-<Card.List>
-  <Card.Component
-    title="useObjectState"
-    href="/archive/hooks/useObjectState"
-    Icon={Icon.Hook}
-  />
-  <Card.Component
-    title="FormItem"
-    href="/archive/data-entry/FormItem"
-    Icon={CubeIcon}
-  />
-</Card.List>
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install @heroicons/react classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add @heroicons/react classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/Form/index.tsx"
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { useRef } from 'react'
 import type { FC, ReactNode } from 'react'
@@ -104,17 +54,3 @@ const Form: FC<Props> = ({ title, description, children }) => {
 }
 
 export default Object.assign(Form, { Item: FormItem })
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                  |   Type    | Default |
-| :-------------------- | :-------: | :-----: |
-| **title**<Required /> |  string   |         |
-| **description**       | ReactNode |         |
-
-<Comment />
