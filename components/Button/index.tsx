@@ -2,6 +2,8 @@ import classnames from 'classnames'
 import { Spinner } from 'components'
 import type { FC, DetailedHTMLProps, ButtonHTMLAttributes } from 'react'
 
+import ButtonGroup from './Group'
+
 export interface Props
   extends DetailedHTMLProps<
     ButtonHTMLAttributes<HTMLButtonElement>,
@@ -93,4 +95,4 @@ const Button: FC<Props> = ({
   )
 }
 
-export default Button
+export default Object.assign(Button, { Group: ButtonGroup })

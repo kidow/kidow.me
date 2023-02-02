@@ -1,19 +1,3 @@
-import { Comment, Button, Required } from 'components'
-import { BackTop } from 'containers'
-
-<BackTop />
-
-# ButtonGroup
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Copy Code
-
-```tsx filename="components/Button/Group/index.tsx"
 import type { FC } from 'react'
 
 export interface Props {
@@ -38,17 +22,3 @@ const ButtonGroup: FC<Props> = ({ list, onClick }) => {
 }
 
 export default ButtonGroup
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                    |         Type          | Default |
-| :---------------------- | :-------------------: | :-----: |
-| **list**<Required />    |       string[]        |         |
-| **onClick**<Required /> | (key: number) => void |         |
-
-<Comment />
