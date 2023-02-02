@@ -1,37 +1,3 @@
-import { Comment, Required, Radio } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Radio
-
-## Example
-
-## Steps
-
-<div className='steps'>
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/Radio/index.tsx"
 import classnames from 'classnames'
 
 export interface Props<T> {
@@ -103,20 +69,3 @@ function Radio<T>({
 }
 
 export default Radio
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                     |                                     Type                                      |   Default    |
-| :----------------------- | :---------------------------------------------------------------------------: | :----------: |
-| **value**<Required />    |                                       T                                       |              |
-| **onChange**<Required /> |                              (value: T) => void                               |              |
-| **options**<Required />  | `Array<{ name: stirng; description?: string; value: T; disabled?: boolean }>` |              |
-| **direction**            |                            `horizontal` `vertical`                            | `horizontal` |
-| **card**                 |                                    boolean                                    |    false     |
-
-<Comment />
