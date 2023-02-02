@@ -1,37 +1,3 @@
-import { Comment, Textarea } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Textarea
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/Textarea/index.tsx"
 import { useId } from 'react'
 import type {
   FC,
@@ -117,21 +83,3 @@ const Textarea: FC<Props> = ({
 }
 
 export default Textarea
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name          |        Type         | Default |
-| :------------ | :-----------------: | :-----: |
-| **onEnter**   |     () => void      |         |
-| **info**      |      ReactNode      |         |
-| **error**     |      ReactNode      |         |
-| **float**     |       boolean       |         |
-| **fullWidth** |       boolean       |         |
-| **...props**  | HTMLTextAreaElement |         |
-
-<Comment />
