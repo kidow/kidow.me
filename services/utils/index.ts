@@ -32,3 +32,6 @@ export const rgbToHex = (red: number, green: number, blue: number) => {
     '#' + ((1 << 24) + (red << 16) + (green << 8) + blue).toString(16).slice(1)
   )
 }
+
+export const twoDigitsNumber = (digit: number): string =>
+  digit < 10 ? `0${digit}` : String(digit)

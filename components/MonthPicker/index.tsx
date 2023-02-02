@@ -1,58 +1,3 @@
-import { Comment, Card, Icon, Required } from 'components'
-import { BackTop } from 'containers'
-import { WrenchScrewdriverIcon } from '@heroicons/react/24/outline'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# MonthPicker
-
-## Example
-
-## Steps
-
-<div className='steps'>
-
-### Prerequisite
-
-<Card.List>
-  <Card.Component
-    title="useObjectState"
-    href="/archive/hooks/useObjectState"
-    Icon={Icon.Hook}
-  />
-  <Card.Component
-    title="useOnClickOutside"
-    href="/archive/hooks/useOnClickOutside"
-    Icon={Icon.Hook}
-  />
-  <Card.Component
-    title="twoDigitsNumber"
-    href="/archive/utils/twoDigitsNumber"
-    Icon={WrenchScrewdriverIcon}
-  />
-</Card.List>
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install dayjs @heroicons/react classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add dayjs @heroicons/react classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/MonthPicker/index.tsx"
 import { useRef, useId } from 'react'
 import type { FC } from 'react'
 import classnames from 'classnames'
@@ -180,17 +125,3 @@ const MonthPicker: FC<Props> = ({ value, onChange }) => {
 }
 
 export default MonthPicker
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                     |          Type           | Default |
-| :----------------------- | :---------------------: | :-----: |
-| **value**<Required />    |         string          |         |
-| **onChange**<Required /> | (value: string) => void |         |
-
-<Comment />
