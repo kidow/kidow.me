@@ -1,37 +1,3 @@
-import { Comment, Breadcrumb, Required } from 'components'
-import { BackTop } from 'containers'
-import { Tab, Tabs } from 'nextra-theme-docs'
-
-<BackTop />
-
-# Breadcrumb
-
-## Example
-
-## Steps
-
-<div className="steps">
-
-### Install
-
-<Tabs items={['npm', 'yarn']}>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    npm install classnames
-    ```
-    </Tab>
-  {/* prettier-ignore */}
-  <Tab>
-    ```bash
-    yarn add classnames
-    ```
-</Tab>
-</Tabs>
-
-### Copy Code
-
-```tsx filename="components/Breadcrumb/index.tsx"
 import type { FC } from 'react'
 import classnames from 'classnames'
 
@@ -70,16 +36,3 @@ const Breadcrumbs: FC<Props> = ({ list }) => {
 }
 
 export default Breadcrumbs
-```
-
-### Usage
-
-</div>
-
-### Props
-
-| Name                 |                  Type                   | Default |
-| :------------------- | :-------------------------------------: | :-----: |
-| **list**<Required /> | `Array<{ path: string; name: string }>` |         |
-
-<Comment />
