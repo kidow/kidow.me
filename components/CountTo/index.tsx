@@ -1,39 +1,3 @@
-import { Comment, CountTo, Required, Card } from 'components'
-import { BackTop } from 'containers'
-import { Callout } from 'nextra-theme-docs'
-import { Cog6ToothIcon } from '@heroicons/react/24/outline'
-
-<BackTop />
-
-# CountTo
-
-<Callout emoji="🛠️">아직 미완성입니다.</Callout>
-
-## Example
-
-### Default
-
-<div className="mt-4">
-  <CountTo end={3000} />
-</div>
-
-## Steps
-
-<div className="stpes">
-
-### Prerequisite
-
-<Card.List>
-  <Card.Component
-    title="priceFormat"
-    href="/archive/utils/priceFormat"
-    Icon={Cog6ToothIcon}
-  />
-</Card.List>
-
-### Copy Code
-
-```tsx filename="components/CountTo/index.tsx"
 import { useEffect, useRef, useCallback, useLayoutEffect, useMemo } from 'react'
 import type { RefObject, FC } from 'react'
 import { priceFormat } from 'services'
@@ -428,26 +392,3 @@ const CountTo: FC<CountUpProps> = (props) => {
 }
 
 export default CountTo
-```
-
-### Usage
-
-```tsx
-<CountTo start={0} end={3000} duration={2} />
-```
-
-</div>
-
-### Props
-
-| Name                |  Type  | Default |
-| :------------------ | :----: | :-----: |
-| **end**<Required /> | number |         |
-| **start**           | number |    0    |
-| **duration**        | number |    2    |
-
-### References
-
-- https://github.com/glennreyes/react-countup
-
-<Comment />
