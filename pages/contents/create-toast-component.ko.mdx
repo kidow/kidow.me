@@ -10,7 +10,6 @@ import { Comment, Figure } from 'components'
 import { BackTop, Frontmatter, ShareButtons } from 'containers'
 
 <Frontmatter />
-<ShareButtons />
 <BackTop />
 
 개발자 채팅방 [커디](https://coddee.dev)를 만들면서 유저들에게 알림 메시지를 띄워야 하는 경우가 있었습니다.
@@ -247,4 +246,5 @@ toast.error('죄송합니다. 에러가 발생했습니다.')
 - `window.CustomEvent` 덕분에 전역에서 Toast 같은 컴포넌트를 다루기 수월해졌다.
 - `createPortal`을 통해 전역 컴포넌트를 별개의 DOM으로 취급하여 CSS 충돌을 최대한 방지 가능
 
+<ShareButtons />
 <Comment />

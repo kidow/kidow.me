@@ -25,54 +25,83 @@ const ShareButtons: FC<Props> = () => {
     }
   }, [])
   return (
-    <div className="fixed top-[180px] right-[calc((100vw-896px)/2+896px)] hidden lg:block">
-      <ul className="flex flex-col gap-3 rounded-full border border-neutral-300 bg-white p-2 dark:border-neutral-700 dark:bg-neutral-800">
-        <CopyToClipboard
-          text={`https://kidow.me${asPath}`}
-          onCopy={() => toast.success('Successfully copied!')}
-        >
-          <button className="rounded-full border border-neutral-200 p-2 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-500">
-            <Icon.Share />
+    <>
+      <div className="fixed top-[180px] right-[calc((100vw-896px)/2+896px)] hidden lg:block">
+        <ul className="flex flex-col gap-3 rounded-full border border-neutral-300 bg-white p-2 dark:border-neutral-700 dark:bg-neutral-800">
+          <CopyToClipboard
+            text={`https://kidow.me${asPath}`}
+            onCopy={() => toast.success('Successfully copied!')}
+          >
+            <button className="rounded-full border border-neutral-200 p-2 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-500">
+              <Icon.Share />
+            </button>
+          </CopyToClipboard>
+          <button
+            onClick={() =>
+              window.open(
+                `http://www.facebook.com/sharer.php?u=${window.location.href}`,
+                '_blank',
+                'width=600,height=400'
+              )
+            }
+            className="rounded-full border border-neutral-200 p-2 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-500"
+          >
+            <Icon.Facebook />
           </button>
-        </CopyToClipboard>
-        <button
-          onClick={() =>
-            window.open(
-              `http://www.facebook.com/sharer.php?u=${window.location.href}`,
-              '_blank',
-              'width=600,height=400'
-            )
-          }
-          className="rounded-full border border-neutral-200 p-2 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-500"
-        >
-          <Icon.Facebook />
-        </button>
-        <button
-          onClick={() =>
-            window.open(
-              `https://twitter.com/intent/tweet?url=${window.location.href}`,
-              '_blank',
-              'width=600,height=400'
-            )
-          }
-          className="rounded-full border border-neutral-200 p-2 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-500"
-        >
-          <Icon.Twitter />
-        </button>
-        {locale === 'ko' && (
+          <button
+            onClick={() =>
+              window.open(
+                `https://twitter.com/intent/tweet?url=${window.location.href}`,
+                '_blank',
+                'width=600,height=400'
+              )
+            }
+            className="rounded-full border border-neutral-200 p-2 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-500"
+          >
+            <Icon.Twitter />
+          </button>
+          {locale === 'ko' && (
+            <button
+              onClick={() =>
+                window.Kakao?.Link?.sendScrap({
+                  requestUrl: window.location.href
+                })
+              }
+              className="rounded-full border border-neutral-200 p-2 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-500"
+            >
+              <Icon.KakaoTalk />
+            </button>
+          )}
+        </ul>
+      </div>
+      <div className="flex justify-center px-6 pt-5">
+        <div className="flex items-center gap-3">
+          <CopyToClipboard
+            text={`https://kidow.me${asPath}`}
+            onCopy={() => toast.success('Successfully copied!')}
+          >
+            <button>
+              <Icon.Share />
+            </button>
+          </CopyToClipboard>
+          <button>
+            <Icon.Facebook />
+          </button>
+          <button>
+            <Icon.Twitter />
+          </button>
           <button
             onClick={() =>
               window.Kakao?.Link?.sendScrap({
                 requestUrl: window.location.href
               })
             }
-            className="rounded-full border border-neutral-200 p-2 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-500"
           >
             <Icon.KakaoTalk />
           </button>
-        )}
-      </ul>
-    </div>
+        </div>
+      </div>
+    </>
   )
 }
 
