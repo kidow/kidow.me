@@ -71,8 +71,9 @@ const Checkbox: FC<Props> = ({
             'before:absolute before:border-white': checked || indeterminate,
             'border-blue-500 bg-blue-500':
               !disabled && (checked || indeterminate),
-            'bg-white': !checked && !indeterminate,
-            'bg-slate-400': disabled && checked
+            'bg-white dark:border-neutral-600 dark:bg-neutral-700':
+              !checked && !indeterminate,
+            'bg-neutral-400': disabled && checked
           }
         )}
         onChange={(e) => {
@@ -84,7 +85,9 @@ const Checkbox: FC<Props> = ({
         <span
           className={classnames(
             'flex-1 select-none',
-            disabled ? 'text-slate-400' : 'text-slate-600',
+            disabled
+              ? 'text-neutral-400'
+              : 'text-neutral-600 dark:text-neutral-200',
             {
               'text-sm': size === 'sm',
               'text-lg': size === 'lg',

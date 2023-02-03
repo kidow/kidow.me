@@ -1,4 +1,4 @@
-import { Comment } from 'components'
+import { Comment, Checkbox } from 'components'
 import { BackTop } from 'containers'
 import { Tab, Tabs } from 'nextra-theme-docs'
 
@@ -7,6 +7,40 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 # Checkbox
 
 ## Example
+
+### Default
+
+<div className="mt-4 flex gap-4">
+  <Checkbox checked={false} />
+  <Checkbox checked />
+</div>
+
+### Label
+
+<div className="mt-4">
+  <Checkbox checked label="Label" />
+</div>
+
+### Size
+
+<div className="mt-4 flex items-end gap-4">
+  <Checkbox checked size="sm" />
+  <Checkbox checked size="md" />
+  <Checkbox checked size="lg" />
+  <Checkbox checked size="xl" />
+</div>
+
+### Disabled
+
+<div className="mt-4">
+  <Checkbox checked={false} disabled />
+</div>
+
+### Indeterminate
+
+<div className="mt-4">
+  <Checkbox checked={false} indeterminate />
+</div>
 
 ## Steps
 
@@ -137,6 +171,17 @@ export default Checkbox
 ```
 
 ### Usage
+
+```tsx
+<Checkbox
+  checked={false}
+  onChange={(checked) => setValue(checkbed)}
+  size="lg"
+  disabled={false}
+  label="Label"
+  indeterminate
+/>
+```
 
 </div>
 
