@@ -1,12 +1,12 @@
 ---
 title: 6개의 프로젝트를 하나의 블로그로 통합하기
-date: 2023-02-01
+date: 2023-02-03
 description: 기존에 운영하고 있던 6개의 서브도메인 프로젝트를 단 하나의 프로젝트로 합쳤습니다.
 thumbnail: https://kidow.me/api/image?id=umd5bysw08e
 keywords: Nextra
 ---
 
-import { Comment } from 'components'
+import { Comment, Figure } from 'components'
 import { BackTop, Frontmatter, ShareButtons } from 'containers'
 
 <BackTop />
@@ -22,17 +22,17 @@ import { BackTop, Frontmatter, ShareButtons } from 'containers'
 
 블로그 프로젝트에 설치한 NPM 패지키만 해도 벌써 20개가 넘습니다. 필요한 플러그인을 가져다 쓰는 것은 경량화와 다양성, 선택의 폭이 넓어진 다는 점에서는 좋겠지만, 가장 큰 문제는 Gatsby의 버전이 오를 때마다 설치한 플러그인도 모두 버전업을 해주어야 한다는 점입니다. 심지어는 마이그레이션 과정에서 오류가 나서 지금 Gatsby는 5 버전이지만 현재 블로그는 4 버전에서 멈춰 있습니다.
 
-### 나는 GraphQL이 싫다.
+### 나는 GraphQL이 싫다
 
-저는 GraphQL 안 좋아합니다. 그 기술을 강제하는 것이 그냥 싫었습니다. 막상 그렇게 성능을 체감하지도 못했습니다. GraphQL 자체는 존중하지만 Rest API가 여전히 건재한 것은 다 이유가 있지 않을까 싶네요.
+저는 GraphQL 안 좋아합니다. 그 기술을 강제하는 것이 그냥 싫었습니다. 막상 그렇게 좋은 성능을 체감하지도 못했습니다. GraphQL 자체는 존중하지만 Rest API가 여전히 건재한 것은 다 이유가 있지 않을까 싶네요.
 
 ## Nextra
 
 이번에 사용한 프레임워크는 **Nextra**라는 프레임워크입니다. 이름부터 Next.js 산하느낌이 나는 데, Next.js와 MDX를 합쳐놓았다고 합니다.
 
-Vercel에서 새 프로젝트를 생성하다가 `Documentation Starter Kit`을 보고서 처음 접하게 되었는 데, UI 구성이 깔끔하고 의외로 많은 기능을 포함하고 있다는 것을 알게 되었습니다.
+Vercel에서 새 프로젝트를 생성하다가 `Documentation Starter Kit`을 보고서 처음 접하게 되었는 데, UI 구성이 깔끔하고 의외로 많은 기능을 포함하고 있다는 것을 알게 되었습니다. Gatsby에서 애를 먹었던 i18n 구성도 간단했습니다.
 
-문서를 둘러보고 나니 강력한 확신이 생겼습니다. 지금 만들고 있는 6개의 서브도메인 프로젝트를 이 프레임워크로 **하나로 통합할 수** 있을 것 같다는 생각이 들었습니다. 현재 운영 중인 6개의 프로젝트는 다음과 같습니다.
+문서를 둘러보고 나니 강력한 확신이 생겼습니다. 지금 만들고 있는 6개의 서브도메인 프로젝트를 이 프레임워크로 **하나로 통합할 수** 있을 것 같다는 생각이 들었습니다. 운영 중이었던 6개의 프로젝트들은 다음과 같습니다.
 
 - [blog.kidow.me](https://blog.kidow.me): 블로그 (Gatsby)
 - [memo.kidoe.me](https://memo.kidow.me): 개인 메모 앱 (React)
@@ -40,6 +40,136 @@ Vercel에서 새 프로젝트를 생성하다가 `Documentation Starter Kit`을 
 - [archive.kidow.me](https://archive.kidow.me) 개인 코드 저장소 (Docusaurus)
 - [components.kidow.me](https://components.kidow.me) 개인 컴포넌트 저장소 (Storybook)
 - [resume.kidow.me](https://resume.kidow.me) 이력서 (Parcel)
+
+보시면 6개의 프로젝트가 전부 다른 프레임워크를 사용하고 있습니다. 각기 다른 프레임워크에 대해 알아간다는 점은 좋지만 6개의 프로젝트는 유지보수가 쉽지 않습니다.
+
+하지만 Nextra에서 해답을 찾을 수 있었습니다. 이제 그 해결법을 하나하나 소개해 보겠습니다.
+
+### \_meta.json
+
+Nextra에는 `_meta.json`이라는 파일이 있습니다. pages 폴더 내에서 폴더 단위로 하나씩 있는 건데, 각각의 마크다운 파일이 하나의 페이지가 되고 그 페이지에 대한 구성을 재정의하도록 돕는 파일입니다.
+
+현 프로젝트에서 최상위 `_meta.json` 코드는 다음과 같습니다.
+
+```json filename="pages/_meta.ko.json"
+{
+  "index": {
+    "type": "page",
+    "title": "Kidow Blog",
+    "display": "hidden"
+  },
+  "contents": {
+    "display": "hidden"
+  },
+  "resume": {
+    "title": "Résumé",
+    "type": "page"
+  },
+  "archive": {
+    "type": "page",
+    "title": "Archive"
+  },
+  "memo": {
+    "type": "page",
+    "title": "Memo",
+    "theme": {
+      "layout": "raw"
+    }
+  },
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "mailto:wcgo2ling@gmail.com"
+  }
+}
+```
+
+#### index
+
+index는 홈페이지입니다. `"type": "page"`는 해당 페이지를 사이드 바가 아닌 상단 네비게이션 바에 노출한다는 의미입니다. `"title"`은 노출 시 표시할 텍스트를 의미하구요.
+
+`"display": "hidden"`의 경우는 사이드 바, 상단 네비게이션 바 어디에도 노출시키지 않는 히든 페이지로 취급한다는 의미입니다. 단지 경로만이 유의미합니다.
+
+#### contents
+
+블로그 글 목록을 가리키는 경로입니다. 저는 목록을 홈에서 따로 노출시킬 것이라서 경로만을 남겨두었습니다.
+
+#### resume, archive
+
+resume는 이력서, archive는 코드 저장소입니다. archive의 경우 Nextra가 MDX 지원을 아주 잘해주기 때문에 Docusaurus와 Storybook을 합치기로 했습니다.
+
+#### memo
+
+Nextra는 기본적으로 마크다운 파일에서 `h1`, `h2`, `h3` 등에 스타일을 적용시켜 놓습니다. 하지만 `"theme": { "layout": "raw" }`에서 layout을 `"raw"`로 지정해 놓으면 모든 스타일이 적용되지 않게 됩니다. 기본값은 `"default"`고, `"full"`은 전체 너비를 차지하도록 해줍니다.
+
+저는 직접 만든 메모 컴포넌트를 적용시키기 위해 raw로 지정했습니다. [자세한 문서 참고](https://nextra.site/docs/docs-theme/page-configuration#layouts)
+
+#### contact
+
+`"type": "page"`에 `href`도 추가해두면 상단 탭에 링크를 추가할 수도 있습니다. `"newWindow": true`도 추가해주면 새 창에서 링크를 열 수도 있게 해줍니다.
+
+### blog.
+
+블로그의 경우 글 목록을 홈에서 보여주고 싶어서 따로 컴포넌트를 만들고 `pages/index.mdx`에 적용했습니다. mdx 파일을 보면 대충 이렇습니다.
+
+```mdx filename="pages/index.ko.mdx"
+import { Contribution } from 'containers'
+import { Card, Comment } from 'components'
+import { Contents } from 'templates'
+
+<Contents />
+
+<Contribution />
+
+## 프로젝트
+
+<div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+  <Card.Link title="Coddee" href="https://coddee.dev">
+    <>![Coddee](/assets/coddee.png)</>
+  </Card.Link>
+  <Card.Link title="Feedbank" href="https://feedbank.app">
+    <>![Feedbank](/assets/feedbank.png)</>
+  </Card.Link>
+</div>
+
+<Comment />
+```
+
+Contents는 글 목록과 페이지네이션, Contribution은 깃허브 컨트리뷰션을, Comment는 giscus를 활용했습니다.
+
+### memo.
+
+메모 앱의 경우 Quill이 서버 사이드에서 안되는 문제가 있어서 좀 애먹었는 데, 약간의 변형을 가미해서 슬기롭게 대처했습니다. 아주 자연스럽죠?
+
+<Figure caption="메모 앱" image="/contents/20/memo.png" />
+
+### og.
+
+몇 달전 vercel이 발표한 동적 이미지 생성기를 `og.kidow.me`로 만들어서 쓰고 있었는데요, 이 프로젝트도 기반은 Next.js라서 코드를 그대로 옮길 수 있었습니다. [참고](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation)
+
+### archive., components.
+
+처음부터 이 두 프로젝트가 둘로 갈리는 게 싫었는 데 참 잘됐어요. Nextra는 UI 구성도 잘해놓아서 기존보다 가독성도 훨씬 더 좋습니다. Spinner라는 컴포넌트를 예시로 들어볼까요? [링크 이동](/archive/feedback/Spinner)
+
+<Figure caption="Spinner 컴포넌트 문서" image="/contents/20/spinner.png" />
+
+### resume.
+
+이력서의 경우도 메모 앱처럼 상단 네비게이션 페이지로 이동시켰습니다. 내용도 조금 다듬었구요.
+
+<Figure caption="이력서 페이지" image="/contents/20/resume.png" />
+
+## 마치며
+
+여기까지 5일차까지 진행한 작업을 정리해보았습니다. 아직도 할 일이 많은데요, 한글 문서만 적어 놓아서 영어로도 다 옮겨야 합니다. ㅠㅠ 진짜 빨리 끝내고 싶었는 데 절대 그럴 수 있는 양이 아니었습니다...
+
+이번 프로젝트에서 그동안 사용하는 거의 모든 스택과 운영중인 프로젝트를 집대성해본게 아닐까 싶네요. 그 많은 것들이 한 개의 프로젝트로 모인 걸 보고나니 참 뿌듯하기도 합니다. 운영 중인 커디와 피드뱅크도 각각 한 자리씩 차지한 것도 웅장해지구요.
+
+<Figure caption="프로젝트 홈" image="/contents/20/home.png" />
+
+이 정도로 모인 프로젝트의 빌드 시간은 2분 30초 정도였습니다. 이건 긴 걸까요? ㅋㅋㅋ
+
+<Figure caption="Vercel에서 본 빌드 시간" image="/contents/20/build-time.png" />
 
 <ShareButtons />
 <Comment />

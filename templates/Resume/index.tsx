@@ -2,7 +2,8 @@ import {
   BriefcaseIcon,
   CalendarIcon,
   EnvelopeIcon,
-  MapPinIcon
+  MapPinIcon,
+  ArrowTopRightOnSquareIcon
 } from '@heroicons/react/24/outline'
 import type { FC } from 'react'
 
@@ -38,6 +39,16 @@ const Resume: FC<Props> = () => {
               <EnvelopeIcon className="h-5 w-5" />
               <a href="mailto:wcgo2ling@gmail.com" className="hover:underline">
                 wcgo2ling@gmail.com
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <ArrowTopRightOnSquareIcon className="h-5 w-5" />
+              <a
+                href="https://www.linkedin.com/in/dongwook-kim-49257a181/"
+                target="_blank"
+                className="hover:underline"
+              >
+                LinkedIn
               </a>
             </li>
             <li className="flex items-center gap-2">

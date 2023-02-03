@@ -55,7 +55,7 @@ export const contents: Array<{
       description: '',
       keywords: 'Fivespot'
     },
-    date: '2023-02-01',
+    date: '2023-02-03',
     thumbnail: 'https://kidow.me/api/image?id=umd5bysw08e',
     href: '/contents/6-projects-to-one'
   },

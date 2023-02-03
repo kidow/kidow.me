@@ -5,6 +5,9 @@ const withNextra = require('nextra')({
 })
 
 module.exports = withNextra({
+  images: {
+    domains: ['media.giphy.com', 'files.kidow.me']
+  },
   i18n: {
     locales: ['ko', 'en'],
     defaultLocale: 'ko'
