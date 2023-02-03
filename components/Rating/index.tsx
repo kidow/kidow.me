@@ -1,4 +1,4 @@
-import { useMemo, useCallback } from 'react'
+import { useMemo, useCallback, useId } from 'react'
 import type { FC } from 'react'
 import classnames from 'classnames'
 import { useEffect } from 'react'
@@ -21,30 +21,32 @@ const Rating: FC<Props> = ({
   count = 5,
   half
 }) => {
+  const id = useId()
+
   const onMouseLeave = useCallback(() => {
     for (let i = 0; i < value; i++) {
-      const second = document.getElementById(`rating-second-${i}`)
+      const second = document.getElementById(`${id}-rating-second-${i}`)
       if (second) second.style.color = ACTIVE_COLOR
     }
     for (let i = Math.floor(value); i < count; i++) {
-      const second = document.getElementById(`rating-second-${i}`)
+      const second = document.getElementById(`${id}-rating-second-${i}`)
       if (second) second.style.color = INACTIVE_COLOR
     }
 
     if (half) {
-      const first = document.getElementById(`rating-first-${value}`)
+      const first = document.getElementById(`${id}-rating-first-${value}`)
       const second = document.getElementById(
-        `rating-second-${Math.floor(value)}`
+        `${id}-rating-second-${Math.floor(value)}`
       )
       if (first) first.style.color = ACTIVE_COLOR
       if (second) second.style.color = INACTIVE_COLOR
 
       for (let i = 0; i < value; i++) {
-        const first = document.getElementById(`rating-first-${i}`)
+        const first = document.getElementById(`${id}-rating-first-${i}`)
         if (first) first.style.color = ACTIVE_COLOR
       }
       for (let i = Math.ceil(value); i < count; i++) {
-        const first = document.getElementById(`rating-first-${i}`)
+        const first = document.getElementById(`${id}-rating-first-${i}`)
         if (first) first.style.color = INACTIVE_COLOR
       }
     }
@@ -52,23 +54,23 @@ const Rating: FC<Props> = ({
 
   const onMouseEnter = useCallback((index: number) => {
     for (let i = 0; i <= index; i++) {
-      const second = document.getElementById(`rating-second-${i}`)
+      const second = document.getElementById(`${id}-rating-second-${i}`)
       if (second) second.style.color = ACTIVE_COLOR
 
       if (half) {
         for (let j = 0; j <= index; j++) {
-          const first = document.getElementById(`rating-first-${j}`)
+          const first = document.getElementById(`${id}-rating-first-${j}`)
           if (first) first.style.color = ACTIVE_COLOR
         }
       }
     }
     for (let i = index + 1; i < count; i++) {
-      const second = document.getElementById(`rating-second-${i}`)
+      const second = document.getElementById(`${id}-rating-second-${i}`)
       if (second) second.style.color = INACTIVE_COLOR
 
       if (half) {
         for (let j = index + 1; j < count; j++) {
-          const first = document.getElementById(`rating-first-${j}`)
+          const first = document.getElementById(`${id}-rating-first-${j}`)
           if (first) first.style.color = INACTIVE_COLOR
         }
       }
@@ -77,20 +79,20 @@ const Rating: FC<Props> = ({
 
   const onHalfMouseEnter = useCallback((index: number) => {
     for (let i = 0; i < index; i++) {
-      const first = document.getElementById(`rating-first-${i}`)
-      const second = document.getElementById(`rating-second-${i}`)
+      const first = document.getElementById(`${id}-rating-first-${i}`)
+      const second = document.getElementById(`${id}-rating-second-${i}`)
       if (first) first.style.color = ACTIVE_COLOR
       if (second) second.style.color = ACTIVE_COLOR
     }
 
-    const first = document.getElementById(`rating-first-${index}`)
+    const first = document.getElementById(`${id}-rating-first-${index}`)
     if (first) first.style.color = ACTIVE_COLOR
-    const second = document.getElementById(`rating-second-${index}`)
+    const second = document.getElementById(`${id}-rating-second-${index}`)
     if (second) second.style.color = INACTIVE_COLOR
 
     for (let i = index + 1; i < count; i++) {
-      const first = document.getElementById(`rating-first-${i}`)
-      const second = document.getElementById(`rating-second-${i}`)
+      const first = document.getElementById(`${id}-rating-first-${i}`)
+      const second = document.getElementById(`${id}-rating-second-${i}`)
       if (first) first.style.color = INACTIVE_COLOR
       if (second) second.style.color = INACTIVE_COLOR
     }
@@ -102,12 +104,12 @@ const Rating: FC<Props> = ({
   useEffect(() => {
     if (!value) return
     for (let i = 0; i < value; i++) {
-      const second = document.getElementById(`rating-second-${i}`)
+      const second = document.getElementById(`${id}-rating-second-${i}`)
       if (second) second.style.color = ACTIVE_COLOR
     }
     if (half) {
       for (let i = 0; i < Math.ceil(value); i++) {
-        const first = document.getElementById(`rating-first-${i}`)
+        const first = document.getElementById(`${id}-rating-first-${i}`)
         if (first) first.style.color = ACTIVE_COLOR
       }
     }
@@ -136,7 +138,7 @@ const Rating: FC<Props> = ({
         >
           {half && (
             <span
-              id={`rating-first-${key}`}
+              id={`${id}-rating-first-${key}`}
               onMouseEnter={
                 disabled || readOnly ? undefined : () => onHalfMouseEnter(key)
               }
@@ -149,7 +151,7 @@ const Rating: FC<Props> = ({
             </span>
           )}
           <span
-            id={`rating-second-${key}`}
+            id={`${id}-rating-second-${key}`}
             onMouseEnter={
               disabled || readOnly ? undefined : () => onMouseEnter(key)
             }
