@@ -11,6 +11,9 @@
   input[value='']::-webkit-calendar-picker-indicator {
     @apply opacity-40;
   }
+  article > main > p {
+    @apply dark:text-neutral-400;
+  }
 }
 
 @layer components {
