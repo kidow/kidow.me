@@ -45,7 +45,7 @@ export const contents: Array<{
 }> = [
   {
     ko: {
-      title: '6개의 프로젝트를 하나의 블로그로 통합하기',
+      title: '6개의 프로젝트를 하나의 블로그로 통합하기 (feat. Nextra)',
       description:
         '기존에 운영하고 있던 6개의 서브도메인 프로젝트를 단 하나의 프로젝트로 합쳤습니다.',
       keywords: 'Nextra'

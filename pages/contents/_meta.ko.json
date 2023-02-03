@@ -1,6 +1,6 @@
 {
   "6-projects-to-one": {
-    "title": "6개의 프로젝트를 하나의 블로그로 통합하기",
+    "title": "6개의 프로젝트를 하나의 블로그로 통합하기 (feat. Nextra)",
     "theme": {
       "sidebar": false,
       "breadcrumb": false,
