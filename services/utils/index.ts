@@ -51,3 +51,5 @@ export const priceFormat = (value?: string | number): string => {
   else if (typeof value === 'number') return value.toLocaleString()
   else return '0'
 }
+
+export const backdrop = (open: boolean) => EventListener.emit('backdrop', open)

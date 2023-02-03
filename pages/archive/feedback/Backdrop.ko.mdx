@@ -1,12 +1,25 @@
-import { Comment, Card } from 'components'
-import { BackTop } from 'containers'
+import { Comment, Card, Button } from 'components'
+import { BackTop, Backdrop } from 'containers'
 import { WrenchScrewdriverIcon, CubeIcon } from '@heroicons/react/24/outline'
+import { backdrop } from 'services'
 
 <BackTop />
+<Backdrop />
 
 # Backdrop
 
 ## Example
+
+<div className="mt-4">
+  <Button
+    onClick={() => {
+      backdrop(true)
+      setTimeout(() => backdrop(false), 3000)
+    }}
+  >
+    Test
+  </Button>
+</div>
 
 ## Steps
 
@@ -72,6 +85,29 @@ export const backdrop = (open: boolean) => EventListener.emit('backdrop', open)
 ```
 
 ### Usage
+
+```tsx filename="pages/_app.tsx"
+import type { AppProps } from 'next/app'
+import { Backdrop } from 'containers'
+
+interface Props {}
+interface State {}
+
+function MyApp({ Component, pageProps }: AppProps<Props>) {
+  return (
+    <>
+      <Component {...pageProps} />
+      <Backdrop />
+    </>
+  )
+}
+
+export default MyApp
+```
+
+```tsx
+<button onClick={() => backdrop(true)}>Test</button>
+```
 
 </div>
 
