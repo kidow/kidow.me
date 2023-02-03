@@ -1,12 +1,19 @@
 import { Comment, Badge } from 'components'
 import { BackTop } from 'containers'
 import { Tab, Tabs } from 'nextra-theme-docs'
+import { BellIcon } from '@heroicons/react/24/outline'
 
 <BackTop />
 
 # Badge
 
 ## Example
+
+<div className="mt-4">
+  <Badge>
+    <BellIcon className="h-5 w-5" />
+  </Badge>
+</div>
 
 ## Steps
 
@@ -40,6 +47,14 @@ const Badge: FC<Props> = ({ children }) => {
 }
 
 export default Badge
+```
+
+### Usage
+
+```tsx
+<Badge>
+  <BellIcon className="h-5 w-5" />
+</Badge>
 ```
 
 </div>
