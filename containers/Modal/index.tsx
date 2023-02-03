@@ -1,12 +1,10 @@
 import { useEffect } from 'react'
-import type { FC, ReactNode } from 'react'
+import type { FC } from 'react'
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import classnames from 'classnames'
 import { createPortal } from 'react-dom'
 
-interface Props extends ModalProps {
-  children: ReactNode
-}
+interface Props extends ModalProps, ReactProps {}
 
 const Modal: FC<Props> = ({
   isOpen,
@@ -59,7 +57,7 @@ const Modal: FC<Props> = ({
           )}
         >
           <header className="border-t-4 border-primary bg-white dark:bg-neutral-800">
-            <div className="flex items-center border-b border-neutral-200 py-3 px-4 dark:border-neutral-600">
+            <div className="flex items-center border-b border-neutral-200 py-3 px-4 dark:border-neutral-700">
               <div className="flex-1">
                 <h1 className="text-xl font-semibold">{title}</h1>
                 {!!description && (
@@ -83,7 +81,7 @@ const Modal: FC<Props> = ({
             {children}
           </div>
           {footer && (
-            <footer className="rounded-b-lg border-t bg-white py-4 px-7 dark:border-neutral-600 dark:bg-neutral-800">
+            <footer className="rounded-b-lg border-t bg-white py-4 px-7 dark:border-neutral-700 dark:bg-neutral-800">
               {footer}
             </footer>
           )}

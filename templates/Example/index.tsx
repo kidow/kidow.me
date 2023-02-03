@@ -1,5 +1,6 @@
 import ColorPickerExample from './ColorPicker'
 import DatePickerExample from './DatePicker'
+import ModalExample from './Modal'
 import MonthPickerExample from './MonthPicker'
 import RatingExample from './Rating'
 import TimePickerExample from './TimePicker'
@@ -11,5 +12,6 @@ export default {
   Rating: RatingExample,
   TimePicker: TimePickerExample,
   TimeRangePicker: TimeRangePickerExample,
-  MonthPicker: MonthPickerExample
+  MonthPicker: MonthPickerExample,
+  Modal: ModalExample
 }
