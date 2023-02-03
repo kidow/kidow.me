@@ -8,6 +8,24 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 
 ## Example
 
+### Default
+
+<div className="mt-4">
+  <Card title="Title" caption="Caption" footer="Footer" border padding>
+    children
+  </Card>
+</div>
+
+### with Card.Item
+
+<div className="mt-4">
+  <Card title="Title" caption="Caption" footer="Footer" border padding>
+    <Card.Item label="Label" required fullWidth plain>
+      children
+    </Card.Item>
+  </Card>
+</div>
+
 ## Steps
 
 <div className="steps">
@@ -66,28 +84,32 @@ const Card: FC<Props> = ({
   className
 }) => {
   return (
-    <section className={classnames('bg-white shadow-md', { border: border })}>
+    <section
+      className={classnames('bg-white shadow-md dark:bg-neutral-800', {
+        'border dark:border-neutral-700': border
+      })}
+    >
       {!!title && (
         <div className="flex items-center justify-between p-6">
           <div className="font-bold">{title}</div>
           {!!caption && (
-            <div className="text-xs text-neutral-400">{caption}</div>
+            <div className="text-xs dark:text-neutral-400">{caption}</div>
           )}
         </div>
       )}
       {!!children && (
         <div
           className={classnames(
-            'relative',
+            'relative dark:border-neutral-700',
             footer ? 'border-y' : 'border-t',
-            { 'py-10 px-8': padding },
+            { 'py-10 px-6': padding },
             className
           )}
         >
           {children}
         </div>
       )}
-      {!!footer && <div className="py-4 px-8">{footer}</div>}
+      {!!footer && <div className="py-4 px-6">{footer}</div>}
     </section>
   )
 }
@@ -136,6 +158,14 @@ export default CardItem
 ```
 
 ### Usage
+
+```tsx
+<Card title="Title" caption="Caption" footer="Footer" border padding>
+  <Card.Item label="Label" required fullWidth plain>
+    children
+  </Card.Item>
+</Card>
+```
 
 </div>
 

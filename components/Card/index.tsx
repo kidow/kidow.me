@@ -27,7 +27,11 @@ const Card: FC<Props> = ({
   children
 }) => {
   return (
-    <section className={classnames('bg-white shadow-md', { border: border })}>
+    <section
+      className={classnames('bg-white shadow-md dark:bg-neutral-800', {
+        'border dark:border-neutral-700': border
+      })}
+    >
       {!!title && (
         <div className="flex items-center justify-between p-6">
           <div className="font-bold">{title}</div>
@@ -39,16 +43,16 @@ const Card: FC<Props> = ({
       {!!children && (
         <div
           className={classnames(
-            'relative',
+            'relative dark:border-neutral-700',
             footer ? 'border-y' : 'border-t',
-            { 'py-10 px-8': padding },
+            { 'py-10 px-6': padding },
             className
           )}
         >
           {children}
         </div>
       )}
-      {!!footer && <div className="py-4 px-8">{footer}</div>}
+      {!!footer && <div className="py-4 px-6">{footer}</div>}
     </section>
   )
 }
