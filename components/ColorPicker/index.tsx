@@ -83,7 +83,7 @@ const ColorPicker: FC<Props> = ({ value, onChange }) => {
         id={id}
         ref={buttonRef}
         onClick={() => setState({ isOpen: !isOpen })}
-        className="flex items-center gap-3 rounded border border-neutral-300 p-2 dark:border-neutral-700"
+        className="flex items-center gap-3 rounded border border-neutral-300 p-2 dark:border-neutral-700 dark:bg-neutral-900"
       >
         <div className="h-6 w-6" style={{ backgroundColor: value }} />
         <div className="w-16 text-sm font-semibold text-neutral-700 dark:text-neutral-50">
@@ -99,7 +99,7 @@ const ColorPicker: FC<Props> = ({ value, onChange }) => {
         createPortal(
           <div
             ref={targetRef}
-            className="color-picker fixed z-[9999] w-56 rounded border bg-white p-2.5 shadow-xl"
+            className="color-picker fixed z-[9999] w-56 rounded border bg-white p-2.5 shadow-xl dark:bg-slate-200"
             style={{
               top:
                 buttonRef.current!.getBoundingClientRect().top +
@@ -130,7 +130,7 @@ const ColorPicker: FC<Props> = ({ value, onChange }) => {
                   HEX
                 </span>
                 <input
-                  className="w-full flex-1 bg-neutral-50 px-3 text-neutral-600 focus:outline-none"
+                  className="w-full flex-1 bg-neutral-50 px-3 text-neutral-600"
                   spellCheck={false}
                   value={value}
                   name="hex"

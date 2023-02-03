@@ -69,14 +69,14 @@ const DatePicker: FC<Props> = ({ onChange, format = 'YYYY.MM.DD', value }) => {
   return (
     <>
       <div
-        className="group relative inline-flex items-center rounded border border-neutral-300 hover:border-neutral-600"
+        className="group relative inline-flex items-center rounded border border-neutral-300 hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-700"
         ref={ref}
         id={id}
         onClick={() => setState({ isOpen: true })}
       >
         <input
           readOnly
-          className="w-36 rounded border-none py-2 px-3 text-sm outline-none"
+          className="w-36 rounded border-none py-2 px-3 text-sm focus:border-none focus:ring-0 dark:bg-neutral-900"
           placeholder={format}
           value={value ? dayjs(value).format(format) : ''}
         />
@@ -87,11 +87,11 @@ const DatePicker: FC<Props> = ({ onChange, format = 'YYYY.MM.DD', value }) => {
               onChange('')
               setState({ isOpen: false })
             }}
-            className="invisible absolute right-10 mr-2 h-5 w-5 cursor-pointer text-neutral-300 group-hover:visible"
+            className="invisible absolute right-10 mr-2 h-5 w-5 cursor-pointer text-neutral-300 group-hover:visible dark:text-neutral-500"
           />
         )}
-        <button className="rounded-r border-l border-neutral-300 bg-white p-2 group-hover:border-neutral-600">
-          <CalendarIcon className="h-5 w-5 text-neutral-300 group-hover:text-neutral-600" />
+        <button className="rounded-r border-l border-neutral-300 bg-white p-2 group-hover:border-neutral-400 dark:border-neutral-700 dark:bg-neutral-900 dark:group-hover:border-neutral-700">
+          <CalendarIcon className="h-5 w-5 text-neutral-300 group-hover:text-neutral-400 dark:text-neutral-600 dark:group-hover:text-neutral-700" />
         </button>
       </div>
       {isOpen &&
@@ -103,16 +103,15 @@ const DatePicker: FC<Props> = ({ onChange, format = 'YYYY.MM.DD', value }) => {
               top:
                 window.scrollY +
                 ref.current!.getBoundingClientRect().top +
-                ref.current!.clientHeight,
-              position: 'absolute',
-              zIndex: '9999'
+                ref.current!.clientHeight
             }}
+            className="absolute z-[9999]"
           >
             <div
               ref={targetRef}
-              className="w-64 select-none rounded bg-white drop-shadow-xl"
+              className="w-64 select-none rounded bg-white drop-shadow-xl dark:bg-neutral-700"
             >
-              <div className="flex items-center justify-between border-b border-neutral-300 px-2">
+              <div className="flex items-center justify-between border-b border-neutral-300 px-2 dark:border-neutral-600">
                 <div className="flex gap-2">
                   <button
                     className="py-3"
@@ -215,7 +214,7 @@ const DatePicker: FC<Props> = ({ onChange, format = 'YYYY.MM.DD', value }) => {
                           'flex h-6 w-6 cursor-pointer items-center justify-center rounded',
                           !!value && dayjs(value).isSame(dayjs(day))
                             ? 'bg-blue-500 text-white'
-                            : 'hover:bg-neutral-200',
+                            : 'hover:bg-neutral-200 dark:hover:bg-neutral-600',
                           {
                             'text-neutral-400':
                               dayjs(day).format('MM') !==
@@ -231,7 +230,7 @@ const DatePicker: FC<Props> = ({ onChange, format = 'YYYY.MM.DD', value }) => {
                     ))}
                   </div>
 
-                  <div className="flex h-10 items-center justify-center border-t border-neutral-300 text-sm text-neutral-400">
+                  <div className="flex h-10 items-center justify-center border-t border-neutral-300 text-sm text-neutral-400 dark:border-neutral-600 dark:text-neutral-200">
                     <button
                       className="hover:text-blue-400"
                       onClick={() => {
@@ -256,7 +255,7 @@ const DatePicker: FC<Props> = ({ onChange, format = 'YYYY.MM.DD', value }) => {
                           dayjs(value).format('YYYY') ===
                             dayjs(item).format('YYYY')
                           ? 'bg-blue-500 text-white'
-                          : 'first:text-neutral-400 last:text-neutral-400 hover:bg-neutral-200'
+                          : 'first:text-neutral-400 last:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-600'
                       )}
                       onClick={() =>
                         setState({
@@ -281,7 +280,7 @@ const DatePicker: FC<Props> = ({ onChange, format = 'YYYY.MM.DD', value }) => {
                           'grid h-6 cursor-pointer place-items-center rounded text-sm',
                           dayjs(value).format('M') === String(key + 1)
                             ? 'bg-blue-500 text-white'
-                            : 'hover:bg-neutral-200'
+                            : 'hover:bg-neutral-200 dark:hover:bg-neutral-600'
                         )}
                         onClick={() =>
                           setState({

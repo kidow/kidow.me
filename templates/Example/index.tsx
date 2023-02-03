@@ -1,5 +1,7 @@
 import ColorPickerExample from './ColorPicker'
+import DatePickerExample from './DatePicker'
 
 export default {
-  ColorPicker: ColorPickerExample
+  ColorPicker: ColorPickerExample,
+  DatePicker: DatePickerExample
 }
