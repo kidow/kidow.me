@@ -7,6 +7,10 @@ import { BackTop } from 'containers'
 
 ## Example
 
+<div className="mt-4">
+  <Progress value={50} />
+</div>
+
 ## Steps
 
 <div className='steps'>
@@ -46,7 +50,7 @@ interface Props {
 
 const Progress: FC<Props> = ({ value }) => {
   return (
-    <div className="h-3 rounded-full border">
+    <div className="h-3 rounded-full border dark:border-neutral-800">
       <div
         className="animate-slide h-full rounded-full bg-sky-400 bg-[length:30px_30px]"
         style={{
@@ -63,6 +67,10 @@ export default Progress
 ```
 
 ### Usage
+
+```tsx
+<Progress value={50} />
+```
 
 </div>
 
