@@ -77,8 +77,10 @@ const TimeRangePicker: FC<Props> = ({
         ref={ref}
         id={id}
         className={classnames(
-          'flex items-center justify-between gap-2 rounded border border-neutral-200 bg-white px-2 py-1 dark:border-neutral-700 dark:bg-neutral-800',
-          !!error ? 'border-red-500' : 'hover:border-neutral-500'
+          'flex items-center justify-between gap-2 rounded border border-neutral-200 bg-white px-2 py-1 dark:bg-neutral-800',
+          !!error
+            ? 'border-red-500'
+            : 'hover:border-neutral-500 dark:border-neutral-700'
         )}
       >
         <button

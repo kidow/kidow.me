@@ -2,12 +2,15 @@ import { Comment, Card, Icon, Required } from 'components'
 import { BackTop } from 'containers'
 import { WrenchScrewdriverIcon } from '@heroicons/react/24/outline'
 import { Tab, Tabs } from 'nextra-theme-docs'
+import { Example } from 'templates'
 
 <BackTop />
 
 # MonthPicker
 
 ## Example
+
+<Example.MonthPicker />
 
 ## Steps
 
@@ -183,6 +186,10 @@ export default MonthPicker
 ```
 
 ### Usage
+
+```tsx
+<MonthPicker value={value} onChange={(value) => setValue(value)} />
+```
 
 </div>
 

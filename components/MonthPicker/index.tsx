@@ -32,14 +32,14 @@ const MonthPicker: FC<Props> = ({ value, onChange }) => {
   return (
     <>
       <div
-        className="group relative inline-flex items-center rounded border border-neutral-300 hover:border-neutral-600"
+        className="group relative inline-flex items-center rounded border border-neutral-300 hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-700"
         ref={ref}
         id={id}
         onClick={() => setState({ isOpen: true })}
       >
         <input
           readOnly
-          className="w-36 rounded border-none py-2 px-3 text-sm outline-none"
+          className="w-36 rounded border-none py-2 px-3 text-sm focus:border-none dark:bg-neutral-900"
           placeholder="YYYY.MM"
           value={value ? dayjs(value).format('YYYY.MM') : ''}
         />
@@ -50,11 +50,11 @@ const MonthPicker: FC<Props> = ({ value, onChange }) => {
               onChange('')
               setState({ isOpen: false })
             }}
-            className="invisible absolute right-10 mr-2 h-5 w-5 cursor-pointer text-neutral-300 group-hover:visible"
+            className="invisible absolute right-10 mr-2 h-5 w-5 cursor-pointer text-neutral-300 group-hover:visible dark:text-neutral-500"
           />
         )}
-        <button className="border-l border-neutral-300 bg-white p-2 group-hover:border-neutral-600">
-          <CalendarIcon className="h-5 w-5 text-neutral-300 group-hover:text-neutral-600" />
+        <button className="rounded-r border-l border-neutral-300 bg-white p-2 group-hover:border-neutral-400 dark:border-neutral-800 dark:bg-neutral-900 dark:group-hover:border-neutral-700">
+          <CalendarIcon className="h-5 w-5 text-neutral-300 group-hover:text-neutral-400 dark:text-neutral-600 dark:group-hover:text-neutral-700" />
         </button>
       </div>
       {isOpen &&
@@ -72,9 +72,9 @@ const MonthPicker: FC<Props> = ({ value, onChange }) => {
           >
             <div
               ref={targetRef}
-              className="w-64 select-none rounded bg-white drop-shadow-xl"
+              className="w-64 select-none rounded bg-white drop-shadow-xl dark:bg-neutral-800"
             >
-              <div className="flex items-center justify-between border-b border-neutral-300 px-2">
+              <div className="flex items-center justify-between border-b border-neutral-300 px-2 dark:border-neutral-700">
                 <button
                   className="py-3"
                   onClick={() =>
@@ -102,7 +102,7 @@ const MonthPicker: FC<Props> = ({ value, onChange }) => {
                       dayjs(value).format('YYYY-MM') ===
                         dayjs(date).format(`YYYY-${twoDigitsNumber(key + 1)}`)
                         ? 'bg-blue-500 text-white'
-                        : 'hover:bg-neutral-200'
+                        : 'hover:bg-neutral-200 dark:hover:bg-neutral-700'
                     )}
                     onClick={() => {
                       onChange(
