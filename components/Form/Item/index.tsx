@@ -13,7 +13,7 @@ const FormItem: FC<Props> = ({ label, children, required }) => {
       {!!label && (
         <span
           className={classnames(
-            'cursor-pointer text-xs font-semibold text-slate-600',
+            'cursor-pointer text-xs font-semibold text-neutral-600 dark:text-neutral-500',
             { 'after:text-red-500 after:content-["*"]': required }
           )}
         >
