@@ -8,6 +8,18 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 
 ## Example
 
+### Default
+
+<div className="mt-4">
+  <Timeline
+    list={[
+      { tag: '2023-02-03', title: 'title 1', content: 'content 1' },
+      { tag: '2023-01-03', title: 'title 2', content: 'content 2' },
+      { tag: '2023-12-03', title: 'title 3', content: 'content 3' }
+    ]}
+  />
+</div>
+
 ## Steps
 
 <div className="steps">
@@ -50,9 +62,9 @@ const Timeline: FC<Props> = ({ list }) => {
         <div
           key={key}
           className={classNames(
-            "relative -top-2 flex gap-5 pl-5 pb-10 after:absolute after:-left-[5px] after:top-1.5 after:z-10 after:h-3 after:w-3 after:rounded-full after:border-2 after:border-blue-600 after:bg-white after:content-[''] last:pb-0",
+            "relative -top-2 flex gap-5 pl-5 pb-10 after:absolute after:-left-[5px] after:top-1.5 after:z-10 after:h-3 after:w-3 after:rounded-full after:border-2 after:border-blue-600 after:bg-white after:content-[''] last:pb-0 dark:after:bg-neutral-900",
             {
-              "before:absolute before:top-2 before:-bottom-2 before:left-0 before:border-r before:border-dashed before:border-neutral-300 before:content-['']":
+              "before:absolute before:top-2 before:-bottom-2 before:left-0 before:border-r before:border-dashed before:border-neutral-300 before:content-[''] dark:before:border-neutral-700":
                 key !== list.length - 1
             }
           )}
@@ -80,6 +92,16 @@ export default Timeline
 ```
 
 ### Usage
+
+```tsx
+<Timeline
+  list={[
+    { tag: '2023-02-03', title: 'title 1', content: 'content 1' },
+    { tag: '2023-01-03', title: 'title 2', content: 'content 2' },
+    { tag: '2023-12-03', title: 'title 3', content: 'content 3' }
+  ]}
+/>
+```
 
 </div>
 
