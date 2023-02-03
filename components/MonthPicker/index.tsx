@@ -66,10 +66,9 @@ const MonthPicker: FC<Props> = ({ value, onChange }) => {
               top:
                 window.scrollY +
                 ref.current!.getBoundingClientRect().top +
-                ref.current!.clientHeight,
-              position: 'absolute',
-              zIndex: '9999'
+                ref.current!.clientHeight
             }}
+            className="absolute z-[9999]"
           >
             <div
               ref={targetRef}

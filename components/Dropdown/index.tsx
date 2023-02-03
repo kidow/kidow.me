@@ -40,10 +40,9 @@ const Dropdown: FC<Props> = ({ label = 'Dropdown', list, onClick }) => {
                 window.scrollY +
                 ref.current!.getBoundingClientRect().top +
                 ref.current!.clientHeight,
-              position: 'absolute',
-              zIndex: '9999',
               minWidth: ref.current!.getBoundingClientRect().width
             }}
+            className="absolute z-[9999]"
           >
             <ul
               className="z-10 rounded-md bg-neutral-50 p-1 text-neutral-700 shadow-xl"

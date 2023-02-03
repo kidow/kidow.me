@@ -77,29 +77,31 @@ const TimeRangePicker: FC<Props> = ({
         ref={ref}
         id={id}
         className={classnames(
-          'flex cursor-pointer items-center justify-between gap-2 rounded border border-neutral-200 bg-white px-2 py-1',
+          'flex items-center justify-between gap-2 rounded border border-neutral-200 bg-white px-2 py-1 dark:border-neutral-700 dark:bg-neutral-800',
           !!error ? 'border-red-500' : 'hover:border-neutral-500'
         )}
       >
-        <span
+        <button
           onClick={() => setState({ tab: 'start', isOpen: true })}
           className={classnames(
-            'rounded py-1 px-2 hover:bg-neutral-100',
-            !!startTime ? 'text-black' : 'text-neutral-400'
+            'rounded py-1 px-2 hover:bg-neutral-100 dark:hover:bg-neutral-700',
+            !!startTime
+              ? 'text-black'
+              : 'text-neutral-400 dark:text-neutral-100'
           )}
         >
           {startTime || '00:00'}
-        </span>
-        <span className="text-neutral-400">~</span>
-        <span
+        </button>
+        <span className="cursor-default text-neutral-400">~</span>
+        <button
           onClick={() => setState({ tab: 'end', isOpen: true })}
           className={classnames(
-            'rounded py-1 px-2 hover:bg-neutral-100',
-            !!endTime ? 'text-black' : 'text-neutral-400'
+            'rounded py-1 px-2 hover:bg-neutral-100 dark:hover:bg-neutral-700',
+            !!endTime ? 'text-black' : 'text-neutral-400 dark:text-neutral-100'
           )}
         >
           {endTime || '00:00'}
-        </span>
+        </button>
       </div>
       <div className="mt-1 text-xs text-red-500">{error}</div>
       {isOpen &&
@@ -111,21 +113,22 @@ const TimeRangePicker: FC<Props> = ({
               top:
                 window.scrollY +
                 (ref.current?.getBoundingClientRect().top || 0) +
-                (ref.current?.clientHeight || 0),
-              position: 'absolute',
-              zIndex: '9999'
+                (ref.current?.clientHeight || 0)
             }}
+            className="absolute z-[9999]"
           >
             <div
               ref={targetRef}
-              className="z-[9999] space-y-4 rounded bg-white p-4 drop-shadow-xl"
+              className="z-[9999] space-y-4 rounded bg-white p-4 drop-shadow-xl dark:bg-neutral-800"
             >
-              {/* 탭 */}
-              <div className="flex rounded-lg bg-neutral-200 p-1 text-sm">
+              {/* Tab */}
+              <div className="flex rounded-lg bg-neutral-200 p-1 text-sm dark:bg-neutral-700">
                 <div
                   className={classnames(
                     'flex w-36 items-center justify-between gap-8 rounded-lg py-2 px-3',
-                    tab === 'start' ? 'bg-white' : 'cursor-pointer'
+                    tab === 'start'
+                      ? 'bg-white dark:bg-neutral-800'
+                      : 'cursor-pointer'
                   )}
                   onClick={() => {
                     if (tab === 'end') setState({ tab: 'start' })
@@ -153,7 +156,7 @@ const TimeRangePicker: FC<Props> = ({
                     <XCircleIcon
                       className={classnames(
                         tab === 'start'
-                          ? 'h-6 w-6 cursor-pointer text-neutral-200 hover:text-neutral-400'
+                          ? 'h-6 w-6 cursor-pointer text-neutral-200 hover:text-neutral-400 dark:text-neutral-600'
                           : 'invisible'
                       )}
                     />
@@ -162,7 +165,9 @@ const TimeRangePicker: FC<Props> = ({
                 <div
                   className={classnames(
                     'flex w-36 items-center justify-between gap-8 rounded-lg py-2 px-3',
-                    tab === 'end' ? 'bg-white' : 'cursor-pointer'
+                    tab === 'end'
+                      ? 'bg-white dark:bg-neutral-800'
+                      : 'cursor-pointer'
                   )}
                   onClick={() => {
                     if (tab === 'start') setState({ tab: 'end' })
@@ -188,7 +193,7 @@ const TimeRangePicker: FC<Props> = ({
                     <XCircleIcon
                       className={classnames(
                         tab === 'end'
-                          ? 'h-6 w-6 cursor-pointer text-neutral-200 hover:text-neutral-400'
+                          ? 'h-6 w-6 cursor-pointer text-neutral-200 hover:text-neutral-400 dark:text-neutral-600'
                           : 'invisible'
                       )}
                     />
@@ -196,7 +201,7 @@ const TimeRangePicker: FC<Props> = ({
                 </div>
               </div>
 
-              {/* 피커 */}
+              {/* Picker */}
               <div className="relative flex justify-center text-neutral-500">
                 <div
                   ref={hourRef}
@@ -271,10 +276,10 @@ const TimeRangePicker: FC<Props> = ({
                     </div>
                   ))}
                 </div>
-                <div className="absolute top-20 h-10 w-full rounded-lg bg-neutral-100" />
+                <div className="absolute top-20 h-10 w-full rounded-lg bg-neutral-100 dark:bg-neutral-900" />
               </div>
 
-              {/* 버튼 */}
+              {/* Button */}
               <div className="flex justify-center">
                 <Button theme="primary" size="sm" onClick={onApply}>
                   적용
