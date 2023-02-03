@@ -19,11 +19,11 @@ Coddee의 경우도 그렇지만, 저는 사이드 프로젝트를 할 때 새�
 
 ## Supabase란
 
-<Figure caption="Supabase 홈" image="/contents/18/main.png" />
+<Figure caption="Supabase 홈" image="/contents/17/main.png" />
 
 Supabase는 Baas(Baekend as a service) 중 하나로, 구글의 유명한 Firebase에서 영감을 받아 대체제로서 역할을 하고자 시작된 오픈소스 프로젝트입니다.
 
-<Figure caption="19년 10월부터 시작" image="/contents/18/first.png" />
+<Figure caption="19년 10월부터 시작" image="/contents/17/first.png" />
 
 Firebase와 가장 두드러지는 차이점은 Firebase의 Database는 noSQL을 채택하지만 Supabase는 위의 홈 화면에서도 강조하듯이 Postgre를 전면에 내세운 관계형 데이터베이스를 사용한다는 점입니다.
 
@@ -35,7 +35,7 @@ Firebase와 가장 두드러지는 차이점은 Firebase의 Database는 noSQL을
 
 ### 왜 Supabase였나
 
-![](/contents/18/series.png)
+![](/contents/17/series.png)
 
 Firebase는 뒤에 구글이 버티고 있을만큼 든든한 플랫폼이었지만 noSQL을 사용하는 점 때문에 저는 대체제를 찾을 수 밖에 없었습니다. Supabase는 그 문제점을 해결해 줄 수단이었으며, 오픈소스임에도 불구하고 작년 8월에 시리즈 A, 올해 8월에 시리즈 B 단계까지 투자 유치를 하는 등 엄청난 성장세를 보이고 있습니다. 개인적으로 UI/UX도 Firebase에 비교하자면 더욱 낫다고 생각하는 바입니다.
 
@@ -45,13 +45,13 @@ Firebase는 뒤에 구글이 버티고 있을만큼 든든한 플랫폼이었지
 
 Supabase는 무료 요금제를 제공하는 데, 2개의 프로젝트까지 무료로 만들 수 있습니다. 저는 2개의 프로젝트를 각각 개발용과 배포용으로 하나씩 만들었습니다.
 
-<Figure caption="대시보드 홈" image="/contents/18/dashboard.png" />
+<Figure caption="대시보드 홈" image="/contents/17/dashboard.png" />
 
 Business와 Personal은 단순 Organization 이름이니 신경 안쓰셔도 됩니다. Coddee는 배포용으로 말 그대로 실제 서비스인 Coddee와 관련된 프로젝트이고, kidow.me의 경우는 개발용이면서 제 개인 프로젝트나 테스트 용으로 자유롭게 사용하는 프로젝트입니다.
 
 ### 프로젝트 홈
 
-<Figure caption="Coddee 프로젝트 홈" image="/contents/18/coddee.png" />
+<Figure caption="Coddee 프로젝트 홈" image="/contents/17/coddee.png" />
 
 Coddee 프로젝트 홈 화면입니다. 이제는 월 호출 수가 천 단위에서 놀고 있네요. Coddee에서 사용하는 핵심 기술이 바로 위에 4가지 기술입니다.
 
@@ -59,7 +59,7 @@ Coddee 프로젝트 홈 화면입니다. 이제는 월 호출 수가 천 단위�
 
 현재 DB의 테이블 구조는 다음과 같이 10개로 짜놓았습니다.
 
-<Figure caption="10개의 테이블" image="/contents/18/table.png" />
+<Figure caption="10개의 테이블" image="/contents/17/table.png" />
 
 - chats: 채팅 데이터를 담는 테이블
 - languages: 코드에디터 작성 시 적용할 언어들
@@ -76,7 +76,7 @@ Supabase는 이러한 테이블들을 GUI로 간편하게 짤 수 있도록 편�
 
 <Figure
   caption="이런 식으로 자체 에디터를 지원합니다"
-  image="/contents/18/sql-editor.png"
+  image="/contents/17/sql-editor.png"
 />
 
 > 여담이지만 Supabase가 사용하는 에디터 라이브러리와 Coddee에서 쓰는 라이브러리가 같습니다.
@@ -291,7 +291,7 @@ Supabase는 Realtime 기능을 기본적으로 제공하는 데, 이 기능의 �
 
 <Figure
   caption="Database - Replication에서 리얼타임을 활성화할 테이블을 선택"
-  image="/contents/18/replication.png"
+  image="/contents/17/replication.png"
 />
 
 #### reactions

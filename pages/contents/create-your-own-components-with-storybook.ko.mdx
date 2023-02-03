@@ -15,7 +15,7 @@ import { BackTop, Frontmatter, ShareButtons } from 'containers'
 
 ## 개요
 
-<Figure caption="직접 만든 Modal 컴포넌트" image="/contents/9/components.png" />
+<Figure caption="직접 만든 Modal 컴포넌트" image="/contents/8/components.png" />
 
 직접 만든 컴포넌트 코드들을 [코드 보관소](https://archive.kidow.me)에 적어 놓고는 있지만, 코드만 보고는 이 컴포넌트가 정확히 어떻게 생겼는지는 알 수가 없죠. 개발 문서 작성은 Docusaurus를 통해 하고 있지만 실제로 보여줄 수 있는 컴포넌트 보관소는 **Storybook**을 사용하면 아주 제격일 것 같아서 이걸로 한 번 만들어보고자 했습니다.
 
@@ -25,13 +25,13 @@ import { BackTop, Frontmatter, ShareButtons } from 'containers'
 
 이 때, Vercel에서 템플릿으로 생성 시 Storybook에 대한 템플릿은 따로 없기 때문에 **Create React App**으로 일단 생성해 주어야 합니다. CRA로 만든 앱에 스토리북을 깔고, 스토리북으로 배포할 수 있도록 커맨드를 변경하면 됩니다.
 
-<Figure caption="오른쪽의 Create React App 선택" image="/contents/9/cra.png" />
+<Figure caption="오른쪽의 Create React App 선택" image="/contents/8/cra.png" />
 
 프로젝트를 생성 후 `Settings > General` 탭에 가보면 `Build & Development Setting` 가 있는데, 여기서 커맨드를 다음과 같이 덮어씌워줍시다.
 
 <Figure
   caption="React 스크립트를 Storybook 스크립트로 변경"
-  image="/contents/9/command.png"
+  image="/contents/8/command.png"
 />
 
 이제는 프로젝트에서 스토리북을 깔아줍시다.
@@ -75,7 +75,7 @@ module.exports = {
 
 <Figure
   caption="컴포넌트틀 6가지 유형으로 분류"
-  image="/contents/9/classify.png"
+  image="/contents/8/classify.png"
 />
 
 직접 만든 컴포넌트들을 1차적으로 한 번 분류하는 게 뭔가 있어보여서, Material UI나 Ant Design같은 곳에서 참고해서 그에 맞게 분류했던 기억이 나네요. 각각 `Feedback`, `Data Entry`, `Data Display`, `Navigation`, `Inputs`, `Layout`으로 나누었습니다.
