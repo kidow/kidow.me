@@ -1,4 +1,4 @@
-import { Comment, Card, Required } from 'components'
+import { Comment, Card, Required, AutoComplete } from 'components'
 import { BackTop } from 'containers'
 import { CubeIcon } from '@heroicons/react/24/outline'
 
@@ -7,6 +7,14 @@ import { CubeIcon } from '@heroicons/react/24/outline'
 # AutoComplete
 
 ## Example
+
+### Default
+
+<div className="mt-4">
+  <AutoComplete
+    options={['Apple', 'Amazon', 'Facebook', 'Tesla', 'Microsoft', 'Google']}
+  />
+</div>
 
 ## Steps
 
@@ -58,6 +66,12 @@ export default Autocomplete
 ```
 
 ### Usage
+
+```tsx
+<AutoComplete
+  options={['Apple', 'Amazon', 'Facebook', 'Tesla', 'Microsoft', 'Google']}
+/>
+```
 
 </div>
 
