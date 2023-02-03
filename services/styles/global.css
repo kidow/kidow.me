@@ -37,7 +37,7 @@
   }
   .tw-table th,
   .tw-table td {
-    @apply border;
+    @apply border dark:border-neutral-700;
   }
   .tw-table tr {
     @apply border-b last:border-b-0;

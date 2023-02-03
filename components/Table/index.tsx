@@ -21,7 +21,7 @@ function Table<T>({
     <div
       className={classnames(
         'relative',
-        loading ? 'overflow-hidden' : 'overflow-auto'
+        loading ? 'cursor-progress overflow-hidden' : 'overflow-auto'
       )}
     >
       {loading && (
@@ -29,10 +29,9 @@ function Table<T>({
       )}
       <table
         className={classnames(
-          'tw-table w-full border-collapse whitespace-nowrap text-center text-xs text-neutral-500',
+          'tw-table w-full border-collapse whitespace-nowrap text-center text-xs text-neutral-500 dark:text-neutral-50',
           {
-            'pointer-events-none cursor-not-allowed select-none opacity-60':
-              loading,
+            'pointer-events-none select-none opacity-60': loading,
             'tw-table-lg': size === 'lg',
             'tw-table-md': size === 'md',
             'tw-table-sm': size === 'sm',
@@ -40,7 +39,7 @@ function Table<T>({
           }
         )}
       >
-        <thead className="sticky top-0 bg-neutral-100 tracking-wider">
+        <thead className="sticky top-0 bg-neutral-100 tracking-wider dark:bg-neutral-700">
           {columns}
         </thead>
         <tbody>

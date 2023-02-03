@@ -9,6 +9,173 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 
 ## Example
 
+### Default
+
+<div className="mt-4">
+  <Table
+    list={[
+      { company: 'Apple', country: 'US', ceo: 'Tim Cook' },
+      { company: 'Tesla', country: 'US', ceo: 'Elon Musk' },
+      { company: 'Facebook', country: 'US', ceo: 'Mark Zuckerburg' },
+      { company: 'Microsoft', country: 'US', ceo: 'Satya Nadella' }
+    ]}
+    columns={
+      <tr>
+        <th>Company</th>
+        <th>Country</th>
+        <th>CEO</th>
+      </tr>
+    }
+    renderItem={(item, key) => (
+      <tr key={key}>
+        <td>{item.company}</td>
+        <td>{item.country}</td>
+        <td>{item.ceo}</td>
+      </tr>
+    )}
+  />
+</div>
+
+### Loading
+
+<div className="mt-4">
+  <Table
+    list={[
+      { company: 'Apple', country: 'US', ceo: 'Tim Cook' },
+      { company: 'Tesla', country: 'US', ceo: 'Elon Musk' },
+      { company: 'Facebook', country: 'US', ceo: 'Mark Zuckerburg' },
+      { company: 'Microsoft', country: 'US', ceo: 'Satya Nadella' }
+    ]}
+    columns={
+      <tr>
+        <th>Company</th>
+        <th>Country</th>
+        <th>CEO</th>
+      </tr>
+    }
+    renderItem={(item, key) => (
+      <tr key={key}>
+        <td>{item.company}</td>
+        <td>{item.country}</td>
+        <td>{item.ceo}</td>
+      </tr>
+    )}
+    loading
+  />
+</div>
+
+### Size
+
+<div className="mt-4 space-y-4">
+  <Table
+    list={[
+      { company: 'Apple', country: 'US', ceo: 'Tim Cook' },
+      { company: 'Tesla', country: 'US', ceo: 'Elon Musk' },
+      { company: 'Facebook', country: 'US', ceo: 'Mark Zuckerburg' },
+      { company: 'Microsoft', country: 'US', ceo: 'Satya Nadella' }
+    ]}
+    columns={
+      <tr>
+        <th>Company</th>
+        <th>Country</th>
+        <th>CEO</th>
+      </tr>
+    }
+    renderItem={(item, key) => (
+      <tr key={key}>
+        <td>{item.company}</td>
+        <td>{item.country}</td>
+        <td>{item.ceo}</td>
+      </tr>
+    )}
+    size="xs"
+  />
+  <Table
+    list={[
+      { company: 'Apple', country: 'US', ceo: 'Tim Cook' },
+      { company: 'Tesla', country: 'US', ceo: 'Elon Musk' },
+      { company: 'Facebook', country: 'US', ceo: 'Mark Zuckerburg' },
+      { company: 'Microsoft', country: 'US', ceo: 'Satya Nadella' }
+    ]}
+    columns={
+      <tr>
+        <th>Company</th>
+        <th>Country</th>
+        <th>CEO</th>
+      </tr>
+    }
+    renderItem={(item, key) => (
+      <tr key={key}>
+        <td>{item.company}</td>
+        <td>{item.country}</td>
+        <td>{item.ceo}</td>
+      </tr>
+    )}
+    size="sm"
+  />
+  <Table
+    list={[
+      { company: 'Apple', country: 'US', ceo: 'Tim Cook' },
+      { company: 'Tesla', country: 'US', ceo: 'Elon Musk' },
+      { company: 'Facebook', country: 'US', ceo: 'Mark Zuckerburg' },
+      { company: 'Microsoft', country: 'US', ceo: 'Satya Nadella' }
+    ]}
+    columns={
+      <tr>
+        <th>Company</th>
+        <th>Country</th>
+        <th>CEO</th>
+      </tr>
+    }
+    renderItem={(item, key) => (
+      <tr key={key}>
+        <td>{item.company}</td>
+        <td>{item.country}</td>
+        <td>{item.ceo}</td>
+      </tr>
+    )}
+    size="md"
+  />
+  <Table
+    list={[
+      { company: 'Apple', country: 'US', ceo: 'Tim Cook' },
+      { company: 'Tesla', country: 'US', ceo: 'Elon Musk' },
+      { company: 'Facebook', country: 'US', ceo: 'Mark Zuckerburg' },
+      { company: 'Microsoft', country: 'US', ceo: 'Satya Nadella' }
+    ]}
+    columns={
+      <tr>
+        <th>Company</th>
+        <th>Country</th>
+        <th>CEO</th>
+      </tr>
+    }
+    renderItem={(item, key) => (
+      <tr key={key}>
+        <td>{item.company}</td>
+        <td>{item.country}</td>
+        <td>{item.ceo}</td>
+      </tr>
+    )}
+  />
+</div>
+
+### No Data
+
+<div className="mt-4">
+  <Table
+    list={[]}
+    columns={
+      <tr>
+        <th>Company</th>
+        <th>Country</th>
+        <th>CEO</th>
+      </tr>
+    }
+    renderItem={(item, key) => <tr key={key}></tr>}
+  />
+</div>
+
 ## Steps
 
 <div className="steps">
@@ -66,7 +233,7 @@ function Table<T>({
     <div
       className={classnames(
         'relative',
-        loading ? 'overflow-hidden' : 'overflow-auto'
+        loading ? 'cursor-progress overflow-hidden' : 'overflow-auto'
       )}
     >
       {loading && (
@@ -74,10 +241,9 @@ function Table<T>({
       )}
       <table
         className={classnames(
-          'tw-table w-full border-collapse whitespace-nowrap text-center text-xs text-neutral-500',
+          'tw-table w-full border-collapse whitespace-nowrap text-center text-xs text-neutral-500 dark:text-neutral-50',
           {
-            'pointer-events-none cursor-not-allowed select-none opacity-60':
-              loading,
+            'pointer-events-none select-none opacity-60': loading,
             'tw-table-lg': size === 'lg',
             'tw-table-md': size === 'md',
             'tw-table-sm': size === 'sm',
@@ -85,7 +251,7 @@ function Table<T>({
           }
         )}
       >
-        <thead className="sticky top-0 bg-neutral-100 tracking-wider">
+        <thead className="sticky top-0 bg-neutral-100 tracking-wider dark:bg-neutral-700">
           {columns}
         </thead>
         <tbody>
@@ -113,7 +279,7 @@ export default Table
 @layer components {
   .tw-table th,
   .tw-table td {
-    @apply border;
+    @apply border dark:border-neutral-700;
   }
   .tw-table tr {
     @apply border-b last:border-b-0;
@@ -142,6 +308,33 @@ export default Table
 ```
 
 ### Usage
+
+```tsx
+<Table
+  list={[
+    { company: 'Apple', country: 'US', ceo: 'Tim Cook' },
+    { company: 'Tesla', country: 'US', ceo: 'Elon Musk' },
+    { company: 'Facebook', country: 'US', ceo: 'Mark Zuckerburg' },
+    { company: 'Microsoft', country: 'US', ceo: 'Satya Nadella' }
+  ]}
+  columns={
+    <tr>
+      <th>Company</th>
+      <th>Country</th>
+      <th>CEO</th>
+    </tr>
+  }
+  renderItem={(item, key) => (
+    <tr key={key}>
+      <td>{item.company}</td>
+      <td>{item.country}</td>
+      <td>{item.ceo}</td>
+    </tr>
+  )}
+  loading
+  size="md"
+/>
+```
 
 </div>
 
