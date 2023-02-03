@@ -12,9 +12,34 @@ import { BackTop, Frontmatter, ShareButtons } from 'containers'
 <BackTop />
 <Frontmatter />
 
-## Fivew
+블로그를 어느새 벌써 5번째를 만들게 됐네요. 설마 또 만들게 될 줄은 몰랐는 데, 이번에 아주 맘에 드는 프레임워크를 찾게 되서 혹해서 부랴부랴 만들었습니다. 워낙에 벌려놓은 양이 많아서 4일을 하루 종일 옮기고 5일 차에 이 글을 쓰게 되네요.
 
-### three
+## Gatsby의 문제점
+
+이전에 쓰던 Gatsby는 사용하면서 여러가지 불편함 점들이 있었습니다.
+
+### 갈수록 많아지는 Plugin
+
+블로그 프로젝트에 설치한 NPM 패지키만 해도 벌써 20개가 넘습니다. 필요한 플러그인을 가져다 쓰는 것은 경량화와 다양성, 선택의 폭이 넓어진 다는 점에서는 좋겠지만, 가장 큰 문제는 Gatsby의 버전이 오를 때마다 설치한 플러그인도 모두 버전업을 해주어야 한다는 점입니다. 심지어는 마이그레이션 과정에서 오류가 나서 지금 Gatsby는 5 버전이지만 현재 블로그는 4 버전에서 멈춰 있습니다.
+
+### 나는 GraphQL이 싫다.
+
+저는 GraphQL 안 좋아합니다. 그 기술을 강제하는 것이 그냥 싫었습니다. 막상 그렇게 성능을 체감하지도 못했습니다. GraphQL 자체는 존중하지만 Rest API가 여전히 건재한 것은 다 이유가 있지 않을까 싶네요.
+
+## Nextra
+
+이번에 사용한 프레임워크는 **Nextra**라는 프레임워크입니다. 이름부터 Next.js 산하느낌이 나는 데, Next.js와 MDX를 합쳐놓았다고 합니다.
+
+Vercel에서 새 프로젝트를 생성하다가 `Documentation Starter Kit`을 보고서 처음 접하게 되었는 데, UI 구성이 깔끔하고 의외로 많은 기능을 포함하고 있다는 것을 알게 되었습니다.
+
+문서를 둘러보고 나니 강력한 확신이 생겼습니다. 지금 만들고 있는 6개의 서브도메인 프로젝트를 이 프레임워크로 **하나로 통합할 수** 있을 것 같다는 생각이 들었습니다. 현재 운영 중인 6개의 프로젝트는 다음과 같습니다.
+
+- [blog.kidow.me](https://blog.kidow.me): 블로그 (Gatsby)
+- [memo.kidoe.me](https://memo.kidow.me): 개인 메모 앱 (React)
+- [og.kidow.me](https://og.kidow.me): 오픈그래프 이미지 생성기 (Next)
+- [archive.kidow.me](https://archive.kidow.me) 개인 코드 저장소 (Docusaurus)
+- [components.kidow.me](https://components.kidow.me) 개인 컴포넌트 저장소 (Storybook)
+- [resume.kidow.me](https://resume.kidow.me) 이력서 (Parcel)
 
 <ShareButtons />
 <Comment />
