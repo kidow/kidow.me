@@ -8,6 +8,36 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 
 ## Example
 
+### Default
+
+<div className="mt-4 flex gap-2">
+  <Avatar src="https://thispersondoesnotexist.com/image" alt="" />
+  <Avatar src="https://i.pravatar.cc" alt="" />
+</div>
+
+### Shape
+
+<div className="mt-4 flex gap-2">
+  <Avatar src="https://thispersondoesnotexist.com/image" alt="" />
+  <Avatar src="https://i.pravatar.cc" alt="" shape="square" />
+</div>
+
+### Size
+
+<div className="mt-4 flex items-end gap-2">
+  <Avatar src="https://thispersondoesnotexist.com/image" alt="" size="xs" />
+  <Avatar src="https://thispersondoesnotexist.com/image" alt="" size="sm" />
+  <Avatar src="https://thispersondoesnotexist.com/image" alt="" size="md" />
+  <Avatar src="https://thispersondoesnotexist.com/image" alt="" size="lg" />
+  <Avatar src="https://thispersondoesnotexist.com/image" alt="" size="xl" />
+</div>
+
+### Border
+
+<div className="mt-4 flex items-end gap-2">
+  <Avatar src="https://thispersondoesnotexist.com/image" alt="" border />
+</div>
+
 ## Steps
 
 <div className="steps">
@@ -89,6 +119,16 @@ export default Avatar
 ```
 
 ### Usage
+
+```tsx
+<Avatar
+  src="https://thispersondoesnotexist.com/image"
+  alt=""
+  shape="square"
+  size="xl"
+  border
+/>
+```
 
 </div>
 
