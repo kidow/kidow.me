@@ -1,9 +1,8 @@
 import type { FC } from 'react'
 import classnames from 'classnames'
-import { UserCircleIcon } from '@heroicons/react/24/solid'
 
-interface Props {
-  src?: string
+export interface Props {
+  src: string
   alt?: string
   shape?: 'circle' | 'square'
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -19,37 +18,33 @@ const Avatar: FC<Props> = ({
 }) => {
   return (
     <span>
-      {src ? (
-        <img
-          src={src}
-          alt={alt}
-          className={classnames(
-            'border',
-            border ? 'border-gray-400' : 'border-transparent',
-            {
-              'rounded-full': shape === 'circle',
-              rounded: shape === 'square',
-              'h-8 w-8': size === 'xs',
-              'h-10 w-10': size === 'sm',
-              'h-12 w-12': size === 'md',
-              'h-16 w-16': size === 'lg',
-              'h-20 w-20': size === 'xl'
-            }
-          )}
-        />
-      ) : (
-        <UserCircleIcon
-          className={classnames('text-gray-400', {
+      <img
+        src={src}
+        alt={alt}
+        className={classnames(
+          border ? 'border-gray-400' : 'border-transparent',
+          {
+            'rounded-full': shape === 'circle',
+            rounded: shape === 'square',
             'h-8 w-8': size === 'xs',
             'h-10 w-10': size === 'sm',
             'h-12 w-12': size === 'md',
             'h-16 w-16': size === 'lg',
-            'h-20 w-20': size === 'xl'
-          })}
-        />
-      )}
+            'h-20 w-20': size === 'xl',
+            'border-2': !!border
+          }
+        )}
+        onError={(e) =>
+          // @ts-ignore
+          (e.target.src = 'https://thispersondoesnotexist.com/image')
+        }
+      />
     </span>
   )
+}
+
+Avatar.defaultProps = {
+  alt: ''
 }
 
 export default Avatar

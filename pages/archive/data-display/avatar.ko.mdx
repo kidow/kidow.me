@@ -1,4 +1,4 @@
-import { Comment, Avatar } from 'components'
+import { Comment, Avatar, Required } from 'components'
 import { BackTop } from 'containers'
 import { Tab, Tabs } from 'nextra-theme-docs'
 
@@ -11,31 +11,37 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 ### Default
 
 <div className="mt-4 flex gap-2">
-  <Avatar src="https://thispersondoesnotexist.com/image" alt="" />
-  <Avatar src="https://i.pravatar.cc" alt="" />
+  <Avatar src="https://thispersondoesnotexist.com/image" />
+  <Avatar src="https://i.pravatar.cc" />
 </div>
 
 ### Shape
 
 <div className="mt-4 flex gap-2">
-  <Avatar src="https://thispersondoesnotexist.com/image" alt="" />
-  <Avatar src="https://i.pravatar.cc" alt="" shape="square" />
+  <Avatar src="https://thispersondoesnotexist.com/image" />
+  <Avatar src="https://i.pravatar.cc" shape="square" />
 </div>
 
 ### Size
 
 <div className="mt-4 flex items-end gap-2">
-  <Avatar src="https://thispersondoesnotexist.com/image" alt="" size="xs" />
-  <Avatar src="https://thispersondoesnotexist.com/image" alt="" size="sm" />
-  <Avatar src="https://thispersondoesnotexist.com/image" alt="" size="md" />
-  <Avatar src="https://thispersondoesnotexist.com/image" alt="" size="lg" />
-  <Avatar src="https://thispersondoesnotexist.com/image" alt="" size="xl" />
+  <Avatar src="https://thispersondoesnotexist.com/image" size="xs" />
+  <Avatar src="https://thispersondoesnotexist.com/image" size="sm" />
+  <Avatar src="https://thispersondoesnotexist.com/image" size="md" />
+  <Avatar src="https://thispersondoesnotexist.com/image" size="lg" />
+  <Avatar src="https://thispersondoesnotexist.com/image" size="xl" />
 </div>
 
 ### Border
 
-<div className="mt-4 flex items-end gap-2">
-  <Avatar src="https://thispersondoesnotexist.com/image" alt="" border />
+<div className="mt-4">
+  <Avatar src="https://thispersondoesnotexist.com/image" border />
+</div>
+
+### Invalid src
+
+<div className="mt-4">
+  <Avatar src="[invalid url]" />
 </div>
 
 ## Steps
@@ -48,13 +54,13 @@ import { Tab, Tabs } from 'nextra-theme-docs'
   {/* prettier-ignore */}
   <Tab>
     ```bash
-    npm install @heroicons/react classnames
+    npm install classnames
     ```
     </Tab>
   {/* prettier-ignore */}
   <Tab>
     ```bash
-    yarn add @heroicons/react classnames
+    yarn add classnames
     ```
 </Tab>
 </Tabs>
@@ -64,15 +70,13 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 ```tsx filename="components/Avatar/index.tsx"
 import type { FC } from 'react'
 import classnames from 'classnames'
-import { UserCircleIcon } from '@heroicons/react/24/solid'
 
-interface Props {
-  src?: string
+export interface Props {
+  src: string
   alt?: string
   shape?: 'circle' | 'square'
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   border?: boolean
-  className?: string
 }
 
 const Avatar: FC<Props> = ({
@@ -80,16 +84,16 @@ const Avatar: FC<Props> = ({
   alt,
   shape = 'circle',
   size = 'md',
-  border = false,
-  className
+  border = false
 }) => {
   return (
     <span>
-      {src ? (
-        <img
-          src={src}
-          alt={alt}
-          className={classnames({
+      <img
+        src={src}
+        alt={alt}
+        className={classnames(
+          border ? 'border-gray-400' : 'border-transparent',
+          {
             'rounded-full': shape === 'circle',
             rounded: shape === 'square',
             'h-8 w-8': size === 'xs',
@@ -97,22 +101,20 @@ const Avatar: FC<Props> = ({
             'h-12 w-12': size === 'md',
             'h-16 w-16': size === 'lg',
             'h-20 w-20': size === 'xl',
-            'border-2 border-black': border
-          })}
-        />
-      ) : (
-        <UserCircleIcon
-          className={classnames('text-neutral-400', {
-            'h-8 w-8': size === 'xs',
-            'h-10 w-10': size === 'sm',
-            'h-12 w-12': size === 'md',
-            'h-16 w-16': size === 'lg',
-            'h-20 w-20': size === 'xl'
-          })}
-        />
-      )}
+            'border-2': !!border
+          }
+        )}
+        onError={(e) =>
+          // @ts-ignore
+          (e.target.src = 'https://thispersondoesnotexist.com/image')
+        }
+      />
     </span>
   )
+}
+
+Avatar.defaultProps = {
+  alt: ''
 }
 
 export default Avatar
@@ -123,7 +125,6 @@ export default Avatar
 ```tsx
 <Avatar
   src="https://thispersondoesnotexist.com/image"
-  alt=""
   shape="square"
   size="xl"
   border
@@ -134,13 +135,13 @@ export default Avatar
 
 ### Props
 
-| Name          |           Type           | Default  |
-| :------------ | :----------------------: | :------: |
-| **src**       |          string          |          |
-| **alt**       |          string          |          |
-| **shape**     |    `circle` `square`     | `circle` |
-| **size**      | `xs` `sm` `md` `lg` `xl` |   `md`   |
-| **border**    |         boolean          |  false   |
-| **className** |          string          |          |
+| Name                |           Type           | Default  |
+| :------------------ | :----------------------: | :------: |
+| **src**<Required /> |          string          |          |
+| **alt**             |          string          |    ''    |
+| **shape**           |    `circle` `square`     | `circle` |
+| **size**            | `xs` `sm` `md` `lg` `xl` |   `md`   |
+| **border**          |         boolean          |  false   |
+| **className**       |          string          |          |
 
 <Comment />

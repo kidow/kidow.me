@@ -1,4 +1,4 @@
-import { Comment, Card, Icon, Required } from 'components'
+import { Comment, Card, Icon, Required, Collapse } from 'components'
 import { BackTop } from 'containers'
 import { Tab, Tabs } from 'nextra-theme-docs'
 
@@ -7,6 +7,31 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 # Collapse
 
 ## Example
+
+### Default
+
+<div className="mt-4">
+  <Collapse
+    list={[
+      { title: 'Title 1', content: 'Content 1' },
+      { title: 'Title 2', content: 'Content 2' },
+      { title: 'Title 3', content: 'Content 3' }
+    ]}
+  />
+</div>
+
+### accordion
+
+<div className="mt-4">
+  <Collapse
+    list={[
+      { title: 'Title 1', content: 'Content 1' },
+      { title: 'Title 2', content: 'Content 2' },
+      { title: 'Title 3', content: 'Content 3' }
+    ]}
+    accordion
+  />
+</div>
 
 ## Steps
 
@@ -67,13 +92,13 @@ const Collapse: FC<Props> = ({ accordion, ...props }) => {
     list: props.list.map((item) => ({ ...item, open: false }))
   })
   return (
-    <div className="divide-y rounded border">
+    <div className="divide-y rounded border dark:divide-neutral-700 dark:border-neutral-700">
       {list.map((item, index) => (
         <div key={index} className="relative">
           <div
             className={classnames(
-              'flex cursor-pointer items-center justify-between bg-neutral-50 p-4 font-semibold',
-              { 'border-b': item.open }
+              'flex cursor-pointer items-center justify-between bg-neutral-50 p-4 font-semibold dark:bg-neutral-800',
+              { 'border-b dark:border-neutral-700': item.open }
             )}
             onClick={() =>
               setState({
@@ -93,7 +118,7 @@ const Collapse: FC<Props> = ({ accordion, ...props }) => {
           >
             <span>{item.title}</span>
             <ChevronDownIcon
-              className={classnames('h-5 w-5', {
+              className={classnames('h-5 w-5 dark:text-neutral-500', {
                 '-rotate-180': item.open
               })}
             />
@@ -111,6 +136,17 @@ export default Collapse
 ```
 
 ### Usage
+
+```tsx
+<Collapse
+  list={[
+    { title: 'Title 1', content: 'Content 1' },
+    { title: 'Title 2', content: 'Content 2' },
+    { title: 'Title 3', content: 'Content 3' }
+  ]}
+  accordion
+/>
+```
 
 </div>
 

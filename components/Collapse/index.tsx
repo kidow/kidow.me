@@ -23,13 +23,13 @@ const Collapse: FC<Props> = ({ accordion, ...props }) => {
     list: props.list.map((item) => ({ ...item, open: false }))
   })
   return (
-    <div className="divide-y rounded border">
+    <div className="divide-y rounded border dark:divide-neutral-700 dark:border-neutral-700">
       {list.map((item, index) => (
         <div key={index} className="relative">
           <div
             className={classnames(
-              'flex cursor-pointer items-center justify-between bg-neutral-50 p-4 font-semibold',
-              { 'border-b': item.open }
+              'flex cursor-pointer items-center justify-between bg-neutral-50 p-4 font-semibold dark:bg-neutral-800',
+              { 'border-b dark:border-neutral-700': item.open }
             )}
             onClick={() =>
               setState({
@@ -49,7 +49,7 @@ const Collapse: FC<Props> = ({ accordion, ...props }) => {
           >
             <span>{item.title}</span>
             <ChevronDownIcon
-              className={classnames('h-5 w-5', {
+              className={classnames('h-5 w-5 dark:text-neutral-500', {
                 '-rotate-180': item.open
               })}
             />
