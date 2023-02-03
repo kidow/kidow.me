@@ -1,11 +1,14 @@
-import React, { forwardRef } from 'react'
-import type { ReactNode } from 'react'
+import { useRef, forwardRef } from 'react'
+import type { ReactNode, DetailedHTMLProps, DialogHTMLAttributes } from 'react'
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import classnames from 'classnames'
+import { useCombinedRefs } from 'services'
 
-interface Props extends ReactProps {
-  title?: string
-  onClose?: () => void
+interface Props
+  extends DetailedHTMLProps<
+    DialogHTMLAttributes<HTMLDialogElement>,
+    HTMLDialogElement
+  > {
   description?: string
   padding?: boolean
   footer?: ReactNode
@@ -33,63 +36,59 @@ interface Props extends ReactProps {
 const Dialog = forwardRef<HTMLDialogElement, Props>(
   (
     {
-      onClose,
       title,
       description,
       padding = true,
       footer,
       maxWidth = 'max-w-lg',
+      children,
       ...props
     },
     ref
   ) => {
+    const dialogRef = useRef<HTMLDialogElement>(null)
+    const combinedRef = useCombinedRefs<HTMLDialogElement>(ref, dialogRef)
     return (
       <dialog
         role="dialog"
-        ref={ref}
+        ref={combinedRef}
         className={classnames(
-          'w-full rounded-lg p-0 backdrop:bg-black backdrop:opacity-30',
+          'w-full rounded-lg p-0 backdrop:bg-black/30',
           maxWidth
         )}
-        onClick={(e) => {
-          // @ts-ignore
-          if (e.target === ref.current) {
-            if (onClose) onClose()
-            // @ts-ignore
-            else ref.current?.close()
-          }
-        }}
+        onClick={() => combinedRef.current.close()}
         {...props}
       >
-        <header className="border-t-4 border-neutral-800">
+        <header className="border-t-4 border-primary bg-white dark:bg-neutral-800">
           {!!title && (
-            <div
-              className={classnames(
-                'flex border-b border-neutral-200 p-4',
-                !!description ? 'items-start' : 'items-center'
-              )}
-            >
+            <div className="flex items-center border-b border-neutral-200 py-3 px-4 dark:border-neutral-700">
               <div className="flex-1">
-                <h1 className="text-lg font-semibold">{title}</h1>
+                <h1 className="text-xl font-semibold">{title}</h1>
                 {!!description && (
-                  <p className="mt-1 text-sm text-neutral-500">{description}</p>
+                  <p className="mt-1 text-sm text-neutral-400">{description}</p>
                 )}
               </div>
               <button
-                // @ts-ignore
-                onClick={() => ref.current?.close()}
-                className="rounded-full p-2 hover:bg-neutral-300"
+                onClick={() => combinedRef.current.close()}
+                className="rounded-full p-2 hover:bg-neutral-300 dark:hover:bg-neutral-900"
               >
-                <XMarkIcon className="h-5 w-5 text-neutral-800" />
+                <XMarkIcon className="h-5 w-5 text-neutral-800 dark:text-neutral-100" />
               </button>
             </div>
           )}
         </header>
-        <div className={classnames({ 'py-6 px-7': padding })}>
-          {props.children}
+        <div
+          className={classnames('bg-white dark:bg-neutral-800', {
+            'py-6 px-7': padding,
+            'rounded-b-lg': !footer
+          })}
+        >
+          {children}
         </div>
         {!!footer && (
-          <footer className="border-t border-neutral-200 p-4">{footer}</footer>
+          <footer className="rounded-b-lg border-t bg-white py-4 px-7 dark:border-neutral-700 dark:bg-neutral-800">
+            {footer}
+          </footer>
         )}
       </dialog>
     )
