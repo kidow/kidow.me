@@ -8,6 +8,21 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 
 ## Example
 
+### Type
+
+<div className="mt-4 space-y-4">
+  <Alert type="success" message="Success" />
+  <Alert type="info" message="Info" />
+  <Alert type="warn" message="Warn" />
+  <Alert type="error" message="Error" />
+</div>
+
+### Close
+
+<div className="mt-4">
+  <Alert type="success" message="Close ->" close />
+</div>
+
 ## Steps
 
 <div className='steps'>
@@ -79,11 +94,15 @@ const Alert: FC<Props> = ({ type, message, close, children }) => {
   if (!isDisplay) return null
   return (
     <div
-      className={classnames('flex justify-between border p-6', {
-        'bg-red-50': type === 'error',
-        'bg-sky-50': type === 'success',
-        'bg-orange-50': type === 'warn',
-        'bg-neutral-50': type === 'info',
+      className={classnames('flex justify-between rounded-lg border p-4', {
+        'bg-red-50 text-red-500 dark:border-red-200/30 dark:bg-red-900/30 dark:text-red-200':
+          type === 'error',
+        'bg-blue-50 text-blue-500 dark:border-blue-200/30 dark:bg-blue-900/30 dark:text-blue-200':
+          type === 'success',
+        'bg-yellow-50 text-yellow-500 dark:border-yellow-200/30 dark:bg-yellow-900/30 dark:text-yellow-200':
+          type === 'warn',
+        'bg-slate-50 text-slate-500 dark:border-slate-200/30 dark:bg-slate-900/30 dark:text-slate-200':
+          type === 'info',
         'transition-opacity duration-150': close,
         'opacity-100': close && !isClosed,
         'opacity-0': close && isClosed
@@ -92,10 +111,10 @@ const Alert: FC<Props> = ({ type, message, close, children }) => {
       <div className="flex items-start gap-3">
         <ExclamationCircleIcon
           className={classnames('h-5 w-5', {
-            'text-red-500': type === 'error',
-            'text-sky-500': type === 'success',
-            'text-orange-500': type === 'warn',
-            'text-neutral-500': type === 'info'
+            'text-red-500 dark:text-red-200': type === 'error',
+            'text-blue-500 dark:text-blue-200': type === 'success',
+            'text-yellow-500 dark:text-yellow-200': type === 'warn',
+            'text-slate-500 dark:text-slate-200': type === 'info'
           })}
         />
 
@@ -118,6 +137,14 @@ export default Alert
 ```
 
 ### Usage
+
+```tsx
+<Alert type="success" message="Success" />
+<Alert type="info" message="Info" />
+<Alert type="warn" message="Warn" />
+<Alert type="error" message="Error" />
+<Alert type="success" message="Close ->" close />
+```
 
 </div>
 
