@@ -1,4 +1,4 @@
-import { Comment, Card } from 'components'
+import { Comment, Card, Button } from 'components'
 import { BackTop } from 'containers'
 import { Tab, Tabs } from 'nextra-theme-docs'
 import { CubeIcon } from '@heroicons/react/24/outline'
@@ -8,6 +8,50 @@ import { CubeIcon } from '@heroicons/react/24/outline'
 # Button
 
 ## Example
+
+### Size
+
+<div className="mt-4 flex items-end gap-4">
+  <Button size="xs">xs</Button>
+  <Button size="sm">sm</Button>
+  <Button size="md">md</Button>
+  <Button size="lg">lg</Button>
+</div>
+
+### Theme
+
+<div className="mt-4 flex items-end gap-4">
+  <Button>Default</Button>
+  <Button theme="primary">Primary</Button>
+  <Button theme="success">Success</Button>
+  <Button theme="danger">Danger</Button>
+</div>
+
+### Shape
+
+<div className="mt-4 flex items-end gap-4">
+  <Button>Contained</Button>
+  <Button shape="outlined">Outlined</Button>
+  <Button shape="text">Text</Button>
+</div>
+
+### Loading
+
+<div className="mt-4">
+  <Button loading>Loading</Button>
+</div>
+
+### Disabled
+
+<div className="mt-4">
+  <Button disabled>Disabled</Button>
+</div>
+
+### Icon
+
+<div className="mt-4">
+  <Button icon={CubeIcon}>CubeIcon</Button>
+</div>
 
 ## Steps
 
@@ -142,6 +186,19 @@ export default Button
 ```
 
 ### Usage
+
+```tsx
+<Button
+  size="md"
+  theme="primary"
+  shape="contained"
+  loading
+  disabled
+  icon={CubeIcon}
+>
+  Button
+</Button>
+```
 
 </div>
 
