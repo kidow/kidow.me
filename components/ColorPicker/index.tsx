@@ -83,12 +83,14 @@ const ColorPicker: FC<Props> = ({ value, onChange }) => {
         id={id}
         ref={buttonRef}
         onClick={() => setState({ isOpen: !isOpen })}
-        className="flex items-center gap-3 rounded border border-gray-300 p-2"
+        className="flex items-center gap-3 rounded border border-neutral-300 p-2 dark:border-neutral-700"
       >
         <div className="h-6 w-6" style={{ backgroundColor: value }} />
-        <div className="w-16 text-sm font-semibold text-slate-700">{value}</div>
+        <div className="w-16 text-sm font-semibold text-neutral-700 dark:text-neutral-50">
+          {value}
+        </div>
         <ChevronDownIcon
-          className={classnames('h-4 w-4 text-slate-400 duration-150', {
+          className={classnames('h-4 w-4 text-neutral-400 duration-150', {
             'rotate-180': isOpen
           })}
         />
@@ -124,11 +126,11 @@ const ColorPicker: FC<Props> = ({ value, onChange }) => {
                 />
               </div>
               <div className="h-7.5 flex text-xs">
-                <span className="flex w-15 select-none items-center justify-center bg-slate-100 text-slate-400">
+                <span className="w-15 flex select-none items-center justify-center bg-neutral-100 text-neutral-400">
                   HEX
                 </span>
                 <input
-                  className="w-full flex-1 bg-slate-50 px-3 text-slate-600 focus:outline-none"
+                  className="w-full flex-1 bg-neutral-50 px-3 text-neutral-600 focus:outline-none"
                   spellCheck={false}
                   value={value}
                   name="hex"
@@ -139,10 +141,10 @@ const ColorPicker: FC<Props> = ({ value, onChange }) => {
                 />
               </div>
               <div className="h-7.5 flex text-xs">
-                <span className="flex w-15 select-none items-center justify-center bg-slate-100 text-slate-400">
+                <span className="w-15 flex select-none items-center justify-center bg-neutral-100 text-neutral-400">
                   RGB
                 </span>
-                <div className="flex flex-1 gap-1 bg-slate-50 px-3">
+                <div className="flex flex-1 gap-1 bg-neutral-50 px-3">
                   <RGB
                     value={red}
                     onChange={(red) => {
