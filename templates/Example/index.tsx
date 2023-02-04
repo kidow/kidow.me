@@ -8,6 +8,7 @@ import MonthPickerExample from './MonthPicker'
 import PaginationExample from './Pagination'
 import RadioExample from './Radio'
 import RatingExample from './Rating'
+import TabsExample from './Tabs'
 import TimePickerExample from './TimePicker'
 import TimeRangePickerExample from './TimeRangePicker'
 
@@ -23,5 +24,6 @@ export default {
   IconUpload: IconUploadExample,
   Radio: RadioExample,
   Drawer: DrawerExample,
-  Pagination: PaginationExample
+  Pagination: PaginationExample,
+  Tabs: TabsExample
 }
