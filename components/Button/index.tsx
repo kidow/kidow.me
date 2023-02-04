@@ -1,5 +1,6 @@
 import classnames from 'classnames'
 import { Spinner } from 'components'
+import { useCallback, useEffect, useRef } from 'react'
 import type { FC, DetailedHTMLProps, ButtonHTMLAttributes } from 'react'
 
 import ButtonGroup from './Group'
@@ -14,6 +15,7 @@ export interface Props
   theme?: 'danger' | 'primary' | 'success'
   shape?: 'text' | 'contained' | 'outlined'
   icon?: any
+  ripple?: boolean
 }
 
 const Button: FC<Props> = ({
@@ -25,12 +27,40 @@ const Button: FC<Props> = ({
   className,
   shape = 'contained',
   icon,
+  ripple = false,
   ...props
 }) => {
   const Icon = loading ? Spinner : icon ?? null
+  const ref = useRef<HTMLButtonElement>(null)
+
+  const rippleEffect = useCallback(
+    (e: MouseEvent) => {
+      const element = e.currentTarget as HTMLButtonElement
+
+      const circle = document.createElement('span')
+      const diameter = Math.max(element.clientWidth, element.clientHeight)
+
+      circle.style.width = circle.style.height = `${diameter}px`
+      circle.style.left = `${e.x - element.offsetLeft - diameter / 2}px`
+      circle.style.top = `${e.pageY - element.offsetTop - diameter / 2}px`
+      circle.classList.add('ripple')
+
+      const ripple = element.getElementsByClassName('ripple')[0]
+      if (ripple) ripple.remove()
+      element.appendChild(circle)
+    },
+    [ripple]
+  )
+
+  useEffect(() => {
+    if (!ripple) return
+    ref.current.addEventListener('click', rippleEffect)
+    return () => ref.current.removeEventListener('click', rippleEffect)
+  }, [ripple])
   return (
     <button
       {...props}
+      ref={ref}
       className={classnames(
         'border font-medium leading-6 transition duration-150 ease-in-out disabled:cursor-not-allowed',
         size === 'xs' ? 'gap-1.5 rounded py-px px-2 text-xs' : 'rounded-md',
@@ -77,7 +107,8 @@ const Button: FC<Props> = ({
           'border-emerald-500 text-emerald-500 hover:bg-emerald-500':
             theme === 'success' && shape === 'outlined',
 
-          'cursor-progress': loading
+          'cursor-progress': loading,
+          'relative overflow-hidden': ripple
         },
         className
       )}

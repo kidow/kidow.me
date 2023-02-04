@@ -66,6 +66,9 @@ input:focus-visible {
   .tw-table-xs td {
     @apply px-1 py-0.5;
   }
+  .ripple {
+    @apply absolute scale-0 animate-ripple rounded-full bg-white/30;
+  }
 }
 
 /* AutoComplete */

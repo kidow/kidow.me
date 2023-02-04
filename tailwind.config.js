@@ -84,6 +84,10 @@ module.exports = {
           from: { opacity: 1 },
           '60%': { opacity: 0 },
           to: { transform: '-translateX(150%)' }
+        },
+        ripple: {
+          from: { transform: 'scale(0)' },
+          to: { transform: 'scale(4)', opacity: 0 }
         }
       },
       animation: {
@@ -96,7 +100,8 @@ module.exports = {
         'fade-out-top': 'fade-out-top 0.2s linear',
         'fade-out-right': 'fade-out-right 0.2s linear',
         'fade-out-bottom': 'fade-out-bottom 0.2s linear',
-        'fade-out-left': 'fade-out-left 0.2s linear'
+        'fade-out-left': 'fade-out-left 0.2s linear',
+        ripple: 'ripple 0.6s linear'
       }
     }
   },

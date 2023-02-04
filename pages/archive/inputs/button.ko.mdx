@@ -53,6 +53,12 @@ import { CubeIcon } from '@heroicons/react/24/outline'
   <Button icon={CubeIcon}>CubeIcon</Button>
 </div>
 
+### Ripple Effect
+
+<div className="mt-4">
+  <Button ripple>Ripple</Button>
+</div>
+
 ## Steps
 
 <div className="steps">
@@ -84,11 +90,40 @@ import { CubeIcon } from '@heroicons/react/24/outline'
 </Tab>
 </Tabs>
 
+### Add Animation in `tailwind.config.js`
+
+```js filename="tailwind.config.js"
+module.exports = {
+  theme: {
+    extend: {
+      keyframes: {
+        ripple: {
+          from: { transform: 'scale(0)' },
+          to: { transform: 'scale(4)', opacity: 0 }
+        }
+      },
+      animation: {
+        ripple: 'ripple 0.6s linear'
+      }
+    }
+  }
+}
+```
+
+## Add Style in `styles/global.css`
+
+```css
+.ripple {
+  @apply absolute scale-0 animate-ripple rounded-full bg-white/30;
+}
+```
+
 ### Copy Code
 
 ```tsx filename="components/Button/index.tsx"
 import classnames from 'classnames'
 import { Spinner } from 'components'
+import { useCallback, useEffect, useRef } from 'react'
 import type { FC, DetailedHTMLProps, ButtonHTMLAttributes } from 'react'
 
 import ButtonGroup from './Group'
@@ -103,6 +138,7 @@ export interface Props
   theme?: 'danger' | 'primary' | 'success'
   shape?: 'text' | 'contained' | 'outlined'
   icon?: any
+  ripple?: boolean
 }
 
 const Button: FC<Props> = ({
@@ -114,12 +150,40 @@ const Button: FC<Props> = ({
   className,
   shape = 'contained',
   icon,
+  ripple = false,
   ...props
 }) => {
   const Icon = loading ? Spinner : icon ?? null
+  const ref = useRef<HTMLButtonElement>(null)
+
+  const rippleEffect = useCallback(
+    (e: MouseEvent) => {
+      const element = e.currentTarget as HTMLButtonElement
+
+      const circle = document.createElement('span')
+      const diameter = Math.max(element.clientWidth, element.clientHeight)
+
+      circle.style.width = circle.style.height = `${diameter}px`
+      circle.style.left = `${e.x - element.offsetLeft - diameter / 2}px`
+      circle.style.top = `${e.pageY - element.offsetTop - diameter / 2}px`
+      circle.classList.add('ripple')
+
+      const ripple = element.getElementsByClassName('ripple')[0]
+      if (ripple) ripple.remove()
+      element.appendChild(circle)
+    },
+    [ripple]
+  )
+
+  useEffect(() => {
+    if (!ripple) return
+    ref.current.addEventListener('click', rippleEffect)
+    return () => ref.current.removeEventListener('click', rippleEffect)
+  }, [ripple])
   return (
     <button
       {...props}
+      ref={ref}
       className={classnames(
         'border font-medium leading-6 transition duration-150 ease-in-out disabled:cursor-not-allowed',
         size === 'xs' ? 'gap-1.5 rounded py-px px-2 text-xs' : 'rounded-md',
@@ -166,7 +230,8 @@ const Button: FC<Props> = ({
           'border-emerald-500 text-emerald-500 hover:bg-emerald-500':
             theme === 'success' && shape === 'outlined',
 
-          'cursor-progress': loading
+          'cursor-progress': loading,
+          'relative overflow-hidden': ripple
         },
         className
       )}
@@ -207,6 +272,7 @@ export default Object.assign(Button, { Group: ButtonGroup })
   loading
   disabled
   icon={CubeIcon}
+  ripple
 >
   Button
 </Button>
@@ -223,7 +289,12 @@ export default Object.assign(Button, { Group: ButtonGroup })
 | **theme**    | `danger` `primary` `success`  |             |
 | **shape**    | `text` `contained` `outlined` | `contained` |
 | **icon**     |           ReactNode           |             |
+| **ripple**   |            boolean            |    false    |
 | **children** |           ReactNode           |             |
 | **...props** |       HTMLButtonElement       |             |
+
+### References
+
+- https://codepen.io/vituja1/pen/oNWzNwq?editors=1111
 
 <Comment />
