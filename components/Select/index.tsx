@@ -32,8 +32,10 @@ const Select: FC<Props> = ({
         <select
           {...props}
           className={classnames(
-            'w-full cursor-pointer select-none appearance-none rounded border bg-white pr-8 disabled:cursor-not-allowed disabled:bg-neutral-200',
-            !!error ? 'border-red-500' : 'border-neutral-300',
+            'w-full cursor-pointer select-none appearance-none rounded border bg-white pr-8 ring-blue-500 focus:outline-none focus:ring-4 disabled:cursor-not-allowed disabled:bg-neutral-200  dark:bg-neutral-800',
+            !!error
+              ? 'border-red-500'
+              : 'border-neutral-300 dark:border-neutral-700',
             !!props.value ? 'text-neutral-700' : 'text-neutral-400',
             {
               'py-1 pl-2 text-xs': size === 'xs',
@@ -47,7 +49,7 @@ const Select: FC<Props> = ({
         </select>
         <ChevronDownIcon
           className={classnames(
-            'absolute right-2 z-[5] h-5 w-5 text-neutral-400',
+            'absolute right-2 z-[5] h-5 w-5 text-neutral-400 dark:text-neutral-500',
             {
               'top-1': size === 'xs',
               'top-2': size === 'sm',
