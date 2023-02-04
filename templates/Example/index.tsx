@@ -4,6 +4,7 @@ import DialogExample from './Dialog'
 import IconUploadExample from './IconUpload'
 import ModalExample from './Modal'
 import MonthPickerExample from './MonthPicker'
+import RadioExample from './Radio'
 import RatingExample from './Rating'
 import TimePickerExample from './TimePicker'
 import TimeRangePickerExample from './TimeRangePicker'
@@ -17,5 +18,6 @@ export default {
   MonthPicker: MonthPickerExample,
   Modal: ModalExample,
   Dialog: DialogExample,
-  IconUpload: IconUploadExample
+  IconUpload: IconUploadExample,
+  Radio: RadioExample
 }

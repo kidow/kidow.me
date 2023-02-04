@@ -31,15 +31,18 @@ function Radio<T>({
         <label
           key={key}
           className={classnames('relative cursor-pointer', {
-            'flex gap-8 rounded border pt-1.5 pb-2 pl-1 pr-4 hover:bg-slate-50':
-              card,
-            'border-blue-500': card && value === item.value
+            'flex gap-8 rounded border pt-1.5 pb-2 pl-1 pr-4': card,
+            'dark:border-neutral-700': card && value !== item.value,
+            'border-blue-500': card && value === item.value,
+            'hover:bg-neutral-50 dark:hover:bg-neutral-900':
+              card && !item.disabled,
+            'cursor-not-allowed': card && item.disabled
           })}
         >
           <input
             type="radio"
             className={classnames(
-              'cursor-pointer appearance-none before:absolute before:rounded-full before:border before:bg-white before:p-2 disabled:cursor-not-allowed',
+              'cursor-pointer appearance-none before:absolute before:rounded-full before:border before:bg-white before:p-2 disabled:cursor-not-allowed dark:before:border-neutral-700 dark:before:bg-neutral-800',
               card
                 ? 'before:left-2 before:top-2'
                 : 'before:left-0 before:top-[3px]',
@@ -56,11 +59,22 @@ function Radio<T>({
           />
           {card ? (
             <div className="mt-px space-y-2 break-all">
-              <div className="text-sm text-slate-800">{item.name}</div>
-              <div className="text-xs text-slate-400">{item.description}</div>
+              <div className="text-sm text-neutral-800 dark:text-neutral-300">
+                {item.name}
+              </div>
+              <div className="text-xs text-neutral-400">{item.description}</div>
             </div>
           ) : (
-            <span className="ml-6 text-slate-600">{item.name}</span>
+            <span
+              className={classnames(
+                'ml-6 select-none',
+                item.disabled
+                  ? 'cursor-not-allowed text-neutral-400 dark:text-neutral-600'
+                  : 'text-neutral-600 dark:text-neutral-400'
+              )}
+            >
+              {item.name}
+            </span>
           )}
         </label>
       ))}
