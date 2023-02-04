@@ -53,3 +53,12 @@ export const priceFormat = (value?: string | number): string => {
 }
 
 export const backdrop = (open: boolean) => EventListener.emit('backdrop', open)
+
+export const fileToBase64 = (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    let reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = () => resolve(reader.result as string)
+    reader.onerror = (err) => reject(err)
+  })
+}
