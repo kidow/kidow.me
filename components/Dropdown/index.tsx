@@ -27,7 +27,7 @@ const Dropdown: FC<Props> = ({ label = 'Dropdown', list, onClick }) => {
         onClick={() => setState({ isOpen: !isOpen })}
         id={id}
         ref={ref}
-        className="inline-flex items-center rounded-md px-4 py-2 text-sm text-neutral-700 after:ml-2 after:block after:h-1.5 after:w-1.5 after:rotate-45 after:border-b after:border-r after:border-neutral-700 after:bg-transparent after:content-[''] hover:bg-neutral-50"
+        className="inline-flex items-center rounded-md px-4 py-2 text-sm text-neutral-700 after:ml-2 after:block after:h-1.5 after:w-1.5 after:rotate-45 after:border-b after:border-r after:border-neutral-700 after:bg-transparent after:content-[''] hover:bg-neutral-50 dark:text-neutral-400 dark:after:border-neutral-500 dark:hover:bg-neutral-800"
       >
         {label}
       </button>
@@ -45,14 +45,14 @@ const Dropdown: FC<Props> = ({ label = 'Dropdown', list, onClick }) => {
             className="absolute z-[9999]"
           >
             <ul
-              className="z-10 rounded-md bg-neutral-50 p-1 text-neutral-700 shadow-xl"
+              className="z-10 rounded-md bg-neutral-50 p-1 text-neutral-700 shadow-xl dark:bg-neutral-800 dark:text-neutral-50"
               role="menu"
               tabIndex={0}
               ref={targetRef}
             >
               {list.map((item, key) => (
                 <li
-                  className="cursor-pointer rounded-md p-2 hover:bg-neutral-100"
+                  className="cursor-pointer rounded-md p-2 hover:bg-neutral-100 dark:hover:bg-neutral-700"
                   role="menuitem"
                   tabIndex={-1}
                   key={key}
