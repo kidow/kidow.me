@@ -3,10 +3,12 @@ import type { FC } from 'react'
 import { Tooltip } from 'components'
 import { toast } from 'services'
 
-export interface Props {}
+export interface Props {
+  onHelpClick: () => void
+}
 interface State {}
 
-const Toolbar: FC<Props> = () => {
+const Toolbar: FC<Props> = ({ onHelpClick }) => {
   const shortKey: string = useMemo(
     () =>
       window.navigator.platform.toUpperCase().indexOf('MAC') !== -1
@@ -18,78 +20,78 @@ const Toolbar: FC<Props> = () => {
     <nav role="toolbar" id="toolbar">
       <ul className="ql-formats">
         <li>
-          <Tooltip content={`제목 1 (${shortKey} + 1)`}>
+          <Tooltip content={`Heading 1 (${shortKey} + 1)`}>
             <button className="ql-header" value="1" />
           </Tooltip>
         </li>
         <li>
-          <Tooltip content={`제목 2 (${shortKey} + 2)`}>
+          <Tooltip content={`Heading 2 (${shortKey} + 2)`}>
             <button className="ql-header" value="2" />
           </Tooltip>
         </li>
         <li>
-          <Tooltip content={`제목 3 (${shortKey} + 3)`}>
+          <Tooltip content={`Heading 3 (${shortKey} + 3)`}>
             <button className="ql-header" value="3" />
           </Tooltip>
         </li>
         <li>
-          <Tooltip content={`제목 4 (${shortKey} + 4)`}>
+          <Tooltip content={`Heading 4 (${shortKey} + 4)`}>
             <button className="ql-header" value="4" />
           </Tooltip>
         </li>
       </ul>
       <ul className="ql-formats">
         <li>
-          <Tooltip content={`굵게 (${shortKey} + B)`}>
+          <Tooltip content={`Bold (${shortKey} + B)`}>
             <button className="ql-bold" />
           </Tooltip>
         </li>
         <li>
-          <Tooltip content={`기울임꼴 (${shortKey} + I)`}>
+          <Tooltip content={`Italic (${shortKey} + I)`}>
             <button className="ql-italic" />
           </Tooltip>
         </li>
         <li>
-          <Tooltip content={`밑줄 (${shortKey} + U)`}>
+          <Tooltip content={`Strike (${shortKey} + U)`}>
             <button className="ql-underline" />
           </Tooltip>
         </li>
         <li>
-          <Tooltip content={`취소선 (${shortKey} + S)`}>
+          <Tooltip content={`Underline (${shortKey} + S)`}>
             <button className="ql-strike" />
           </Tooltip>
         </li>
         <li>
-          <Tooltip content={`서식 지우기 (${shortKey} + E)`}>
+          <Tooltip content={`Clean (${shortKey} + E)`}>
             <button className="ql-clean" />
           </Tooltip>
         </li>
       </ul>
       <ul className="ql-formats">
         <li>
-          <Tooltip content={`글머리 기호 (${shortKey} + 5)`}>
+          <Tooltip content={`Bullet List (${shortKey} + 5)`}>
             <button className="ql-list" value="bullet" />
           </Tooltip>
         </li>
         <li>
-          <Tooltip content={`할 일 목록 (${shortKey} + 6)`}>
+          <Tooltip content={`To do List (${shortKey} + 6)`}>
             <button className="ql-list" value="check" />
           </Tooltip>
         </li>
         <li>
-          <Tooltip content={`번호 매기기 (${shortKey} + 7)`}>
+          <Tooltip content={`Ordered List (${shortKey} + 7)`}>
             <button className="ql-list" value="ordered" />
           </Tooltip>
         </li>
       </ul>
       <ul className="ql-formats">
         <li>
-          <Tooltip content={`인용문 (${shortKey} + Y)`}>
+          <Tooltip content={`Blockquote (${shortKey} + Y)`}>
             <button className="ql-blockquote" />
           </Tooltip>
         </li>
         <li>
-          <Tooltip content={`링크 (${shortKey} + K)`}>
+          <Tooltip content="Link">
             <button
               className="ql-link"
               onClick={() => {
@@ -101,23 +103,23 @@ const Toolbar: FC<Props> = () => {
           </Tooltip>
         </li>
         <li>
-          <Tooltip content="이미지">
+          <Tooltip content="Image">
             <button className="ql-image" />
           </Tooltip>
         </li>
         <li>
-          <Tooltip content="동영상">
+          <Tooltip content="Video">
             <button className="ql-video" />
           </Tooltip>
         </li>
         <li>
-          <Tooltip content={`코드 (${shortKey} + D)`}>
+          <Tooltip content={`Code (${shortKey} + D)`}>
             <button className="ql-code-block" />
           </Tooltip>
         </li>
         <li>
           <Tooltip content={`도움말 (${shortKey} + H)`}>
-            <button>
+            <button onClick={onHelpClick}>
               <svg
                 width="800px"
                 height="800px"

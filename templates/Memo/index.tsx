@@ -38,7 +38,7 @@ const Memo: FC<Props> = () => {
   return (
     <>
       <div className="container mx-auto min-h-[768px] max-w-screen-md">
-        <Toolbar />
+        <Toolbar onHelpClick={() => setState({ isHelpOpen: true })} />
         <Editor />
       </div>
 
