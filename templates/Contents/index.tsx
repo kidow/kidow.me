@@ -39,7 +39,9 @@ const Contents: FC<Props> = () => {
               {key === 0 && (
                 <div className="overflow-hidden rounded">
                   <img
-                    src={item.thumbnail}
+                    src={
+                      item.thumbnail + (locale === 'en' ? '&language=en' : '')
+                    }
                     alt=""
                     className="hidden duration-150 hover:scale-105 md:block"
                   />

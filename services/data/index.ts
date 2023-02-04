@@ -51,9 +51,10 @@ export const contents: Array<{
       keywords: 'Nextra'
     },
     en: {
-      title: '6 Projects to one',
-      description: '',
-      keywords: 'Fivespot'
+      title: 'Combining 6 projects into one blog (feat. Nextra)',
+      description:
+        'I merged the 6 sub-domain projects that were previously operated into a single project.',
+      keywords: 'Nextra'
     },
     date: '2023-02-03',
     thumbnail: 'https://kidow.me/api/image?id=umd5bysw08e',
@@ -61,14 +62,15 @@ export const contents: Array<{
   },
   {
     ko: {
-      title: '공유오피스 파이브스팟 성수2호점 방문 후기',
+      title: '공유오피스 파이브스팟 성수 2호점 방문 후기',
       description:
         '열심히 코딩하던 중에 문자가 왔습니다. 파이브스팟에서 공짜로 쿠폰 하나를 줬는데요. 차감형 패스라는 기능을 출시했는 데, 1회 무료 이용권을 하나 주더라구요 ㅎㅎ 아마 이전에 한 달 이용한 적이 있어서 준 게 아닐까 싶어요.',
       keywords: '파이브스팟, Fivespot'
     },
     en: {
-      title: 'Review of shared office Fivespot Seongsu 2',
-      description: '',
+      title: 'Review of visit to shared office Fivespot Seongsu 2',
+      description:
+        'While I was coding hard, a text message came. Fivespot gave me a free coupon.',
       keywords: 'Fivespot'
     },
     date: '2023-01-29',
@@ -83,9 +85,9 @@ export const contents: Array<{
       keywords: 'Nextjs, Vercel, Opengraph, Satori, Supabase'
     },
     en: {
-      title: 'Making blog opengraph images dynamic',
-      description: '',
-      keywords: ''
+      title: 'Making Blog Open Graph Images Dynamic',
+      description: "Let's see how to dynamically create images for Open Graph.",
+      keywords: 'Nextjs, Vercel, Opengraph, Satori, Supabase'
     },
     date: '2023-01-14',
     thumbnail: 'https://kidow.me/api/image?id=bgk4y13n3sw',
@@ -100,7 +102,8 @@ export const contents: Array<{
     },
     en: {
       title: 'Summary of feedback received so far',
-      description: '',
+      description:
+        "I'm making a feedbank. Briefly, this is my small company that makes a small software as a website feedback collection tool.",
       keywords: 'Feedback, Feedbank'
     },
     date: '2022-12-21',
@@ -115,9 +118,10 @@ export const contents: Array<{
       keywords: 'Coddee, Supabase'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'Coddee Infrastructure Design Course',
+      description:
+        "For those who are curious about the developer chat room Coddee's infrastructure design process, this article is written.",
+      keywords: 'Coddee, Supabase'
     },
     date: '2022-12-19',
     thumbnail: 'https://kidow.me/api/image?id=6pyuldhdton',
@@ -131,9 +135,10 @@ export const contents: Array<{
       keywords: 'Coddee, 커디, 채팅방, React, Supabase'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'Problems with chat room service',
+      description:
+        "I had a pretty impressive experience while optimizing Cuddy's performance, so I'd like to share it.",
+      keywords: 'Coddee, React, Supabase'
     },
     date: '2022-12-13',
     thumbnail: 'https://kidow.me/api/image?id=eed4xkekc7j',
@@ -147,9 +152,10 @@ export const contents: Array<{
       keywords: 'React, Component, Toast, CustomEvent'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'Create Toast Component',
+      description:
+        'There was a case where a notification message had to be displayed to users while creating a Cuddy for the developer chat room.',
+      keywords: 'React, Component, Toast, CustomEvent'
     },
     date: '2022-12-09',
     thumbnail: 'https://kidow.me/api/image?id=fguze8xin4',
@@ -162,9 +168,10 @@ export const contents: Array<{
       keywords: 'memo, React, Feedbank'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: "If it's the code block at the end, how does it go down?",
+      description:
+        "Today, through the feedbank, there was a feedback about my personal project 'Any Thought', so I checked my email.",
+      keywords: 'memo, React, Feedbank'
     },
     date: '2022-12-08',
     thumbnail: 'https://kidow.me/api/image?id=po6ku3eljr8',
@@ -178,9 +185,10 @@ export const contents: Array<{
       keywords: 'Chatting, Code-Block, Supabase'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'I created a developer chat room',
+      description:
+        "I created a chat room service under a different name two years ago. It's a service called ddtalk.",
+      keywords: 'Chatting, Code-Block, Supabase'
     },
     date: '2022-10-18',
     thumbnail: 'https://kidow.me/api/image?id=u3meic3suo',
@@ -195,9 +203,11 @@ export const contents: Array<{
         'Supabase, PostgreSQL, Storage, Firebase, Authentication, SQL, Database'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'Why I recommend Supabase for side projects',
+      description:
+        'Supabase started out as an open source replacement for Firebase.',
+      keywords:
+        'Supabase, PostgreSQL, Storage, Firebase, Authentication, SQL, Database'
     },
     date: '2022-10-09',
     thumbnail: 'https://kidow.me/api/image?id=15v2zftvpun',
@@ -211,8 +221,9 @@ export const contents: Array<{
       keywords: 'Saas, Login, Authless, Feedback, Website, Startup'
     },
     en: {
-      title: '',
-      description: '',
+      title: 'Create Saas without login',
+      description:
+        'I made an MVP in August and worked hard to make a full version for about two months, but looking back, there was one fact that I was greatly mistaken.',
       keywords: ''
     },
     date: '2022-10-05',
@@ -227,9 +238,10 @@ export const contents: Array<{
       keywords: 'Vercel, Express'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'Create unlimited file storage with Vercel in 5 minutes',
+      description:
+        "Before we start, it's even better if you have a personal domain. This content was written based on Node.js v16.",
+      keywords: 'Vercel, Express'
     },
     date: '2022-09-25',
     thumbnail: 'https://kidow.me/api/image?id=ta0citreps',
@@ -240,12 +252,13 @@ export const contents: Array<{
       title: 'B2B를 시작할 때 참고하면 좋은 사이트들',
       description:
         '다니던 회사를 퇴사하고 혼자서 B2B 소프트웨어를 만들기 시작한지 어언 한 달이 되갑니다. B2B 회사에 들어갈 줄은 알지만 B2B 회사를 어떻게 만들어야 하는지 아무것도 몰랐던 과거의 저 같은 사람들에게 도움이 되고자 인사이트가 되어준 사이트들을 소개해 봅니다.',
-      keywords: 'B2B'
+      keywords: 'B2B, Saas'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'Good sites to refer to when starting B2B',
+      description:
+        "It's been about a month since I left the company I was working for and started making B2B software by myself.",
+      keywords: 'B2B, Saas'
     },
     date: '2022-08-31',
     thumbnail: 'https://kidow.me/api/image?id=awvus210btw',
@@ -259,9 +272,9 @@ export const contents: Array<{
       keywords: 'B2B, 피드백, 피드뱅크'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'Until the launch of a service called Feedbank',
+      description: 'I think it took about a month to create the initial MVP.',
+      keywords: 'B2B, Feedback, Feedbank'
     },
     date: '2022-07-30',
     thumbnail: 'https://kidow.me/api/image?id=vxv8fq4srod',
@@ -275,9 +288,10 @@ export const contents: Array<{
       keywords: 'Storybook, Vercel'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'Create your own components with Storybook',
+      description:
+        "I write down the code of my own components in the code archive, but I can't tell exactly what this component looks like just by looking at the code.",
+      keywords: 'Storybook, Vercel'
     },
     date: '2022-06-28',
     thumbnail: 'https://kidow.me/api/image?id=3wfhoijgxjk',
@@ -291,9 +305,10 @@ export const contents: Array<{
       keywords: 'Docusaurus'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'Create your own development documentation with Docusaurus',
+      description:
+        'Docusaurus is a React framework optimized for writing development documentation, created by the Facebook team that created React.',
+      keywords: 'Docusaurus'
     },
     date: '2022-06-27',
     thumbnail: 'https://kidow.me/api/image?id=qmyhmx0d05l',
@@ -304,12 +319,12 @@ export const contents: Array<{
       title: 'html <dialog>를 React로 만들어보자',
       description:
         '<dialog> 태그에 대해 아시나요? 기본적으로 html에 내장되어있는 이 태그는 우리가 흔히 아는 modal과 같은 기능을 담당합니다.',
-      keywords: 'React'
+      keywords: 'React, dialog'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: `Let's make html <dialog> with React`,
+      description: `Do you know about <dialog> tags? This tag, which is basically embedded in html, is responsible for functions such as the modal we commonly know.`,
+      keywords: 'React, dialog'
     },
     date: '2022-06-18',
     thumbnail: 'https://kidow.me/api/image?id=hijjy21h309',
@@ -323,9 +338,10 @@ export const contents: Array<{
       keywords: 'TailwindCSS, SCSS, Styled Components'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'Why I decided to use TailwindCSS',
+      description:
+        'When I was new to frontend and started React, the first css library I encountered was styled-components.',
+      keywords: 'TailwindCSS, SCSS, Styled Components'
     },
     date: '2022-06-15',
     thumbnail: 'https://kidow.me/api/image?id=s81ow0mde6f',
@@ -339,9 +355,10 @@ export const contents: Array<{
       keywords: 'Chrome Extensions'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'Chrome extensions to help you develop',
+      description:
+        'I would like to introduce the chrome extensions that I use usefully while developing.',
+      keywords: 'Chrome Extensions'
     },
     date: '2022-06-06',
     thumbnail: 'https://kidow.me/api/image?id=ecrnpvmva0t',
@@ -355,9 +372,10 @@ export const contents: Array<{
       keywords: 'React'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'How to write maintainable React code - (3) Component design',
+      description:
+        'React component design that is easy to maintain. This is a very important part.',
+      keywords: 'React'
     },
     date: '2022-05-28',
     thumbnail: 'https://kidow.me/api/image?id=ree451stim',
@@ -371,9 +389,10 @@ export const contents: Array<{
       keywords: 'React, 네이밍'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'How to write easy-to-maintain React code - (2) Naming',
+      description:
+        'In the case of naming, as with project design, we put a lot of thought into maintenance and readability.',
+      keywords: 'React, Naming'
     },
     date: '2022-05-27',
     thumbnail: 'https://kidow.me/api/image?id=5pvfkcqqo7y',
@@ -387,9 +406,10 @@ export const contents: Array<{
       keywords: 'React, 유지보수'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'How to write easy-to-maintain React code - (1) Project design',
+      description:
+        'Focusing on Next.js, it introduces folders such as components, containers, and services.',
+      keywords: 'React'
     },
     date: '2022-05-26',
     thumbnail: 'https://kidow.me/api/image?id=sbs0dm5cvde',
@@ -403,9 +423,10 @@ export const contents: Array<{
       keywords: 'React, 유지보수'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'How to write maintainable React code - (0) Overview',
+      description:
+        "I've been studying web development for over 4 years so far, and I'm going to organize the development know-how I've learned and try to update it steadily.",
+      keywords: 'React'
     },
     date: '2022-05-25',
     thumbnail: 'https://kidow.me/api/image?id=vk6mr8ziy4p',
@@ -419,9 +440,10 @@ export const contents: Array<{
       keywords: '블로그'
     },
     en: {
-      title: '',
-      description: '',
-      keywords: ''
+      title: 'What I felt while creating my 4th blog',
+      description:
+        'It was 2018 when we first started developing it. As soon as I was discharged from the military in April, I immediately bought a laptop and entered the world of development.',
+      keywords: 'Blog'
     },
     date: '2022-05-24',
     thumbnail: 'https://kidow.me/api/image?id=8btaqsxhjj',

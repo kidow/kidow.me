@@ -1,0 +1,194 @@
+{
+  "6-projects-to-one": {
+    "title": "Combining 6 projects into one blog (feat. Nextra)",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "review-of-shared-office-fivespot-seongsu-2": {
+    "title": "Review of visit to shared office Fivespot Seongsu 2",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "making-blog-open-graph-images-dynamic": {
+    "title": "Making Blog Open Graph Images Dynamic",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "summary-of-feedback-received-so-far": {
+    "title": "Summary of feedback received so far",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "coddee-infrastructure-design-process": {
+    "title": "Coddee Infrastructure Design Course",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "problems-with-chat-room-service": {
+    "title": "Problems with chat room service",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "create-toast-component": {
+    "title": "Create Toast Component",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "if-its-the-code-block-at-the-end-how-does-it-go-down": {
+    "title": "If it's the code block at the end, how does it go down?",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "i-created-a-developer-chat-room": {
+    "title": "I created a developer chat room",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "why-i-recommend-supabase-for-side-projects": {
+    "title": "Why I recommend Supabase for side projects",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "create-saas-without-login": {
+    "title": "Create Saas without login",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "create-unlimited-file-storage-with-vercel-in-5-minutes": {
+    "title": "Create unlimited file storage with Vercel in 5 minutes",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "good-sites-to-refer-when-starting-b2b": {
+    "title": "Good sites to refer to when starting B2B",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "until-the-launch-of-a-service-called-feedbank": {
+    "title": "Until the launch of a service called Feedbank",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "create-your-own-components-with-storybook": {
+    "title": "Create your own components with Storybook",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "create-your-own-development-documentation-with-docusaurus": {
+    "title": "Create your own development documentation with Docusaurus",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "lets-make-html-dialog-with-react": {
+    "title": "Let's make html <dialog> with React",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "why-i-decided-to-use-tailwindcss": {
+    "title": "Why I decided to use TailwindCSS",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "chrome-extensions-to-help-you-develop": {
+    "title": "Chrome extensions to help you develop",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "how-to-write-maintainable-react-code-3": {
+    "title": "How to write maintainable React code - (3) Component design",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "how-to-write-maintainable-react-code-2": {
+    "title": "How to write easy-to-maintain React code - (2) Naming",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "how-to-write-maintainable-react-code-1": {
+    "title": "How to write easy-to-maintain React code - (1) Project design",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "how-to-write-maintainable-react-code-0": {
+    "title": "How to write maintainable React code - (0) Overview",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "what-i-felt-while-creating-4th-blog": {
+    "title": "What I felt while creating my 4th blog",
+    "theme": {
+      "sidebar": false,
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  }
+}

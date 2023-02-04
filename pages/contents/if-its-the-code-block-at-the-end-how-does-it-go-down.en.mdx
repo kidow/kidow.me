@@ -1,0 +1,46 @@
+---
+title: If it's the code block at the end, how does it go down?
+date: 2022-12-08
+description: Today, through the feedbank, there was a feedback about my personal project 'Any Thought', so I checked my email.
+thumbnail: https://kidow.me/api/image?id=po6ku3eljr8
+keywords: memo, React, Feedbank
+---
+
+import { Comment, Figure } from 'components'
+import { BackTop, Frontmatter, ShareButtons } from 'containers'
+
+<Frontmatter />
+<BackTop />
+
+### 오늘
+
+피드뱅크를 통해서 제 개인 프로젝트인 '아무생각'과 관련해 한 피드백이 올라왔길래 메일을 확인해봤습니다. 참고로 '아무생각'은 말그대로 아무 생각이나 적고 정리할 수 있는 아주 간단한 웹사이트입니다. ([memo.kidow.me](https://memo.kidow.me))
+
+<Figure caption="익명의 유저가 보낸 피드백" image="/contents/14/feedback.png" />
+
+코드블럭으로 작성을 하다가 다음칸부터 원래대로 작성하고 싶은데, 엔터를 치면 코드블럭이 한 줄 더 추가가 되지 원래대로 돌아갈 수가 없다는 겁니다.
+
+한 번 정말 그런가 테스트를 해봤습니다.
+
+<Figure caption="정말 그러더군요." image="/contents/14/memo.png" />
+
+다만 Mac 기준 `Command + E` 혹은 상단 툴바에 '서식 지우기' 버튼을 누르면 해당 커서가 위치한 줄에 있는 블럭의 서식을 지워버릴 수 있기 때문에 이렇게 하면 다음처럼 코드블럭에서 벗어날 수 있습니다.
+
+<Figure caption="깔끔하게 분리" image="/contents/14/clean.png" />
+
+### 불현듯 스친 생각
+
+이 상황을 보면서 한 가지 생각이 들더군요. 소중한 피드백에 대해 해당 발신자에게 답신할 수는 없다는 것이 좀 답답하다...
+
+서비스가 **단방향 소통**을 지향하다보니 이 문제는 개선할 필요가 있어보였어요.
+
+그러다 이런 생각이 떠올랐습니다.
+
+> "피드백에 대한 개선 로그를 남기는 것은 어떨까?"
+
+원체 이메일을 포함한 유저의 개인정보는 받고 싶지 않아서, 유저들이 보낸 피드백을 운영자가 어떻게, 몇 시간만에 개선했는 지를 피드뱅크 위젯에서 볼 수 있게 하면 유저들이 해당 서비스를 더 좋게 보지 않을까 하는 생각이 문득 들더라구요.
+
+영감을 주신 익명의 유저분께 감사의 말을 전합니다. 👍
+
+<ShareButtons />
+<Comment />
