@@ -8,6 +8,58 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 
 ## Example
 
+### Default
+
+<div className="mt-6">
+  <Input placeholder="Placeholder" />
+</div>
+
+### Size
+
+<div className="mt-6 space-y-2">
+  <Input size="xs" placeholder="xs" />
+  <br />
+  <Input size="sm" placeholder="sm" />
+  <br />
+  <Input size="md" placeholder="md" />
+  <br />
+  <Input size="lg" placeholder="lg" />
+</div>
+
+### Prefix, Suffix
+
+<div className="mt-6">
+  <Input prefix="Prefix" suffix="Suffix" placeholder="Placeholder" />
+</div>
+
+### Align
+
+<div className="mt-6 space-y-8">
+  <Input placeholder="left" />
+  <br />
+  <Input align="right" placeholder="right" />
+</div>
+
+### Float
+
+<div className="mt-6 space-y-4">
+  <Input placeholder="Float" />
+  <br />
+  <Input placeholder="No Float" float={false} />
+</div>
+
+### Info
+
+<div className="mt-4">
+  <Input info="Info" />
+</div>
+
+### Error
+
+<div className="mt-4">
+  <Input error="Error" />
+</div>
+
 ## Steps
 
 <div className="steps">
@@ -179,6 +231,21 @@ export default Input
 
 ### Usage
 
+```tsx
+<Input
+  value=""
+  onChange={(e) => setValue(e.target.value)}
+  onEnter={() => console.log(1)}
+  prefix={<span>Prefix</span>}
+  suffix={<span>Suffix</span>}
+  align="right"
+  error={<span>Error</span>}
+  fullWidth
+  info={<span>Info</span>}
+  float
+/>
+```
+
 </div>
 
 ### Props
@@ -194,5 +261,6 @@ export default Input
 | **fullWidth** |       boolean       |  false  |
 | **info**      |      ReactNode      |         |
 | **float**     |       boolean       |  true   |
+| **...props**  |  HTMLInputElement   |         |
 
 <Comment />
