@@ -31,6 +31,7 @@
   white-space: pre-wrap;
   word-wrap: break-word;
   min-height: calc(100vh - 40px);
+  @apply p-2 sm:p-0;
 }
 .ql-editor > * {
   cursor: text;
@@ -92,7 +93,7 @@
   max-width: 100%;
 }
 .ql-editor.ql-blank::before {
-  @apply pointer-events-none absolute left-0 top-0 text-base text-neutral-500 content-[attr(data-placeholder)];
+  @apply pointer-events-none absolute left-0 top-0 p-2 text-base text-neutral-500 content-[attr(data-placeholder)] md:p-0;
 }
 .ql-snow .ql-hidden {
   display: none;
