@@ -17,7 +17,7 @@ const IconButton: FC<Props> = ({ children, className, ...props }) => {
   const clone = useMemo(
     () =>
       cloneElement(children as ReactElement, {
-        className: 'text-neutral-400 h-4 w-4 group-hover:text-neutral-700'
+        className: 'text-neutral-400 h-4 w-4 dark:text-neutral-500'
       }),
     [children]
   )
@@ -25,7 +25,7 @@ const IconButton: FC<Props> = ({ children, className, ...props }) => {
     <button
       {...props}
       className={classnames(
-        'group flex items-center justify-center rounded-full border border-neutral-300 bg-white p-2 hover:border-neutral-700 disabled:cursor-not-allowed',
+        'group flex items-center justify-center rounded-full border border-neutral-300 bg-white p-2 hover:brightness-105 active:brightness-90 disabled:cursor-not-allowed dark:border-neutral-500 dark:bg-neutral-800',
         className
       )}
     >
