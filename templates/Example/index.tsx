@@ -1,6 +1,7 @@
 import ColorPickerExample from './ColorPicker'
 import DatePickerExample from './DatePicker'
 import DialogExample from './Dialog'
+import DrawerExample from './Drawer'
 import IconUploadExample from './IconUpload'
 import ModalExample from './Modal'
 import MonthPickerExample from './MonthPicker'
@@ -19,5 +20,6 @@ export default {
   Modal: ModalExample,
   Dialog: DialogExample,
   IconUpload: IconUploadExample,
-  Radio: RadioExample
+  Radio: RadioExample,
+  Drawer: DrawerExample
 }
