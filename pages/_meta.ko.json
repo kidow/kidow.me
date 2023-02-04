@@ -4,7 +4,11 @@
     "title": "Kidow Blog",
     "display": "hidden"
   },
-  "contents": {},
+  "contents": {
+    "type": "page",
+    "title": "Contents",
+    "href": "/contents"
+  },
   "resume": {
     "title": "Résumé",
     "type": "page"
