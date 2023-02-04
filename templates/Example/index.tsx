@@ -5,6 +5,7 @@ import DrawerExample from './Drawer'
 import IconUploadExample from './IconUpload'
 import ModalExample from './Modal'
 import MonthPickerExample from './MonthPicker'
+import PaginationExample from './Pagination'
 import RadioExample from './Radio'
 import RatingExample from './Rating'
 import TimePickerExample from './TimePicker'
@@ -21,5 +22,6 @@ export default {
   Dialog: DialogExample,
   IconUpload: IconUploadExample,
   Radio: RadioExample,
-  Drawer: DrawerExample
+  Drawer: DrawerExample,
+  Pagination: PaginationExample
 }

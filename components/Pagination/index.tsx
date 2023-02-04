@@ -11,16 +11,12 @@ export interface Props {
 }
 
 const Pagination: FC<Props> = ({ page, total, size, onChange }) => {
-  const range = usePagination({
-    page,
-    total,
-    size
-  })
+  const range = usePagination({ page, total, size })
   if (page === 0 || !range) return null
 
   if (range.length < 2) {
     return (
-      <ul className="inline-flex divide-x divide-neutral-300 rounded-md border border-neutral-300 bg-white text-sm font-medium">
+      <ul className="inline-flex divide-x divide-neutral-300 rounded-md border border-neutral-300 bg-white text-sm font-medium dark:divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-800">
         <li className="inline-flex cursor-not-allowed items-center p-2 text-neutral-300">
           <ChevronLeftIcon className="h-5 w-5" />
         </li>
@@ -35,11 +31,13 @@ const Pagination: FC<Props> = ({ page, total, size, onChange }) => {
   }
 
   return (
-    <ul className="inline-flex select-none divide-x divide-neutral-300 rounded-md border border-neutral-300 bg-white text-sm font-medium">
+    <ul className="inline-flex select-none divide-x divide-neutral-300 rounded-md border border-neutral-300 bg-white text-sm font-medium dark:divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-800">
       <li
         className={classnames(
           'inline-flex select-none items-center p-2',
-          page === 1 ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-blue-50'
+          page === 1
+            ? 'cursor-not-allowed'
+            : 'cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-500/30'
         )}
         onClick={() => {
           if (page === 1) return
@@ -60,10 +58,10 @@ const Pagination: FC<Props> = ({ page, total, size, onChange }) => {
         return (
           <li
             className={classnames(
-              'inline-flex cursor-pointer select-none items-center px-3 py-2 hover:bg-blue-50',
-              {
-                'bg-blue-100': pageNumber === page
-              }
+              'inline-flex cursor-pointer select-none items-center px-3 py-2',
+              pageNumber === page
+                ? 'bg-blue-100 dark:bg-blue-500'
+                : 'hover:bg-blue-50 dark:hover:bg-blue-500/30'
             )}
             key={key}
             onClick={() => {
@@ -80,7 +78,7 @@ const Pagination: FC<Props> = ({ page, total, size, onChange }) => {
           'inline-flex select-none items-center p-2',
           total < page * size
             ? 'cursor-not-allowed'
-            : 'cursor-pointer hover:bg-blue-50'
+            : 'cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-500/30'
         )}
         onClick={() => {
           if (total < page * size) return
