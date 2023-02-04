@@ -1,5 +1,254 @@
-import { Comment } from 'components'
-import { BackTop } from 'containers'
+import { Comment, Card, Icon, Required } from 'components'
+import { BackTop, Drawer } from 'containers'
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { Example } from 'templates'
+
+<BackTop />
+
+# Drawer
+
+## Example
+
+<Example.Drawer />
+
+## Steps
+
+<div className='steps'>
+
+### Prerequisite
+
+<Card.List>
+  <Card.Component
+    title="useObjectState"
+    href="/archive/hooks/useObjectState"
+    Icon={Icon.Hook}
+  />
+</Card.List>
+
+### Install Package
+
+<Tabs items={['npm', 'yarn']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    npm install classnames
+    ```
+    </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    yarn add classnames
+    ```
+</Tab>
+</Tabs>
+
+### Define Types
+
+```ts filename="types/index.d.ts"
+interface ReactProps {
+  children?: ReactNode
+}
+
+interface DrawerProps {
+  isOpen: boolean
+  onClose: () => void
+  position?: 'left' | 'top' | 'right' | 'bottom'
+  className?: Argument
+}
+```
+
+### Add Animation in `tailwind.config.js`
+
+```js filename="tailwind.config.js"
+module.exports = {
+  theme: {
+    extend: {
+      keyframes: {
+        'fade-in-top': {
+          from: {
+            opacity: 0,
+            transform: 'translateY(100%)'
+          },
+          '60%': { opacity: 1 },
+          to: { transform: 'none' }
+        },
+        'fade-in-right': {
+          from: {
+            opacity: 0,
+            transform: 'translateX(-100%)'
+          },
+          '60%': { opacity: 1 },
+          to: { transform: 'none' }
+        },
+        'fade-in-bottom': {
+          from: {
+            opacity: 0,
+            transform: 'translateY(-100%)'
+          },
+          '60%': { opacity: 1 },
+          to: { transform: 'none' }
+        },
+        'fade-in-left': {
+          from: {
+            opacity: 0,
+            transform: 'translateX(100%)'
+          },
+          '60%': { opacity: 1 },
+          to: { transform: 'none' }
+        },
+        'fade-out-top': {
+          from: { opacity: 1 },
+          '60%': { opacity: 0 },
+          to: { transform: '-translateY(-150%)' }
+        },
+        'fade-out-right': {
+          from: { opacity: 1 },
+          '60%': { opacity: 0 },
+          to: { transform: 'translateX(150%)' }
+        },
+        'fade-out-bottom': {
+          from: { opacity: 1 },
+          '60%': { opacity: 0 },
+          to: { transform: 'translateY(150%)' }
+        },
+        'fade-out-left': {
+          from: { opacity: 1 },
+          '60%': { opacity: 0 },
+          to: { transform: '-translateX(150%)' }
+        }
+      },
+      animation: {
+        'fade-in-right': 'fade-in-right 0.2s linear',
+        'fade-in-top': 'fade-in-top 0.2s linear',
+        'fade-in-bottom': 'fade-in-bottom 0.2s linear',
+        'fade-in-left': 'fade-in-left 0.2s linear',
+        'fade-out-top': 'fade-out-top 0.2s linear',
+        'fade-out-right': 'fade-out-right 0.2s linear',
+        'fade-out-bottom': 'fade-out-bottom 0.2s linear',
+        'fade-out-left': 'fade-out-left 0.2s linear'
+      }
+    }
+  }
+}
+```
+
+### Copy Code
+
+```tsx filename="containers/Drawer/index.tsx"
+import { memo, useCallback, useEffect } from 'react'
+import type { FC } from 'react'
+import classnames from 'classnames'
+import { useObjectState } from 'services'
+import { createPortal } from 'react-dom'
+
+export interface Props extends DrawerProps, ReactProps {}
+interface State {
+  isClosed: boolean
+}
+
+const Drawer: FC<Props> = ({
+  isOpen,
+  onClose,
+  position = 'right',
+  children,
+  className
+}) => {
+  const [{ isClosed }, setState] = useObjectState<State>({ isClosed: false })
+
+  const onEscape = useCallback((e: KeyboardEvent) => {
+    if (e.code === 'Escape') {
+      setState({ isClosed: true })
+      window.removeEventListener('keydown', onEscape)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!isOpen) return
+    window.addEventListener('keydown', onEscape)
+    return () => {
+      window.removeEventListener('keydown', onEscape)
+    }
+  }, [isOpen])
+
+  useEffect(() => {
+    if (isClosed) setTimeout(() => onClose(), 150)
+  }, [isClosed])
+  return createPortal(
+    <div
+      id="drawer"
+      role="dialog"
+      tabIndex={-1}
+      aria-labelledby="drawer-title"
+      aria-modal="true"
+    >
+      <div
+        className="fixed inset-0 z-20 bg-black/50 duration-200"
+        onClick={() => setState({ isClosed: true })}
+      />
+      <div
+        className={classnames(
+          'fixed z-30 w-5/6 overflow-auto overscroll-contain bg-white duration-200 dark:bg-neutral-800',
+          {
+            'left-0': position === 'left',
+            'right-0': position === 'right',
+            'top-0': position === 'top',
+            'bottom-0': position === 'bottom',
+            'animate-fade-in-left': position === 'right' && isOpen,
+            'animate-fade-in-right': position === 'left' && isOpen,
+            'animate-fade-in-bottom': position === 'top' && isOpen,
+            'animate-fade-in-top': position === 'bottom' && isOpen,
+            'animate-fade-out-top': position === 'top' && isClosed,
+            'animate-fade-out-right': position === 'right' && isClosed,
+            'animate-fade-out-bottom': position === 'bottom' && isClosed,
+            'animate-fade-out-left': position === 'left' && isClosed,
+            'md:w-[432px]':
+              !className && (position === 'left' || position === 'right'),
+            'md:h-96':
+              !className && (position === 'top' || position === 'bottom'),
+            'top-0 h-screen': position === 'left' || position === 'right',
+            'left-0 w-screen': position === 'top' || position === 'bottom'
+          },
+          className
+        )}
+      >
+        {children}
+      </div>
+    </div>,
+    document.body
+  )
+}
+
+export default memo(Drawer)
+```
+
+### Usage
+
+```tsx
+<button
+  onClick={() => setState({ isOpen: true })}
+>
+  Open
+</button>
+
+<Drawer
+  isOpen={isOpen}
+  onClose={() => setState({ isOpen: fasle })}
+  position='right'
+>
+  children
+</Drawer>
+```
+
+</div>
+
+### Props
+
+| Name                    |             Type              | Default |
+| :---------------------- | :---------------------------: | :-----: |
+| **isOpen**<Required />  |            boolean            |         |
+| **onClose**<Required /> |          () => void           |         |
+| **posiiton**            | `top` `right` `bottom` `left` | `right` |
+| **className**           |            string             |         |
+| **children**            |           ReactNode           |         |
 
 <Comment />
-<BackTop />

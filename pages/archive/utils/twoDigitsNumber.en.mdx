@@ -1,5 +1,17 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# twoDigitsNumber
+
+This function outputs a single-digit `number` type value as a two-digit numeral `string`.
+
+### Code
+
+```ts filename="services/utils/index.ts"
+export const twoDigitsNumber = (digit: number): string =>
+  digit < 10 ? `0${digit}` : String(digit)
+```
+
+<Comment />

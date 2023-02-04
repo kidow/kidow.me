@@ -1,5 +1,31 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# useLocalStorage
+
+## Steps
+
+<div className='steps'>
+
+### Copy Code
+
+```tsx filename="services/hooks/index.tsx"
+const useLocalStorage = (key: 'item1' | 'item2') => {
+  const item = window.localStorage.getItem(key)
+  const setItem = (value: string) => window.localStorage.setItem(value)
+
+  return [item, setItem]
+}
+```
+
+### Usage
+
+```ts
+const [item, setItem] = useLocalStorage()
+```
+
+</div>
+
+<Comment />

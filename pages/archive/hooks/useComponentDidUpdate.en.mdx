@@ -1,5 +1,39 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# useComponentDidUpdate
+
+Unlike useEffect, these are Hooks that do not run a function when the state is first declared, but only run the function when the state is changed.
+
+## Steps
+
+<div className='steps'>
+
+### Copy Code
+
+```ts filename="services/hooks/index.tsx"
+import { useRef } from 'react'
+
+export const useComponentDidUpdate = (cb: Function, state: any) => {
+  const mounted = useRef(false)
+
+  useEffect(() => {
+    if (mounted.current) cb()
+    else mounted.current = true
+  }, state)
+}
+```
+
+### Usage
+
+```tsx
+useComponentDidUpdate(() => {
+  console.log(1)
+}, [value])
+```
+
+</div>
+
+<Comment />

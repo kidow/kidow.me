@@ -1,5 +1,187 @@
-import { Comment } from 'components'
+import { Comment, Select } from 'components'
 import { BackTop } from 'containers'
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+<BackTop />
+
+# Select
+
+## Example
+
+### Default
+
+<div className="mt-4 inline-block">
+  <Select>
+    <option>Select</option>
+    <option value="google">Google</option>
+    <option value="amazon">Amazon</option>
+    <option value="apple">Apple</option>
+    <option value="tesla">Tesla</option>
+  </Select>
+</div>
+
+### Size
+
+<div className="mt-4 inline-block space-y-4">
+  <Select size="xs">
+    <option>Select</option>
+    <option value="google">Google</option>
+    <option value="amazon">Amazon</option>
+    <option value="apple">Apple</option>
+    <option value="tesla">Tesla</option>
+  </Select>
+  <Select size="sm">
+    <option>Select</option>
+    <option value="google">Google</option>
+    <option value="amazon">Amazon</option>
+    <option value="apple">Apple</option>
+    <option value="tesla">Tesla</option>
+  </Select>
+  <Select size="md">
+    <option>Select</option>
+    <option value="google">Google</option>
+    <option value="amazon">Amazon</option>
+    <option value="apple">Apple</option>
+    <option value="tesla">Tesla</option>
+  </Select>
+  <Select size="lg">
+    <option>Select</option>
+    <option value="google">Google</option>
+    <option value="amazon">Amazon</option>
+    <option value="apple">Apple</option>
+    <option value="tesla">Tesla</option>
+  </Select>
+</div>
+
+### Error
+
+<div className="mt-4 inline-block">
+  <Select error={<p>Error!</p>}>
+    <option>Select</option>
+    <option value="google">Google</option>
+    <option value="amazon">Amazon</option>
+    <option value="apple">Apple</option>
+    <option value="tesla">Tesla</option>
+  </Select>
+</div>
+
+## Steps
+
+<div className="steps">
+
+### Install Package
+
+<Tabs items={['npm', 'yarn']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    npm install @heroicons/react classnames
+    ```
+    </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    yarn add @heroicons/react classnames
+    ```
+</Tab>
+</Tabs>
+
+### Copy Code
+
+```tsx filename="components/Select/index.tsx"
+import { ChevronDownIcon } from '@heroicons/react/24/solid'
+import classnames from 'classnames'
+import type {
+  FC,
+  DetailedHTMLProps,
+  SelectHTMLAttributes,
+  ReactNode
+} from 'react'
+
+export interface Props
+  extends Omit<
+    DetailedHTMLProps<
+      SelectHTMLAttributes<HTMLSelectElement>,
+      HTMLSelectElement
+    >,
+    'size'
+  > {
+  size?: 'xs' | 'sm' | 'md' | 'lg'
+  error?: ReactNode
+}
+
+const Select: FC<Props> = ({
+  size = 'md',
+  className,
+  children,
+  error,
+  ...props
+}) => {
+  return (
+    <>
+      <div className={classnames('relative', className)}>
+        <select
+          {...props}
+          className={classnames(
+            'w-full cursor-pointer select-none appearance-none rounded border bg-white pr-8 ring-blue-500 focus:outline-none focus:ring-4 disabled:cursor-not-allowed disabled:bg-neutral-200  dark:bg-neutral-800',
+            !!error
+              ? 'border-red-500'
+              : 'border-neutral-300 dark:border-neutral-700',
+            !!props.value ? 'text-neutral-700' : 'text-neutral-400',
+            {
+              'py-1 pl-2 text-xs': size === 'xs',
+              'py-2 pl-3 text-sm': size === 'sm',
+              'py-2 pl-3 text-base': size === 'md',
+              'py-2 pl-3 text-lg': size === 'lg'
+            }
+          )}
+        >
+          {children}
+        </select>
+        <ChevronDownIcon
+          className={classnames(
+            'absolute right-2 z-[5] h-5 w-5 text-neutral-400 dark:text-neutral-500',
+            {
+              'top-1': size === 'xs',
+              'top-2': size === 'sm',
+              'top-3': size === 'md' || size === 'lg'
+            }
+          )}
+        />
+      </div>
+      {!!error && <div className="mt-1 text-xs text-red-500">{error}</div>}
+    </>
+  )
+}
+
+export default Select
+```
+
+### Usage
+
+```tsx
+<Select
+  value=""
+  onChange={(e) => setValue(e.target.value)}
+  size="md"
+  error={<p>Error!</p>}
+>
+  <option>Select</option>
+  <option value="google">Google</option>
+  <option value="amazon">Amazon</option>
+  <option value="apple">Apple</option>
+  <option value="tesla">Tesla</option>
+</Select>
+```
+
+</div>
+
+### Props
+
+| Name         |        Type         | Default |
+| :----------- | :-----------------: | :-----: |
+| **size**     | `xs` `sm` `md` `lg` |  `md`   |
+| **error**    |      ReactNode      |         |
+| **...props** |  HTMLSelectElement  |         |
 
 <Comment />
-<BackTop />

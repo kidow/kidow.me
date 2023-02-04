@@ -1,5 +1,32 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# getBrightness
+
+You can get the brightness value of RGB color.
+
+### Code
+
+```ts filename="services/utils/index.ts"
+export const getBrightness = (red: number, green: number, blue: number) => {
+  return (red * 299 + green * 587 + blue * 114) / 1000
+}
+
+// Optional
+export const isDark = (red: number, green: number, blue: number) => {
+  return getBrightness(red, green, blue) < 128
+}
+
+export const isLight = (red: number, green: number, blue: number) => {
+  return getBrightness(red, green, blue) >= 128
+}
+```
+
+### References
+
+- https://www.w3.org/TR/AERT/#color-contrast
+- https://github.com/bgrins/TinyColor
+
+<Comment />

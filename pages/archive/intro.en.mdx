@@ -1,5 +1,49 @@
-import { Comment } from 'components'
+import { Comment, Card, Icon } from 'components'
+import {
+  CubeIcon,
+  WrenchScrewdriverIcon,
+  Cog6ToothIcon,
+  LightBulbIcon,
+  BookmarkIcon
+} from '@heroicons/react/24/outline'
 
-# Intro
+# Intro 👋
+
+This is a code archive containing the know-how of front-end web developer Dongwook Kim's development since 2018.
+
+I use the following stacks.
+
+- **Next.js**
+- **TailwindCSS**
+- **TypeScript**
+- classnames
+- @heroicons/react
+
+There are some unfinished parts, but I plan to fill them in step by step. 😋
+
+<Card.List>
+  <Card.Component
+    title="Components"
+    href="/archive/data-display/Avatar"
+    Icon={CubeIcon}
+  />
+  <Card.Component title="Hooks" href="/archive/hooks" Icon={Icon.Hook} />
+  <Card.Component
+    title="Utils"
+    href="/archive/utils"
+    Icon={WrenchScrewdriverIcon}
+  />
+  <Card.Component
+    title="Settings"
+    href="/archive/settings"
+    Icon={Cog6ToothIcon}
+  />
+  <Card.Component title="Tips" href="/archive/tips" Icon={LightBulbIcon} />
+  <Card.Component
+    title="Bookmarks"
+    href="/archive/commons/MusicForProgramming"
+    Icon={BookmarkIcon}
+  />
+</Card.List>
 
 <Comment />

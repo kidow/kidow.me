@@ -1,5 +1,72 @@
-import { Comment } from 'components'
+import { Comment, Badge } from 'components'
 import { BackTop } from 'containers'
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { BellIcon } from '@heroicons/react/24/outline'
+
+<BackTop />
+
+# Badge
+
+## Example
+
+<div className="mt-4">
+  <Badge>
+    <BellIcon className="h-5 w-5" />
+  </Badge>
+</div>
+
+## Steps
+
+<div className='steps'>
+
+### Define Types
+
+```ts filename="types/index.d.ts"
+interface ReactProps {
+  children?: ReactNode
+}
+```
+
+### Copy Code
+
+```tsx filename="components/Badge/index.tsx"
+import type { FC } from 'react'
+
+export interface Props extends ReactProps {}
+
+const Badge: FC<Props> = ({ children }) => {
+  return (
+    <span className="relative inline-block">
+      {children}
+      <span className="absolute top-0 right-0 -mt-1 -mr-1 flex h-3 w-3">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
+        <span className="relative inline-flex h-3 w-3 rounded-full bg-red-500" />
+      </span>
+    </span>
+  )
+}
+
+export default Badge
+```
+
+### Usage
+
+```tsx
+<Badge>
+  <BellIcon className="h-5 w-5" />
+</Badge>
+```
+
+</div>
+
+### Props
+
+| Name         |   Type    | Default |
+| :----------- | :-------: | :-----: |
+| **children** | ReactNode |         |
+
+## References
+
+- https://tailwindcss.com/docs/animation#ping
 
 <Comment />
-<BackTop />

@@ -1,5 +1,68 @@
-import { Comment } from 'components'
+import { Comment, Button, Required } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# ButtonGroup
+
+## Example
+
+<div className="mt-4">
+  <Button.Group
+    list={['One', 'Two', 'Three', 'Four']}
+    onClick={(key) => alert(`Key: ${key}`)}
+  />
+</div>
+
+## Steps
+
+<div className="steps">
+
+### Copy Code
+
+```tsx filename="components/Button/Group/index.tsx"
+import type { FC } from 'react'
+
+export interface Props {
+  list: string[]
+  onClick: (key: number) => void
+}
+
+const ButtonGroup: FC<Props> = ({ list, onClick }) => {
+  return (
+    <div className="inline-flex divide-x rounded border bg-white dark:divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-800">
+      {list.map((name, key) => (
+        <button
+          className="hover:text-primary py-2 px-3 text-sm text-neutral-400 first:rounded-l last:rounded-r hover:bg-blue-50 dark:hover:bg-blue-200/30"
+          key={key}
+          onClick={() => onClick(key)}
+        >
+          {name}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+export default ButtonGroup
+```
+
+### Usage
+
+```tsx
+<Button.Group
+  list={['One', 'Two', 'Three', 'Four']}
+  onClick={(key) => alert(`Key: ${key}`)}
+/>
+```
+
+</div>
+
+### Props
+
+| Name                    |         Type          | Default |
+| :---------------------- | :-------------------: | :-----: |
+| **list**<Required />    |       string[]        |         |
+| **onClick**<Required /> | (key: number) => void |         |
+
+<Comment />

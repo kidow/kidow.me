@@ -1,5 +1,16 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# randomString
+
+This function generates a random random number of 10 to 11 digits.
+
+### Code
+
+```ts filename="services/utils/index.ts"
+export const randomString = () => Math.random().toString(36).slice(2)
+```
+
+<Comment />

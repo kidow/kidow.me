@@ -1,5 +1,55 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# enumToOptions
+
+This function converts a variable declared as an `enum` type into an array so that it can be distributed as a list in `Select` or `Radio` components.
+
+## Steps
+
+<div className='steps'>
+
+### Copy Code
+
+```ts filename="services/utils/index.ts"
+export const enumToOptions = (enumObj: any) =>
+  Object.entries<string>(enumObj).map(([value, name]) => ({ value, name }))
+```
+
+### Usage
+
+```tsx
+import { enumToOptions } from 'services'
+
+enum ProgrammingLanguage {
+  'Javascript',
+  'Typescript',
+  'Python',
+  'Node.js'
+}
+
+// Select
+<select>
+  <option value="">Select</option>
+  {enumToOptions(ProgrammingLanguage).map((option, key) => (
+    <option key={key} value={option.value}>
+      {option.name}
+    </option>
+  ))}
+</select>
+
+// Radio
+<div>
+    {enumToOptions(ProgrammingLanguage).map((option, key) => (
+        <label key={key}>
+            <input type="radio" name={option.name} value={option.value} />
+        </label>
+    ))}
+</div>
+```
+
+</div>
+
+<Comment />

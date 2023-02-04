@@ -1,5 +1,196 @@
-import { Comment } from 'components'
+import { Comment, Card, Required } from 'components'
 import { BackTop } from 'containers'
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+<BackTop />
+
+# Card
+
+## Example
+
+### Default
+
+<div className="mt-4">
+  <Card title="Title" caption="Caption" footer="Footer" border padding>
+    children
+  </Card>
+</div>
+
+### with Card.Item
+
+<div className="mt-4">
+  <Card title="Title" caption="Caption" footer="Footer" border padding>
+    <Card.Item label="Label" required fullWidth plain>
+      children
+    </Card.Item>
+  </Card>
+</div>
+
+## Steps
+
+<div className="steps">
+
+### Install Package
+
+<Tabs items={['npm', 'yarn']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    npm install classnames
+    ```
+    </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    yarn add classnames
+    ```
+</Tab>
+</Tabs>
+
+### Define Types
+
+```ts filename="types/index.d.ts"
+interface ReactProps {
+  children?: ReactNode
+}
+```
+
+### Copy Code
+
+```tsx filename="components/Card/index.tsx"
+import type { FC, ReactNode } from 'react'
+import classnames from 'classnames'
+import type { Argument } from 'classnames'
+
+import CardItem from './Item'
+
+export interface Props extends ReactProps {
+  title?: ReactNode
+  caption?: ReactNode
+  footer?: ReactNode
+  border?: boolean
+  padding?: boolean
+  className?: Argument
+}
+interface State {}
+
+const Card: FC<Props> = ({
+  children,
+  title,
+  caption,
+  footer,
+  border = true,
+  padding = true,
+  className
+}) => {
+  return (
+    <section
+      className={classnames('bg-white shadow-md dark:bg-neutral-800', {
+        'border dark:border-neutral-700': border
+      })}
+    >
+      {!!title && (
+        <div className="flex items-center justify-between p-6">
+          <div className="font-bold">{title}</div>
+          {!!caption && (
+            <div className="text-xs dark:text-neutral-400">{caption}</div>
+          )}
+        </div>
+      )}
+      {!!children && (
+        <div
+          className={classnames(
+            'relative dark:border-neutral-700',
+            footer ? 'border-y' : 'border-t',
+            { 'py-10 px-6': padding },
+            className
+          )}
+        >
+          {children}
+        </div>
+      )}
+      {!!footer && <div className="py-4 px-6">{footer}</div>}
+    </section>
+  )
+}
+
+export default Object.assign(Card, { Item: CardItem })
+```
+
+### Add CardItem Component (Optional)
+
+```tsx filename="components/Card/Item/index.tsx"
+import type { FC, ReactNode } from 'react'
+import classnames from 'classnames'
+
+export interface Props extends ReactProps {
+  label: ReactNode
+  required?: boolean
+  fullWidth?: boolean
+  plain?: boolean
+}
+interface State {}
+
+const CardItem: FC<Props> = ({
+  children,
+  label,
+  required,
+  fullWidth,
+  plain
+}) => {
+  return (
+    <div className="flex gap-10">
+      <div
+        className={classnames('min-w-[9rem] text-neutral-400', {
+          "whitespace-nowrap after:text-red-500 after:content-['*']": required
+        })}
+      >
+        <div className="inline-flex h-[42px] items-center gap-0.5">{label}</div>
+      </div>
+      <div className={classnames({ 'flex-1': fullWidth, 'mt-2.5': plain })}>
+        {children}
+      </div>
+    </div>
+  )
+}
+
+export default CardItem
+```
+
+### Usage
+
+```tsx
+<Card title="Title" caption="Caption" footer="Footer" border padding>
+  <Card.Item label="Label" required fullWidth plain>
+    children
+  </Card.Item>
+</Card>
+```
+
+</div>
+
+## Props
+
+### Card
+
+| Name          |   Type    | Default |
+| :------------ | :-------: | :-----: |
+| **title**     | ReactNode |         |
+| **caption**   | ReactNode |         |
+| **footer**    | ReactNode |         |
+| **border**    |  boolean  |  false  |
+| **padding**   |  boolean  |  false  |
+| **className** |  string   |         |
+| **children**  | ReactNode |         |
+
+### Card.Item
+
+| Name                  |   Type    | Default |
+| :-------------------- | :-------: | :-----: |
+| **label**<Required /> | ReactNode |         |
+| **required**          |  boolean  |  false  |
+| **fullWidth**         |  boolean  |  false  |
+| **plain**             |  boolean  |  false  |
+| **children**          | ReactNode |         |
 
 <Comment />
-<BackTop />

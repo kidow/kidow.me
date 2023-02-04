@@ -5,7 +5,7 @@ import { BackTop } from 'containers'
 
 # useCombinedRefs
 
-forwardRef 를 이용해 컴포넌트를 생성했을 때, 부모의 ref와 자식의 ref를 묶어주는 기능입니다.
+forwardRef를 이용해 컴포넌트를 생성했을 때, 부모의 ref와 자식의 ref를 묶어주는 기능입니다.
 
 <div className="steps">
 
@@ -34,6 +34,13 @@ export function useCombinedRefs<T>(
 ```
 
 ### Usage
+
+```tsx
+const Dialog = forwardRef<HTMLDialogElement, Props>((props, ref) => {
+  const dialogRef = useRef<HTMLDialogElement>(null)
+  const combinedRef = useCombinedRefs<HTMLDialogElement>(ref, dialogRef)
+})
+```
 
 </div>
 

@@ -1,5 +1,33 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# throttle
+
+A function that directly implements lodash's throttle.
+
+If a type error is displayed on `this`, set `noImplicitThis` to false in `tsconfig.json`.
+
+```ts filename="services/utils/index.ts"
+export function throttle(func: Function, wait: number) {
+  let waiting = false
+  return function () {
+    if (!waiting) {
+      func.apply(this, arguments)
+      waiting = true
+      setTimeout(() => {
+        waiting = false
+      }, wait)
+    }
+  }
+}
+```
+
+```json filename="tsconfig.json"
+{
+  "noImplicitThis": false
+}
+```
+
+<Comment />

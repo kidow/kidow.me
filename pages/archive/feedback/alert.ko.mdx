@@ -126,7 +126,7 @@ const Alert: FC<Props> = ({ type, message, close, children }) => {
       {close && !isClosed && (
         <XMarkIcon
           onClick={() => setState({ isClosed: true })}
-          className="h-5 w-5 cursor-pointer text-neutral-700"
+          className="h-5 w-5 cursor-pointer text-neutral-700 dark:text-neutral-500"
         />
       )}
     </div>

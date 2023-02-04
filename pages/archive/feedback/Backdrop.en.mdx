@@ -1,5 +1,114 @@
-import { Comment } from 'components'
-import { BackTop } from 'containers'
+import { Comment, Card, Button } from 'components'
+import { BackTop, Backdrop } from 'containers'
+import { WrenchScrewdriverIcon, CubeIcon } from '@heroicons/react/24/outline'
+import { backdrop } from 'services'
+
+<BackTop />
+<Backdrop />
+
+# Backdrop
+
+## Example
+
+<div className="mt-4">
+  <Button
+    onClick={() => {
+      backdrop(true)
+      setTimeout(() => backdrop(false), 3000)
+    }}
+  >
+    Test
+  </Button>
+</div>
+
+## Steps
+
+<div className="steps">
+
+### Prerequisite
+
+<Card.List>
+  <Card.Component
+    title="Spinner"
+    href="/archive/feedback/Spinner"
+    Icon={CubeIcon}
+  />
+  <Card.Component
+    title="EventListener"
+    href="/archive/utils/EventListener"
+    Icon={WrenchScrewdriverIcon}
+  />
+</Card.List>
+
+### Copy Code
+
+```tsx filename="containers/Backdrop/index.tsx"
+import { useEffect, useState, useCallback } from 'react'
+import type { FC } from 'react'
+import { Spinner } from 'components'
+import { createPortal } from 'react-dom'
+import { EventListener } from 'services'
+
+const Backdrop: FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  const onBackdrop = useCallback(
+    ({ detail }: any) => {
+      setIsOpen(detail)
+      if (detail) document.body.style.overflow = 'hidden'
+      else document.body.removeAttribute('style')
+    },
+    [isOpen]
+  )
+
+  useEffect(() => {
+    EventListener.add('backdrop', onBackdrop)
+    return () => EventListener.remove('backdrop', onBackdrop)
+  }, [])
+  if (!isOpen) return null
+  return createPortal(
+    <div role="progressbar">
+      <div className="fixed inset-0 z-40 cursor-progress bg-black opacity-30" />
+      <span className="fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 cursor-progress">
+        <Spinner className="h-10 w-10" />
+      </span>
+    </div>,
+    document.body
+  )
+}
+
+export default Backdrop
+```
+
+```ts filename="services/utils/index.ts"
+export const backdrop = (open: boolean) => EventListener.emit('backdrop', open)
+```
+
+### Usage
+
+```tsx filename="pages/_app.tsx"
+import type { AppProps } from 'next/app'
+import { Backdrop } from 'containers'
+
+interface Props {}
+interface State {}
+
+function MyApp({ Component, pageProps }: AppProps<Props>) {
+  return (
+    <>
+      <Component {...pageProps} />
+      <Backdrop />
+    </>
+  )
+}
+
+export default MyApp
+```
+
+```tsx
+<button onClick={() => backdrop(true)}>Test</button>
+```
+
+</div>
 
 <Comment />
-<BackTop />

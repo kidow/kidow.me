@@ -1,5 +1,180 @@
-import { Comment } from 'components'
+import { Comment, Card } from 'components'
 import { BackTop } from 'containers'
+import { CubeIcon } from '@heroicons/react/24/outline'
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+<BackTop />
+
+# useConfirm
+
+These are hooks implemented similarly by directly customizing the modal that pops up when `window.confirm`.
+
+## Example
+
+## Steps
+
+<div className='steps'>
+
+### Prerequisite
+
+<Card.List>
+  <Card.Component
+    title="Modal"
+    href="/archive/feedback/Modal"
+    Icon={CubeIcon}
+  />
+</Card.List>
+
+### Install Package
+
+<Tabs items={['npm', 'yarn']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    npm install recoil
+    ```
+    </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    yarn add recoil
+    ```
+</Tab>
+</Tabs>
+
+### Add Recoil Settings
+
+```ts filename="services/store/index.ts"
+import type { ReactNode } from 'react'
+import { atom } from 'recoil'
+
+const confirmState = atom<{ content: ReactNode; isOpen: boolean }>({
+  key: 'confirmState',
+  default: {
+    content: '',
+    isOpen: false
+  }
+})
+```
+
+### Copy Code
+
+```tsx filename="services/hooks/index.tsx"
+import { useRecoilState, useResetRecoilState } from 'recoil'
+
+let confirmCb: any
+const useConfirm = () => {
+  const [state, setState] = useRecoilState()
+  const resetState = useResetRecoilState()
+
+  const onConfirm = () => {
+    confirmCb(true)
+    resetState()
+  }
+
+  const onCancel = () => {
+    confirmCb(false)
+    resetState()
+  }
+
+  const confirm = (content: ReactNode): Promise<any> => {
+    setState({ content, isOpen: true })
+    return new Promise((resolve) => {
+      confirmCb = resolve
+    })
+  }
+
+  return {
+    confirm,
+    onConfirm,
+    onCancel,
+    confirmState: state,
+    resetConfirmState: resetState
+  }
+}
+```
+
+### Add `Modal.Confirm` Component
+
+```tsx filename="containers/Modal/Confirm/index.tsx"
+import type { FC } from 'react'
+import { Modal } from 'containers'
+import { useConfirm } from 'services'
+
+interface Props {}
+
+const ConfirmModal: FC<Props> = () => {
+  const { onConfirm, onCancel, content, confirmState, resetConfirmState } =
+    useConfirm()
+  if (!confirmState.isOpen) return null
+  return (
+    <Modal
+      isOpen={confirmState.isOpen}
+      onClose={resetConfirmState}
+      maxWidth="max-w-sm"
+    >
+      <div className="p-4">
+        <div>{content}</div>
+        <div className="flex justify-between">
+          <button onClick={onCancel}>아니오</button>
+          <button onClick={onConfirm}>예</button>
+        </div>
+      </div>
+    </Modal>
+  )
+}
+
+export default ConfirmModal
+```
+
+```tsx filename="containers/Modal/index.tsx"
+import ConfirmModal from './Confirm'
+
+export default Object.assign(Modal, { Confirm: ConfirmModal })
+```
+
+### Add Component Globally
+
+```tsx filename="page/_app.tsx"
+import type { AppProps } from 'next/app'
+import { Modal } from 'containers'
+
+interface Props {}
+interface State {}
+
+function MyApp({ Component, pageProps }: AppProps<Props>) {
+  return (
+    <>
+      <Component {...pageProps} />
+      <Modal.Confirm />
+    </>
+  )
+}
+
+export default MyApp
+```
+
+### Usage
+
+```tsx
+import { useConfirm } from 'services'
+
+const Page = () => {
+  const { confirm } = useConfirm()
+
+  const handleConfirm = async () => {
+    const isConfirmed = await confirm('작성을 중단하시겠습니까?')
+    console.log('isConfirmed', isConfirmed)
+  }
+
+  return (
+    <div>
+      <button onClick={handleConfirm}>Confirm</button>
+    </div>
+  )
+}
+```
+
+</div>
 
 <Comment />
-<BackTop />

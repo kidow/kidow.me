@@ -1,5 +1,45 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# useOnClickOutside
+
+Hooks that allow a function to be executed when an area outside the specified area is clicked.
+
+<div className="steps">
+
+### Copy Code
+
+```ts filename="services/hooks/index.tsx"
+import type { RefObject } from 'react'
+
+export function useOnClickOutside<T extends HTMLElement>(
+  ref: RefObject<T>,
+  handler: (event: MouseEvent | TouchEvent) => void,
+  id?: string
+): void {
+  const listener = (event: MouseEvent | TouchEvent) => {
+    const el = ref?.current
+    if (
+      !el ||
+      el.contains(event.target as Node) ||
+      id === (event.target as HTMLElement).id
+    )
+      return
+    handler(event)
+  }
+  useEffect(() => {
+    document.addEventListener('mouseup', listener)
+    return () => {
+      document.removeEventListener('mouseup', listener)
+    }
+  }, [ref, handler, id])
+}
+```
+
+### Usage
+
+</div>
+
+<Comment />

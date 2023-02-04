@@ -1,5 +1,65 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
+import { Callout } from 'nextra-theme-docs'
+
+<BackTop />
+
+# Routes
+
+<Callout type="warning">Only used in React. Not used in Next.js.</Callout>
+
+## Steps
+
+<div className="steps">
+
+### Copy Code
+
+```tsx filename="src/components/Routes/index.tsx"
+import pages from 'pages'
+import { Route, BrowserRouter, Routes } from 'react-router-dom'
+
+export default () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {pages.map(({ path, element: Element }, key) => (
+          <Route key={key} path={path} element={<Element.default />} />
+        ))}
+      </Routes>
+    </BrowserRouter>
+  )
+}
+```
+
+### Usage
+
+```tsx filename="src/pages/index.tsx"
+import type { RouteProps } from 'react-router-dom'
+
+const pages: RouteProps[] = [
+  { path: '/', element: require('./_') },
+  { path: '/login', element: require('./login') },
+  { path: '/signup', element: require('./signup') }
+]
+
+export default pages
+```
+
+```tsx filename="src/App.tsx"
+import { Routes } from 'components'
+
+interface Props {}
+interface State {}
+
+class App extends React.Component<Props, State> {
+  render() {
+    return Routes
+  }
+}
+
+export default App
+```
+
+</div>
 
 <Comment />
-<BackTop />

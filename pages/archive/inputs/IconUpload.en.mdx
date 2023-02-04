@@ -1,5 +1,71 @@
-import { Comment } from 'components'
+import { Comment, Required } from 'components'
 import { BackTop } from 'containers'
+import { Example } from 'templates'
+
+<BackTop />
+
+# IconUpload
+
+## Example
+
+<Example.IconUpload />
+
+## Steps
+
+<div className="steps">
+
+### Copy Code
+
+```tsx filename="components/IconUpload/index.tsx"
+import type { FC } from 'react'
+
+export interface Props {
+  value: string
+  onChange: (file: File) => void
+}
+interface State {}
+
+const IconUpload: FC<Props> = ({ value, onChange }) => {
+  return (
+    <form className="flex items-center space-x-4">
+      <div className="h-9 w-9 shrink-0 rounded border p-0.5 dark:border-neutral-700">
+        <img src={value} alt="" className="h-full w-full" />
+      </div>
+      <label className="block">
+        <span className="sr-only">Choose Icon</span>
+        <input
+          type="file"
+          onChange={(e) => onChange(e.target.files[0])}
+          className="block w-full text-sm text-slate-500 file:mr-4 file:cursor-pointer file:rounded-full file:border-0 file:bg-blue-50 file:py-2 file:px-4 file:text-sm file:font-semibold file:text-blue-500 hover:file:bg-blue-100 dark:file:bg-blue-900/30 dark:hover:file:bg-blue-700/30"
+        />
+      </label>
+    </form>
+  )
+}
+
+export default IconUpload
+```
+
+### Usage
+
+```tsx
+<IconUpload
+  value=""
+  onChange={async (file) => setValue(await fileToBase64(file))}
+/>
+```
+
+</div>
+
+### Props
+
+| Name                     |                Type                 | Default |
+| :----------------------- | :---------------------------------: | :-----: |
+| **value**<Required />    |               string                |         |
+| **onChange**<Required /> | `(files: FileList \| null) => void` |         |
+
+### References
+
+- https://tailwindcss.com/docs/hover-focus-and-other-states#file-input-buttons
 
 <Comment />
-<BackTop />

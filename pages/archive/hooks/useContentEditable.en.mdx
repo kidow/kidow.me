@@ -1,5 +1,57 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# useContentEditable
+
+Used by React for state management when using `contentEditable`.
+
+## Steps
+
+<div className="steps">
+
+### Copy Code
+
+```tsx filename="services/hooks/index.tsx"
+import { useRef, useState, useEffect } from 'react'
+
+export const useContentEditable = (initialValue: string = '') => {
+  const ref = useRef<HTMLDivElement>(null)
+  const [value, setValue] = useState<string>(initialValue)
+
+  const onInput = (e: ChangeEvent<HTMLDivElement>) =>
+    setValue(e.target.innerText)
+
+  const setContent = (content: string) => {
+    if (!ref.current) return
+    ref.current.innerText = content
+    setValue(content)
+  }
+
+  useEffect(() => {
+    if (initialValue) setContent(initialValue)
+  }, [])
+
+  return { content: value, setContent, onInput, ref }
+}
+```
+
+### Usage
+
+```tsx
+const Page = () => {
+  const { content, setContent, onInput, ref } =
+    useContentEditable('[initial Value]')
+
+  return <div contentEditable onInput={onInput} ref={ref}></div>
+}
+```
+
+</div>
+
+### References
+
+- https://yung-developer.tistory.com/109
+
+<Comment />

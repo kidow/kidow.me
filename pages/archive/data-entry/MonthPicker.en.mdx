@@ -1,5 +1,216 @@
-import { Comment } from 'components'
+import { Comment, Card, Icon, Required } from 'components'
 import { BackTop } from 'containers'
+import { WrenchScrewdriverIcon } from '@heroicons/react/24/outline'
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { Example } from 'templates'
+
+<BackTop />
+
+# MonthPicker
+
+## Example
+
+<Example.MonthPicker />
+
+## Steps
+
+<div className='steps'>
+
+### Prerequisite
+
+<Card.List>
+  <Card.Component
+    title="useObjectState"
+    href="/archive/hooks/useObjectState"
+    Icon={Icon.Hook}
+  />
+  <Card.Component
+    title="useOnClickOutside"
+    href="/archive/hooks/useOnClickOutside"
+    Icon={Icon.Hook}
+  />
+  <Card.Component
+    title="twoDigitsNumber"
+    href="/archive/utils/twoDigitsNumber"
+    Icon={WrenchScrewdriverIcon}
+  />
+</Card.List>
+
+### Install Package
+
+<Tabs items={['npm', 'yarn']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    npm install dayjs @heroicons/react classnames
+    ```
+    </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    yarn add dayjs @heroicons/react classnames
+    ```
+</Tab>
+</Tabs>
+
+### Copy Code
+
+```tsx filename="components/MonthPicker/index.tsx"
+import { useRef, useId } from 'react'
+import type { FC } from 'react'
+import classnames from 'classnames'
+import dayjs from 'dayjs'
+import {
+  CalendarIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon
+} from '@heroicons/react/24/outline'
+import { XCircleIcon } from '@heroicons/react/24/solid'
+import { useObjectState, useOnClickOutside, twoDigitsNumber } from 'services'
+import { createPortal } from 'react-dom'
+
+export interface Props {
+  value: string
+  onChange: (value: string) => void
+}
+interface State {
+  isOpen: boolean
+  date: dayjs.Dayjs
+}
+
+const MonthPicker: FC<Props> = ({ value, onChange }) => {
+  const [{ isOpen, date }, setState] = useObjectState<State>({
+    isOpen: false,
+    date: dayjs(value || dayjs().format('YYYY-MM'))
+  })
+  const ref = useRef<HTMLDivElement>(null)
+  const targetRef = useRef<HTMLDivElement>(null)
+  const id = useId()
+  useOnClickOutside(targetRef, () => setState({ isOpen: false }), id)
+  return (
+    <>
+      <div
+        className="group relative inline-flex items-center rounded border border-neutral-300 hover:border-neutral-600"
+        ref={ref}
+        id={id}
+        onClick={() => setState({ isOpen: true })}
+      >
+        <input
+          readOnly
+          className="w-36 rounded border-none py-2 px-3 text-sm outline-none"
+          placeholder="YYYY.MM"
+          value={value ? dayjs(value).format('YYYY.MM') : ''}
+        />
+        {!!value && (
+          <XCircleIcon
+            onClick={(e) => {
+              e.stopPropagation()
+              onChange('')
+              setState({ isOpen: false })
+            }}
+            className="invisible absolute right-10 mr-2 h-5 w-5 cursor-pointer text-neutral-300 group-hover:visible"
+          />
+        )}
+        <button className="border-l border-neutral-300 bg-white p-2 group-hover:border-neutral-600">
+          <CalendarIcon className="h-5 w-5 text-neutral-300 group-hover:text-neutral-600" />
+        </button>
+      </div>
+      {isOpen &&
+        createPortal(
+          <div
+            role="presentation"
+            style={{
+              left: ref.current!.getBoundingClientRect().left,
+              top:
+                window.scrollY +
+                ref.current!.getBoundingClientRect().top +
+                ref.current!.clientHeight,
+              position: 'absolute',
+              zIndex: '9999'
+            }}
+          >
+            <div
+              ref={targetRef}
+              className="w-64 select-none rounded bg-white drop-shadow-xl"
+            >
+              <div className="flex items-center justify-between border-b border-neutral-300 px-2">
+                <button
+                  className="py-3"
+                  onClick={() =>
+                    setState({ date: dayjs(date).add(-1, 'year') })
+                  }
+                >
+                  <ChevronLeftIcon className="h-4 w-4 text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-500" />
+                </button>
+                <span className="font-semibold">
+                  {dayjs(date).format('YYYY')}
+                </span>
+                <button
+                  className="py-3"
+                  onClick={() => setState({ date: dayjs(date).add(1, 'year') })}
+                >
+                  <ChevronRightIcon className="h-4 w-4 text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-500" />
+                </button>
+              </div>
+              <div className="grid grid-cols-3 gap-4 px-2 py-4">
+                {[
+                  'January',
+                  'February',
+                  'March',
+                  'April',
+                  'May',
+                  'June',
+                  'July',
+                  'August',
+                  'September',
+                  'October',
+                  'November',
+                  'December'
+                ].map((month, key) => (
+                  <div
+                    key={key}
+                    className={classnames(
+                      'grid h-6 cursor-pointer place-items-center rounded text-sm',
+                      dayjs(value).format('YYYY-MM') ===
+                        dayjs(date).format(`YYYY-${twoDigitsNumber(key + 1)}`)
+                        ? 'bg-blue-500 text-white'
+                        : 'hover:bg-neutral-200'
+                    )}
+                    onClick={() => {
+                      onChange(
+                        dayjs(date).format(`YYYY-${twoDigitsNumber(key + 1)}`)
+                      )
+                      setState({ isOpen: false })
+                    }}
+                  >
+                    {month}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
+    </>
+  )
+}
+
+export default MonthPicker
+```
+
+### Usage
+
+```tsx
+<MonthPicker value={value} onChange={(value) => setValue(value)} />
+```
+
+</div>
+
+### Props
+
+| Name                     |          Type           | Default |
+| :----------------------- | :---------------------: | :-----: |
+| **value**<Required />    |         string          |         |
+| **onChange**<Required /> | (value: string) => void |         |
 
 <Comment />
-<BackTop />

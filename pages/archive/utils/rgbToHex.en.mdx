@@ -1,5 +1,22 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# rgbToHex
+
+### Code
+
+```ts filename="services/utils/index.ts"
+export const rgbToHex = (red: number, green: number, blue: number) => {
+  return (
+    '#' + ((1 << 24) + (red << 16) + (green << 8) + blue).toString(16).slice(1)
+  )
+}
+```
+
+### References
+
+- https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+
+<Comment />

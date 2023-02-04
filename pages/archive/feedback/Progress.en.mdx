@@ -1,5 +1,87 @@
-import { Comment } from 'components'
+import { Comment, Required, Progress } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# Progress
+
+## Example
+
+<div className="mt-4">
+  <Progress value={50} />
+</div>
+
+## Steps
+
+<div className='steps'>
+
+### Add Theme in `tailwind.config.js`
+
+```js filename="tailwind.config.js"
+module.exports = {
+  theme: {
+    extend: {
+      keyframes: {
+        slide: {
+          '0%': {
+            backgroundPosition: '0 0'
+          },
+          '100%': {
+            backgroundPosition: '60px 0'
+          }
+        }
+      },
+      animation: {
+        slide: 'slide 2s linear infinite'
+      }
+    }
+  }
+}
+```
+
+### Copy Code
+
+```tsx filename="components/Progress/index.tsx"
+import type { FC } from 'react'
+
+interface Props {
+  value: number
+}
+
+const Progress: FC<Props> = ({ value }) => {
+  return (
+    <div className="h-3 rounded-full border dark:border-neutral-800">
+      <div
+        className="animate-slide h-full rounded-full bg-sky-400 bg-[length:30px_30px]"
+        style={{
+          backgroundImage:
+            'linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent)',
+          width: `${value > 100 ? 100 : value}%`
+        }}
+      />
+    </div>
+  )
+}
+
+export default Progress
+```
+
+### Usage
+
+```tsx
+<Progress value={50} />
+```
+
+</div>
+
+### Props
+
+| Name                  |  Type  | Default |
+| :-------------------- | :----: | :-----: |
+| **value**<Required /> | number |         |
+
+### References
+
+- https://codepen.io/restlessdesign/pen/AGGBOB
+
+<Comment />

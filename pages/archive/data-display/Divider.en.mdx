@@ -1,5 +1,62 @@
-import { Comment } from 'components'
+import { Comment, Divider } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# Divider
+
+## Example
+
+### Horizontal (Default)
+
+<Divider />
+
+### Vertical
+
+<div className="mt-4 flex items-center">
+  <span>span</span>
+  <Divider mode="vertical" />
+  <span>span</span>
+</div>
+
+## Steps
+
+<div className="steps">
+    
+### Copy Code
+
+```tsx filename="components/Divider/index.tsx"
+import type { FC } from 'react'
+
+export interface Props {
+  mode?: 'vertical' | 'horizontal'
+}
+interface State {}
+
+const Divider: FC<Props> = ({ mode = 'horizontal' }) => {
+  if (mode === 'vertical')
+    return (
+      <hr className="mx-8 h-full min-h-[20px] w-px border-l border-neutral-200 dark:border-neutral-700" />
+    )
+  return <hr className="my-8 h-px border-none dark:bg-neutral-700" />
+}
+
+export default Divider
+```
+
+### Usage
+
+```tsx
+<Divider />
+<Divider mode='vertical' />
+```
+
+</div>
+
+### Props
+
+| Name     |          Type           |   Default    |
+| :------- | :---------------------: | :----------: |
+| **mode** | `vertical` `horizontal` | `horizontal` |
+
+<Comment />

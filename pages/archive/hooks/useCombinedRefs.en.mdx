@@ -1,5 +1,47 @@
 import { Comment } from 'components'
 import { BackTop } from 'containers'
 
-<Comment />
 <BackTop />
+
+# useCombinedRefs
+
+When a component is created using forwardRef, this function binds the parent's ref and the child's ref.
+
+<div className="steps">
+
+### Copy Code
+
+```ts filename="services/hooks/index.tsx"
+import type { RefObject, ForwardedRef } from 'react'
+
+export function useCombinedRefs<T>(
+  ...refs: (RefObject<T> | ForwardedRef<T>)[]
+): RefObject<T> {
+  const targetRef = useRef<T>(null)
+
+  useEffect(() => {
+    refs.forEach((ref) => {
+      if (!ref) return
+
+      if (typeof ref === 'function') ref(targetRef.current)
+      // @ts-ignore
+      else ref.current = targetRef.current
+    })
+  }, [refs])
+
+  return targetRef
+}
+```
+
+### Usage
+
+```tsx
+const Dialog = forwardRef<HTMLDialogElement, Props>((props, ref) => {
+  const dialogRef = useRef<HTMLDialogElement>(null)
+  const combinedRef = useCombinedRefs<HTMLDialogElement>(ref, dialogRef)
+})
+```
+
+</div>
+
+<Comment />
