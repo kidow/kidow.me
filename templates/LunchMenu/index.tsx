@@ -117,14 +117,11 @@ const LunchMenu: FC<Props> = () => {
           ...(!data.length ? { results: [] } : {})
         })
         if (page > 1) pagination.gotoPage(page)
-        if (!data.length) {
-          if (!!results.length) {
-            results.forEach((_, i) => {
-              markers[i].setMap(null)
-              polylines[i].setMap(null)
-            })
-          }
-          toast.error('검색 결과가 없습니다.')
+        if (!data.length && !!results.length) {
+          results.forEach((_, i) => {
+            markers[i].setMap(null)
+            polylines[i].setMap(null)
+          })
         }
         if (status === kakao.maps.services.Status.OK) {
           const bounds = new kakao.maps.LatLngBounds()
