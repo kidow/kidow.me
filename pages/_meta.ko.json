@@ -24,6 +24,13 @@
       "layout": "raw"
     }
   },
+  "lunch": {
+    "type": "page",
+    "title": "Lunch",
+    "theme": {
+      "layout": "raw"
+    }
+  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",
