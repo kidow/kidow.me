@@ -254,7 +254,7 @@ const LunchMenu: FC<Props> = () => {
           {Board.map((item, i) => (
             <div
               key={i}
-              className="grid h-48 w-48 grid-cols-3 text-sm dark:odd:bg-neutral-900"
+              className="grid h-48 w-48 grid-cols-3 text-sm odd:bg-neutral-100 dark:odd:bg-neutral-900"
             >
               {item.map((menu, j) => (
                 <div
@@ -267,8 +267,8 @@ const LunchMenu: FC<Props> = () => {
                   className={classnames(
                     'relative h-16 w-16 border-b border-r p-1 dark:border-neutral-800',
                     i % 2 === 0
-                      ? 'dark:hover:bg-neutral-700'
-                      : 'dark:hover:bg-neutral-800'
+                      ? 'hover:bg-neutral-200 dark:hover:bg-neutral-700'
+                      : 'hover:bg-neutral-100 dark:hover:bg-neutral-800'
                   )}
                 >
                   <button className="flex h-full w-full items-center justify-center">
@@ -315,7 +315,7 @@ const LunchMenu: FC<Props> = () => {
             {results.map((item) => (
               <li
                 key={item.id}
-                className="cursor-pointer p-4 dark:hover:bg-neutral-800"
+                className="cursor-pointer p-4 hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 onClick={() => {
                   const marker = new kakao.maps.Marker({
                     position: new kakao.maps.LatLng(
@@ -337,21 +337,21 @@ const LunchMenu: FC<Props> = () => {
                   <span className="text-lg font-semibold">
                     {item.place_name}
                   </span>
-                  <div className="flex-1 text-sm dark:text-neutral-500">
+                  <div className="flex-1 text-sm text-neutral-400 dark:text-neutral-500">
                     {item.distance}m
                   </div>
                 </div>
-                <div className="text-sm dark:text-neutral-300">
+                <div className="text-sm text-neutral-500 dark:text-neutral-300">
                   {item.category_name}
                 </div>
                 <div className="mt-1 flex items-center gap-1">
-                  <span className="text-xs dark:text-neutral-500">
+                  <span className="text-xs text-neutral-400 dark:text-neutral-500">
                     {item.phone}
                   </span>
                   <a
                     href={item.place_url}
                     target="_blank"
-                    className="dark:text-neutral-500 dark:hover:text-neutral-300"
+                    className="text-neutral-400 hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-neutral-300"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <ArrowTopRightOnSquareIcon className="h-4 w-4" />
@@ -364,7 +364,7 @@ const LunchMenu: FC<Props> = () => {
                 className="cursor-pointer py-2 text-center text-sm dark:text-neutral-400 dark:hover:bg-neutral-800"
                 onClick={() => get(searchQuery, page + 1)}
               >
-                더 부르기
+                더 보기
               </li>
             )}
           </ul>

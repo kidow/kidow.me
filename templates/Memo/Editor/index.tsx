@@ -3,6 +3,7 @@ import type { FC } from 'react'
 import Quill from 'quill'
 import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html'
 import { Icons } from 'services'
+import { useRouter } from 'next/router'
 
 const icons = Quill.import('ui/icons')
 icons['header']['1'] = Icons.Heading1
@@ -28,13 +29,15 @@ interface State {}
 
 const Editor: FC<Props> = () => {
   const ref = useRef<HTMLDivElement>(null)
+  const { locale } = useRouter()
 
   useEffect(() => {
     if (!ref.current) return
     const quill = new Quill(ref.current, {
       theme: 'snow',
       modules: { toolbar: '#toolbar' },
-      placeholder: 'Write anything...'
+      placeholder:
+        locale === 'ko' ? '아무 얘기나 적어보세요...' : 'Write anything...'
     })
     quill.on('text-change', () => {
       const converter = new QuillDeltaToHtmlConverter(quill.getContents().ops)

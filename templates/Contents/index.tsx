@@ -43,7 +43,7 @@ const Contents: FC<Props> = () => {
                       item.thumbnail + (locale === 'en' ? '&language=en' : '')
                     }
                     alt=""
-                    className="hidden duration-150 hover:scale-105 md:block"
+                    className="hidden rounded border duration-150 hover:scale-105 dark:border-transparent md:block"
                   />
                 </div>
               )}
@@ -65,7 +65,7 @@ const Contents: FC<Props> = () => {
                   {item[locale].keywords?.split(', ').map((keyword, key) => (
                     <span
                       className={classnames(
-                        'rounded-full bg-neutral-800 py-1 px-3',
+                        'rounded-full bg-neutral-200 py-1 px-3 dark:bg-neutral-800',
                         {
                           'border border-[#61dafb] text-[#61dafb]':
                             keyword === 'React',

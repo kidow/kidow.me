@@ -34,13 +34,15 @@ const ResumeItem: FC<Props> = ({
       </div>
       <div className="mb-1 space-y-5 leading-8">
         {children}
-        <div className="flex flex-wrap gap-3">
-          {keywords.split(', ').map((keyword) => (
-            <span key={keyword} className="tag">
-              {keyword}
-            </span>
-          ))}
-        </div>
+        {!!keywords && (
+          <div className="flex flex-wrap gap-3">
+            {keywords.split(', ').map((keyword) => (
+              <span key={keyword} className="tag">
+                {keyword}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )
