@@ -5,6 +5,7 @@ import type { Day } from 'react-activity-calendar'
 import ReactTooltip from 'react-tooltip'
 import { useObjectState } from 'services'
 import { Spinner } from 'components'
+import { useTheme } from 'next-themes'
 
 export interface Props {}
 interface State {
@@ -19,6 +20,7 @@ const Contribution: FC<Props> = () => {
     list: [],
     isLoading: true
   })
+  const { resolvedTheme } = useTheme()
 
   useEffect(() => {
     fetch('https://github-contributions-api.jogruber.de/v4/kidow?y=last')
@@ -69,11 +71,11 @@ const Contribution: FC<Props> = () => {
             }
           }}
           theme={{
-            level0: theme === 'dark' ? '#161b22' : '#ebedf0',
-            level1: theme === 'dark' ? '#0e4429' : '#9be9a8',
-            level2: theme === 'dark' ? '#006d32' : '#40c463',
-            level3: theme === 'dark' ? '#26a641' : '#30a14e',
-            level4: theme === 'dark' ? '#39d353' : '#216e39'
+            level0: resolvedTheme === 'dark' ? '#161b22' : '#ebedf0',
+            level1: resolvedTheme === 'dark' ? '#0e4429' : '#9be9a8',
+            level2: resolvedTheme === 'dark' ? '#006d32' : '#40c463',
+            level3: resolvedTheme === 'dark' ? '#26a641' : '#30a14e',
+            level4: resolvedTheme === 'dark' ? '#39d353' : '#216e39'
           }}
           children={<ReactTooltip html />}
         />

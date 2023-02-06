@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { ErrorBoundary, Offline, Toast } from 'containers'
 import { appWithTranslation } from 'next-i18next'
 import { Analytics } from '@vercel/analytics/react'
+import { ThemeProvider } from 'next-themes'
 import 'services/styles/global.css'
 import 'dayjs/locale/ko'
 import 'dayjs/locale/en'
@@ -14,7 +15,9 @@ export default appWithTranslation(function Nextra({
   return (
     <Offline>
       <ErrorBoundary>
-        <Component {...pageProps} />
+        <ThemeProvider attribute="class">
+          <Component {...pageProps} />
+        </ThemeProvider>
       </ErrorBoundary>
       <Toast />
       <Analytics />
