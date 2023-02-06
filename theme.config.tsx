@@ -63,12 +63,7 @@ const config: DocsThemeConfig = {
     link: 'https://github.com/kidow/kidow.me'
   },
   useNextSeoProps() {
-    const { asPath } = useRouter()
-    return {
-      ...(asPath === '/'
-        ? { title: 'Kidow Blog', titleTemplate: '' }
-        : { titleTemplate: '%s - Kidow Blog' })
-    }
+    return { titleTemplate: '%s - Kidow Blog' }
   },
   primaryHue: 32,
   chat: {
@@ -110,13 +105,16 @@ const config: DocsThemeConfig = {
     const { asPath } = useRouter()
     const { frontMatter } = useConfig()
 
-    const TITLE = 'Kidow Blog'
-    const DESCRIPTION = '더 게으르기 위해 더 열심히 공부하는 개발자입니다.'
-    const URL = 'https://kidow.me'
-    const IMAGE = 'https://kidow.me/api/image?id=rxzt4zk0v4o'
+    const TITLE = frontMatter.title || 'Kidow Blog'
+    const DESCRIPTION =
+      frontMatter.description ||
+      '더 게으르기 위해 더 열심히 공부하는 개발자입니다.'
+    const URL = 'https://kidow.me' + asPath
+    const IMAGE =
+      frontMatter.thumbnail || 'https://kidow.me/api/image?id=rxzt4zk0v4o'
     return (
       <>
-        <link rel="canonical" href={URL + asPath} />
+        <link rel="canonical" href={URL} />
         <link
           rel="icon"
           type="image/png"
@@ -130,10 +128,7 @@ const config: DocsThemeConfig = {
           sizes="16x16"
         />
         <link rel="shortcut icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content={frontMatter.description || DESCRIPTION}
-        />
+        <meta name="description" content={DESCRIPTION} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#e67a00" />
         <meta name="msapplication-TileColor" content="#e67a00" />
@@ -154,26 +149,20 @@ const config: DocsThemeConfig = {
           name="naver-site-verification"
           content="6aad57e80bc0cb85f4d497fde9a243497dfa5a3d"
         />
-        <meta name="og:title" content={frontMatter.title || TITLE} />
-        <meta
-          name="og:description"
-          content={frontMatter.description || DESCRIPTION}
-        />
+        <meta name="og:title" content={TITLE} />
+        <meta name="og:description" content={DESCRIPTION} />
         <meta name="og:type" content="website" />
-        <meta name="og:image" content={frontMatter.thumbnail || IMAGE} />
+        <meta name="og:image" content={IMAGE} />
         <meta name="og:image:width" content="1200" />
         <meta name="og:image:height" content="600" />
-        <meta name="og:url" content={URL + asPath} />
+        <meta name="og:url" content={URL} />
         <meta name="og:locale" content={frontMatter.language || 'ko_KR'} />
-        <meta name="og:site_name" content={frontMatter.title || TITLE} />
+        <meta name="og:site_name" content={TITLE} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={frontMatter.title || TITLE} />
-        <meta
-          name="twitter:description"
-          content={frontMatter.description || DESCRIPTION}
-        />
-        <meta name="twitter:domain" content={URL + asPath} />
-        <meta name="twitter:image" content={frontMatter.thumbnail || IMAGE} />
+        <meta name="twitter:title" content={TITLE} />
+        <meta name="twitter:description" content={DESCRIPTION} />
+        <meta name="twitter:domain" content={URL} />
+        <meta name="twitter:image" content={IMAGE} />
         <script
           type="text/javascript"
           async

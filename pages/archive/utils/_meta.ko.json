@@ -2,7 +2,7 @@
   "backdrop": "backdrop",
   "base64ToFile": "base64ToFile",
   "copyText": "copyText",
-  "debounce": "",
+  "debounce": "debounce",
   "enumToOptions": "enumToOptions",
   "EventListener": "EventListener",
   "fileToBase64": "fileToBase64",
@@ -11,7 +11,7 @@
   "priceFormat": "priceFormat",
   "randomString": "randomString",
   "rgbToHex": "rgbToHex",
-  "throttle": "",
+  "throttle": "throttle",
   "twoDigitsNumber": "twoDigitsNumber",
-  "uuid": ""
+  "uuid": "uuid"
 }

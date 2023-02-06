@@ -1,3 +1,10 @@
 {
-  "BackTop": "BackTop"
+  "BackTop": "BackTop",
+  "Breadcrumb": "Breadcrumb",
+  "Drawer": "Drawer",
+  "Dropdown": "Dropdown",
+  "Navigation": "Navigation",
+  "Pagination": "Pagination",
+  "Stepper": "Stepper",
+  "Tabs": "Tabs"
 }

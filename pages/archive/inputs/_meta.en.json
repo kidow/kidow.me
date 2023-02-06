@@ -1,7 +1,11 @@
 {
-  "Button": "",
+  "Button": "Button",
   "ButtonGroup": "ButtonGroup",
-  "Checkbox": "",
+  "Checkbox": "Checkbox",
   "IconButton": "IconButton",
-  "IconUpload": "IconUpload"
+  "IconUpload": "IconUpload",
+  "Input": "Input",
+  "Radio": "Radio",
+  "Select": "Select",
+  "Textarea": "Textarea"
 }

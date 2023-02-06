@@ -1,14 +1,15 @@
 {
   "AutoComplete": "AutoComplete",
-  "Cascader": "",
+  "Cascader": "Cascader",
   "ColorPicker": "ColorPicker",
   "DatePicker": "DatePicker",
   "DatetimePicker": "DatetimePicker",
-  "Form": "",
+  "Form": "Form",
   "MonthPicker": "MonthPicker",
-  "Rating": "",
-  "Slider": "",
-  "Tag": "",
+  "Rating": "Rating",
+  "Slider": "Slider",
+  "Tag": "Tag",
   "TimePicker": "TimePicker",
-  "TimeRangePicker": "TimeRangePicker"
+  "TimeRangePicker": "TimeRangePicker",
+  "Upload": "Upload"
 }
