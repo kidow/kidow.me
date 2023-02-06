@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import type { FC } from 'react'
 import { Tooltip } from 'components'
 import { toast } from 'services'
+import { useRouter } from 'next/router'
 
 export interface Props {
   onHelpClick: () => void
@@ -9,6 +10,8 @@ export interface Props {
 interface State {}
 
 const Toolbar: FC<Props> = ({ onHelpClick }) => {
+  const { locale } = useRouter()
+
   const shortKey: string = useMemo(
     () =>
       window.navigator.platform.toUpperCase().indexOf('MAC') !== -1
@@ -96,8 +99,10 @@ const Toolbar: FC<Props> = ({ onHelpClick }) => {
               className="ql-link"
               onClick={() => {
                 const selection = window.getSelection()
-                if (selection?.type !== 'Range')
-                  toast.info('텍스트를 드래그하세요.')
+                if (selection?.type !== 'Range') {
+                  if (locale === 'ko') toast.info('텍스트를 드래그하세요.')
+                  if (locale === 'en') toast.info('Drag the text.')
+                }
               }}
             />
           </Tooltip>
@@ -118,7 +123,7 @@ const Toolbar: FC<Props> = ({ onHelpClick }) => {
           </Tooltip>
         </li>
         <li>
-          <Tooltip content={`도움말 (${shortKey} + H)`}>
+          <Tooltip content={`Help (${shortKey} + H)`}>
             <button onClick={onHelpClick}>
               <svg
                 width="800px"

@@ -34,7 +34,7 @@ const Editor: FC<Props> = () => {
     const quill = new Quill(ref.current, {
       theme: 'snow',
       modules: { toolbar: '#toolbar' },
-      placeholder: '아무 내용이나 적어보세요...'
+      placeholder: 'Write anything...'
     })
     quill.on('text-change', () => {
       const converter = new QuillDeltaToHtmlConverter(quill.getContents().ops)
