@@ -8,7 +8,7 @@ const NotFoundPage: NextPage = () => {
   const { replace } = useRouter()
 
   useEffect(() => {
-    // replace('/')
+    replace('/')
   }, [])
   return <></>
 }
