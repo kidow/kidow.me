@@ -6,6 +6,7 @@ import type { Dayjs } from 'dayjs'
 import { ClockIcon } from '@heroicons/react/24/outline'
 import { twoDigitsNumber, useObjectState, useOnClickOutside } from 'services'
 import 'dayjs/locale/ko'
+import { useRouter } from 'next/router'
 
 interface Props {
   value: Dayjs
@@ -20,6 +21,7 @@ const TimePicker: FC<Props> = ({ value, onChange }) => {
     isOpen: false
   })
   const ref = useRef<HTMLDivElement>(null)
+  const { locale } = useRouter()
   useOnClickOutside(ref, () => setState({ isOpen: false }))
   return (
     <div
@@ -83,7 +85,7 @@ const TimePicker: FC<Props> = ({ value, onChange }) => {
                 setState({ isOpen: false })
               }}
             >
-              현재
+              {locale === 'ko' ? '현재' : 'Current'}
             </span>
           </div>
         </div>

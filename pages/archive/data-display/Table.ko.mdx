@@ -259,7 +259,12 @@ function Table<T>({
             list.map((item: T, key) => renderItem(item, key))
           ) : (
             <tr>
-              <td colSpan={99}>데이터가 없습니다.</td>
+              <td
+                colSpan={99}
+                className="text-neutral-400 dark:text-neutral-500"
+              >
+                데이터가 없습니다.
+              </td>
             </tr>
           )}
         </tbody>

@@ -10,6 +10,7 @@ import {
 import { XCircleIcon } from '@heroicons/react/24/solid'
 import { useObjectState, useOnClickOutside, twoDigitsNumber } from 'services'
 import { createPortal } from 'react-dom'
+import { useRouter } from 'next/router'
 
 export interface Props {
   value: string
@@ -25,6 +26,7 @@ const MonthPicker: FC<Props> = ({ value, onChange }) => {
     isOpen: false,
     date: dayjs(value || dayjs().format('YYYY-MM'))
   })
+  const { locale } = useRouter()
   const ref = useRef<HTMLDivElement>(null)
   const targetRef = useRef<HTMLDivElement>(null)
   const id = useId()
@@ -94,7 +96,23 @@ const MonthPicker: FC<Props> = ({ value, onChange }) => {
                 </button>
               </div>
               <div className="grid grid-cols-3 gap-4 px-2 py-4">
-                {Array.from({ length: 12 }).map((_, key) => (
+                {(locale === 'ko'
+                  ? Array.from({ length: 12 }, (_, i) => i + 1)
+                  : [
+                      'Jan',
+                      'Feb',
+                      'Mar',
+                      'Apr',
+                      'May',
+                      'Jun',
+                      'Jul',
+                      'Aug',
+                      'Sep',
+                      'Oct',
+                      'Nov',
+                      'Dec'
+                    ]
+                ).map((item, key) => (
                   <div
                     key={key}
                     className={classnames(
@@ -111,7 +129,7 @@ const MonthPicker: FC<Props> = ({ value, onChange }) => {
                       setState({ isOpen: false })
                     }}
                   >
-                    {key + 1}월
+                    {locale === 'ko' ? `${item}월` : item}
                   </div>
                 ))}
               </div>

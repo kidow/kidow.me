@@ -17,10 +17,10 @@ const DialogCustomView: FC = () => {
       <DialogCustom
         ref={ref}
         maxWidth="max-w-xl"
-        title="타이틀"
-        description="디스크립션"
+        title="Title"
+        description="Description"
       >
-        완성된 Dialog
+        Completed Dialog
       </DialogCustom>
     </div>
   )

@@ -15,6 +15,7 @@ import { useObjectState, useOnClickOutside } from 'services'
 import dayjs from 'dayjs'
 import type { Dayjs } from 'dayjs'
 import { createPortal } from 'react-dom'
+import { useRouter } from 'next/router'
 
 interface Props {
   value: string
@@ -34,6 +35,7 @@ const DatePicker: FC<Props> = ({ onChange, format = 'YYYY.MM.DD', value }) => {
       date: dayjs(value || dayjs().format(format)),
       stacks: []
     })
+  const { locale } = useRouter()
   const ref = useRef<HTMLDivElement>(null)
   const targetRef = useRef<HTMLDivElement>(null)
   const id = useId()
@@ -198,11 +200,12 @@ const DatePicker: FC<Props> = ({ onChange, format = 'YYYY.MM.DD', value }) => {
               {!stacks[0] && (
                 <>
                   <div className="grid grid-cols-7 gap-3 p-2 text-center">
-                    {['일', '월', '화', '수', '목', '금', '토'].map(
-                      (week, key) => (
-                        <div key={key}>{week}</div>
-                      )
-                    )}
+                    {(locale === 'ko'
+                      ? ['일', '월', '화', '수', '목', '금', '토']
+                      : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+                    ).map((week, key) => (
+                      <div key={key}>{week}</div>
+                    ))}
                     {dayList.map((day, key) => (
                       <div
                         key={key}
@@ -238,7 +241,7 @@ const DatePicker: FC<Props> = ({ onChange, format = 'YYYY.MM.DD', value }) => {
                         onChange(dayjs().format(format))
                       }}
                     >
-                      오늘
+                      {locale === 'ko' ? '오늘' : 'Today'}
                     </button>
                   </div>
                 </>
@@ -272,29 +275,41 @@ const DatePicker: FC<Props> = ({ onChange, format = 'YYYY.MM.DD', value }) => {
 
               {stacks[0] === 'month' && (
                 <div className="grid grid-cols-3 gap-4 px-2 py-4">
-                  {Array.from({ length: 12 }, (_, i) => i + 1).map(
-                    (item, key) => (
-                      <div
-                        key={key}
-                        className={classnames(
-                          'grid h-6 cursor-pointer place-items-center rounded text-sm',
-                          dayjs(value).format('M') === String(key + 1)
-                            ? 'bg-blue-500 text-white'
-                            : 'hover:bg-neutral-200 dark:hover:bg-neutral-700'
-                        )}
-                        onClick={() =>
-                          setState({
-                            date: dayjs(
-                              dayjs(date).format(`YYYY-${key + 1}-DD`)
-                            ),
-                            stacks: stacks.slice(1)
-                          })
-                        }
-                      >
-                        {item}월
-                      </div>
-                    )
-                  )}
+                  {(locale === 'ko'
+                    ? Array.from({ length: 12 }, (_, i) => i + 1)
+                    : [
+                        'Jan',
+                        'Feb',
+                        'Mar',
+                        'Apr',
+                        'May',
+                        'Jun',
+                        'Jul',
+                        'Aug',
+                        'Sep',
+                        'Oct',
+                        'Nov',
+                        'Dec'
+                      ]
+                  ).map((item, key) => (
+                    <div
+                      key={key}
+                      className={classnames(
+                        'grid h-6 cursor-pointer place-items-center rounded text-sm',
+                        dayjs(value).format('M') === String(key + 1)
+                          ? 'bg-blue-500 text-white'
+                          : 'hover:bg-neutral-200 dark:hover:bg-neutral-700'
+                      )}
+                      onClick={() =>
+                        setState({
+                          date: dayjs(dayjs(date).format(`YYYY-${key + 1}-DD`)),
+                          stacks: stacks.slice(1)
+                        })
+                      }
+                    >
+                      {locale === 'ko' ? `${item}월` : item}
+                    </div>
+                  ))}
                 </div>
               )}
             </div>

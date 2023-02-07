@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from 'react'
 import type { FC } from 'react'
 import { useObjectState } from 'services'
+import { useRouter } from 'next/router'
 
 export interface Props extends ReactProps {}
 interface State {
@@ -11,6 +12,7 @@ const Offline: FC<Props> = ({ children }) => {
   const [{ isOnline }, setState] = useObjectState<State>({
     isOnline: true
   })
+  const { locale } = useRouter()
 
   const onOnline = useCallback(() => setState({ isOnline: true }), [])
 
@@ -69,8 +71,16 @@ const Offline: FC<Props> = ({ children }) => {
             draggable={false}
           />
           <div className="mt-10 mb-5 space-y-4 text-center text-4xl">
-            <div>인터넷에 연결되어 있지 않습니다.</div>
-            <div>네트워크를 확인해주세요.</div>
+            <div>
+              {locale === 'ko'
+                ? '인터넷에 연결되어 있지 않습니다.'
+                : 'You are not connected to the internet.'}
+            </div>
+            <div>
+              {locale === 'ko'
+                ? '네트워크를 확인해주세요.'
+                : 'Please check your network.'}
+            </div>
           </div>
         </div>
       </div>

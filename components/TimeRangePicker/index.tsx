@@ -7,6 +7,7 @@ import { twoDigitsNumber, useObjectState, useOnClickOutside } from 'services'
 import dayjs from 'dayjs'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import { createPortal } from 'react-dom'
+import { useRouter } from 'next/router'
 
 dayjs.extend(isSameOrBefore)
 
@@ -47,6 +48,7 @@ const TimeRangePicker: FC<Props> = ({
   const minuteRef = useRef<HTMLDivElement>(null)
   const targetRef = useRef<HTMLDivElement>(null)
   const id = useId()
+  const { locale } = useRouter()
 
   const onApply = () => {
     if (
@@ -54,7 +56,11 @@ const TimeRangePicker: FC<Props> = ({
         `2022-02-08T${startHour}:${startMinute}`
       )
     ) {
-      alert('시작 시간이 종료 시간보다 뒤에 있거나 같습니다.')
+      alert(
+        locale === 'ko'
+          ? '시작 시간이 종료 시간보다 뒤에 있거나 같습니다.'
+          : 'The start time is later than or equal to the end time.'
+      )
       return
     }
     onChange(`${startHour}:${startMinute}`, `${endHour}:${endMinute}`)
@@ -141,7 +147,7 @@ const TimeRangePicker: FC<Props> = ({
                       'font-bold': tab === 'start'
                     })}
                   >
-                    <div>시작</div>
+                    <div>{locale === 'ko' ? '시작' : 'Start'}</div>
                     <div
                       className={classnames({
                         'text-blue-500': tab === 'start'
@@ -175,12 +181,8 @@ const TimeRangePicker: FC<Props> = ({
                     if (tab === 'start') setState({ tab: 'end' })
                   }}
                 >
-                  <div
-                    className={classnames({
-                      'font-bold': tab === 'end'
-                    })}
-                  >
-                    <div>종료</div>
+                  <div className={classnames({ 'font-bold': tab === 'end' })}>
+                    <div>{locale === 'ko' ? '종료' : 'End'}</div>
                     <div
                       className={classnames({
                         'text-blue-500': tab === 'end'

@@ -9,14 +9,12 @@ import { useTheme } from 'next-themes'
 
 export interface Props {}
 interface State {
-  theme: string
   list: Day[]
   isLoading: boolean
 }
 
 const Contribution: FC<Props> = () => {
-  const [{ list, theme, isLoading }, setState] = useObjectState<State>({
-    theme: '',
+  const [{ list, isLoading }, setState] = useObjectState<State>({
     list: [],
     isLoading: true
   })
@@ -26,12 +24,7 @@ const Contribution: FC<Props> = () => {
     fetch('https://github-contributions-api.jogruber.de/v4/kidow?y=last')
       .then((res) => res.json())
       .then((json) =>
-        setState({
-          list: json?.contributions || [],
-          theme:
-            document.documentElement.style.getPropertyValue('color-scheme'),
-          isLoading: false
-        })
+        setState({ list: json?.contributions || [], isLoading: false })
       )
       .catch((err) => {
         console.error(err)

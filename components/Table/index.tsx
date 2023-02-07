@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import classnames from 'classnames'
 import { Spinner } from 'components'
+import { useRouter } from 'next/router'
 
 export interface Props<T> {
   list: T[]
@@ -17,6 +18,7 @@ function Table<T>({
   loading,
   size = 'lg'
 }: Props<T>) {
+  const { locale } = useRouter()
   return (
     <div
       className={classnames(
@@ -47,7 +49,12 @@ function Table<T>({
             list.map((item: T, key) => renderItem(item, key))
           ) : (
             <tr>
-              <td colSpan={99}>데이터가 없습니다.</td>
+              <td
+                colSpan={99}
+                className="text-neutral-400 dark:text-neutral-500"
+              >
+                {locale === 'ko' ? '데이터가 없습니다.' : 'No Data.'}
+              </td>
             </tr>
           )}
         </tbody>

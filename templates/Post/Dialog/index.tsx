@@ -20,7 +20,7 @@ const Dialog: FC<Props> = () => {
         Open
       </button>
       <dialog open={isOpen}>
-        <p>안녕하세요!</p>
+        <p>Hi!</p>
       </dialog>
     </div>
   )

@@ -21,7 +21,7 @@ const DialogShowModal: FC<Props> = () => {
         }}
         style={{ padding: 0 }}
       >
-        <div style={{ height: '100%' }}>안녕하세요!</div>
+        <div style={{ height: '100%' }}>Hi!</div>
       </dialog>
     </div>
   )

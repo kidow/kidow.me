@@ -15,7 +15,7 @@ const DialogShow: FC<Props> = () => {
         Open
       </button>
       <dialog ref={ref}>
-        <p>안녕하세요!</p>
+        <p>Hi!</p>
       </dialog>
     </div>
   )
