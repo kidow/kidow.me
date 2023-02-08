@@ -1,16 +1,11 @@
 import { ImageResponse } from '@vercel/og'
 import type { ImageResponseOptions } from '@vercel/og'
 import { NextRequest } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
+import { supabase } from 'services'
 
 export const config = {
   runtime: 'edge'
 }
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_KEY
-)
 
 const response = (
   title: string = '개발자 Kidow 블로그',

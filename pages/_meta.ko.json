@@ -24,6 +24,13 @@
       "layout": "raw"
     }
   },
+  "til": {
+    "type": "page",
+    "title": "TIL",
+    "theme": {
+      "layout": "raw"
+    }
+  },
   "lunch": {
     "type": "page",
     "title": "Lunch",
