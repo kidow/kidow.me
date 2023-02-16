@@ -9,9 +9,9 @@ const Comment: FC<Props> = () => {
   const ref = useRef<HTMLDivElement>(null)
   const { locale } = useRouter()
   const { resolvedTheme } = useTheme()
-  const theme = resolvedTheme === 'dark' ? 'dark_dimmed' : 'light'
 
   useEffect(() => {
+    const theme = resolvedTheme === 'dark' ? 'dark_dimmed' : 'light'
     const giscusEl: HTMLIFrameElement = ref.current.querySelector(
       'iframe.giscus-frame'
     )

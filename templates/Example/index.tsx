@@ -2,6 +2,7 @@ import ColorPickerExample from './ColorPicker'
 import DatePickerExample from './DatePicker'
 import DialogExample from './Dialog'
 import DrawerExample from './Drawer'
+import Dropdown2Example from './Dropdown2'
 import IconUploadExample from './IconUpload'
 import ModalExample from './Modal'
 import MonthPickerExample from './MonthPicker'
@@ -25,5 +26,6 @@ export default {
   Radio: RadioExample,
   Drawer: DrawerExample,
   Pagination: PaginationExample,
-  Tabs: TabsExample
+  Tabs: TabsExample,
+  Dropdown2: Dropdown2Example
 }

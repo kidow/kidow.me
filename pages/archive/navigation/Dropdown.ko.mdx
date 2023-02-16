@@ -1,10 +1,14 @@
-import { Comment, Card, Icon, Required, Dropdown } from 'components'
+import { Comment, Card, Icon, Required, Dropdown, Dropdown2 } from 'components'
 import { BackTop } from 'containers'
+import { Example } from 'templates'
+import { Tab, Tabs } from 'nextra-theme-docs'
 
 <BackTop />
 
 # Dropdown
 
+<Tabs items={['Version 1', 'Version 2']}>
+  <Tab>
 ## Example
 
 <div className="mt-4">
@@ -131,5 +135,141 @@ export default Dropdown
 | **list**<Required />    |        string[]         |            |
 | **onClick**<Required /> | (index: number) => void |            |
 | **label**               |         string          | 'Dropdown' |
+
+  </Tab>
+
+  <Tab>
+## Example
+
+### Default
+
+<div className="mt-4">
+  <Dropdown2
+    position="bottom-end"
+    list={['Apple', 'Amazon', 'Microsoft', 'Tesla']}
+    trigger={
+      <span className="rounded-md border border-neutral-300 px-4 py-2 text-neutral-700 dark:border-neutral-700 dark:text-neutral-400">
+        Dropdown
+      </span>
+    }
+    onClick={(index) => {}}
+  />
+</div>
+
+### Position
+
+<Example.Dropdown2 />
+
+## Steps
+
+<div className="steps">
+
+### Prerequisite
+
+<Tabs items={['npm', 'yarn']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    npm install classnames
+    ```
+    </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    yarn add classnames
+    ```
+</Tab>
+</Tabs>
+
+### Copy Code
+
+```tsx filename="components/Dropdown/index.tsx"
+import type { FC, ReactNode } from 'react'
+import classnames from 'classnames'
+import type { Argument } from 'classnames'
+
+export interface Props {
+  position:
+    | 'top-start'
+    | 'top-end'
+    | 'right-start'
+    | 'right-end'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'left-start'
+    | 'left-end'
+  trigger: ReactNode
+  list: string[]
+  onClick: (index: number) => void
+  className?: Argument
+}
+interface State {}
+
+const Dropdown: FC<Props> = ({
+  position,
+  trigger,
+  list,
+  onClick,
+  className
+}) => {
+  return (
+    <div className="relative inline-block [&>ul]:focus-within:visible [&>ul]:focus-within:scale-100 [&>ul]:focus-within:opacity-100">
+      <label tabIndex={0} className="cursor-pointer">
+        {trigger}
+      </label>
+      <ul
+        tabIndex={0}
+        className={classnames(
+          'invisible absolute z-50 w-52 scale-95 transform rounded-md bg-black p-2 opacity-0 shadow transition duration-200 ease-in-out',
+          {
+            'right-0 bottom-full': position === 'top-start',
+            'left-0 bottom-full': position === 'top-end',
+            'bottom-0 left-full': position === 'right-start',
+            'top-0 left-full': position === 'right-end',
+            'right-0 top-full': position === 'bottom-start',
+            'left-0 top-full': position === 'bottom-end',
+            'right-full bottom-0': position === 'left-start',
+            'right-full top-0': position === 'left-end'
+          },
+          className
+        )}
+      >
+        {list.map((item, key) => (
+          <li
+            key={key}
+            className="cursor-pointer rounded py-3 px-4 hover:bg-neutral-900"
+            onClick={() => onClick(key)}
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default Dropdown
+```
+
+### Usage
+
+</div>
+
+### Props
+
+| Name                     |                                                Type                                                 | Default |
+| :----------------------- | :-------------------------------------------------------------------------------------------------: | :-----: |
+| **list**<Required />     |                                              string[]                                               |         |
+| **onClick**<Required />  |                                       (index: number) => void                                       |         |
+| **trigger**<Required />  |                                              ReactNode                                              |         |
+| **position**<Required /> | `top-start` `top-end` `right-start` `right-end` `bottom-start` `bottom-end` `left-start` `left-end` |         |
+
+### References
+
+https://daisyui.com/components/dropdown/
+
+      </Tab>
+
+  </Tabs>
 
 <Comment />
