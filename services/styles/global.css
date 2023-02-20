@@ -11,11 +11,16 @@
   input[value='']::-webkit-calendar-picker-indicator {
     @apply opacity-40;
   }
-  article > main > p {
+  article > main > p,
+  article > main > ol,
+  article > main > ul {
     @apply dark:text-neutral-400;
   }
   article > main > p > strong {
     @apply dark:text-neutral-50;
+  }
+  article > main > p > img {
+    @apply mx-auto;
   }
 }
 

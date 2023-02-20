@@ -80,6 +80,12 @@ const Editor: FC<Props> = () => {
     quill.keyboard.addBinding({ key: 'D', shortKey: true }, () => {
       quill.format('code-block', true)
     })
+    quill.keyboard.addBinding({ key: 'tab' }, () => {
+      quill.format('indent', '+1')
+    })
+    quill.keyboard.addBinding({ key: 'tab', shiftKey: true }, () => {
+      quill.format('indent', '-1')
+    })
     const content = window.localStorage.getItem('content')
     if (!!content && content !== '<p><br/></p>') {
       quill.root.innerHTML = content.replaceAll('<br/>', '<br/>\n')

@@ -18,8 +18,8 @@ const Contents: FC<Props> = () => {
   const { locale, query } = useRouter()
 
   const numPages: number = useMemo(
-    () => Math.ceil(contents.length / 5),
-    [contents.length]
+    () => Math.ceil(contents[locale].length / 5),
+    [contents.length, locale]
   )
   const page: number = useMemo(() => {
     if (!query.page || typeof query.page !== 'string') return 1
@@ -28,7 +28,7 @@ const Contents: FC<Props> = () => {
   return (
     <div>
       <ul className="grid grid-cols-1 gap-8 md:grid-cols-2">
-        {contents.slice((page - 1) * 5, page * 5).map((item, key) => (
+        {contents[locale].slice((page - 1) * 5, page * 5).map((item, key) => (
           <li key={key} className="md:first:col-span-2">
             <Link
               href={item.href}
@@ -56,13 +56,13 @@ const Contents: FC<Props> = () => {
                       : 'font-medium'
                   )}
                 >
-                  {item[locale].title}
+                  {item.title}
                 </h2>
                 <p className="text-neutral-400 line-clamp-3">
-                  {item[locale].description}
+                  {item.description}
                 </p>
                 <div className="flex flex-wrap gap-3 text-xs md:text-sm">
-                  {item[locale].keywords?.split(', ').map((keyword, key) => (
+                  {item.keywords?.split(', ').map((keyword, key) => (
                     <span
                       className={classnames(
                         'rounded-full bg-neutral-200 py-1 px-3 dark:bg-neutral-800',

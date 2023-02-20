@@ -28,425 +28,458 @@ export enum Icons {
     <rect x="0" fill="none" width="24" height="24" /><g><path d="M23 12l-5.45 6.5L16 17.21 20.39 12 16 6.79l1.55-1.29zM8 6.79L6.45 5.5 1 12l5.45 6.5L8 17.21 3.61 12zm.45 14.61l1.93.52L15.55 2.6l-1.93-.52z" /></g></svg>`
 }
 
-export const contents: Array<{
-  thumbnail: string
-  href: string
-  date: string
-  ko: {
+export const contents: {
+  [locale: string]: Array<{
     title: string
     description: string
     keywords: string
-  }
-  en: {
-    title: string
-    description: string
-    keywords: string
-  }
-}> = [
-  {
-    ko: {
+    thumbnail: string
+    href: string
+    date: string
+  }>
+} = {
+  ko: [
+    {
+      title: 'ChatGPT는 코딩 테스트를 통과할 수 있을까?',
+      description:
+        '코딩 테스트를 ChatGPT한테 시키면 과연 풀어줄까 궁금증이 생겼습니다. 저는 이미 간단한 유틸 함수나 소소한 영감들을 이 친구(?)에게 도움받고 있었거든요.',
+      thumbnail: 'https://kidow.me/api/image?id=jg1ocps1gk',
+      date: '2023-02-18',
+      keywords: 'ChatGPT, 코딩테스트',
+      href: '/contents/can-chatgpt-pass-the-coding-test'
+    },
+    {
       title: '6개의 프로젝트를 하나의 블로그로 통합하기 (feat. Nextra)',
       description:
         '기존에 운영하고 있던 6개의 서브도메인 프로젝트를 단 하나의 프로젝트로 합쳤습니다.',
-      keywords: 'Nextra'
+      keywords: 'Nextra',
+      date: '2023-02-23',
+      thumbnail: 'https://kidow.me/api/image?id=umd5bysw08e',
+      href: '/contents/6-projects-to-one'
     },
-    en: {
-      title: 'Combining 6 projects into one blog (feat. Nextra)',
-      description:
-        'I merged the 6 sub-domain projects that were previously operated into a single project.',
-      keywords: 'Nextra'
-    },
-    date: '2023-02-03',
-    thumbnail: 'https://kidow.me/api/image?id=umd5bysw08e',
-    href: '/contents/6-projects-to-one'
-  },
-  {
-    ko: {
+    {
       title: '공유오피스 파이브스팟 성수 2호점 방문 후기',
       description:
         '열심히 코딩하던 중에 문자가 왔습니다. 파이브스팟에서 공짜로 쿠폰 하나를 줬는데요. 차감형 패스라는 기능을 출시했는 데, 1회 무료 이용권을 하나 주더라구요 ㅎㅎ 아마 이전에 한 달 이용한 적이 있어서 준 게 아닐까 싶어요.',
-      keywords: '파이브스팟, Fivespot'
+      keywords: '파이브스팟, Fivespot',
+      date: '2023-01-29',
+      thumbnail: 'https://kidow.me/api/image?id=5eihgjr368c',
+      href: '/contents/review-of-shared-office-fivespot-seongsu-2'
     },
-    en: {
-      title: 'Review of visit to shared office Fivespot Seongsu 2',
-      description:
-        'While I was coding hard, a text message came. Fivespot gave me a free coupon.',
-      keywords: 'Fivespot'
-    },
-    date: '2023-01-29',
-    thumbnail: 'https://kidow.me/api/image?id=5eihgjr368c',
-    href: '/contents/review-of-shared-office-fivespot-seongsu-2'
-  },
-  {
-    ko: {
+    {
       title: '블로그 오픈그래프 이미지 동적으로 만들기',
       description:
         '동적으로 오픈그래프용 이미지를 만들 수 있다는 것을 알았을 때, opengraph.kidow.me 라는 주소로 Node.js 프로젝트를 만들어서 블로그에 썸네일로 쓰던 때가 있었습니다.',
-      keywords: 'Nextjs, Vercel, Opengraph, Satori, Supabase'
+      keywords: 'Nextjs, Vercel, Opengraph, Satori, Supabase',
+      date: '2023-01-14',
+      thumbnail: 'https://kidow.me/api/image?id=bgk4y13n3sw',
+      href: '/contents/making-blog-open-graph-images-dynamic'
     },
-    en: {
-      title: 'Making Blog Open Graph Images Dynamic',
-      description: "Let's see how to dynamically create images for Open Graph.",
-      keywords: 'Nextjs, Vercel, Opengraph, Satori, Supabase'
-    },
-    date: '2023-01-14',
-    thumbnail: 'https://kidow.me/api/image?id=bgk4y13n3sw',
-    href: '/contents/making-blog-open-graph-images-dynamic'
-  },
-  {
-    ko: {
+    {
       title: '지금까지 받은 피드백 정리',
       description:
         '저는 피드뱅크를 만들고 있습니다. 간단히 소개하자면 웹사이트 피드백 수집툴로, 작은 소프트웨어를 만드는 제 작은 회사입니다.',
-      keywords: 'Feedback, Feedbank, 피드백, 피드뱅크'
+      keywords: 'Feedback, Feedbank, 피드백, 피드뱅크',
+      date: '2022-12-21',
+      thumbnail: 'https://kidow.me/api/image?id=g2hw0mxlig8',
+      href: '/contents/summary-of-feedback-received-so-far'
     },
-    en: {
-      title: 'Summary of feedback received so far',
-      description:
-        "I'm making a feedbank. Briefly, this is my small company that makes a small software as a website feedback collection tool.",
-      keywords: 'Feedback, Feedbank'
-    },
-    date: '2022-12-21',
-    thumbnail: 'https://kidow.me/api/image?id=g2hw0mxlig8',
-    href: '/contents/summary-of-feedback-received-so-far'
-  },
-  {
-    ko: {
+    {
       title: 'Coddee 인프라 설계 과정',
       description:
         '개발자 채팅방 Coddee의 인프라 설계 과정을 궁금해 하실 분들을 위해 이 글을 남겨봅니다.',
-      keywords: 'Coddee, Supabase'
+      keywords: 'Coddee, Supabase',
+      date: '2022-12-19',
+      thumbnail: 'https://kidow.me/api/image?id=6pyuldhdton',
+      href: '/contents/coddee-infrastructure-design-process'
     },
-    en: {
-      title: 'Coddee Infrastructure Design Course',
-      description:
-        "For those who are curious about the developer chat room Coddee's infrastructure design process, this article is written.",
-      keywords: 'Coddee, Supabase'
-    },
-    date: '2022-12-19',
-    thumbnail: 'https://kidow.me/api/image?id=6pyuldhdton',
-    href: '/contents/coddee-infrastructure-design-process'
-  },
-  {
-    ko: {
+    {
       title: '채팅방 서비스의 문제점',
       description:
         '커디의 성능을 최적화하던 도중에 꽤 인상깊었던 경험이 있어서 공유해보고자 합니다. 채팅방 UI를 꾸민다고 하면, 보통은 다음과 같은 특징들을 고려해야 합니다.',
-      keywords: 'Coddee, 커디, 채팅방, React, Supabase'
+      keywords: 'Coddee, 커디, 채팅방, React, Supabase',
+      date: '2022-12-13',
+      thumbnail: 'https://kidow.me/api/image?id=eed4xkekc7j',
+      href: '/contents/problems-with-chat-room-service'
     },
-    en: {
-      title: 'Problems with chat room service',
-      description:
-        "I had a pretty impressive experience while optimizing Cuddy's performance, so I'd like to share it.",
-      keywords: 'Coddee, React, Supabase'
-    },
-    date: '2022-12-13',
-    thumbnail: 'https://kidow.me/api/image?id=eed4xkekc7j',
-    href: '/contents/problems-with-chat-room-service'
-  },
-  {
-    ko: {
+    {
       title: 'Toast Component 만들기',
       description:
         '개발자 채팅방 커디를 만들면서 유저들에게 알림 메시지를 띄워야 하는 경우가 있었습니다. 프로필 정보를 수정한다던지, 로그인을 하라는 안내 메시지를 띄운다던지, 에러 메시지를 띄워야 할 때가 그렇죠.',
-      keywords: 'React, Component, Toast, CustomEvent'
+      keywords: 'React, Component, Toast, CustomEvent',
+      date: '2022-12-09',
+      thumbnail: 'https://kidow.me/api/image?id=fguze8xin4',
+      href: '/contents/create-toast-component'
     },
-    en: {
-      title: 'Create Toast Component',
-      description:
-        'There was a case where a notification message had to be displayed to users while creating a Cuddy for the developer chat room.',
-      keywords: 'React, Component, Toast, CustomEvent'
-    },
-    date: '2022-12-09',
-    thumbnail: 'https://kidow.me/api/image?id=fguze8xin4',
-    href: '/contents/create-toast-component'
-  },
-  {
-    ko: {
+    {
       title: '마지막에 코드블럭이면 어떻게 내려가죠?',
-      description: `오늘 피드뱅크를 통해서 제 개인 프로젝트인 '아무생각'과 관련해 한 피드백이 올라왔길래 메일을 확인해봤습니다. 참고로 '아무생각'은 말그대로 아무 생각이나 적고 정리할 수 있는 아주 간단한 웹사이트입니다.`,
-      keywords: 'memo, React, Feedbank'
-    },
-    en: {
-      title: "If it's the code block at the end, how does it go down?",
       description:
-        "Today, through the feedbank, there was a feedback about my personal project 'Any Thought', so I checked my email.",
-      keywords: 'memo, React, Feedbank'
+        "오늘 피드뱅크를 통해서 제 개인 프로젝트인 '아무생각'과 관련해 한 피드백이 올라왔길래 메일을 확인해봤습니다. 참고로 '아무생각'은 말그대로 아무 생각이나 적고 정리할 수 있는 아주 간단한 웹사이트입니다.",
+      keywords: 'memo, React, Feedbank',
+      date: '2022-12-08',
+      thumbnail: 'https://kidow.me/api/image?id=po6ku3eljr8',
+      href: '/contents/if-its-the-code-block-at-the-end-how-does-it-go-down'
     },
-    date: '2022-12-08',
-    thumbnail: 'https://kidow.me/api/image?id=po6ku3eljr8',
-    href: '/contents/if-its-the-code-block-at-the-end-how-does-it-go-down'
-  },
-  {
-    ko: {
+    {
       title: '개발자 채팅방을 만들었습니다',
       description:
         '2년 전에 다른 이름으로 채팅방 서비스를 만든 적이 있습니다. ddtalk이라는 서비스인데요.',
-      keywords: 'Chatting, Code-Block, Supabase'
+      keywords: 'Chatting, Code-Block, Supabase',
+      date: '2022-10-18',
+      thumbnail: 'https://kidow.me/api/image?id=u3meic3suo',
+      href: '/contents/i-created-a-developer-chat-room'
     },
-    en: {
-      title: 'I created a developer chat room',
-      description:
-        "I created a chat room service under a different name two years ago. It's a service called ddtalk.",
-      keywords: 'Chatting, Code-Block, Supabase'
-    },
-    date: '2022-10-18',
-    thumbnail: 'https://kidow.me/api/image?id=u3meic3suo',
-    href: '/contents/i-created-a-developer-chat-room'
-  },
-  {
-    ko: {
+    {
       title: 'Supabase를 사이드 프로젝트용으로 추천하는 이유',
       description:
         'Supabase는 Firebase를 대체하기 위한 오픈 소스로 시작했습니다. 가장 큰 차이점은 Firebase의 데이터베이스인 Firestore나 Realtime Database는 noSQL을 지원하는 반면에, Supabase의 데이터베이스는 관계형DB를 지원한다는 점입니다.',
       keywords:
-        'Supabase, PostgreSQL, Storage, Firebase, Authentication, SQL, Database'
+        'Supabase, PostgreSQL, Storage, Firebase, Authentication, SQL, Database',
+      date: '2022-10-09',
+      thumbnail: 'https://kidow.me/api/image?id=15v2zftvpun',
+      href: '/contents/why-i-recommend-supabase-for-side-projects'
     },
-    en: {
+    {
+      title: '로그인도 없는 Saas 만들기',
+      description:
+        '8월에 MVP를 만들고 약 두 달간 정식 버전을 만들겠다고 열심히 설쳤는데, 뒤돌아보니 크게 착각했던 사실이 하나 있었습니다.',
+      keywords: 'Saas, Login, Authless, Feedback, Website, Startup',
+      date: '2022-10-05',
+      thumbnail: 'https://kidow.me/api/image?id=7rcezlkedi5',
+      href: '/contents/create-saas-without-login'
+    },
+    {
+      title: '5분 만에 Vercel로 무제한 파일 저장소 만들기',
+      description:
+        '시작하기 전에, 개인 도메인이 있다면 더욱 좋습니다. 본 내용은 Node.js v16 기준으로 작성되었습니다.',
+      keywords: 'Vercel, Express',
+      date: '2022-09-25',
+      thumbnail: 'https://kidow.me/api/image?id=ta0citreps',
+      href: '/contents/create-unlimited-file-storage-with-vercel-in-5-minutes'
+    },
+    {
+      title: 'B2B를 시작할 때 참고하면 좋은 사이트들',
+      description:
+        '다니던 회사를 퇴사하고 혼자서 B2B 소프트웨어를 만들기 시작한지 어언 한 달이 되갑니다. B2B 회사에 들어갈 줄은 알지만 B2B 회사를 어떻게 만들어야 하는지 아무것도 몰랐던 과거의 저 같은 사람들에게 도움이 되고자 인사이트가 되어준 사이트들을 소개해 봅니다.',
+      keywords: 'B2B, Saas',
+      date: '2022-08-31',
+      thumbnail: 'https://kidow.me/api/image?id=awvus210btw',
+      href: '/contents/good-sites-to-refer-when-starting-b2b'
+    },
+    {
+      title: '피드뱅크라는 서비스를 출시하기까지',
+      description:
+        '초기 MVP를 만드는 데에 약 한 달이라는 시간이 걸렸던 것 같네요. 처음으로 제 돈을 내고 공유오피스를 주말에 이용해가면서 만든 서비스가, 비록 베타 버전이지만서도 계획한 것을 결국은 만들어 낸다는 것이 참 뿌듯한 것 같습니다.',
+      keywords: 'B2B, 피드백, 피드뱅크',
+      date: '2022-07-30',
+      thumbnail: 'https://kidow.me/api/image?id=vxv8fq4srod',
+      href: '/contents/until-the-launch-of-a-service-called-feedbank'
+    },
+    {
+      title: 'Storybook으로 나만의 컴포넌트 만들기',
+      description:
+        '직접 만든 컴포넌트 코드들을 코드 보관소에 적어 놓고는 있지만, 코드만 보고는 이 컴포넌트가 정확히 어떻게 생겼는지는 알 수가 없죠.',
+      keywords: 'Storybook, Vercel',
+      date: '2022-06-28',
+      thumbnail: 'https://kidow.me/api/image?id=3wfhoijgxjk',
+      href: '/contents/create-your-own-components-with-storybook'
+    },
+    {
+      title: 'Docusaurus로 나만의 개발 문서 만들기',
+      description:
+        'Docusaurus는 개발 문서 작성에 최적화된 React 프레임워크로, React를 만든 Facebook 팀에서 만들었습니다.',
+      keywords: 'Docusaurus',
+      date: '2022-06-27',
+      thumbnail: 'https://kidow.me/api/image?id=qmyhmx0d05l',
+      href: '/contents/create-your-own-development-documentation-with-docusaurus'
+    },
+    {
+      title: 'html <dialog>를 React로 만들어보자',
+      description:
+        '<dialog> 태그에 대해 아시나요? 기본적으로 html에 내장되어있는 이 태그는 우리가 흔히 아는 modal과 같은 기능을 담당합니다.',
+      keywords: 'React, dialog',
+      date: '2022-06-18',
+      thumbnail: 'https://kidow.me/api/image?id=hijjy21h309',
+      href: '/contents/lets-make-html-dialog-with-react'
+    },
+    {
+      title: 'TailwindCSS로 마음을 굳힌 이유',
+      description:
+        '프론트엔드에 처음 입문하고 React를 시작했을 때 처음 접했던 css 라이브러리가 styled-components였습니다.',
+      keywords: 'TailwindCSS, SCSS, Styled Components',
+      date: '2022-06-15',
+      thumbnail: 'https://kidow.me/api/image?id=s81ow0mde6f',
+      href: '/contents/why-i-decided-to-use-tailwindcss'
+    },
+    {
+      title: '개발하는 데 도움이 되는 크롬 익스텐션',
+      description:
+        '개발하면서 유용하게 사용하고 있는 크롬 익스텐션들을 소개해보고자 합니다.',
+      keywords: 'Chrome Extensions',
+      date: '2022-06-06',
+      thumbnail: 'https://kidow.me/api/image?id=ecrnpvmva0t',
+      href: '/contents/chrome-extensions-to-help-you-develop'
+    },
+    {
+      title: '유지보수가 쉬운 리액트 코드 짜는 법 - (3) 컴포넌트 설계',
+      description:
+        '의외로 내용이 많기 때문에 개별 파트로 뺐습니다. 이 시리즈에서는 리액트 컴포넌트를 선언하고 사용할 때 어떠한 규칙을 사용하는 지 자세히 소개해보려고 합니다.',
+      keywords: 'React',
+      date: '2022-05-28',
+      thumbnail: 'https://kidow.me/api/image?id=ree451stim',
+      href: '/contents/how-to-write-maintainable-react-code-3'
+    },
+    {
+      title: '유지보수가 쉬운 리액트 코드 짜는 법 - (2) 네이밍',
+      description:
+        '네이밍의 경우도 프로젝트 설계와 같이 유지보수와 가독성을 위해서 많은 고민을 했습니다.',
+      keywords: 'React, 네이밍',
+      date: '2022-05-27',
+      thumbnail: 'https://kidow.me/api/image?id=5pvfkcqqo7y',
+      href: '/contents/how-to-write-maintainable-react-code-2'
+    },
+    {
+      title: '유지보수가 쉬운 리액트 코드 짜는 법 - (1) 프로젝트 설계',
+      description:
+        'Next.js를 중심으로, components, containers, services 등의 폴더들을 소개합니다.',
+      keywords: 'React, 유지보수',
+      date: '2022-05-26',
+      thumbnail: 'https://kidow.me/api/image?id=sbs0dm5cvde',
+      href: '/contents/how-to-write-maintainable-react-code-1'
+    },
+    {
+      title: '유지보수가 쉬운 리액트 코드 짜는 법 - (0) 개요',
+      description:
+        '지금까지 4년 넘게 웹 개발 공부를 해오면서 익힌 개발 노하우들을 정리하고, 꾸준히 업데이트를 해보려 합니다.',
+      keywords: 'React, 유지보수',
+      date: '2022-05-25',
+      thumbnail: 'https://kidow.me/api/image?id=vk6mr8ziy4p',
+      href: '/contents/how-to-write-maintainable-react-code-0'
+    },
+    {
+      title: '4번째 블로그를 만들면서 느낀 점들',
+      description:
+        '처음 개발을 시작했을 때가 2018년이었습니다. 4월에 군대를 제대하자마자, 바로 노트북을 사서 개발의 세계에 입문을 했었죠.',
+      keywords: '블로그',
+      date: '2022-05-24',
+      thumbnail: 'https://kidow.me/api/image?id=8btaqsxhjj',
+      href: '/contents/what-i-felt-while-creating-4th-blog'
+    }
+  ],
+  en: [
+    {
+      title: 'Combining 6 projects into one blog (feat. Nextra)',
+      description:
+        'I merged the 6 sub-domain projects that were previously operated into a single project.',
+      keywords: 'Nextra',
+      date: '2023-02-03',
+      thumbnail: 'https://kidow.me/api/image?id=umd5bysw08e',
+      href: '/contents/6-projects-to-one'
+    },
+    {
+      title: 'Review of visit to shared office Fivespot Seongsu 2',
+      description:
+        'While I was coding hard, a text message came. Fivespot gave me a free coupon.',
+      keywords: 'Fivespot',
+      date: '2023-01-29',
+      thumbnail: 'https://kidow.me/api/image?id=5eihgjr368c',
+      href: '/contents/review-of-shared-office-fivespot-seongsu-2'
+    },
+    {
+      title: 'Making Blog Open Graph Images Dynamic',
+      description: "Let's see how to dynamically create images for Open Graph.",
+      keywords: 'Nextjs, Vercel, Opengraph, Satori, Supabase',
+      date: '2023-01-14',
+      thumbnail: 'https://kidow.me/api/image?id=bgk4y13n3sw',
+      href: '/contents/making-blog-open-graph-images-dynamic'
+    },
+    {
+      title: 'Summary of feedback received so far',
+      description:
+        "I'm making a feedbank. Briefly, this is my small company that makes a small software as a website feedback collection tool.",
+      keywords: 'Feedback, Feedbank',
+      date: '2022-12-21',
+      thumbnail: 'https://kidow.me/api/image?id=g2hw0mxlig8',
+      href: '/contents/summary-of-feedback-received-so-far'
+    },
+    {
+      title: 'Coddee Infrastructure Design Course',
+      description:
+        "For those who are curious about the developer chat room Coddee's infrastructure design process, this article is written.",
+      keywords: 'Coddee, Supabase',
+      date: '2022-12-19',
+      thumbnail: 'https://kidow.me/api/image?id=6pyuldhdton',
+      href: '/contents/coddee-infrastructure-design-process'
+    },
+    {
+      title: 'Problems with chat room service',
+      description:
+        "I had a pretty impressive experience while optimizing Cuddy's performance, so I'd like to share it.",
+      keywords: 'Coddee, React, Supabase',
+      date: '2022-12-13',
+      thumbnail: 'https://kidow.me/api/image?id=eed4xkekc7j',
+      href: '/contents/problems-with-chat-room-service'
+    },
+    {
+      title: 'Create Toast Component',
+      description:
+        'There was a case where a notification message had to be displayed to users while creating a Cuddy for the developer chat room.',
+      keywords: 'React, Component, Toast, CustomEvent',
+      date: '2022-12-09',
+      thumbnail: 'https://kidow.me/api/image?id=fguze8xin4',
+      href: '/contents/create-toast-component'
+    },
+    {
+      title: "If it's the code block at the end, how does it go down?",
+      description:
+        "Today, through the feedbank, there was a feedback about my personal project 'Any Thought', so I checked my email.",
+      keywords: 'memo, React, Feedbank',
+      date: '2022-12-08',
+      thumbnail: 'https://kidow.me/api/image?id=po6ku3eljr8',
+      href: '/contents/if-its-the-code-block-at-the-end-how-does-it-go-down'
+    },
+    {
+      title: 'I created a developer chat room',
+      description:
+        "I created a chat room service under a different name two years ago. It's a service called ddtalk.",
+      keywords: 'Chatting, Code-Block, Supabase',
+      date: '2022-10-18',
+      thumbnail: 'https://kidow.me/api/image?id=u3meic3suo',
+      href: '/contents/i-created-a-developer-chat-room'
+    },
+    {
       title: 'Why I recommend Supabase for side projects',
       description:
         'Supabase started out as an open source replacement for Firebase.',
       keywords:
-        'Supabase, PostgreSQL, Storage, Firebase, Authentication, SQL, Database'
+        'Supabase, PostgreSQL, Storage, Firebase, Authentication, SQL, Database',
+      date: '2022-10-09',
+      thumbnail: 'https://kidow.me/api/image?id=15v2zftvpun',
+      href: '/contents/why-i-recommend-supabase-for-side-projects'
     },
-    date: '2022-10-09',
-    thumbnail: 'https://kidow.me/api/image?id=15v2zftvpun',
-    href: '/contents/why-i-recommend-supabase-for-side-projects'
-  },
-  {
-    ko: {
-      title: '로그인도 없는 Saas 만들기',
-      description:
-        '8월에 MVP를 만들고 약 두 달간 정식 버전을 만들겠다고 열심히 설쳤는데, 뒤돌아보니 크게 착각했던 사실이 하나 있었습니다.',
-      keywords: 'Saas, Login, Authless, Feedback, Website, Startup'
-    },
-    en: {
+    {
       title: 'Create Saas without login',
       description:
         'I made an MVP in August and worked hard to make a full version for about two months, but looking back, there was one fact that I was greatly mistaken.',
-      keywords: ''
+      keywords: 'Saas',
+      date: '2022-10-05',
+      thumbnail: 'https://kidow.me/api/image?id=7rcezlkedi5',
+      href: '/contents/create-saas-without-login'
     },
-    date: '2022-10-05',
-    thumbnail: 'https://kidow.me/api/image?id=7rcezlkedi5',
-    href: '/contents/create-saas-without-login'
-  },
-  {
-    ko: {
-      title: '5분 만에 Vercel로 무제한 파일 저장소 만들기',
-      description:
-        '시작하기 전에, 개인 도메인이 있다면 더욱 좋습니다. 본 내용은 Node.js v16 기준으로 작성되었습니다.',
-      keywords: 'Vercel, Express'
-    },
-    en: {
+    {
       title: 'Create unlimited file storage with Vercel in 5 minutes',
       description:
         "Before we start, it's even better if you have a personal domain. This content was written based on Node.js v16.",
-      keywords: 'Vercel, Express'
+      keywords: 'Vercel, Express',
+      date: '2022-09-25',
+      thumbnail: 'https://kidow.me/api/image?id=ta0citreps',
+      href: '/contents/create-unlimited-file-storage-with-vercel-in-5-minutes'
     },
-    date: '2022-09-25',
-    thumbnail: 'https://kidow.me/api/image?id=ta0citreps',
-    href: '/contents/create-unlimited-file-storage-with-vercel-in-5-minutes'
-  },
-  {
-    ko: {
-      title: 'B2B를 시작할 때 참고하면 좋은 사이트들',
-      description:
-        '다니던 회사를 퇴사하고 혼자서 B2B 소프트웨어를 만들기 시작한지 어언 한 달이 되갑니다. B2B 회사에 들어갈 줄은 알지만 B2B 회사를 어떻게 만들어야 하는지 아무것도 몰랐던 과거의 저 같은 사람들에게 도움이 되고자 인사이트가 되어준 사이트들을 소개해 봅니다.',
-      keywords: 'B2B, Saas'
-    },
-    en: {
+    {
       title: 'Good sites to refer to when starting B2B',
       description:
         "It's been about a month since I left the company I was working for and started making B2B software by myself.",
-      keywords: 'B2B, Saas'
+      keywords: 'B2B, Saas',
+      date: '2022-08-31',
+      thumbnail: 'https://kidow.me/api/image?id=awvus210btw',
+      href: '/contents/good-sites-to-refer-when-starting-b2b'
     },
-    date: '2022-08-31',
-    thumbnail: 'https://kidow.me/api/image?id=awvus210btw',
-    href: '/contents/good-sites-to-refer-when-starting-b2b'
-  },
-  {
-    ko: {
-      title: '피드뱅크라는 서비스를 출시하기까지',
-      description:
-        '초기 MVP를 만드는 데에 약 한 달이라는 시간이 걸렸던 것 같네요. 처음으로 제 돈을 내고 공유오피스를 주말에 이용해가면서 만든 서비스가, 비록 베타 버전이지만서도 계획한 것을 결국은 만들어 낸다는 것이 참 뿌듯한 것 같습니다.',
-      keywords: 'B2B, 피드백, 피드뱅크'
-    },
-    en: {
+    {
       title: 'Until the launch of a service called Feedbank',
       description: 'I think it took about a month to create the initial MVP.',
-      keywords: 'B2B, Feedback, Feedbank'
+      keywords: 'B2B, Feedback, Feedbank',
+      date: '2022-07-30',
+      thumbnail: 'https://kidow.me/api/image?id=vxv8fq4srod',
+      href: '/contents/until-the-launch-of-a-service-called-feedbank'
     },
-    date: '2022-07-30',
-    thumbnail: 'https://kidow.me/api/image?id=vxv8fq4srod',
-    href: '/contents/until-the-launch-of-a-service-called-feedbank'
-  },
-  {
-    ko: {
-      title: 'Storybook으로 나만의 컴포넌트 만들기',
-      description:
-        '직접 만든 컴포넌트 코드들을 코드 보관소에 적어 놓고는 있지만, 코드만 보고는 이 컴포넌트가 정확히 어떻게 생겼는지는 알 수가 없죠.',
-      keywords: 'Storybook, Vercel'
-    },
-    en: {
+    {
       title: 'Create your own components with Storybook',
       description:
         "I write down the code of my own components in the code archive, but I can't tell exactly what this component looks like just by looking at the code.",
-      keywords: 'Storybook, Vercel'
+      keywords: 'Storybook, Vercel',
+      date: '2022-06-28',
+      thumbnail: 'https://kidow.me/api/image?id=3wfhoijgxjk',
+      href: '/contents/create-your-own-components-with-storybook'
     },
-    date: '2022-06-28',
-    thumbnail: 'https://kidow.me/api/image?id=3wfhoijgxjk',
-    href: '/contents/create-your-own-components-with-storybook'
-  },
-  {
-    ko: {
-      title: 'Docusaurus로 나만의 개발 문서 만들기',
-      description:
-        'Docusaurus는 개발 문서 작성에 최적화된 React 프레임워크로, React를 만든 Facebook 팀에서 만들었습니다.',
-      keywords: 'Docusaurus'
-    },
-    en: {
+    {
       title: 'Create your own development documentation with Docusaurus',
       description:
         'Docusaurus is a React framework optimized for writing development documentation, created by the Facebook team that created React.',
-      keywords: 'Docusaurus'
+      keywords: 'Docusaurus',
+      date: '2022-06-27',
+      thumbnail: 'https://kidow.me/api/image?id=qmyhmx0d05l',
+      href: '/contents/create-your-own-development-documentation-with-docusaurus'
     },
-    date: '2022-06-27',
-    thumbnail: 'https://kidow.me/api/image?id=qmyhmx0d05l',
-    href: '/contents/create-your-own-development-documentation-with-docusaurus'
-  },
-  {
-    ko: {
-      title: 'html <dialog>를 React로 만들어보자',
-      description:
-        '<dialog> 태그에 대해 아시나요? 기본적으로 html에 내장되어있는 이 태그는 우리가 흔히 아는 modal과 같은 기능을 담당합니다.',
-      keywords: 'React, dialog'
-    },
-    en: {
+    {
       title: `Let's make html <dialog> with React`,
       description: `Do you know about <dialog> tags? This tag, which is basically embedded in html, is responsible for functions such as the modal we commonly know.`,
-      keywords: 'React, dialog'
+      keywords: 'React, dialog',
+      date: '2022-06-18',
+      thumbnail: 'https://kidow.me/api/image?id=hijjy21h309',
+      href: '/contents/lets-make-html-dialog-with-react'
     },
-    date: '2022-06-18',
-    thumbnail: 'https://kidow.me/api/image?id=hijjy21h309',
-    href: '/contents/lets-make-html-dialog-with-react'
-  },
-  {
-    ko: {
-      title: 'TailwindCSS로 마음을 굳힌 이유',
-      description:
-        '프론트엔드에 처음 입문하고 React를 시작했을 때 처음 접했던 css 라이브러리가 styled-components였습니다.',
-      keywords: 'TailwindCSS, SCSS, Styled Components'
-    },
-    en: {
+    {
       title: 'Why I decided to use TailwindCSS',
       description:
         'When I was new to frontend and started React, the first css library I encountered was styled-components.',
-      keywords: 'TailwindCSS, SCSS, Styled Components'
+      keywords: 'TailwindCSS, SCSS, Styled Components',
+      date: '2022-06-15',
+      thumbnail: 'https://kidow.me/api/image?id=s81ow0mde6f',
+      href: '/contents/why-i-decided-to-use-tailwindcss'
     },
-    date: '2022-06-15',
-    thumbnail: 'https://kidow.me/api/image?id=s81ow0mde6f',
-    href: '/contents/why-i-decided-to-use-tailwindcss'
-  },
-  {
-    ko: {
-      title: '개발하는 데 도움이 되는 크롬 익스텐션',
-      description:
-        '개발하면서 유용하게 사용하고 있는 크롬 익스텐션들을 소개해보고자 합니다.',
-      keywords: 'Chrome Extensions'
-    },
-    en: {
+    {
       title: 'Chrome extensions to help you develop',
       description:
         'I would like to introduce the chrome extensions that I use usefully while developing.',
-      keywords: 'Chrome Extensions'
+      keywords: 'Chrome Extensions',
+      date: '2022-06-06',
+      thumbnail: 'https://kidow.me/api/image?id=ecrnpvmva0t',
+      href: '/contents/chrome-extensions-to-help-you-develop'
     },
-    date: '2022-06-06',
-    thumbnail: 'https://kidow.me/api/image?id=ecrnpvmva0t',
-    href: '/contents/chrome-extensions-to-help-you-develop'
-  },
-  {
-    ko: {
-      title: '유지보수가 쉬운 리액트 코드 짜는 법 - (3) 컴포넌트 설계',
-      description:
-        '의외로 내용이 많기 때문에 개별 파트로 뺐습니다. 이 시리즈에서는 리액트 컴포넌트를 선언하고 사용할 때 어떠한 규칙을 사용하는 지 자세히 소개해보려고 합니다.',
-      keywords: 'React'
-    },
-    en: {
+    {
       title: 'How to write maintainable React code - (3) Component design',
       description:
         'React component design that is easy to maintain. This is a very important part.',
-      keywords: 'React'
+      keywords: 'React',
+      date: '2022-05-28',
+      thumbnail: 'https://kidow.me/api/image?id=ree451stim',
+      href: '/contents/how-to-write-maintainable-react-code-3'
     },
-    date: '2022-05-28',
-    thumbnail: 'https://kidow.me/api/image?id=ree451stim',
-    href: '/contents/how-to-write-maintainable-react-code-3'
-  },
-  {
-    ko: {
-      title: '유지보수가 쉬운 리액트 코드 짜는 법 - (2) 네이밍',
-      description:
-        '네이밍의 경우도 프로젝트 설계와 같이 유지보수와 가독성을 위해서 많은 고민을 했습니다.',
-      keywords: 'React, 네이밍'
-    },
-    en: {
+    {
       title: 'How to write easy-to-maintain React code - (2) Naming',
       description:
         'In the case of naming, as with project design, we put a lot of thought into maintenance and readability.',
-      keywords: 'React, Naming'
+      keywords: 'React, Naming',
+      date: '2022-05-27',
+      thumbnail: 'https://kidow.me/api/image?id=5pvfkcqqo7y',
+      href: '/contents/how-to-write-maintainable-react-code-2'
     },
-    date: '2022-05-27',
-    thumbnail: 'https://kidow.me/api/image?id=5pvfkcqqo7y',
-    href: '/contents/how-to-write-maintainable-react-code-2'
-  },
-  {
-    ko: {
-      title: '유지보수가 쉬운 리액트 코드 짜는 법 - (1) 프로젝트 설계',
-      description:
-        'Next.js를 중심으로, components, containers, services 등의 폴더들을 소개합니다.',
-      keywords: 'React, 유지보수'
-    },
-    en: {
+    {
       title: 'How to write easy-to-maintain React code - (1) Project design',
       description:
         'Focusing on Next.js, it introduces folders such as components, containers, and services.',
-      keywords: 'React'
+      keywords: 'React',
+      date: '2022-05-26',
+      thumbnail: 'https://kidow.me/api/image?id=sbs0dm5cvde',
+      href: '/contents/how-to-write-maintainable-react-code-1'
     },
-    date: '2022-05-26',
-    thumbnail: 'https://kidow.me/api/image?id=sbs0dm5cvde',
-    href: '/contents/how-to-write-maintainable-react-code-1'
-  },
-  {
-    ko: {
-      title: '유지보수가 쉬운 리액트 코드 짜는 법 - (0) 개요',
-      description:
-        '지금까지 4년 넘게 웹 개발 공부를 해오면서 익힌 개발 노하우들을 정리하고, 꾸준히 업데이트를 해보려 합니다.',
-      keywords: 'React, 유지보수'
-    },
-    en: {
+    {
       title: 'How to write maintainable React code - (0) Overview',
       description:
         "I've been studying web development for over 4 years so far, and I'm going to organize the development know-how I've learned and try to update it steadily.",
-      keywords: 'React'
+      keywords: 'React',
+      date: '2022-05-25',
+      thumbnail: 'https://kidow.me/api/image?id=vk6mr8ziy4p',
+      href: '/contents/how-to-write-maintainable-react-code-0'
     },
-    date: '2022-05-25',
-    thumbnail: 'https://kidow.me/api/image?id=vk6mr8ziy4p',
-    href: '/contents/how-to-write-maintainable-react-code-0'
-  },
-  {
-    ko: {
-      title: '4번째 블로그를 만들면서 느낀 점들',
-      description:
-        '처음 개발을 시작했을 때가 2018년이었습니다. 4월에 군대를 제대하자마자, 바로 노트북을 사서 개발의 세계에 입문을 했었죠.',
-      keywords: '블로그'
-    },
-    en: {
+    {
       title: 'What I felt while creating my 4th blog',
       description:
         'It was 2018 when we first started developing it. As soon as I was discharged from the military in April, I immediately bought a laptop and entered the world of development.',
-      keywords: 'Blog'
-    },
-    date: '2022-05-24',
-    thumbnail: 'https://kidow.me/api/image?id=8btaqsxhjj',
-    href: '/contents/what-i-felt-while-creating-4th-blog'
-  }
-]
+      keywords: 'Blog',
+      date: '2022-05-24',
+      thumbnail: 'https://kidow.me/api/image?id=8btaqsxhjj',
+      href: '/contents/what-i-felt-while-creating-4th-blog'
+    }
+  ]
+}
