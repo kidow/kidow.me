@@ -40,6 +40,15 @@ export const contents: {
 } = {
   ko: [
     {
+      title: '일간 ProductHunt를 작성하고 있습니다.',
+      description:
+        'AI가 요새 참 핫합니다. AI를 이용한 별의별 제품들이 계속 쏟아져 나오더라구요.',
+      thumbnail: 'https://kidow.me/api/image?id=46o5tzwzykm',
+      date: '2023-02-21',
+      keywords: 'ProductHunt, maily.so, 뉴스레터',
+      href: '/contents/writing-daily-producthunt'
+    },
+    {
       title: 'ChatGPT는 코딩 테스트를 통과할 수 있을까?',
       description:
         '코딩 테스트를 ChatGPT한테 시키면 과연 풀어줄까 궁금증이 생겼습니다. 저는 이미 간단한 유틸 함수나 소소한 영감들을 이 친구(?)에게 도움받고 있었거든요.',
