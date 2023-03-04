@@ -94,7 +94,7 @@ const Collapse: FC<Props> = ({ accordion, ...props }) => {
   return (
     <div className="divide-y rounded border dark:divide-neutral-700 dark:border-neutral-700">
       {list.map((item, index) => (
-        <div key={index} className="relative">
+        <div key={index} className="relative select-none">
           <div
             className={classnames(
               'flex cursor-pointer items-center justify-between bg-neutral-50 p-4 font-semibold dark:bg-neutral-800',

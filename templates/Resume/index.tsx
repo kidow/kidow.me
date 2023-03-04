@@ -529,6 +529,18 @@ const Resume: FC<Props> = () => {
       <Card title="프로젝트" id="projects">
         <div className="flex-1 space-y-10">
           <Item
+            url="https://embedgpt.vercel.app"
+            image="/"
+            title="EmbedGPT"
+            date="2023년 3월 1일 ~ 2023년 3월 4일"
+            keywords="Next.js, TailwindCSS, Typescript, Vercel, Chrome Extension"
+          >
+            <p>
+              ChatGPT 내용을 다른 사람들과 공유하고, 커뮤니티 게시판에 쉽게
+              임베딩할 수 있는 커뮤니티입니다.
+            </p>
+          </Item>
+          <Item
             url="https://kidow.me"
             image="/assets/resume/kidow.png"
             title="Blog v5"
