@@ -42,5 +42,13 @@
     "title": "Contact ↗",
     "type": "page",
     "href": "mailto:wcgo2ling@gmail.com"
+  },
+  "test": {
+    "type": "page",
+    "title": "Test",
+    "display": "hidden",
+    "theme": {
+      "layout": "raw"
+    }
   }
 }
