@@ -530,7 +530,7 @@ const Resume: FC<Props> = () => {
         <div className="flex-1 space-y-10">
           <Item
             url="https://embedgpt.vercel.app"
-            image="/"
+            image="/assets/resume/embedgpt.png"
             title="EmbedGPT"
             date="2023년 3월 1일 ~ 2023년 3월 4일"
             keywords="Next.js, TailwindCSS, Typescript, Vercel, Chrome Extension"
