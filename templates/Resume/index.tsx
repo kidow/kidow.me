@@ -543,7 +543,7 @@ const Resume: FC<Props> = () => {
 
           <Item
             url="https://daily-producthunt.vercel.app"
-            image=""
+            image="/assets/resume/daily-producthunt.png"
             title="일간 ProductHunt"
             date="2023년 2월 20일 ~ 진행 중"
             keywords="ProductHunt, Next.js, Typescript, TailwindCSS, Slack, Notion, Vercel, Maily"
