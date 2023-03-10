@@ -540,6 +540,23 @@ const Resume: FC<Props> = () => {
               임베딩할 수 있는 커뮤니티입니다.
             </p>
           </Item>
+
+          <Item
+            url="https://daily-producthunt.vercel.app"
+            image=""
+            title="일간 ProductHunt"
+            date="2023년 2월 20일 ~ 진행 중"
+            keywords="ProductHunt, Next.js, Typescript, TailwindCSS, Slack, Notion, Vercel, Maily"
+          >
+            <p>
+              뉴스레터 플랫폼 메일리(maily.so/kidow)에서 일간 ProductHunt라는
+              뉴스레터를 만들고 있습니다. IT 메이커 플랫폼 ProductHunt에서 일간
+              Top 5 제품을 리뷰, 분석하고 소개하는 내용입니다. 여기서 유료화를
+              더해 직접 사이트를 구축하고, 슬랙과 노션을 통해 구독자에게 내용을
+              전달하는 프로덕트를 만들고 있습니다.
+            </p>
+          </Item>
+
           <Item
             url="https://kidow.me"
             image="/assets/resume/kidow.png"

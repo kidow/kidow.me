@@ -8,6 +8,7 @@ import {
   ExclamationTriangleIcon,
   InformationCircleIcon
 } from '@heroicons/react/24/outline'
+import { XMarkIcon } from '@heroicons/react/20/solid'
 
 export interface Props {}
 interface State {
@@ -48,7 +49,7 @@ const Toast: FC<Props> = () => {
       <div className="fixed top-4 left-1/2 z-50 -translate-x-1/2 space-y-4">
         {list.map((item) => (
           <div
-            className="animate-fade-up w-72 cursor-pointer rounded bg-white py-2 px-4 dark:bg-black"
+            className="w-72 animate-fade-up cursor-pointer rounded bg-white py-2 px-4 dark:bg-black"
             id={item.id}
             key={item.id}
             onClick={() => EventListener.emit('toast', { id: item.id })}
@@ -73,7 +74,10 @@ const Toast: FC<Props> = () => {
                   <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
                 )}
               </span>
-              <span className="select-none text-sm">{item?.message}</span>
+              <span className="flex-1 select-none text-sm">
+                {item?.message}
+              </span>
+              <XMarkIcon className="h-5 w-5" />
             </div>
           </div>
         ))}
