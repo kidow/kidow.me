@@ -90,7 +90,7 @@ import { CubeIcon } from '@heroicons/react/24/outline'
 </Tab>
 </Tabs>
 
-### Add Animation in `tailwind.config.js`
+### Add Animation in `tailwind.config.js` (optional)
 
 ```js filename="tailwind.config.js"
 module.exports = {
@@ -110,11 +110,13 @@ module.exports = {
 }
 ```
 
-## Add Style in `styles/global.css`
+Add Style in `styles/global.css`
 
 ```css
-.ripple {
-  @apply absolute scale-0 animate-ripple rounded-full bg-white/30;
+@layer components {
+  .ripple {
+    @apply absolute scale-0 animate-ripple rounded-full bg-white/30;
+  }
 }
 ```
 
@@ -206,7 +208,7 @@ const Button: FC<Props> = ({
             theme === 'primary' && shape === 'contained',
           'bg-emerald-500 text-neutral-100':
             theme === 'success' && shape === 'contained',
-          'disabled:bg-neutral-300 disabled:text-neutral-100':
+          'disabled:bg-neutral-400 disabled:text-neutral-100':
             shape === 'contained' && (loading || disabled),
 
           'bg-transparent disabled:hover:bg-neutral-200 disabled:hover:text-neutral-100':

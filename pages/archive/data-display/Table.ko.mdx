@@ -218,6 +218,8 @@ export interface Props<T> {
   list: T[]
   columns: ReactNode
   renderItem: (item: T, index: number) => ReactNode
+  summary?: string
+  title?: string
   loading?: boolean
   size?: 'xs' | 'sm' | 'md' | 'lg'
 }
@@ -227,7 +229,9 @@ function Table<T>({
   list,
   renderItem,
   loading,
-  size = 'lg'
+  size = 'lg',
+  summary,
+  title
 }: Props<T>) {
   return (
     <div
@@ -251,6 +255,12 @@ function Table<T>({
           }
         )}
       >
+        {(!!summary || !!title) && (
+          <caption>
+            {!!title && <strong>{title}</strong>}
+            {!!summary && <span>{summary}</span>}
+          </caption>
+        )}
         <thead className="sticky top-0 bg-neutral-100 tracking-wider dark:bg-neutral-700">
           {columns}
         </thead>
@@ -324,9 +334,9 @@ export default Table
   ]}
   columns={
     <tr>
-      <th>Company</th>
-      <th>Country</th>
-      <th>CEO</th>
+      <th scope="col">Company</th>
+      <th scope="col">Country</th>
+      <th scope="col">CEO</th>
     </tr>
   }
   renderItem={(item, key) => (
@@ -336,6 +346,8 @@ export default Table
       <td>{item.ceo}</td>
     </tr>
   )}
+  title="CEO"
+  summary="Company CEOs"
   loading
   size="md"
 />
@@ -350,6 +362,8 @@ export default Table
 | **list**<Required />       |                 Array                 |         |
 | **columns**<Required />    |               ReactNode               |         |
 | **renderItem**<Required /> | (item: T, index: number) => ReactNode |         |
+| **title**                  |                string                 |         |
+| **summary**                |                string                 |         |
 | **loading**                |                boolean                |  false  |
 | **size**                   |          `xs` `sm` `md` `lg`          |  `lg`   |
 

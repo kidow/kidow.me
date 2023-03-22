@@ -9,6 +9,8 @@ export interface Props<T> {
   renderItem: (item: T, index: number) => ReactNode
   loading?: boolean
   size?: 'xs' | 'sm' | 'md' | 'lg'
+  summary?: string
+  title?: string
 }
 
 function Table<T>({
@@ -16,7 +18,9 @@ function Table<T>({
   list,
   renderItem,
   loading,
-  size = 'lg'
+  size = 'lg',
+  summary,
+  title
 }: Props<T>) {
   const { locale } = useRouter()
   return (
@@ -41,6 +45,12 @@ function Table<T>({
           }
         )}
       >
+        {(!!summary || !!title) && (
+          <caption>
+            {!!title && <strong>{title}</strong>}
+            {!!summary && <span>{summary}</span>}
+          </caption>
+        )}
         <thead className="sticky top-0 bg-neutral-100 tracking-wider dark:bg-neutral-700">
           {columns}
         </thead>

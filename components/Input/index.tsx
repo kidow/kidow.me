@@ -71,7 +71,7 @@ const Input: FC<Props> = ({
           {...props}
           id={props.id || id}
           className={classnames(
-            'bg-white focus:outline-none dark:bg-neutral-900',
+            'bg-white focus:border-none focus:outline-none focus:ring dark:bg-neutral-900',
             isBaseWord
               ? 'mx-1 w-full flex-1 border-0'
               : 'block border border-neutral-500',
@@ -91,7 +91,7 @@ const Input: FC<Props> = ({
             },
             !!error
               ? 'border-red-500'
-              : 'border-neutral-300 focus:border-blue-500',
+              : 'border-neutral-300 focus:ring-blue-500',
             className
           )}
           onKeyDown={onKeyDown}

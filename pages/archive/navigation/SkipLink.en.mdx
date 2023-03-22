@@ -1,0 +1,67 @@
+import { Comment, Required } from 'components'
+import { BackTop } from 'containers'
+import Script from 'next/script'
+
+<BackTop />
+
+# SkipLink
+
+<blockquote id="3241h0bh8k9" class="embedgpt"></blockquote>
+<Script async src="https://embedgpt.vercel.app/embed.js"></Script>
+
+## Steps
+
+<div className="steps">
+
+### Define Types
+
+```ts filename="types/index.d.ts"
+interface ReactProps {
+  children?: ReactNode
+}
+```
+
+### Copy Code
+
+```tsx filename="components/SkipLink/index.tsx"
+import type { FC } from 'react'
+import Link from 'next/link'
+
+export interface Props extends ReactProps {
+  href: string
+}
+
+const SkipLink: FC<Props> = ({ children, href }) => {
+  return (
+    <Link
+      href={href}
+      className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden focus:static focus:h-auto focus:w-auto"
+    >
+      {children}
+    </Link>
+  )
+}
+
+export default SkipLink
+```
+
+## Usage
+
+```tsx
+<SkipLink href="#main">Skip to main content</SkipLink>
+```
+
+</div>
+
+### Props
+
+| Name                 |   Type    | Default |
+| :------------------- | :-------: | :-----: |
+| **children**         | ReactNode |         |
+| **href**<Required /> |  string   |         |
+
+## References
+
+- https://www.w3schools.com/accessibility/accessibility_skip_links.php
+
+<Comment />

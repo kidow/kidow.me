@@ -137,9 +137,11 @@ const Input: FC<Props> = ({
       <div
         className={classnames(
           isBaseWord
-            ? 'inline-flex items-center justify-between gap-1 rounded border'
+            ? 'inline-flex items-center justify-between gap-1 rounded border focus-within:ring'
             : 'inline-block',
-          !!error && isBaseWord ? 'border-red-500' : 'border-neutral-300',
+          !!error && isBaseWord
+            ? 'ring-red-500'
+            : 'border-neutral-300 focus-within:border-transparent focus-within:ring-blue-500',
           {
             'w-full': fullWidth,
             relative: !!placeholder,
@@ -159,8 +161,8 @@ const Input: FC<Props> = ({
           className={classnames(
             'bg-white focus:outline-none dark:bg-neutral-900',
             isBaseWord
-              ? 'mx-1 w-full flex-1 border-0'
-              : 'block border border-neutral-500',
+              ? 'mx-1 w-full flex-1 border-none'
+              : 'block border border-neutral-500 focus:border-transparent',
             {
               'rounded-sm text-xs': size === 'xs',
               'p-1': !isBaseWord && size === 'xs',
@@ -173,11 +175,11 @@ const Input: FC<Props> = ({
               'text-right': align === 'right',
               'w-full': fullWidth,
               peer: !!placeholder && float,
-              'placeholder-transparent': (!!placeholder || !!prefix) && float
+              'placeholder-transparent': (!!placeholder || !!prefix) && float,
+              'ring-red-500': !!error && !isBaseWord,
+              'focus:ring-blue-500': !error && !isBaseWord,
+              'focus:ring': !isBaseWord
             },
-            !!error
-              ? 'border-red-500'
-              : 'border-neutral-300 focus:border-blue-500',
             className
           )}
           onKeyDown={onKeyDown}
