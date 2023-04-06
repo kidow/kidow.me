@@ -168,7 +168,7 @@ const Resume: FC<Props> = () => {
           <Item
             url="https://feedbank.app/?utm_source=resume&utm_medium=resume"
             title="피드뱅크"
-            date="2022년 8월 ~ 진행 중"
+            date="2022년 8월 ~ 2023년 3월"
             keywords="Next.js, Typescript, TailwindCSS"
             image="/assets/resume/feedbank.png"
           >
@@ -176,7 +176,11 @@ const Resume: FC<Props> = () => {
               <span className="mr-1 font-medium text-neutral-800 dark:font-normal dark:text-neutral-200">
                 웹사이트 피드백 수집툴
               </span>
-              피드뱅크를 혼자 창업하고 개발해 나가고 있습니다.
+              피드뱅크를 혼자 창업하고 개발했습니다.
+            </p>
+            <p>
+              이후 사업성이 없다고 판단, 7개월 만에 사업을 종료하고 다시 구직을
+              이어나가고 있습니다.
             </p>
           </Item>
 

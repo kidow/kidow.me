@@ -13,15 +13,17 @@ const ModalExample: FC<Props> = () => {
   return (
     <div className="mt-4">
       <Button onClick={() => setState({ isOpen: true })}>Test</Button>
-      <Modal
-        isOpen={isOpen}
-        onClose={() => setState({ isOpen: false })}
-        title="Title"
-        description="description"
-        footer="Footer"
-      >
-        children
-      </Modal>
+      {isOpen && (
+        <Modal
+          isOpen={isOpen}
+          onClose={() => setState({ isOpen: false })}
+          title="Title"
+          description="description"
+          footer="Footer"
+        >
+          children
+        </Modal>
+      )}
     </div>
   )
 }
