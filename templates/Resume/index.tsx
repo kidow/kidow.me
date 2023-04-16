@@ -75,7 +75,7 @@ const Resume: FC<Props> = () => {
                 2018년 4월
               </span>{' '}
               군 전역 후 바로 웹 개발의 세계에 빠져들었고, 지금까지 4년 이상
-              개발을 해오면서 2년이 넘는 경력을 쌓았습니다.
+              개발을 해오면서 3년이 넘는 경력을 쌓았습니다.
             </p>
             <p>
               <span className="font-medium text-neutral-900 dark:font-normal dark:text-neutral-200">

@@ -6,6 +6,9 @@ interface ModalProps {
   isOpen: boolean
   onClose: () => void
   title?: string
+  /**
+   * @default "max-w-lg"
+   */
   maxWidth?:
     | 'max-w-screen-2xl'
     | 'max-w-screen-xl'
