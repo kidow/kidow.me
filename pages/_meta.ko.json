@@ -13,10 +13,6 @@
     "title": "Résumé",
     "type": "page"
   },
-  "archive": {
-    "type": "page",
-    "title": "Archive"
-  },
   "memo": {
     "type": "page",
     "title": "Memo",
@@ -36,6 +32,32 @@
     "title": "Lunch",
     "theme": {
       "layout": "raw"
+    }
+  },
+  "archive": {
+    "title": "Archive",
+    "type": "menu",
+    "items": {
+      "intro": {
+        "title": "소개 👋",
+        "href": "/archive/intro"
+      },
+      "archive": {
+        "title": "Javascript",
+        "href": "/archive/javascript"
+      },
+      "python": {
+        "title": "Python",
+        "href": "/archive/python"
+      },
+      "settings": {
+        "title": "Settings",
+        "href": "/archive/settings"
+      },
+      "tips": {
+        "title": "Tips",
+        "href": "/archive/tips"
+      }
     }
   },
   "contact": {

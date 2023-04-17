@@ -1,0 +1,17 @@
+{
+  "-- Components": {
+    "type": "separator",
+    "title": "Components"
+  },
+  "data-display": "Data Display",
+  "data-entry": "Data Entry",
+  "feedback": "Feedback",
+  "inputs": "Inputs",
+  "layout": "Layout",
+  "navigation": "Navigation",
+  "---": {
+    "type": "separator"
+  },
+  "hooks": "Hooks",
+  "utils": "Utils"
+}

@@ -1,11 +1,5 @@
 import { Comment, Card, Icon } from 'components'
-import {
-  CubeIcon,
-  WrenchScrewdriverIcon,
-  Cog6ToothIcon,
-  LightBulbIcon,
-  BookmarkIcon
-} from '@heroicons/react/24/outline'
+import { Cog6ToothIcon, LightBulbIcon } from '@heroicons/react/24/outline'
 
 # 소개 👋
 
@@ -23,27 +17,17 @@ import {
 
 <Card.List>
   <Card.Component
-    title="Components"
-    href="/archive/data-display"
-    Icon={CubeIcon}
+    title="Javascript"
+    href="/archive/javascript/data-display"
+    Icon={Icon.Javascript}
   />
-  <Card.Component title="Hooks" href="/archive/hooks" Icon={Icon.Hook} />
-  <Card.Component
-    title="Utils"
-    href="/archive/utils"
-    Icon={WrenchScrewdriverIcon}
-  />
+  <Card.Component title="Python" href="/archive/python" Icon={Icon.Python} />
   <Card.Component
     title="Settings"
     href="/archive/settings"
     Icon={Cog6ToothIcon}
   />
   <Card.Component title="Tips" href="/archive/tips" Icon={LightBulbIcon} />
-  <Card.Component
-    title="Bookmarks"
-    href="/archive/commons/MusicForProgramming"
-    Icon={BookmarkIcon}
-  />
 </Card.List>
 
 <Comment />
