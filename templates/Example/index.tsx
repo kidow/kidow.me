@@ -9,6 +9,7 @@ import MonthPickerExample from './MonthPicker'
 import PaginationExample from './Pagination'
 import RadioExample from './Radio'
 import RatingExample from './Rating'
+import SwitchExample from './Switch'
 import TabsExample from './Tabs'
 import TimePickerExample from './TimePicker'
 import TimeRangePickerExample from './TimeRangePicker'
@@ -27,5 +28,6 @@ export default {
   Drawer: DrawerExample,
   Pagination: PaginationExample,
   Tabs: TabsExample,
-  Dropdown2: Dropdown2Example
+  Dropdown2: Dropdown2Example,
+  Switch: SwitchExample
 }

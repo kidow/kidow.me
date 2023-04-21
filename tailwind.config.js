@@ -108,8 +108,7 @@ module.exports = {
   plugins: [
     require('prettier-plugin-tailwindcss'),
     require('tailwind-scrollbar-hide'),
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/line-clamp')
+    require('@tailwindcss/typography')
   ],
   darkMode: 'class'
 }

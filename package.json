@@ -40,7 +40,6 @@
     "react-tooltip": "^4.5.1"
   },
   "devDependencies": {
-    "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "18.11.10",
     "@types/quill": "^2.0.10",
@@ -51,7 +50,7 @@
     "postcss": "^8.4.21",
     "prettier-plugin-tailwindcss": "^0.2.2",
     "tailwind-scrollbar-hide": "^1.1.7",
-    "tailwindcss": "^3.2.4",
+    "tailwindcss": "^3.3.1",
     "typescript": "^5.0.2"
   }
 }

@@ -102,7 +102,7 @@ const ShareButtons: FC<Props> = () => {
           )}
         </ul>
       </div>
-      <div className="flex justify-center px-6 pt-5">
+      <div className="flex justify-center px-6 pt-10">
         <div className="flex items-center gap-3">
           <CopyToClipboard
             text={`https://kidow.me${asPath}`}
