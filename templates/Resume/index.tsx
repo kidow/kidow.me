@@ -555,14 +555,14 @@ const Resume: FC<Props> = () => {
             image="/assets/resume/daily-producthunt.png"
             title="일간 ProductHunt"
             date="2023년 2월 20일 ~ 진행 중"
-            keywords="ProductHunt, Next.js, Typescript, TailwindCSS, Slack, Notion, Vercel, Maily"
+            keywords="ProductHunt, Next.js, Typescript, TailwindCSS, Slack, Notion, Vercel"
           >
             <p>
-              뉴스레터 플랫폼 메일리(maily.so/kidow)에서 일간 ProductHunt라는
-              뉴스레터를 만들고 있습니다. IT 메이커 플랫폼 ProductHunt에서 일간
-              Top 5 제품을 리뷰, 분석하고 소개하는 내용입니다. 여기서 유료화를
-              더해 직접 사이트를 구축하고, 슬랙과 노션을 통해 구독자에게 내용을
-              전달하는 프로덕트를 만들고 있습니다.
+              IT 메이커 플랫폼 ProductHunt에 올라오는 제품을 매일매일 요약해서
+              소개하는 서비스입니다. Slack을 통해 메시지를 전달하고 Notion을
+              통해 전송 내역을 저장합니다. AI 시대 속 IT 트렌드에 뒤처지지
+              말아야할 필요성을 느꼈고, 다른 사람들과도 제 경험을 공유해보고
+              싶어서 시작했습니다.
             </p>
           </Item>
 
