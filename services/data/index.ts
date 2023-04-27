@@ -40,6 +40,14 @@ export const contents: {
 } = {
   ko: [
     {
+      title: 'Javascript Generator는 어디에 활용할 수 있을까?',
+      description: 'Generator는 무엇이며, 어디에 활용하면 좋을 지 알아봅시다.',
+      thumbnail: 'https://kidow.me/api/image?id=ohvkkc0b2fh',
+      date: '2023-04-27',
+      keywords: 'Generator, Javascript, Typescript',
+      href: '/contents/what-is-javascript-generator'
+    },
+    {
       title: '일간 ProductHunt를 작성하고 있습니다.',
       description:
         'AI가 요새 참 핫합니다. AI를 이용한 별의별 제품들이 계속 쏟아져 나오더라구요.',
@@ -276,6 +284,14 @@ export const contents: {
     }
   ],
   en: [
+    {
+      title: 'Where can we use Javascript Generator?',
+      description: "Let's find out what a generator is and where to use it.",
+      keywords: 'Generator, Javascript, Typescript',
+      date: '2023-04-27',
+      thumbnail: 'https://kidow.me/api/image?id=ohvkkc0b2fh',
+      href: '/contents/what-is-javascript-generator'
+    },
     {
       title: 'Combining 6 projects into one blog (feat. Nextra)',
       description:

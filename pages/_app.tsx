@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 import type { AppProps } from 'next/app'
-import { ErrorBoundary, Offline, Toast } from 'containers'
+import { ErrorBoundary, Modal, Offline, Toast } from 'containers'
 import { appWithTranslation } from 'next-i18next'
 import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from 'next-themes'
@@ -17,6 +17,7 @@ export default appWithTranslation(function Nextra({
       <ErrorBoundary>
         <ThemeProvider attribute="class">
           <Component {...pageProps} />
+          <Modal.Confirm />
         </ThemeProvider>
       </ErrorBoundary>
       <Toast />

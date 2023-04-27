@@ -3,6 +3,7 @@ import type { FC } from 'react'
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import classnames from 'classnames'
 import { createPortal } from 'react-dom'
+import ConfirmModal from './Confirm'
 
 interface Props extends ModalProps, ReactProps {}
 
@@ -57,7 +58,7 @@ const Modal: FC<Props> = ({
           )}
         >
           <header className="border-t-4 border-primary bg-white dark:bg-neutral-800">
-            <div className="flex items-center border-b border-neutral-200 py-3 px-4 dark:border-neutral-700">
+            <div className="flex items-center border-b border-neutral-200 px-4 py-3 dark:border-neutral-700">
               <div className="flex-1">
                 <h1 className="text-xl font-semibold">{title}</h1>
                 {!!description && (
@@ -74,14 +75,14 @@ const Modal: FC<Props> = ({
           </header>
           <div
             className={classnames('bg-white dark:bg-neutral-800', {
-              'py-6 px-7': padding,
+              'px-7 py-6': padding,
               'rounded-b-lg': !footer
             })}
           >
             {children}
           </div>
           {footer && (
-            <footer className="rounded-b-lg border-t bg-white py-4 px-7 dark:border-neutral-700 dark:bg-neutral-800">
+            <footer className="rounded-b-lg border-t bg-white px-7 py-4 dark:border-neutral-700 dark:bg-neutral-800">
               {footer}
             </footer>
           )}
@@ -92,4 +93,4 @@ const Modal: FC<Props> = ({
   )
 }
 
-export default Modal
+export default Object.assign(Modal, { Confirm: ConfirmModal })

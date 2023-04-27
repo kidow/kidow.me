@@ -151,3 +151,15 @@ export const usePagination = ({
 
   return paginationRange
 }
+
+export const useConfirm = () => {
+  function* generator() {
+    yield true
+  }
+
+  const gen = generator()
+
+  const confirm = (message: string) => gen.next(message)
+
+  return gen
+}

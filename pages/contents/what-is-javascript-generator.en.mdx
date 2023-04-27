@@ -1,0 +1,225 @@
+---
+title: Where can we use Javascript Generator?
+date: 2023-04-27
+description: Let's find out what a generator is and where to use it.
+thumbnail: https://kidow.me/api/image?id=ohvkkc0b2fh
+keywords: Generator, Javascript, Typescript
+---
+
+import { Comment } from 'components'
+import { BackTop, Frontmatter, ShareButtons } from 'containers'
+
+<Frontmatter />
+<BackTop />
+
+Generator is a type of javascript function that can return multiple values ​​unlike regular functions that return a single value. Of course, multiple values ​​are not returned at once, but sequentially, which requires an understanding of the unique syntax.
+
+Executing a normal function returns a value via `return`, but executing a generator function returns a generator object. Because it is sequential, this object is an iterable.
+
+## Basic Grammar
+
+A generator is created with the syntax `function*` and cannot be implemented as an arrow function. return can also be used, but the special return keyword `yield` is preferred.
+
+```typescript
+function* infiniteStream(): Generator<number, never, unknown> {
+  let i = 1
+  while (true) {
+    yield i++
+  }
+}
+```
+
+The code above returns a value, starting at 1 and incrementing by 1 sequentially. A `while (true)` statement in a normal iteration will cause a stack overflow, but since the generator only returns a value once per execution, there is no error.
+
+```typescript
+const stream: Generator<number, never, unknown> = infiniteStream()
+for (let i = 0; i < 5; i++) {
+  console.log(stream.next().value) // 1, 2, 3, 4, 5
+  console.log(stream.next().done) // false, false, false, false, false
+}
+```
+
+Execute the generator function to create an object. Executing `next()`, a built-in method of the generator object, returns two variables, `value` and `done`. value is the value put after yield, and done returns whether or not it is completed. In the case of done, it returns true when the last yield is reached.
+
+The next method can also take one argument. This allows you to pass values ​​inside the function.
+
+```typescript
+function* printFullName(): Generator<void, void, string> {
+  const firstName = yield
+  const lastName = yield
+  console.log(`Full Name: ${firstName} ${lastName}`)
+}
+
+const generator = printFullName()
+generator.next() // { done: false, value: undefined }
+generator.next('John') // { done: false, value: undefined }
+generator.next('Doe') // Full Name: John Doe, { done: true, value: undefined }
+```
+
+When yield is assigned to a variable, the value is assigned to that variable when a value is passed as an argument to the next method. The thing to be careful here is that `next()` must not be passed as an argument **when it is executed for the first time.** From subsequent executions, if no argument is passed, it will be replaced with undefined.
+
+### Typescript
+
+In addition, to explain the generator type, T is the value to be put after yield, TReturn is the value to be put after return, and TNext can define the type of argument that can be put into the next method.
+
+```typescript
+interface Generator<T = unknown, TReturn = any, TNext = unknown>
+  extends Iterator<T, TReturn, TNext> {
+  // NOTE: 'next' is defined using a tuple to ensure we report the correct assignability errors in all places.
+  next(...args: [] | [TNext]): IteratorResult<T, TReturn>
+  return(value: TReturn): IteratorResult<T, TReturn>
+  throw(e: any): IteratorResult<T, TReturn>
+  [Symbol.iterator](): Generator<T, TReturn, TNext>
+}
+```
+
+## Use cases
+
+There are many other features and syntax, but this article will talk about specific use cases. In general, since a generator is a method of re-executing a method of a created object differently from a general function that recalls a function, it would be better to take into account that it has the advantage of easy memory management.
+
+### 1. Random data
+
+Generators come in handy when randomly importing random data. Here is a simple example to get an image between 500px/300 and 600px.
+
+```tsx
+import React, { useState } from 'react'
+
+function* getRandomImage(): Generator<number, any, unknown> {
+  while (true) {
+    yield Math.floor(Math.random() * 300 + 300)
+  }
+}
+
+const Component: React.FC = () => {
+  const [height, setHeight] = useState<number>(300)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const generator = getRandomImage()
+
+  return (
+    <div>
+      <img
+        src={`https://picsum.photos/500/${height}`}
+        alt="generator example"
+        onLoad={() => setIsLoading(false)}
+      />
+      <button
+        onClick={() => {
+          setHeight(generator.next().value)
+          setIsLoading(true)
+        }}
+        disabled={isLoading}
+      >
+        Random
+      </button>
+      {isLoading && 'loading...'}
+    </div>
+  )
+}
+
+export default Component
+```
+
+<iframe
+  src="https://codesandbox.io/embed/young-sun-sbgshv?fontsize=14&hidenavigation=1&theme=dark"
+  className="h-[500px] w-full overflow-hidden rounded border-none"
+  title="young-sun-sbgshv"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+You can see that the height of the image keeps changing as the generator function returns a value between 300 and 600 each time the button is pressed.
+
+### 2. Infinite scroll
+
+Infinite scrolling is easy to implement because it repeatedly performs similar tasks, but it is a good example to understand how the generator works.
+
+Let's implement this simply with React Typescript.
+
+```tsx
+import React, { useEffect, useRef, useState } from 'react'
+
+async function* fetchData(
+  category?: string
+): AsyncGenerator<any[], any, unknown> {
+  let page = 1
+  while (true) {
+    const res = await fetch(
+      `https://jsonplaceholder.typicode.com/posts?_page=${page}_limit=20`
+    )
+    const data = await res.json()
+    yield data
+    page++
+  }
+}
+
+const Component: React.FC = () => {
+  const [page, setPage] = useState<number>(1)
+  const [category, setCategory] = useState<string>('')
+  const [list, setList] = useState<any[]>([])
+  const ref = useRef<HTMLDivElement>(null)
+  const [entry, setEntry] = useState<IntersectionObserverEntry>()
+  let generator = fetchData(category)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => setEntry(entry))
+    observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (entry?.isIntersecting) {
+      generator.next().then((data) => {
+        setPage(page + 1)
+        setList([...list, ...data.value])
+      })
+    }
+  }, [entry])
+
+  useEffect(() => {
+    setPage(1)
+    setList([])
+    generator = fetchData(category)
+  }, [category])
+  return (
+    <>
+      <select
+        value={category}
+        name="category"
+        onChange={(e) => setCategory(e.target.value)}
+        className="text-neutral-900"
+      >
+        <option value="" disabled>
+          Select
+        </option>
+        <option value="One">One</option>
+        <option value="Two">Two</option>
+      </select>
+      {list.map((item, i) => (
+        <h1 className="text-4xl" key={i}>
+          {item.title}
+        </h1>
+      ))}
+      <div ref={ref} />
+    </>
+  )
+}
+
+export default Component
+```
+
+<iframe
+  src="https://codesandbox.io/embed/elastic-bose-hd6n06?fontsize=14&hidenavigation=1&theme=dark"
+  className="h-[500px] w-full overflow-hidden rounded border-none"
+  title="elastic-bose-hd6n06"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+Add the page variable inside the generator function. A generator object is created within the component, and the value of the page is increased by 1 as it is executed each time you scroll down.
+
+If you want to import from page 1 again whenever a filter value such as category is added and changed, you can recreate the generator object.
+
+In addition to infinite scrolling, pagination can also be implemented with a similar principle, so try it yourself as a reference.
+
+<ShareButtons />
+<Comment />
