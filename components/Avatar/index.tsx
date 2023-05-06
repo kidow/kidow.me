@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import type { FC } from 'react'
 import classnames from 'classnames'
 
@@ -9,13 +10,7 @@ export interface Props {
   border?: boolean
 }
 
-const Avatar: FC<Props> = ({
-  src,
-  alt,
-  shape = 'circle',
-  size = 'md',
-  border = false
-}) => {
+const Avatar: FC<Props> = ({ src, alt, shape, size, border }) => {
   return (
     <span>
       <img
@@ -34,17 +29,20 @@ const Avatar: FC<Props> = ({
             'border-2': !!border
           }
         )}
-        onError={(e) =>
+        onError={(e) => {
           // @ts-ignore
-          (e.target.src = 'https://thispersondoesnotexist.com/image')
-        }
+          e.target.src = 'https://i.pravatar.cc'
+        }}
       />
     </span>
   )
 }
 
 Avatar.defaultProps = {
-  alt: ''
+  alt: '',
+  shape: 'circle',
+  size: 'md',
+  border: false
 }
 
-export default Avatar
+export default memo(Avatar)
