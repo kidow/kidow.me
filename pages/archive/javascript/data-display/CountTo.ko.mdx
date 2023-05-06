@@ -28,7 +28,7 @@ import { BackTop } from 'containers'
 ### Copy Code
 
 ```tsx filename="components/CountTo/index.tsx"
-import { useEffect, useRef } from 'react'
+import { memo, useEffect, useRef } from 'react'
 import type { FC } from 'react'
 import { useObjectState } from 'services'
 
@@ -49,7 +49,7 @@ const CountTo: FC<Props> = ({ from = 0, to, duration = 2000, className }) => {
   useEffect(() => {
     const step = (timestamp: number) => {
       if (!startTimestamp.current) startTimestamp.current = timestamp
-      const progress = timestamp - startTimestamp.current
+      const progress = Math.floor(timestamp - startTimestamp.current)
       const increment = ((to - from) * progress) / duration
       if (progress < duration) window.requestAnimationFrame(step)
       if (to < Math.floor(from + increment)) setState({ count: to })
@@ -61,7 +61,7 @@ const CountTo: FC<Props> = ({ from = 0, to, duration = 2000, className }) => {
   return <span className={className}>{count.toLocaleString()}</span>
 }
 
-export default CountTo
+export default memo(CountTo)
 ```
 
 ### Usage

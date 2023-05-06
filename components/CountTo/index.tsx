@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { memo, useEffect, useRef } from 'react'
 import type { FC } from 'react'
 import { useObjectState } from 'services'
 
@@ -31,4 +31,4 @@ const CountTo: FC<Props> = ({ from = 0, to, duration = 2000, className }) => {
   return <span className={className}>{count.toLocaleString()}</span>
 }
 
-export default CountTo
+export default memo(CountTo)

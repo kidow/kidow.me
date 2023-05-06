@@ -45,14 +45,14 @@ const Card: FC<Props> = ({
           className={classnames(
             'relative dark:border-neutral-700',
             footer ? 'border-y' : 'border-t',
-            { 'py-10 px-6': padding },
+            { 'px-6 py-10': padding },
             className
           )}
         >
           {children}
         </div>
       )}
-      {!!footer && <div className="py-4 px-6">{footer}</div>}
+      {!!footer && <div className="px-6 py-4">{footer}</div>}
     </section>
   )
 }
