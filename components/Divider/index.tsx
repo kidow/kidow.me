@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import type { FC } from 'react'
 
 export interface Props {
@@ -13,4 +14,4 @@ const Divider: FC<Props> = ({ mode = 'horizontal' }) => {
   return <hr className="my-8 h-px border-none dark:bg-neutral-700" />
 }
 
-export default Divider
+export default memo(Divider)
