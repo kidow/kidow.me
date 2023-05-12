@@ -1,45 +1,25 @@
-import classNames from 'classnames'
-import type { FC, ReactNode } from 'react'
+import { memo } from 'react'
+import type { FC } from 'react'
 
-interface Props {
-  list: Array<{
-    tag?: string
-    title?: string
-    content: ReactNode
-  }>
+export interface Props {
+  date: string
+  title: string
+  content?: string
 }
+interface State {}
 
-const Timeline: FC<Props> = ({ list }) => {
+const Timeline: FC<Props> = ({ date, title, content }) => {
   return (
-    <div className="relative">
-      {list.map((item, key) => (
-        <div
-          key={key}
-          className={classNames(
-            "relative -top-2 flex gap-5 pl-5 pb-10 after:absolute after:-left-[5px] after:top-1.5 after:z-10 after:h-3 after:w-3 after:rounded-full after:border-2 after:border-blue-600 after:bg-white after:content-[''] last:pb-0 dark:after:bg-neutral-900",
-            {
-              "before:absolute before:top-2 before:-bottom-2 before:left-0 before:border-r before:border-dashed before:border-neutral-300 before:content-[''] dark:before:border-neutral-700":
-                key !== list.length - 1
-            }
-          )}
-        >
-          {!!item.tag && (
-            <div className="whitespace-nowrap font-semibold">{item.tag}</div>
-          )}
-          <div>
-            <h2
-              className={classNames('font-medium', {
-                'mb-4': !!item.content
-              })}
-            >
-              {item.title}
-            </h2>
-            {item.content}
-          </div>
-        </div>
-      ))}
-    </div>
+    <li className='relative -top-2 flex flex-col gap-5 pb-10 pl-5 before:absolute before:-bottom-2 before:left-0 before:top-2 before:border-r before:border-dashed before:border-neutral-500 before:content-[""] after:absolute after:-left-[5px] after:top-1.5 after:z-10 after:h-3 after:w-3 after:rounded-full after:border-2 after:border-blue-500 after:bg-neutral-950 after:content-[""] last:pb-0 sm:flex-row'>
+      <div className="select-none whitespace-nowrap font-semibold text-neutral-50">
+        {date}
+      </div>
+      <section>
+        <h3 className="text-lg font-medium">{title}</h3>
+        {!!content && <div className="mt-1.5 text-neutral-500">{content}</div>}
+      </section>
+    </li>
   )
 }
 
-export default Timeline
+export default memo(Timeline)
