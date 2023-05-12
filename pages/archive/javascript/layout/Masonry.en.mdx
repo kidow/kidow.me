@@ -1,5 +1,5 @@
 import { Comment } from 'components'
-import { BackTop, Masonry } from 'containers'
+import { BackTop } from 'containers'
 
 <BackTop />
 
@@ -8,15 +8,18 @@ import { BackTop, Masonry } from 'containers'
 ## Example
 
 <div className="mt-4">
-  <Masonry>
+  <ul className="masonry">
     {Array.from({ length: 12 }).map((_, key) => (
-      <img
-        key={key}
-        src={`https://picsum.photos/200/${Math.ceil(Math.random() * 5) * 100}`}
-        alt=""
-      />
+      <li key={key}>
+        <img
+          src={`https://picsum.photos/200/${
+            Math.ceil(Math.random() * 5) * 100
+          }`}
+          alt=""
+        />
+      </li>
     ))}
-  </Masonry>
+  </ul>
 </div>
 
 ## Steps
@@ -25,43 +28,29 @@ import { BackTop, Masonry } from 'containers'
 
 ### Copy Code
 
-```tsx filename="containers/Masonry/index.tsx"
-import type { FC } from 'react'
-
-export interface Props extends ReactProps {}
-interface State {}
-
-const Masonry: FC<Props> = ({ children }) => {
-  return (
-    <div className="inline-block columns-2 break-inside-avoid gap-2 sm:columns-3 md:columns-4 lg:columns-4 xl:columns-6 2xl:columns-7 [&>*]:mb-2 [&>*]:w-full">
-      {children}
-    </div>
-  )
+```css filename="styles/global.css"
+@layer components {
+  .masonry {
+    @apply columns-1 sm:columns-2 md:columns-3 lg:columns-4 [&>li]:mb-4 [&>li]:break-inside-avoid;
+  }
 }
-
-export default Masonry
 ```
 
 ### Usage
 
 ```tsx
-<Masonry>
+<ul className="masonry">
   {Array.from({ length: 12 }).map((_, key) => (
-    <img
-      key={key}
-      src={`https://picsum.photos/200/${Math.ceil(Math.random() * 5) * 100}`}
-      alt=""
-    />
+    <li key={key}>
+      <img
+        src={`https://picsum.photos/200/${Math.ceil(Math.random() * 5) * 100}`}
+        alt=""
+      />
+    </li>
   ))}
-</Masonry>
+</ul>
 ```
 
 </div>
-
-### Props
-
-| Name         |   Type    | Default |
-| :----------- | :-------: | :-----: |
-| **children** | ReactNode |         |
 
 <Comment />

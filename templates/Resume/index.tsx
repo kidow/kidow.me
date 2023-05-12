@@ -538,7 +538,7 @@ const Resume: FC<Props> = () => {
       <Card title="프로젝트" id="projects">
         <div className="flex-1 space-y-10">
           <Item
-            url="https://embedgpt.vercel.app"
+            url="https://embedgpt.kidow.me"
             image="/assets/resume/embedgpt.png"
             title="EmbedGPT"
             date="2023년 3월 1일 ~ 2023년 3월 4일"
@@ -551,7 +551,7 @@ const Resume: FC<Props> = () => {
           </Item>
 
           <Item
-            url="https://daily-producthunt.vercel.app"
+            url="https://daily-producthunt.kidow.me"
             image="/assets/resume/daily-producthunt.png"
             title="일간 ProductHunt"
             date="2023년 2월 20일 ~ 진행 중"

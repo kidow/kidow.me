@@ -25,6 +25,9 @@
   article > main > p > code {
     @apply text-primary;
   }
+  article > main > blockquote {
+    @apply dark:bg-neutral-800;
+  }
 }
 
 input:focus-visible {
@@ -45,7 +48,7 @@ input:focus-visible {
     @apply h-6 w-6 fill-neutral-700 dark:fill-neutral-200;
   }
   .tag {
-    @apply cursor-default rounded-xl bg-neutral-200 py-0.5 px-2 text-sm text-neutral-500 dark:bg-neutral-800 dark:text-neutral-300;
+    @apply cursor-default rounded-xl bg-neutral-200 px-2 py-0.5 text-sm text-neutral-500 dark:bg-neutral-800 dark:text-neutral-300;
   }
   .tw-table th,
   .tw-table td {
@@ -76,6 +79,9 @@ input:focus-visible {
   }
   .ripple {
     @apply absolute scale-0 animate-ripple rounded-full bg-white/30;
+  }
+  .masonry {
+    @apply columns-1 sm:columns-2 md:columns-3 lg:columns-4 [&>li]:mb-4 [&>li]:break-inside-avoid;
   }
 }
 
