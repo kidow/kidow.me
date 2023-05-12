@@ -22,7 +22,6 @@ import { BackTop } from 'containers'
 ```tsx filename="components/Timeline/index.tsx"
 import { memo } from 'react'
 import type { FC } from 'react'
-import classnames from 'classnames'
 
 export interface Props {
   date: string
@@ -33,12 +32,8 @@ interface State {}
 
 const Timeline: FC<Props> = ({ date, title, content }) => {
   return (
-    <li
-      className={classnames(
-        'after:bg-neutral-950 relative -top-2 flex flex-col gap-5 pb-10 pl-5 before:absolute before:-bottom-2 before:left-0 before:top-2 before:border-r before:border-dashed before:border-neutral-500 before:content-[""] after:absolute after:-left-[5px] after:top-1.5 after:z-10 after:h-3 after:w-3 after:rounded-full after:border-2 after:border-blue-500 after:content-[""] last:pb-0 sm:flex-row'
-      )}
-    >
-      <div className="select-none whitespace-nowrap font-semibold text-neutral-50">
+    <li className='after:dark:bg-neutral-950 relative -top-2 flex flex-col gap-5 pb-10 pl-5 before:absolute before:-bottom-2 before:left-0 before:top-2 before:border-r before:border-dashed before:border-neutral-500 before:content-[""] after:absolute after:-left-[5px] after:top-1.5 after:z-10 after:h-3 after:w-3 after:rounded-full after:border-2 after:border-blue-500 after:bg-neutral-50 after:content-[""] last:pb-0 sm:flex-row'>
+      <div className="select-none whitespace-nowrap font-semibold text-neutral-900 dark:text-neutral-50">
         {date}
       </div>
       <section>

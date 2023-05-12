@@ -1,0 +1,124 @@
+import { Comment, Card, Icon, Required, Accordion } from 'components'
+import { BackTop } from 'containers'
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+<BackTop />
+
+# Accordion
+
+## Example
+
+<ul className="mt-4 space-y-4">
+  <Accordion
+    title="JavaScript"
+    content="JavaScript는 프로그래밍 언어 중 하나입니다. 웹 개발에서 많이 사용되며, 동적 웹 사이트 및 웹 응용 프로그램을 만드는 데 사용됩니다. 뿐만 아니라 서버 측 및 데스크톱 응용 프로그램을 만들 수도 있습니다. 자바스크립트는 객체 지향 및 함수형 프로그래밍 패러다임을 모두 지원하며, 변수, 연산자, 조건문, 반복문, 함수 등과 같은 많은 기본 기능을 제공합니다. 또한, HTML 및 CSS와 함께 사용하여 동적으로 웹 페이지를 조작하는 데 유용한 DOM 및 이벤트 처리 기능을 제공합니다. 자바스크립트는 구글의 V8 자바스크립트 엔진에서 실행되는 Node.js를 비롯한 많은 런타임에서 실행됩니다. 이러한 런타임으로는 서버 측 JavaScript 및 데스크톱 애플리케이션 개발 도구, 브라우저 확장 프로그램 및 모바일 애플리케이션과 같은 다양한 프로그램 등이 있습니다. 요약하면, 자바스크립트는 웹 개발에서 핵심적인 역할을 하는 프로그래밍 언어이며, 변수, 함수, DOM, 이벤트 처리 기능 등 다양한 기능을 제공합니다.또한 다양한 운영체제와 플랫폼에서 실행되는 런타임 환경에서 사용됩니다."
+  />
+  <Accordion
+    title="Python"
+    content="Python은 폭넓게 사용되는 고급 프로그래밍 언어입니다. 쉽고 읽기 쉽고 유지 관리하기 쉬운 코드 작성이 가능하며, 많은 유용한 기능과 라이브러리가 내장되어 있습니다. Python은 인터프리터 언어이므로 컴파일 필요 없이 즉시 실행됩니다. 즉, 개발 과정이 빠르고 쉽습니다. Python은 모듈 및 패키지와 같은 기능을 제공하여 코드의 재사용성을 향상시킬 수 있습니다. 이 언어는 데이터 과학, 인공 지능, 웹 개발, 게임 개발, 로봇 공학, CAD 및 미디어 소프트웨어 및 다른 다양한 분야에 사용되며, 다양한 운영 체제에서 사용할 수 있습니다. 마지막으로 Python이 인기 있는 이유 중 하나는 그것의 생태계입니다. Python은 거대한 개발자 커뮤니티와 함께 우수한 자습서, 문서 및 온라인 리소스로 구성된 풍부한 생태계가 있습니다. 요약하면, Python은 고급 프로그래밍 언어이며, 쉬운 문법 및 설계, 높은 가독성, 유연성, 풍부한 라이브러리, 다양한 운영체제에서 작동하는 등의 이점이 있습니다. 이 언어는 여러 분야에서 사용되며, 대규모 커뮤니티와 풍부한 생태계가 있습니다."
+  />
+  <Accordion
+    title="Kotlin"
+    content="Kotlin은 JetBrains에서 개발한 정적 타입 지정 언어입니다. Kotlin은 Java 가상머신에서 실행되며, Java와 100% 상호 운용성을 가지며, 장애 처리와 안전성이 더욱 강화되어 있습니다. Kotlin은 Java 언어로 작성된 애플리케이션을 대체하거나 확장하기 위해 사용할 수 있습니다. 또한, 안드로이드 앱 개발에 매우 적합합니다. Kotlin은 문법이 단순하고 가독성이 높아 코드 작성이 쉽습니다. 함수형 및 객체 지향 프로그래밍 모두를 지원하며, null 격리 및 다양한 대처를 위한 다양한 안전성 기능이 있습니다. 또한, Kotlin에서는 코루틴이라는 비동기 프로그래밍 기능을 제공합니다. 코루틴은 비동기 프로그래밍 패러다임을 쉽게 구현할 수 있도록 도와줍니다. Kotlin은 또한 Android Studio와 같은 인기있는 IDE에 대한 지원도 풍부하며, Google이 안드로이드 앱 개발에서 공식적으로 지원하는 언어 중 하나입니다. 요약하면, Kotlin은 JetBrains에서 개발한 정적 타입 지정 언어로, Java와 100% 호환되며, 안전성, 가독성, 코루틴 및 안드로이드 앱 개발을 위한 다양한 기능을 제공합니다. 대체로 Java 기반의 프로젝트와 쉽게 사용할 수 있으며, 안드로이드 앱 개발을 위해 제공하는 다양한 도구와 라이브러리가 있습니다."
+  />
+</ul>
+
+## Steps
+
+<div className="steps">
+
+### Install Package
+
+<Tabs items={['npm', 'yarn']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    npm install @heroicons/react classnames
+    ```
+    </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    yarn add @heroicons/react classnames
+    ```
+</Tab>
+</Tabs>
+
+### Copy Code
+
+```tsx filename="components/Accordion/index.tsx"
+import { memo, useState } from 'react'
+import type { FC } from 'react'
+import classnames from 'classnames'
+import { ChevronUpIcon } from '@heroicons/react/24/outline'
+
+export interface Props {
+  title: string
+  content: string
+}
+interface State {}
+
+const Accordion: FC<Props> = ({ title, content }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [height, setHeight] = useState<number>(0)
+  return (
+    <li className="select-none rounded-2xl border border-neutral-200 bg-neutral-100 px-6 dark:border-neutral-800 dark:bg-neutral-900">
+      <div
+        onClick={() => setIsOpen(() => !isOpen)}
+        className="flex cursor-pointer items-center justify-between py-6"
+      >
+        <h3 className="text-lg font-medium text-neutral-900 dark:text-white">
+          {title}
+        </h3>
+        <button className="text-neutral-400">
+          <ChevronUpIcon
+            className={classnames('h-6 w-6 duration-150', {
+              '-rotate-180': isOpen
+            })}
+          />
+        </button>
+      </div>
+      <section
+        style={{ maxHeight: isOpen ? height : 0 }}
+        className={classnames(
+          'overflow-hidden transition-[max-height] duration-150',
+          isOpen ? 'ease-in' : 'ease-in-out'
+        )}
+      >
+        <div
+          ref={(ref) => {
+            const height = ref?.scrollHeight
+            if (height) setHeight(height)
+          }}
+          className="border-t border-neutral-200 py-6 dark:border-neutral-800"
+        >
+          {content}
+        </div>
+      </section>
+    </li>
+  )
+}
+
+export default memo(Accordion)
+```
+
+### Usage
+
+```tsx
+<ul className="space-y-4">
+  <Accordion title="JavaScript" content="자바스크립트란..." />
+  <Accordion title="Python" content="파이썬이란..." />
+  <Accordion title="Kotlin" content="코틀린이란..." />
+</ul>
+```
+
+</div>
+
+### Props
+
+| Name                    |  Type  | Default |
+| :---------------------- | :----: | :-----: |
+| **title**<Required />   | string |         |
+| **content**<Required /> | string |         |
+
+<Comment />

@@ -1,0 +1,124 @@
+import { Comment, Card, Icon, Required, Accordion } from 'components'
+import { BackTop } from 'containers'
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+<BackTop />
+
+# Accordion
+
+## Example
+
+<ul className="mt-4 space-y-4">
+  <Accordion
+    title="JavaScript"
+    content="JavaScript is one of the programming languages. It is heavily used in web development and is used to create dynamic websites and web applications. Not only that, you can also create server side and desktop applications. JavaScript supports both object-oriented and functional programming paradigms, and provides many basic features such as variables, operators, conditionals, loops, functions, and more. It also provides DOM and event handling features useful for dynamically manipulating web pages in conjunction with HTML and CSS. JavaScript runs on many runtimes, including Node.js, which runs on Google's V8 JavaScript engine. These runtimes include various programs such as server-side JavaScript and desktop application development tools, browser extensions, and mobile applications. In summary, JavaScript is a programming language that plays a key role in web development, and provides various functions such as variables, functions, DOM, and event handling functions. It is also used in a runtime environment running on various operating systems and platforms."
+  />
+  <Accordion
+    title="Python"
+    content="Python is a widely used high-level programming language. It allows you to write easy, readable and maintainable code, and has many useful features and libraries built in. Because Python is an interpreted language, it runs immediately without the need for compilation. This means the development process is quick and easy. Python provides features such as modules and packages that can improve the reusability of your code. This language is used in data science, artificial intelligence, web development, game development, robotics, CAD and media software, and many other fields, and is available on a variety of operating systems. Finally, one of the reasons Python is so popular is its ecosystem. Python has a huge developer community and a rich ecosystem of excellent tutorials, documentation, and online resources. In summary, Python is a high-level programming language, with advantages such as easy syntax and design, high readability, flexibility, rich libraries, and operation on many operating systems. The language is used in many fields, has a large community and a rich ecosystem."
+  />
+  <Accordion
+    title="Kotlin"
+    content="Kotlin is a statically typed language developed by JetBrains. Kotlin runs on the Java virtual machine, has 100% interoperability with Java, and has better handling of failures and safety. Kotlin can be used to replace or extend applications written in the Java language. Also, it is very suitable for Android app development. Kotlin is easy to write code because of its simple syntax and high readability. It supports both functional and object-oriented programming, and has many safety features for null isolation and coping. Kotlin also provides an asynchronous programming feature called coroutines. Coroutines make it easy to implement an asynchronous programming paradigm. Kotlin also has rich support for popular IDEs like Android Studio, and is one of the languages ​​officially supported by Google for Android app development. In summary, Kotlin is a statically typed language developed by JetBrains that is 100% compatible with Java and provides safety, readability, coroutines and many other features for Android app development. Mostly Java-based projects and easy to use, there are various tools and libraries provided for Android app development."
+  />
+</ul>
+
+## Steps
+
+<div className="steps">
+
+### Install Package
+
+<Tabs items={['npm', 'yarn']}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    npm install @heroicons/react classnames
+    ```
+    </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash
+    yarn add @heroicons/react classnames
+    ```
+</Tab>
+</Tabs>
+
+### Copy Code
+
+```tsx filename="components/Accordion/index.tsx"
+import { memo, useState } from 'react'
+import type { FC } from 'react'
+import classnames from 'classnames'
+import { ChevronUpIcon } from '@heroicons/react/24/outline'
+
+export interface Props {
+  title: string
+  content: string
+}
+interface State {}
+
+const Accordion: FC<Props> = ({ title, content }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [height, setHeight] = useState<number>(0)
+  return (
+    <li className="select-none rounded-2xl border border-neutral-200 bg-neutral-100 px-6 dark:border-neutral-800 dark:bg-neutral-900">
+      <div
+        onClick={() => setIsOpen(() => !isOpen)}
+        className="flex cursor-pointer items-center justify-between py-6"
+      >
+        <h3 className="text-lg font-medium text-neutral-900 dark:text-white">
+          {title}
+        </h3>
+        <button className="text-neutral-400">
+          <ChevronUpIcon
+            className={classnames('h-6 w-6 duration-150', {
+              '-rotate-180': isOpen
+            })}
+          />
+        </button>
+      </div>
+      <section
+        style={{ maxHeight: isOpen ? height : 0 }}
+        className={classnames(
+          'overflow-hidden transition-[max-height] duration-150',
+          isOpen ? 'ease-in' : 'ease-in-out'
+        )}
+      >
+        <div
+          ref={(ref) => {
+            const height = ref?.scrollHeight
+            if (height) setHeight(height)
+          }}
+          className="border-t border-neutral-200 py-6 dark:border-neutral-800"
+        >
+          {content}
+        </div>
+      </section>
+    </li>
+  )
+}
+
+export default memo(Accordion)
+```
+
+### Usage
+
+```tsx
+<ul className="space-y-4">
+  <Accordion title="JavaScript" content="JavaScript is..." />
+  <Accordion title="Python" content="Python is..." />
+  <Accordion title="Kotlin" content="Kotlin is..." />
+</ul>
+```
+
+</div>
+
+### Props
+
+| Name                    |  Type  | Default |
+| :---------------------- | :----: | :-----: |
+| **title**<Required />   | string |         |
+| **content**<Required /> | string |         |
+
+<Comment />

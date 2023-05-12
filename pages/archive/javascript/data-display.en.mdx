@@ -5,7 +5,6 @@ import {
   CalendarDaysIcon,
   IdentificationIcon,
   ViewColumnsIcon,
-  FolderOpenIcon,
   PlusIcon,
   QueueListIcon,
   PhotoIcon,
@@ -14,12 +13,18 @@ import {
   TableCellsIcon,
   ClockIcon,
   ChatBubbleLeftEllipsisIcon,
-  SwatchIcon
+  SwatchIcon,
+  ListBulletIcon
 } from '@heroicons/react/24/outline'
 
 # Data Display
 
 <Card.List>
+  <Card.Component
+    title="Accordion"
+    href="/archive/javascript/data-display/Accordion"
+    Icon={ListBulletIcon}
+  />
   <Card.Component
     title="Avatar"
     href="/archive/javascript/data-display/Avatar"
@@ -44,11 +49,6 @@ import {
     title="Carousel"
     href="/archive/javascript/data-display/Carousel"
     Icon={ViewColumnsIcon}
-  />
-  <Card.Component
-    title="Collapse"
-    href="/archive/javascript/data-display/Collapse"
-    Icon={FolderOpenIcon}
   />
   <Card.Component
     title="CountTo"
