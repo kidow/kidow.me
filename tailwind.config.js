@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#e67a00'
+        primary: '#dffc03'
       },
       keyframes: {
         slide: {
@@ -88,6 +88,10 @@ module.exports = {
         ripple: {
           from: { transform: 'scale(0)' },
           to: { transform: 'scale(4)', opacity: 0 }
+        },
+        grow: {
+          from: { transform: 'scaleX(0)' },
+          to: { transform: 'scaleX(1)' }
         }
       },
       animation: {

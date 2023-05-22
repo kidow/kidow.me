@@ -66,7 +66,7 @@ const config: DocsThemeConfig = {
   useNextSeoProps() {
     return { titleTemplate: '%s - Kidow Blog' }
   },
-  primaryHue: 32,
+  primaryHue: 76,
   chat: {
     icon: (
       <svg
@@ -131,8 +131,8 @@ const config: DocsThemeConfig = {
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="description" content={DESCRIPTION} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="#e67a00" />
-        <meta name="msapplication-TileColor" content="#e67a00" />
+        <meta name="theme-color" content="#dffc03" />
+        <meta name="msapplication-TileColor" content="#dffc03" />
         <meta name="robots" content="index, follow" />
         <meta
           name="keywords"

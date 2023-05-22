@@ -8,7 +8,7 @@ interface State {
 }
 
 const ColorPickerExample: FC<Props> = () => {
-  const [{ value }, setState] = useObjectState<State>({ value: '#e67a00' })
+  const [{ value }, setState] = useObjectState<State>({ value: '#dffc03' })
   return (
     <div className="mt-4">
       <ColorPicker value={value} onChange={(value) => setState({ value })} />

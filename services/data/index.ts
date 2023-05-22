@@ -39,6 +39,15 @@ export const contents: {
   }>
 } = {
   ko: [
+    // {
+    //   title: 'Recoil 전격 해부하기',
+    //   description:
+    //     'Recoil의 모든 기능을 좀 더 쉽게 알아보고, 120% 활용하는 방법을 알아봅시다.',
+    //   thumbnail: 'https://kidow.me/api/image?id=lizq1jeq4',
+    //   date: '2023-05-08',
+    //   keywords: 'React, Recoil, Typescript',
+    //   href: '/contents/mastering-recoil'
+    // },
     {
       title: 'Javascript Generator는 어디에 활용할 수 있을까?',
       description: 'Generator는 무엇이며, 어디에 활용하면 좋을 지 알아봅시다.',
@@ -284,13 +293,22 @@ export const contents: {
     }
   ],
   en: [
+    // {
+    //   title: 'Mastering Recoil',
+    //   description:
+    //     "Let's find out all the features of Recoil more easily and find out how to utilize 120%.",
+    //   thumbnail: 'https://kidow.me/api/image?id=lizq1jeq4',
+    //   date: '2023-05-08',
+    //   keywords: 'React, Recoil, Typescript',
+    //   href: '/en/contents/mastering-recoil'
+    // },
     {
       title: 'Where can we use Javascript Generator?',
       description: "Let's find out what a generator is and where to use it.",
       keywords: 'Generator, Javascript, Typescript',
       date: '2023-04-27',
       thumbnail: 'https://kidow.me/api/image?id=ohvkkc0b2fh',
-      href: '/contents/what-is-javascript-generator'
+      href: '/en/contents/what-is-javascript-generator'
     },
     {
       title: 'Combining 6 projects into one blog (feat. Nextra)',
@@ -299,7 +317,7 @@ export const contents: {
       keywords: 'Nextra',
       date: '2023-02-03',
       thumbnail: 'https://kidow.me/api/image?id=umd5bysw08e',
-      href: '/contents/6-projects-to-one'
+      href: '/en/contents/6-projects-to-one'
     },
     {
       title: 'Review of visit to shared office Fivespot Seongsu 2',
@@ -308,7 +326,7 @@ export const contents: {
       keywords: 'Fivespot',
       date: '2023-01-29',
       thumbnail: 'https://kidow.me/api/image?id=5eihgjr368c',
-      href: '/contents/review-of-shared-office-fivespot-seongsu-2'
+      href: '/en/contents/review-of-shared-office-fivespot-seongsu-2'
     },
     {
       title: 'Making Blog Open Graph Images Dynamic',
@@ -316,7 +334,7 @@ export const contents: {
       keywords: 'Nextjs, Vercel, Opengraph, Satori, Supabase',
       date: '2023-01-14',
       thumbnail: 'https://kidow.me/api/image?id=bgk4y13n3sw',
-      href: '/contents/making-blog-open-graph-images-dynamic'
+      href: '/en/contents/making-blog-open-graph-images-dynamic'
     },
     {
       title: 'Summary of feedback received so far',
@@ -325,7 +343,7 @@ export const contents: {
       keywords: 'Feedback, Feedbank',
       date: '2022-12-21',
       thumbnail: 'https://kidow.me/api/image?id=g2hw0mxlig8',
-      href: '/contents/summary-of-feedback-received-so-far'
+      href: '/en/contents/summary-of-feedback-received-so-far'
     },
     {
       title: 'Coddee Infrastructure Design Course',
@@ -334,7 +352,7 @@ export const contents: {
       keywords: 'Coddee, Supabase',
       date: '2022-12-19',
       thumbnail: 'https://kidow.me/api/image?id=6pyuldhdton',
-      href: '/contents/coddee-infrastructure-design-process'
+      href: '/en/contents/coddee-infrastructure-design-process'
     },
     {
       title: 'Problems with chat room service',
@@ -343,7 +361,7 @@ export const contents: {
       keywords: 'Coddee, React, Supabase',
       date: '2022-12-13',
       thumbnail: 'https://kidow.me/api/image?id=eed4xkekc7j',
-      href: '/contents/problems-with-chat-room-service'
+      href: '/en/contents/problems-with-chat-room-service'
     },
     {
       title: 'Create Toast Component',
@@ -352,7 +370,7 @@ export const contents: {
       keywords: 'React, Component, Toast, CustomEvent',
       date: '2022-12-09',
       thumbnail: 'https://kidow.me/api/image?id=fguze8xin4',
-      href: '/contents/create-toast-component'
+      href: '/en/contents/create-toast-component'
     },
     {
       title: "If it's the code block at the end, how does it go down?",
@@ -361,7 +379,7 @@ export const contents: {
       keywords: 'memo, React, Feedbank',
       date: '2022-12-08',
       thumbnail: 'https://kidow.me/api/image?id=po6ku3eljr8',
-      href: '/contents/if-its-the-code-block-at-the-end-how-does-it-go-down'
+      href: '/en/contents/if-its-the-code-block-at-the-end-how-does-it-go-down'
     },
     {
       title: 'I created a developer chat room',
@@ -370,7 +388,7 @@ export const contents: {
       keywords: 'Chatting, Code-Block, Supabase',
       date: '2022-10-18',
       thumbnail: 'https://kidow.me/api/image?id=u3meic3suo',
-      href: '/contents/i-created-a-developer-chat-room'
+      href: '/en/contents/i-created-a-developer-chat-room'
     },
     {
       title: 'Why I recommend Supabase for side projects',
@@ -380,7 +398,7 @@ export const contents: {
         'Supabase, PostgreSQL, Storage, Firebase, Authentication, SQL, Database',
       date: '2022-10-09',
       thumbnail: 'https://kidow.me/api/image?id=15v2zftvpun',
-      href: '/contents/why-i-recommend-supabase-for-side-projects'
+      href: '/en/contents/why-i-recommend-supabase-for-side-projects'
     },
     {
       title: 'Create Saas without login',
@@ -389,7 +407,7 @@ export const contents: {
       keywords: 'Saas',
       date: '2022-10-05',
       thumbnail: 'https://kidow.me/api/image?id=7rcezlkedi5',
-      href: '/contents/create-saas-without-login'
+      href: '/en/contents/create-saas-without-login'
     },
     {
       title: 'Create unlimited file storage with Vercel in 5 minutes',
@@ -398,7 +416,7 @@ export const contents: {
       keywords: 'Vercel, Express',
       date: '2022-09-25',
       thumbnail: 'https://kidow.me/api/image?id=ta0citreps',
-      href: '/contents/create-unlimited-file-storage-with-vercel-in-5-minutes'
+      href: '/en/contents/create-unlimited-file-storage-with-vercel-in-5-minutes'
     },
     {
       title: 'Good sites to refer to when starting B2B',
@@ -407,7 +425,7 @@ export const contents: {
       keywords: 'B2B, Saas',
       date: '2022-08-31',
       thumbnail: 'https://kidow.me/api/image?id=awvus210btw',
-      href: '/contents/good-sites-to-refer-when-starting-b2b'
+      href: '/en/contents/good-sites-to-refer-when-starting-b2b'
     },
     {
       title: 'Until the launch of a service called Feedbank',
@@ -415,7 +433,7 @@ export const contents: {
       keywords: 'B2B, Feedback, Feedbank',
       date: '2022-07-30',
       thumbnail: 'https://kidow.me/api/image?id=vxv8fq4srod',
-      href: '/contents/until-the-launch-of-a-service-called-feedbank'
+      href: '/en/contents/until-the-launch-of-a-service-called-feedbank'
     },
     {
       title: 'Create your own components with Storybook',
@@ -424,7 +442,7 @@ export const contents: {
       keywords: 'Storybook, Vercel',
       date: '2022-06-28',
       thumbnail: 'https://kidow.me/api/image?id=3wfhoijgxjk',
-      href: '/contents/create-your-own-components-with-storybook'
+      href: '/en/contents/create-your-own-components-with-storybook'
     },
     {
       title: 'Create your own development documentation with Docusaurus',
@@ -433,7 +451,7 @@ export const contents: {
       keywords: 'Docusaurus',
       date: '2022-06-27',
       thumbnail: 'https://kidow.me/api/image?id=qmyhmx0d05l',
-      href: '/contents/create-your-own-development-documentation-with-docusaurus'
+      href: '/en/contents/create-your-own-development-documentation-with-docusaurus'
     },
     {
       title: `Let's make html <dialog> with React`,
@@ -441,7 +459,7 @@ export const contents: {
       keywords: 'React, dialog',
       date: '2022-06-18',
       thumbnail: 'https://kidow.me/api/image?id=hijjy21h309',
-      href: '/contents/lets-make-html-dialog-with-react'
+      href: '/en/contents/lets-make-html-dialog-with-react'
     },
     {
       title: 'Why I decided to use TailwindCSS',
@@ -450,7 +468,7 @@ export const contents: {
       keywords: 'TailwindCSS, SCSS, Styled Components',
       date: '2022-06-15',
       thumbnail: 'https://kidow.me/api/image?id=s81ow0mde6f',
-      href: '/contents/why-i-decided-to-use-tailwindcss'
+      href: '/en/contents/why-i-decided-to-use-tailwindcss'
     },
     {
       title: 'Chrome extensions to help you develop',
@@ -459,7 +477,7 @@ export const contents: {
       keywords: 'Chrome Extensions',
       date: '2022-06-06',
       thumbnail: 'https://kidow.me/api/image?id=ecrnpvmva0t',
-      href: '/contents/chrome-extensions-to-help-you-develop'
+      href: '/en/contents/chrome-extensions-to-help-you-develop'
     },
     {
       title: 'How to write maintainable React code - (3) Component design',
@@ -468,7 +486,7 @@ export const contents: {
       keywords: 'React',
       date: '2022-05-28',
       thumbnail: 'https://kidow.me/api/image?id=ree451stim',
-      href: '/contents/how-to-write-maintainable-react-code-3'
+      href: '/en/contents/how-to-write-maintainable-react-code-3'
     },
     {
       title: 'How to write easy-to-maintain React code - (2) Naming',
@@ -477,7 +495,7 @@ export const contents: {
       keywords: 'React, Naming',
       date: '2022-05-27',
       thumbnail: 'https://kidow.me/api/image?id=5pvfkcqqo7y',
-      href: '/contents/how-to-write-maintainable-react-code-2'
+      href: '/en/contents/how-to-write-maintainable-react-code-2'
     },
     {
       title: 'How to write easy-to-maintain React code - (1) Project design',
@@ -486,7 +504,7 @@ export const contents: {
       keywords: 'React',
       date: '2022-05-26',
       thumbnail: 'https://kidow.me/api/image?id=sbs0dm5cvde',
-      href: '/contents/how-to-write-maintainable-react-code-1'
+      href: '/en/contents/how-to-write-maintainable-react-code-1'
     },
     {
       title: 'How to write maintainable React code - (0) Overview',
@@ -495,7 +513,7 @@ export const contents: {
       keywords: 'React',
       date: '2022-05-25',
       thumbnail: 'https://kidow.me/api/image?id=vk6mr8ziy4p',
-      href: '/contents/how-to-write-maintainable-react-code-0'
+      href: '/en/contents/how-to-write-maintainable-react-code-0'
     },
     {
       title: 'What I felt while creating my 4th blog',
@@ -504,7 +522,7 @@ export const contents: {
       keywords: 'Blog',
       date: '2022-05-24',
       thumbnail: 'https://kidow.me/api/image?id=8btaqsxhjj',
-      href: '/contents/what-i-felt-while-creating-4th-blog'
+      href: '/en/contents/what-i-felt-while-creating-4th-blog'
     }
   ]
 }
