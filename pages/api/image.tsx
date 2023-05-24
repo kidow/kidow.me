@@ -15,7 +15,7 @@ const response = (
     <div tw="flex mb-[1.8rem] w-[1040px]">
       <div tw="flex-1 text-6xl text-[#2f363d]">{title}</div>
       <img
-        src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/publics/kidow.png`}
+        src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/publics/kidow-new.png`}
         alt="Kidow"
         width={150}
         tw="ml-10"
