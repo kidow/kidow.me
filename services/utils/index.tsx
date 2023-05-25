@@ -1,4 +1,3 @@
-import { Modal } from 'containers'
 import { useState } from 'react'
 import { EventListener } from 'services'
 

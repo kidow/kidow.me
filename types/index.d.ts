@@ -52,3 +52,22 @@ interface DrawerProps {
   position?: TPosition
   className?: Argument
 }
+
+interface IMessage {
+  id: string
+  answer: string
+  conversation_id: string
+  created_at: number
+  feedback: any
+  inputs: object
+  query: string
+}
+
+interface IConversation {
+  created_at: number
+  id: string
+  inputs: object
+  introduction: string
+  name: string
+  status: 'normal' | string
+}

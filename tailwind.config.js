@@ -92,6 +92,18 @@ module.exports = {
         grow: {
           from: { transform: 'scaleX(0)' },
           to: { transform: 'scaleX(1)' }
+        },
+        'zoom-out': {
+          '0%': {
+            opacity: 0,
+            transform: 'scale(0.5, 0.5)'
+          },
+          '60%': {
+            transform: 'scale(1, 1)'
+          },
+          '100%': {
+            opacity: 1
+          }
         }
       },
       animation: {
@@ -105,7 +117,8 @@ module.exports = {
         'fade-out-right': 'fade-out-right 0.2s linear',
         'fade-out-bottom': 'fade-out-bottom 0.2s linear',
         'fade-out-left': 'fade-out-left 0.2s linear',
-        ripple: 'ripple 0.6s linear'
+        ripple: 'ripple 0.6s linear',
+        'zoom-out': '0.25s ease-out 0s 1 normal none running zoom-out'
       }
     }
   },
