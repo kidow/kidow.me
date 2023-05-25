@@ -12,12 +12,14 @@ export interface Props {}
 interface State {
   isOpen: boolean
   userId: string
+  isFirst: boolean
 }
 
 const ChatBot: FC<Props> = () => {
-  const [{ isOpen, userId }, setState] = useObjectState<State>({
+  const [{ isOpen, userId, isFirst }, setState] = useObjectState<State>({
     isOpen: false,
-    userId: ''
+    userId: '',
+    isFirst: true
   })
   const [messageList] = useRecoilState(messageListState)
 
@@ -44,6 +46,16 @@ const ChatBot: FC<Props> = () => {
   }, [])
   return (
     <>
+      {isFirst && (
+        <div className="fixed bottom-20 right-5">
+          <div
+            onClick={() => setState({ isFirst: false, isOpen: true })}
+            className="relative cursor-pointer select-none rounded-lg border bg-white p-4 after:absolute after:-bottom-2 after:right-5 after:z-20 after:block after:w-0 after:border-t-4 after:border-white after:content-[''] dark:border-transparent dark:bg-neutral-600"
+          >
+            안녕하세요?
+          </div>
+        </div>
+      )}
       <button
         onClick={() => setState({ isOpen: !isOpen })}
         className="fixed bottom-5 right-5 z-20 h-12 w-12 rounded-full border border-neutral-200 bg-white text-lg ring-neutral-400 duration-150 hover:ring active:scale-75 dark:border-transparent dark:bg-neutral-600 dark:ring-primary"
