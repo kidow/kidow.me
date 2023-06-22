@@ -39,15 +39,14 @@ export const contents: {
   }>
 } = {
   ko: [
-    // {
-    //   title: 'Recoil 전격 해부하기',
-    //   description:
-    //     'Recoil의 모든 기능을 좀 더 쉽게 알아보고, 120% 활용하는 방법을 알아봅시다.',
-    //   thumbnail: 'https://kidow.me/api/image?id=lizq1jeq4',
-    //   date: '2023-05-08',
-    //   keywords: 'React, Recoil, Typescript',
-    //   href: '/contents/mastering-recoil'
-    // },
+    {
+      title: '티스토리로 이전합니다.',
+      description: '블로그만 앞으로 티스토리에서 작성하게 됩니다.',
+      thumbnail: 'https://kidow.me/api/image?id=lq0tkfoxe2l',
+      date: '2023-06-22',
+      keywords: 'Blog, Tistory',
+      href: '/contents/tistory'
+    },
     {
       title: 'Javascript Generator는 어디에 활용할 수 있을까?',
       description: 'Generator는 무엇이며, 어디에 활용하면 좋을 지 알아봅시다.',
