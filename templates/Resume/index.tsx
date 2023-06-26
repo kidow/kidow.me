@@ -44,7 +44,7 @@ const Resume: FC<Props> = () => {
             <li className="flex items-center gap-2">
               <ArrowTopRightOnSquareIcon className="h-5 w-5" />
               <a
-                href="https://www.linkedin.com/in/dongwook-kim-49257a181/"
+                href="https://www.linkedin.com/in/kidow/"
                 target="_blank"
                 className="hover:underline"
               >

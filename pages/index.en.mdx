@@ -1,10 +1,30 @@
 import { Contribution } from 'containers'
-import { Card, Comment } from 'components'
+import { Card, Comment, SocialLink, Icon } from 'components'
 import { Contents } from 'templates'
 
 <Contents />
 
 <Contribution />
+
+## 프로필
+
+<div className="mt-4 flex gap-2">
+  <SocialLink href="https://github.com/kidow">
+    <Icon.Github />
+  </SocialLink>
+  <SocialLink href="https://kidow.gumroad.com">
+    <Icon.Gumroad />
+  </SocialLink>
+  <SocialLink href="https://twitter.com/__kidow__">
+    <Icon.Twitter className="fill-[#1DA1F2]" />
+  </SocialLink>
+  <SocialLink href="https://www.linkedin.com/in/kidow/">
+    <img src="/assets/linkedin.png" alt="linkedin" className="h-6 w-6" />
+  </SocialLink>
+  <SocialLink href="https://www.producthunt.com/@kidow">
+    <Icon.ProductHunt />
+  </SocialLink>
+</div>
 
 ## Projects
 
@@ -12,15 +32,9 @@ import { Contents } from 'templates'
   <Card.Link title="Coddee" href="https://coddee.dev">
     <>![Coddee](/assets/coddee-en.png)</>
   </Card.Link>
-  <Card.Link title="Feedbank" href="https://feedbank.app/en">
-    <>![Feedbank](/assets/feedbank-en.png)</>
-  </Card.Link>
-  <Card.Link title="EmbedGPT" href="https://embedgpt.kidow.me/en">
-    <>![EmbedGPT](/assets/embedgpt-en.png)</>
-  </Card.Link>
   <Card.Link
     title="Daily ProductHunt"
-    href="https://daily-producthunt.kidow.me/en"
+    href="https://daily-producthunt.kidow.me"
   >
     <>![Daily ProductHunt](/assets/dp-en.png)</>
   </Card.Link>

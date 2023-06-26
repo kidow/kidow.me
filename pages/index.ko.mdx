@@ -1,11 +1,41 @@
 import { Contribution } from 'containers'
-import { Card, Comment } from 'components'
+import { Card, Comment, SocialLink, Icon } from 'components'
 import { Contents } from 'templates'
 import Script from 'next/script'
 
 <Contents />
 
 <Contribution />
+
+## 프로필
+
+<div className="mt-4 flex gap-2">
+  <SocialLink href="https://github.com/kidow">
+    <Icon.Github />
+  </SocialLink>
+  <SocialLink href="https://kidow.gumroad.com">
+    <Icon.Gumroad />
+  </SocialLink>
+  <SocialLink href="https://twitter.com/__kidow__">
+    <Icon.Twitter className="fill-[#1DA1F2]" />
+  </SocialLink>
+  <SocialLink href="https://disquiet.io/@kidow">
+    <img
+      src="/assets/disquiet.png"
+      alt="disquiet"
+      className="rouneded-md h-6 w-6"
+    />
+  </SocialLink>
+  <SocialLink href="https://www.linkedin.com/in/kidow/">
+    <img src="/assets/linkedin.png" alt="linkedin" className="h-6 w-6" />
+  </SocialLink>
+  <SocialLink href="https://wcgo2ling.tistory.com">
+    <Icon.Tistory />
+  </SocialLink>
+  <SocialLink href="https://www.producthunt.com/@kidow">
+    <Icon.ProductHunt />
+  </SocialLink>
+</div>
 
 ## 프로젝트
 

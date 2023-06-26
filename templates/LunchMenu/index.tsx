@@ -222,7 +222,7 @@ const LunchMenu: FC<Props> = () => {
           점심 뭐 먹지?
         </h2>
         <div className="flex items-center justify-center py-10">
-          <div className="flex items-center rounded-full border py-3 px-4 dark:border-neutral-700">
+          <div className="flex items-center rounded-full border px-4 py-3 dark:border-neutral-700">
             <input
               value={searchQuery}
               name="searchQuery"
@@ -277,19 +277,19 @@ const LunchMenu: FC<Props> = () => {
                   {i === 4 && (
                     <>
                       {j === 0 && (
-                        <ArrowUpLeftIcon className="absolute top-0 left-0 h-5 w-5 -translate-x-1/2 -translate-y-1/2 opacity-20" />
+                        <ArrowUpLeftIcon className="absolute left-0 top-0 h-5 w-5 -translate-x-1/2 -translate-y-1/2 opacity-20" />
                       )}
                       {j === 1 && (
-                        <ArrowUpIcon className="absolute top-0 left-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 opacity-20" />
+                        <ArrowUpIcon className="absolute left-1/2 top-0 h-5 w-5 -translate-x-1/2 -translate-y-1/2 opacity-20" />
                       )}
                       {j === 2 && (
-                        <ArrowUpRightIcon className="absolute top-0 right-0 h-5 w-5 translate-x-1/2 -translate-y-1/2 opacity-20" />
+                        <ArrowUpRightIcon className="absolute right-0 top-0 h-5 w-5 -translate-y-1/2 translate-x-1/2 opacity-20" />
                       )}
                       {j === 3 && (
-                        <ArrowLeftIcon className="absolute top-1/2 left-0 h-5 w-5 -translate-x-1/2 -translate-y-1/2 opacity-20" />
+                        <ArrowLeftIcon className="absolute left-0 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 opacity-20" />
                       )}
                       {j === 5 && (
-                        <ArrowRightIcon className="absolute top-1/2 right-0 h-5 w-5 translate-x-1/2 -translate-y-1/2 opacity-20" />
+                        <ArrowRightIcon className="absolute right-0 top-1/2 h-5 w-5 -translate-y-1/2 translate-x-1/2 opacity-20" />
                       )}
                       {j === 6 && (
                         <ArrowDownLeftIcon className="absolute bottom-0 left-0 h-5 w-5 -translate-x-1/2 translate-y-1/2 opacity-20" />

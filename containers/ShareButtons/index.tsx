@@ -64,7 +64,7 @@ const ShareButtons: FC<Props> = () => {
   }, [])
   return (
     <>
-      <div className="fixed top-[180px] right-[calc((100vw-896px)/2+896px)] hidden lg:block">
+      <div className="fixed right-[calc((100vw-896px)/2+896px)] top-[180px] hidden lg:block">
         <ul className="flex flex-col gap-3 rounded-full border border-neutral-300 bg-white p-2 dark:border-neutral-700 dark:bg-neutral-800">
           <CopyToClipboard
             text={`https://kidow.me${asPath}`}
@@ -84,13 +84,13 @@ const ShareButtons: FC<Props> = () => {
             onClick={onShareTwitter}
             className="rounded-full border border-neutral-200 p-2 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-500"
           >
-            <Icon.Twitter />
+            <Icon.Twitter className="dark:fill-neutral-300" />
           </button>
           <button
             onClick={onShareLinkedIn}
             className="rounded-full border border-neutral-200 p-2 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-500"
           >
-            <Icon.LinkedIn />
+            <Icon.LinkedIn className="h-6 w-6 dark:fill-neutral-300" />
           </button>
           {locale === 'ko' && (
             <button
@@ -116,10 +116,10 @@ const ShareButtons: FC<Props> = () => {
             <Icon.Facebook />
           </button>
           <button onClick={onShareTwitter}>
-            <Icon.Twitter />
+            <Icon.Twitter className="dark:fill-neutral-300" />
           </button>
           <button onClick={onShareLinkedIn}>
-            <Icon.LinkedIn />
+            <Icon.LinkedIn className="h-6 w-6 dark:fill-neutral-300" />
           </button>
           {locale === 'ko' && (
             <button onClick={onShareKakaoTalk}>
