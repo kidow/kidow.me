@@ -18,7 +18,7 @@ const ResumeItem: FC<Props> = ({
   children
 }) => {
   return (
-    <div>
+    <div id={title}>
       <div className="flex gap-3">
         <a href={url} target="_blank">
           <img src={image} alt="" className="h-11 w-11 rounded-full" />

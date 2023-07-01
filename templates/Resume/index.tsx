@@ -1,16 +1,15 @@
 import {
   BriefcaseIcon,
-  CalendarIcon,
   EnvelopeIcon,
   MapPinIcon,
   ArrowTopRightOnSquareIcon
 } from '@heroicons/react/24/outline'
 import type { FC } from 'react'
+import Link from 'next/link'
 
 import Divider from './Divider'
 import Card from './Card'
 import Item from './Item'
-import Link from 'next/link'
 
 export interface Props {}
 interface State {}
@@ -51,16 +50,6 @@ const Resume: FC<Props> = () => {
                 LinkedIn
               </a>
             </li>
-            <li className="flex items-center gap-2">
-              <CalendarIcon className="h-5 w-5" />
-              <a
-                href="https://whattime.co.kr/wcgo2ling"
-                target="_blank"
-                className="hover:underline"
-              >
-                커피챗 예약
-              </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -74,7 +63,7 @@ const Resume: FC<Props> = () => {
               <span className="font-medium text-neutral-900 dark:font-normal dark:text-neutral-200">
                 2018년 4월
               </span>{' '}
-              군 전역 후 바로 웹 개발의 세계에 빠져들었고, 지금까지 4년 이상
+              군 전역 후 바로 웹 개발의 세계에 빠져들었고, 지금까지 5년 이상
               개발을 해오면서 3년이 넘는 경력을 쌓았습니다.
             </p>
             <p>
@@ -89,14 +78,19 @@ const Resume: FC<Props> = () => {
               <span className="font-medium text-neutral-900 dark:font-normal dark:text-neutral-200">
                 Front-end
               </span>{' '}
-              개발자로 일하는 것을 선호합니다. 하지만 과거 블로그를 만들 당시
-              직접 Back-end 를 배우고 AWS 서비스를 쓰면서 구축해 본 경험도 있기
-              때문에 해당 관련해서 소통도 가능합니다.
+              개발자로 일하는 것을 선호합니다. 다만 풀스택으로 개발해본 적도
+              있기 때문에 어느 정도 소통 가능한 백엔드 지식은 있는 편입니다.
             </p>
             <p>
-              최근에는 AI에 관심이 많습니다. 파이썬을 통한 데이터 분석과 머신
-              러닝에 대해서 공부 중이고, 그러한 분야에서 일하는 분들과도
-              협업해보고자 노력하고 있습니다.
+              가장 최근에 SaaS를 혼자 창업했다가 정리하고,{' '}
+              <a
+                href="#일간 ProductHunt"
+                className="font-medium text-neutral-900 underline dark:font-normal dark:text-neutral-200"
+              >
+                일간 ProductHunt
+              </a>
+              라는 사이드 프로젝트 등을 개발 및 운영하고 블로그를 정리해나가며
+              구직을 이어가고 있습니다.
             </p>
           </div>
         </div>
@@ -140,9 +134,13 @@ const Resume: FC<Props> = () => {
               <div className="text-sm text-neutral-500">Back-end</div>
             </div>
             <ul className="flex-1 space-y-1.5">
-              <li>Node.js</li>
+              <li className="font-medium text-neutral-900 dark:font-semibold dark:text-neutral-200">
+                Node.js
+              </li>
+              <li className="font-medium text-neutral-900 dark:font-semibold dark:text-neutral-200">
+                PostgreSQL
+              </li>
               <li>MySQL</li>
-              <li>PostgreSQL</li>
             </ul>
           </div>
 
@@ -161,6 +159,7 @@ const Resume: FC<Props> = () => {
                 Supabase
               </li>
               <li>Firebase</li>
+              <li>AWS</li>
             </ul>
           </div>
         </div>
@@ -186,6 +185,14 @@ const Resume: FC<Props> = () => {
             <p>
               이후 사업성이 없다고 판단, 7개월 만에 사업을 종료하고 다시 구직을
               이어나가고 있습니다.
+            </p>
+            <p>
+              <a
+                className="font-medium text-neutral-800 underline dark:font-normal dark:text-neutral-200"
+                href="#Feedbank"
+              >
+                피드뱅크 설명
+              </a>
             </p>
           </Item>
 
@@ -538,6 +545,75 @@ const Resume: FC<Props> = () => {
       <Card title="프로젝트" id="projects">
         <div className="flex-1 space-y-10">
           <Item
+            url="https://daily-producthunt.kidow.me"
+            image="/assets/resume/daily-producthunt.png"
+            title="일간 ProductHunt"
+            date="2023년 2월 20일 ~ 진행 중"
+            keywords="Next.js, Typescript, TailwindCSS, Slack, Notion, Vercel, Discord, Telegram, Supabase"
+          >
+            <p>
+              글로벌 IT 메이커 플랫폼 ProductHunt에 올라오는 상위 제품들을
+              평일마다 요약해서 소개하는 서비스입니다. Slack과 Discord,
+              Telegram을 통해 콘텐츠를 전달하고 Notion을 통해 유저의
+              데이터베이스에 내용을 저장합니다.
+            </p>
+            <p>
+              IT 프로덕트와 창업에 관심이 많아서 매일 ProductHunt를 들여다
+              보는게 발단이었고, 이 것을 쉽게 정리해서 아카이브에 저장하는
+              것으로 시작했다가 이 것을 개발 기술을 이용해서 사람들에게도
+              공유하면 더 동기 부여가 될 것 같아서 프로젝트를 시작했습니다. 6월
+              기준 500개 넘는 프로덕트를 소개했고, 계속 진행 중입니다.
+            </p>
+            <p>
+              Next.js의 신기능인{' '}
+              <span className="font-medium text-neutral-800 dark:font-normal dark:text-neutral-200">
+                App Router
+              </span>
+              를 이용해서 만들었습니다. 처음이라 나름 시행착오를 겪고 있지만
+              해본 느낌으로는 이전 Pages Router보다 훨씬 더 프로젝트를 정교하게
+              구성할 수 있는 것 같다고 느껴집니다.
+            </p>
+            <p>
+              Supabase를 이용해 백엔드를 구성했습니다. 유저와 예약 콘텐츠
+              테이블을 만드는 용도로 주로 사용했습니다.
+            </p>
+            <p>
+              Nextjs API Router를 통해 Slack, Notion 리다이렉트 라우터와 전송
+              라우터를 만들었고, 대시보드도 한 프로젝트에서 만들어서 관리하고
+              있습니다. 오픈 소스로도 만들었기 때문에 보안적인 측면에서도 어느
+              정도 구성은 해놓았습니다.
+            </p>
+          </Item>
+
+          <Item
+            url="https://feedbank.app"
+            image="/assets/resume/feedbank.png"
+            title="Feedbank"
+            date="2022년 8월 ~ 2023년 3월"
+            keywords="Next.js, TailwindCSS, Typescript"
+          >
+            <p>
+              웹사이트를 방문하는 방문자들에게서 즉각적으로 피드백 및 의견을
+              수집할 수 있도록 위젯을 삽입하는 솔루션입니다.
+            </p>
+            <p>
+              화면 왼쪽 하단에 고정된 버튼을 누르면 텍스트 창이 뜨는데, 보낼
+              의견을 작성 후 등록하면 바로 창이 닫히면서 방문자는 웹서핑을
+              이어가고 운영자는 소중한 의견을 이메일로 전달받아 서비스를
+              개선하는 데 반영할 수 있습니다.
+            </p>
+            <p>
+              <a
+                className="font-medium text-neutral-800 underline dark:font-normal dark:text-neutral-200"
+                href="https://blog.feedbank.app/%ED%94%BC%EB%93%9C%EB%B1%85%ED%81%AC%EB%A5%BC-%EC%8B%9C%EC%9E%91%ED%95%A9%EB%8B%88%EB%8B%A4/"
+                target="_blank"
+              >
+                피드뱅크 출시 후기
+              </a>
+            </p>
+          </Item>
+
+          <Item
             url="https://embedgpt.kidow.me"
             image="/assets/resume/embedgpt.png"
             title="EmbedGPT"
@@ -547,22 +623,6 @@ const Resume: FC<Props> = () => {
             <p>
               ChatGPT 내용을 다른 사람들과 공유하고, 커뮤니티 게시판에 쉽게
               임베딩할 수 있는 커뮤니티입니다.
-            </p>
-          </Item>
-
-          <Item
-            url="https://daily-producthunt.kidow.me"
-            image="/assets/resume/daily-producthunt.png"
-            title="일간 ProductHunt"
-            date="2023년 2월 20일 ~ 진행 중"
-            keywords="ProductHunt, Next.js, Typescript, TailwindCSS, Slack, Notion, Vercel"
-          >
-            <p>
-              IT 메이커 플랫폼 ProductHunt에 올라오는 제품을 매일매일 요약해서
-              소개하는 서비스입니다. Slack을 통해 메시지를 전달하고 Notion을
-              통해 전송 내역을 저장합니다. AI 시대 속 IT 트렌드에 뒤처지지
-              말아야할 필요성을 느꼈고, 다른 사람들과도 제 경험을 공유해보고
-              싶어서 시작했습니다.
             </p>
           </Item>
 
@@ -645,7 +705,7 @@ const Resume: FC<Props> = () => {
           </Item>
 
           <Item
-            url="https://coddee.dev/?utm_source=resume&utm_medium=resume"
+            url="https://coddee.dev"
             image="/assets/resume/coddee.png"
             title="Coddee"
             date="2022년 10월 ~ 진행 중"
@@ -668,185 +728,6 @@ const Resume: FC<Props> = () => {
             <p>
               코드 관련 질문을 올려도 좋고, 개발 관련 수다들을 떨어도 되는
               자유로운 공간으로 운영할 계획입니다.
-            </p>
-          </Item>
-
-          <Item
-            url="https://feedbank.app/?utm_source=resume&utm_medium=resume"
-            image="/assets/resume/feedbank.png"
-            title="Feedbank"
-            date="2022년 8월 ~ 진행 중"
-            keywords="Next.js, TailwindCSS, Typescript"
-          >
-            <p>
-              웹사이트를 방문하는 방문자들에게서 즉각적으로 피드백 및 의견을
-              수집할 수 있도록 만든 솔루션입니다.
-            </p>
-            <p>
-              화면 왼쪽 하단에 고정된 버튼을 누르면 텍스트 창이 뜨는데, 보낼
-              의견을 작성 후 등록하면 바로 창이 닫히면서 방문자는 웹서핑을
-              이어가고 운영자는 소중한 의견을 이메일로 전달받아 서비스를
-              개선하는 데 반영할 수 있습니다.
-            </p>
-            <p>현재는 혼자 만들고 있는 프로젝트입니다.</p>
-            <p>
-              <a
-                className="font-medium text-neutral-800 underline dark:font-normal dark:text-neutral-200"
-                href="https://blog.feedbank.app/%ED%94%BC%EB%93%9C%EB%B1%85%ED%81%AC%EB%A5%BC-%EC%8B%9C%EC%9E%91%ED%95%A9%EB%8B%88%EB%8B%A4/"
-                target="_blank"
-              >
-                피드뱅크 출시 후기
-              </a>
-            </p>
-          </Item>
-
-          <Item
-            url="https://components.kidow.me"
-            image="/assets/resume/components.png"
-            title="Components."
-            date="2022년 4월 ~ 2023년 2월"
-            keywords="React.js, Typescript, TailwindCSS, Storybook"
-          >
-            <p>
-              TailwindCSS로 직접 컴포넌트를 만들어서 실무에 사용하는 데 재미를
-              느끼다 보니, 내가 만든 TailwindCSS 컴포넌트들을 다른 사람들에게
-              공유해보고 싶었습니다.
-            </p>
-            <p>
-              기존에 디자이너들과 협업할 때 사용했던
-              <span className="ml-1 font-medium text-neutral-800 dark:font-normal dark:text-neutral-200">
-                Storybook
-              </span>
-              을 사용하면 모양새도 이쁠 것 같아서, React로 시작해서
-              Storybook으로 배포하는 식으로 구성했습니다.
-            </p>
-            <p>
-              이 프로젝트는 https://kidow.me/archive로 데이터를 이전했습니다.
-            </p>
-          </Item>
-
-          <Item
-            url="https://archive.kidow.me"
-            title="Archive."
-            date="2022년 4월 ~ 2023년 2월"
-            image="/assets/resume/archive.png"
-            keywords="React.js, TailwindCSS, Typescript, Docusaurus"
-          >
-            <p>
-              지금까지 개발하면서 얻은 노하우들을 전부 담아서 남기고 관리하고
-              싶은 생각이 있었고,
-              <span className="ml-1 font-medium text-neutral-800 dark:font-normal dark:text-neutral-200">
-                Docusaurus
-              </span>
-              라는 문서 작성에 최적화된 프레임워크를 사용해 구현했습니다.
-            </p>
-            <p>
-              직접 만든 컴포넌트의 대한 코드, 개인적으로 사용하는 환경 설정이나
-              앱들에 대한 내용으로 구성하였습니다.
-            </p>
-            <p>
-              이 프로젝트는 https://kidow.me/archive로 데이터를 이전했습니다.
-            </p>
-          </Item>
-
-          <Item
-            url="https://dynamisign.com"
-            image="/assets/resume/dynamisign.png"
-            title="다이나미사인"
-            date="2021년 5월 ~ 2021년 6월"
-            keywords="Next.js, Recoil, TailwindCSS, Typescript, Puppeteer"
-          >
-            <p>
-              검색 엔진 최적화 시 필요한 이미지를 동적으로 생성할 수 있게 만든
-              <span className="mx-1 font-medium text-neutral-800 dark:font-normal dark:text-neutral-200">
-                SEO 이미지 동적 생성기
-              </span>
-              입니다. 이걸 이용함으로써 SEO 작업에 필요한 이미지를 좀 더
-              간소하게 만들 수 있습니다.
-            </p>
-            <p>
-              Github의 이슈 페이지를 링크로 전송하면 볼 때 미리보기 이미지가
-              같은 포맷에 다른 내용으로 나오는 데, 그 것에서 착안해서
-              만들었습니다. 본래 크롤링에 자주 쓰이는 Puppeteer를 이용하면,
-              html을 서버단에서 스크린샷으로 찍은 뒤 이미지로 내보내면 그 주소가
-              곧 이미지가 되는 원리를 이용했습니다.
-            </p>
-            <p>
-              +) 현재 이 프로젝트는 도메인이 만료되서
-              <a
-                href="https://og.kidow.me"
-                className="mx-1 font-medium text-neutral-800 underline dark:font-normal dark:text-neutral-200"
-                target="_blank"
-              >
-                og.kidow.me
-              </a>
-              에서 새로 다듬은 버전으로 업데이트했습니다.
-            </p>
-          </Item>
-
-          <Item
-            url="https://github.com/kidow/blog1"
-            title="블로그 v3"
-            date="2021년 3월 ~ 2021년 3월"
-            keywords="Gatsby.js, Typescript, TailwindCSS"
-            image="/assets/resume/kidow.png"
-          >
-            <p>
-              2019년도부터 만든 첫번째 블로그를 시작으로, 새 버전으로 디자인을
-              개편해 나가면서 다시 새롭게 만든 세 번째 개발 블로그입니다.
-            </p>
-            <p>
-              검색 엔진 최적화를 위해 Next.js를 사용해 왔으나, 서버사이드로
-              데이터와 리소스를 받아 오는 시간이 너무 커서 Gatsby.js를 사용한
-              정적 호스팅으로 속도를 개선하였습니다.
-            </p>
-            <p>
-              +) 현재는 Gatsby.js 그대로 v4 버전을 새로 만들어서
-              <a
-                href="https://blog.kidow.me"
-                target="_blank"
-                className="mx-1 font-medium text-neutral-800 underline dark:font-normal dark:text-neutral-200"
-              >
-                blog.kidow.me
-              </a>
-              에서 운영 중입니다.
-            </p>
-          </Item>
-
-          <Item
-            url="https://ddtalk.kr"
-            image="/assets/resume/ddtalk.png"
-            title="디디톡"
-            date="2020년 6월 ~ 2020년 7월"
-            keywords=""
-          >
-            <p>
-              코드 블럭을 같이 올릴 수 있는 개발자 채팅방입니다. 당시 개발자들의
-              소통방이 카카오톡 아니면 슬랙이었는데, 그 곳은 코드를 작성할 수가
-              없어 따로 사진을 찍어 올리는 경우가 많았습니다. 코드를 올릴 수
-              있는 채팅방 서비스를 만들면 괜찮겠다는 생각으로 만들었습니다.
-            </p>
-            <p>
-              출시 후 6개월 동안 2,500명의 유저가 방문해주었지만 지금은 간간히
-              유저가 들어오는 상황입니다. 당시에 많은 유저분들이 잘 됐으면
-              좋겠다는 응원의 메세지가 많아서 좋았었지만, 이런 반응이 처음이었던
-              저는 걱정이 많았습니다. 만들줄만 알았지, 이 이후에 어떤 걸 먼저
-              해야할 지 정리가 되질 않았던 겁니다.
-            </p>
-            <p>
-              직접 마케팅도 할 줄 몰랐고, 출시 초기 많았던 유저들이 떠나면서
-              의욕까지 잃기도 했지만 저는 아직도 이 프로젝트를 다시 살리고 싶은
-              욕심이 있습니다.
-            </p>
-            <p>
-              +) 이 프로젝트는 Coddee로 재단장했습니다.
-              <a
-                href="https://coddee.dev"
-                target="_blank"
-                className="ml-1 font-medium text-neutral-800 underline dark:font-normal dark:text-neutral-200"
-              >
-                참고
-              </a>
             </p>
           </Item>
         </div>
