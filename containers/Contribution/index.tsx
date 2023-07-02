@@ -1,15 +1,16 @@
-import { useEffect } from 'react'
+import { cloneElement, useEffect } from 'react'
 import type { FC } from 'react'
 import ActivityCalendar from 'react-activity-calendar'
-import type { Day } from 'react-activity-calendar'
-import ReactTooltip from 'react-tooltip'
+import type { Activity } from 'react-activity-calendar'
+import { Tooltip } from 'react-tooltip'
 import { useObjectState } from 'services'
 import { Spinner } from 'components'
 import { useTheme } from 'next-themes'
+import 'react-tooltip/dist/react-tooltip.css'
 
 export interface Props {}
 interface State {
-  list: Day[]
+  list: Activity[]
   isLoading: boolean
 }
 
@@ -38,40 +39,44 @@ const Contribution: FC<Props> = () => {
           <Spinner className="h-5 w-5" />
         </div>
       ) : (
-        <ActivityCalendar
-          data={list}
-          labels={{
-            months: [
-              'Jan',
-              'Feb',
-              'Mar',
-              'Apr',
-              'May',
-              'Jun',
-              'Jul',
-              'Aug',
-              'Sep',
-              'Oct',
-              'Nov',
-              'Dec'
-            ],
-            weekdays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            totalCount: '{{count}} contributions in {{year}}',
-            tooltip: '<strong>{{count}} contributions</strong> on {{date}}',
-            legend: {
-              less: 'Less',
-              more: 'More'
+        <>
+          <ActivityCalendar
+            data={list}
+            labels={{
+              months: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec'
+              ],
+              weekdays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+              totalCount: '{{count}} contributions in {{year}}',
+              legend: {
+                less: 'Less',
+                more: 'More'
+              }
+            }}
+            renderBlock={(block, activity) =>
+              cloneElement(block, {
+                'data-tooltip-id': 'react-tooltip',
+                'data-tooltip-html': `<strong>${activity.count} contributions</strong> on ${activity.date}`
+              })
             }
-          }}
-          theme={{
-            level0: resolvedTheme === 'dark' ? '#161b22' : '#ebedf0',
-            level1: resolvedTheme === 'dark' ? '#0e4429' : '#9be9a8',
-            level2: resolvedTheme === 'dark' ? '#006d32' : '#40c463',
-            level3: resolvedTheme === 'dark' ? '#26a641' : '#30a14e',
-            level4: resolvedTheme === 'dark' ? '#39d353' : '#216e39'
-          }}
-          children={<ReactTooltip html />}
-        />
+            theme={{
+              light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
+              dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
+            }}
+          />
+          <Tooltip id="react-tooltip" />
+        </>
       )}
     </div>
   )
