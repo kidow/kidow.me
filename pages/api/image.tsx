@@ -1,5 +1,5 @@
 import { ImageResponse } from '@vercel/og'
-import type { ImageResponseOptions } from '@vercel/og'
+import type { ImageResponseOptions } from '@vercel/og/dist/types'
 import { NextRequest } from 'next/server'
 import { supabase } from 'services'
 
